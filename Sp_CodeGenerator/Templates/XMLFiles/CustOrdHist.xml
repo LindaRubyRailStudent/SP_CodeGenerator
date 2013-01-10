@@ -1,0 +1,461 @@
+<SqlScript Location="((1,1), (16,1))">
+  <!--USE [Northwind]
+GO
+/****** Object:  StoredProcedure [dbo].[CustOrderHist]    Script Date: 11/18/2012 11:33:34 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[CustOrderHist] @CustomerID nchar(5)
+AS
+SELECT ProductName, Total=SUM(Quantity)
+FROM Products P, [Order Details] OD, Orders O, Customers C
+WHERE C.CustomerID = @CustomerID
+AND C.CustomerID = O.CustomerID AND O.OrderID = OD.OrderID AND OD.ProductID = P.ProductID
+GROUP BY ProductName
+
+-->
+  <Errors />
+  <SqlBatch Location="((1,1), (2,1))">
+    <!--USE [Northwind]
+-->
+    <SqlUseStatement Location="((1,1),(1,16))" DatabaseName="Northwind">
+      <!--USE [Northwind]-->
+      <SqlIdentifier Location="((1,5),(1,16))" Value="Northwind">
+        <!--[Northwind]-->
+      </SqlIdentifier>
+    </SqlUseStatement>
+    <Tokens>
+      <Token location="((1,1), (1,4))" id="301" type="TOKEN_USEDB">USE</Token>
+      <Token location="((1,4), (1,5))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((1,5), (1,16))" id="171" type="TOKEN_ID">[Northwind]</Token>
+      <Token location="((1,16), (2,1))" id="544" type="LEX_WHITE">\r\n</Token>
+    </Tokens>
+  </SqlBatch>
+  <SqlBatch Location="((2,3), (5,1))">
+    <!--
+/****** Object:  StoredProcedure [dbo].[CustOrderHist]    Script Date: 11/18/2012 11:33:34 ******/
+SET ANSI_NULLS ON
+-->
+    <SqlNullStatement Location="((4,1),(4,18))">
+      <!--SET ANSI_NULLS ON-->
+    </SqlNullStatement>
+    <Tokens>
+      <Token location="((2,3), (3,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((3,1), (3,99))" id="546" type="LEX_MULTILINE_COMMENT">/****** Object:  StoredProcedure [dbo].[CustOrderHist]    Script Date: 11/18/2012 11:33:34 ******/</Token>
+      <Token location="((3,99), (4,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((4,1), (4,4))" id="148" type="TOKEN_SET">SET</Token>
+      <Token location="((4,4), (4,5))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((4,5), (4,15))" id="171" type="TOKEN_ID">ANSI_NULLS</Token>
+      <Token location="((4,15), (4,16))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((4,16), (4,18))" id="268" type="TOKEN_ON">ON</Token>
+      <Token location="((4,18), (5,1))" id="544" type="LEX_WHITE">\r\n</Token>
+    </Tokens>
+  </SqlBatch>
+  <SqlBatch Location="((5,3), (7,1))">
+    <!--
+SET QUOTED_IDENTIFIER ON
+-->
+    <SqlNullStatement Location="((6,1),(6,25))">
+      <!--SET QUOTED_IDENTIFIER ON-->
+    </SqlNullStatement>
+    <Tokens>
+      <Token location="((5,3), (6,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((6,1), (6,4))" id="148" type="TOKEN_SET">SET</Token>
+      <Token location="((6,4), (6,5))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((6,5), (6,22))" id="171" type="TOKEN_ID">QUOTED_IDENTIFIER</Token>
+      <Token location="((6,22), (6,23))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((6,23), (6,25))" id="268" type="TOKEN_ON">ON</Token>
+      <Token location="((6,25), (7,1))" id="544" type="LEX_WHITE">\r\n</Token>
+    </Tokens>
+  </SqlBatch>
+  <SqlBatch Location="((7,3), (16,1))">
+    <!--
+ALTER PROCEDURE [dbo].[CustOrderHist] @CustomerID nchar(5)
+AS
+SELECT ProductName, Total=SUM(Quantity)
+FROM Products P, [Order Details] OD, Orders O, Customers C
+WHERE C.CustomerID = @CustomerID
+AND C.CustomerID = O.CustomerID AND O.OrderID = OD.OrderID AND OD.ProductID = P.ProductID
+GROUP BY ProductName
+
+-->
+    <SqlAlterProcedureStatement Location="((8,1),(14,21))">
+      <!--ALTER PROCEDURE [dbo].[CustOrderHist] @CustomerID nchar(5)
+AS
+SELECT ProductName, Total=SUM(Quantity)
+FROM Products P, [Order Details] OD, Orders O, Customers C
+WHERE C.CustomerID = @CustomerID
+AND C.CustomerID = O.CustomerID AND O.OrderID = OD.OrderID AND OD.ProductID = P.ProductID
+GROUP BY ProductName-->
+      <SqlProcedureDefinition Location="((8,17),(9,3))" Name="dbo.CustOrderHist" IsForReplication="False">
+        <!--[dbo].[CustOrderHist] @CustomerID nchar(5)
+AS-->
+        <SqlObjectIdentifier Location="((8,17),(8,38))" SchemaName="dbo" ObjectName="CustOrderHist">
+          <!--[dbo].[CustOrderHist]-->
+          <SqlIdentifier Location="((8,17),(8,22))" Value="dbo">
+            <!--[dbo]-->
+          </SqlIdentifier>
+          <SqlIdentifier Location="((8,23),(8,38))" Value="CustOrderHist">
+            <!--[CustOrderHist]-->
+          </SqlIdentifier>
+        </SqlObjectIdentifier>
+        <SqlParameterDeclaration Location="((8,39),(8,59))" IsOutput="False" Name="@CustomerID">
+          <!--@CustomerID nchar(5)-->
+          <SqlDataTypeSpecification Location="((8,51),(8,59))" Argument1="5" IsMaximum="False" IsCursor="False" XmlDocumentConstraint="None">
+            <!--nchar(5)-->
+            <SqlDataType Location="((8,51),(8,56))" ObjectIdentifier="nchar" National="False" Varying="False">
+              <!--nchar-->
+              <SqlObjectIdentifier Location="((8,51),(8,56))" ObjectName="nchar">
+                <!--nchar-->
+                <SqlIdentifier Location="((8,51),(8,56))" Value="nchar">
+                  <!--nchar-->
+                </SqlIdentifier>
+              </SqlObjectIdentifier>
+            </SqlDataType>
+          </SqlDataTypeSpecification>
+        </SqlParameterDeclaration>
+      </SqlProcedureDefinition>
+      <SqlSelectStatement Location="((10,1),(14,21))">
+        <!--SELECT ProductName, Total=SUM(Quantity)
+FROM Products P, [Order Details] OD, Orders O, Customers C
+WHERE C.CustomerID = @CustomerID
+AND C.CustomerID = O.CustomerID AND O.OrderID = OD.OrderID AND OD.ProductID = P.ProductID
+GROUP BY ProductName-->
+        <SqlSelectSpecification Location="((10,1),(14,21))">
+          <!--SELECT ProductName, Total=SUM(Quantity)
+FROM Products P, [Order Details] OD, Orders O, Customers C
+WHERE C.CustomerID = @CustomerID
+AND C.CustomerID = O.CustomerID AND O.OrderID = OD.OrderID AND OD.ProductID = P.ProductID
+GROUP BY ProductName-->
+          <SqlQuerySpecification Location="((10,1),(14,21))">
+            <!--SELECT ProductName, Total=SUM(Quantity)
+FROM Products P, [Order Details] OD, Orders O, Customers C
+WHERE C.CustomerID = @CustomerID
+AND C.CustomerID = O.CustomerID AND O.OrderID = OD.OrderID AND OD.ProductID = P.ProductID
+GROUP BY ProductName-->
+            <SqlSelectClause Location="((10,1),(10,40))" IsDistinct="False">
+              <!--SELECT ProductName, Total=SUM(Quantity)-->
+              <SqlSelectScalarExpression Location="((10,8),(10,19))">
+                <!--ProductName-->
+                <SqlColumnRefExpression Location="((10,8),(10,19))" ColumnName="ProductName" MultipartIdentifier="ProductName">
+                  <!--ProductName-->
+                  <SqlObjectIdentifier Location="((10,8),(10,19))" ObjectName="ProductName">
+                    <!--ProductName-->
+                    <SqlIdentifier Location="((10,8),(10,19))" Value="ProductName">
+                      <!--ProductName-->
+                    </SqlIdentifier>
+                  </SqlObjectIdentifier>
+                </SqlColumnRefExpression>
+              </SqlSelectScalarExpression>
+              <SqlSelectScalarExpression Location="((10,21),(10,40))" Alias="Total">
+                <!--Total=SUM(Quantity)-->
+                <SqlIdentifier Location="((10,21),(10,26))" Value="Total">
+                  <!--Total-->
+                </SqlIdentifier>
+                <SqlAggregateFunctionCallExpression Location="((10,27),(10,40))" SetQuantifier="None" FunctionName="SUM" IsStar="False">
+                  <!--SUM(Quantity)-->
+                  <SqlColumnRefExpression Location="((10,31),(10,39))" ColumnName="Quantity" MultipartIdentifier="Quantity">
+                    <!--Quantity-->
+                    <SqlObjectIdentifier Location="((10,31),(10,39))" ObjectName="Quantity">
+                      <!--Quantity-->
+                      <SqlIdentifier Location="((10,31),(10,39))" Value="Quantity">
+                        <!--Quantity-->
+                      </SqlIdentifier>
+                    </SqlObjectIdentifier>
+                  </SqlColumnRefExpression>
+                </SqlAggregateFunctionCallExpression>
+              </SqlSelectScalarExpression>
+            </SqlSelectClause>
+            <SqlFromClause Location="((11,1),(11,59))">
+              <!--FROM Products P, [Order Details] OD, Orders O, Customers C-->
+              <SqlTableRefExpression Location="((11,6),(11,16))" ObjectIdentifier="Products" Alias="P">
+                <!--Products P-->
+                <SqlObjectIdentifier Location="((11,6),(11,14))" ObjectName="Products">
+                  <!--Products-->
+                  <SqlIdentifier Location="((11,6),(11,14))" Value="Products">
+                    <!--Products-->
+                  </SqlIdentifier>
+                </SqlObjectIdentifier>
+                <SqlIdentifier Location="((11,15),(11,16))" Value="P">
+                  <!--P-->
+                </SqlIdentifier>
+              </SqlTableRefExpression>
+              <SqlTableRefExpression Location="((11,18),(11,36))" ObjectIdentifier="Order Details" Alias="OD">
+                <!--[Order Details] OD-->
+                <SqlObjectIdentifier Location="((11,18),(11,33))" ObjectName="Order Details">
+                  <!--[Order Details]-->
+                  <SqlIdentifier Location="((11,18),(11,33))" Value="Order Details">
+                    <!--[Order Details]-->
+                  </SqlIdentifier>
+                </SqlObjectIdentifier>
+                <SqlIdentifier Location="((11,34),(11,36))" Value="OD">
+                  <!--OD-->
+                </SqlIdentifier>
+              </SqlTableRefExpression>
+              <SqlTableRefExpression Location="((11,38),(11,46))" ObjectIdentifier="Orders" Alias="O">
+                <!--Orders O-->
+                <SqlObjectIdentifier Location="((11,38),(11,44))" ObjectName="Orders">
+                  <!--Orders-->
+                  <SqlIdentifier Location="((11,38),(11,44))" Value="Orders">
+                    <!--Orders-->
+                  </SqlIdentifier>
+                </SqlObjectIdentifier>
+                <SqlIdentifier Location="((11,45),(11,46))" Value="O">
+                  <!--O-->
+                </SqlIdentifier>
+              </SqlTableRefExpression>
+              <SqlTableRefExpression Location="((11,48),(11,59))" ObjectIdentifier="Customers" Alias="C">
+                <!--Customers C-->
+                <SqlObjectIdentifier Location="((11,48),(11,57))" ObjectName="Customers">
+                  <!--Customers-->
+                  <SqlIdentifier Location="((11,48),(11,57))" Value="Customers">
+                    <!--Customers-->
+                  </SqlIdentifier>
+                </SqlObjectIdentifier>
+                <SqlIdentifier Location="((11,58),(11,59))" Value="C">
+                  <!--C-->
+                </SqlIdentifier>
+              </SqlTableRefExpression>
+            </SqlFromClause>
+            <SqlWhereClause Location="((12,1),(13,90))">
+              <!--WHERE C.CustomerID = @CustomerID
+AND C.CustomerID = O.CustomerID AND O.OrderID = OD.OrderID AND OD.ProductID = P.ProductID-->
+              <SqlBinaryBooleanExpression Location="((12,7),(13,90))" Operator="And">
+                <!--C.CustomerID = @CustomerID
+AND C.CustomerID = O.CustomerID AND O.OrderID = OD.OrderID AND OD.ProductID = P.ProductID-->
+                <SqlBinaryBooleanExpression Location="((12,7),(13,59))" Operator="And">
+                  <!--C.CustomerID = @CustomerID
+AND C.CustomerID = O.CustomerID AND O.OrderID = OD.OrderID-->
+                  <SqlBinaryBooleanExpression Location="((12,7),(13,32))" Operator="And">
+                    <!--C.CustomerID = @CustomerID
+AND C.CustomerID = O.CustomerID-->
+                    <SqlComparisonBooleanExpression Location="((12,7),(12,33))" ComparisonOperator="Equals">
+                      <!--C.CustomerID = @CustomerID-->
+                      <SqlScalarRefExpression Location="((12,7),(12,19))" ColumnOrPropertyName="CustomerID" MultipartIdentifier="C.CustomerID">
+                        <!--C.CustomerID-->
+                        <SqlObjectIdentifier Location="((12,7),(12,19))" SchemaName="C" ObjectName="CustomerID">
+                          <!--C.CustomerID-->
+                          <SqlIdentifier Location="((12,7),(12,8))" Value="C">
+                            <!--C-->
+                          </SqlIdentifier>
+                          <SqlIdentifier Location="((12,9),(12,19))" Value="CustomerID">
+                            <!--CustomerID-->
+                          </SqlIdentifier>
+                        </SqlObjectIdentifier>
+                      </SqlScalarRefExpression>
+                      <SqlScalarVariableRefExpression Location="((12,22),(12,33))" VariableName="@CustomerID">
+                        <!--@CustomerID-->
+                      </SqlScalarVariableRefExpression>
+                    </SqlComparisonBooleanExpression>
+                    <SqlComparisonBooleanExpression Location="((13,5),(13,32))" ComparisonOperator="Equals">
+                      <!--C.CustomerID = O.CustomerID-->
+                      <SqlScalarRefExpression Location="((13,5),(13,17))" ColumnOrPropertyName="CustomerID" MultipartIdentifier="C.CustomerID">
+                        <!--C.CustomerID-->
+                        <SqlObjectIdentifier Location="((13,5),(13,17))" SchemaName="C" ObjectName="CustomerID">
+                          <!--C.CustomerID-->
+                          <SqlIdentifier Location="((13,5),(13,6))" Value="C">
+                            <!--C-->
+                          </SqlIdentifier>
+                          <SqlIdentifier Location="((13,7),(13,17))" Value="CustomerID">
+                            <!--CustomerID-->
+                          </SqlIdentifier>
+                        </SqlObjectIdentifier>
+                      </SqlScalarRefExpression>
+                      <SqlScalarRefExpression Location="((13,20),(13,32))" ColumnOrPropertyName="CustomerID" MultipartIdentifier="O.CustomerID">
+                        <!--O.CustomerID-->
+                        <SqlObjectIdentifier Location="((13,20),(13,32))" SchemaName="O" ObjectName="CustomerID">
+                          <!--O.CustomerID-->
+                          <SqlIdentifier Location="((13,20),(13,21))" Value="O">
+                            <!--O-->
+                          </SqlIdentifier>
+                          <SqlIdentifier Location="((13,22),(13,32))" Value="CustomerID">
+                            <!--CustomerID-->
+                          </SqlIdentifier>
+                        </SqlObjectIdentifier>
+                      </SqlScalarRefExpression>
+                    </SqlComparisonBooleanExpression>
+                  </SqlBinaryBooleanExpression>
+                  <SqlComparisonBooleanExpression Location="((13,37),(13,59))" ComparisonOperator="Equals">
+                    <!--O.OrderID = OD.OrderID-->
+                    <SqlScalarRefExpression Location="((13,37),(13,46))" ColumnOrPropertyName="OrderID" MultipartIdentifier="O.OrderID">
+                      <!--O.OrderID-->
+                      <SqlObjectIdentifier Location="((13,37),(13,46))" SchemaName="O" ObjectName="OrderID">
+                        <!--O.OrderID-->
+                        <SqlIdentifier Location="((13,37),(13,38))" Value="O">
+                          <!--O-->
+                        </SqlIdentifier>
+                        <SqlIdentifier Location="((13,39),(13,46))" Value="OrderID">
+                          <!--OrderID-->
+                        </SqlIdentifier>
+                      </SqlObjectIdentifier>
+                    </SqlScalarRefExpression>
+                    <SqlScalarRefExpression Location="((13,49),(13,59))" ColumnOrPropertyName="OrderID" MultipartIdentifier="OD.OrderID">
+                      <!--OD.OrderID-->
+                      <SqlObjectIdentifier Location="((13,49),(13,59))" SchemaName="OD" ObjectName="OrderID">
+                        <!--OD.OrderID-->
+                        <SqlIdentifier Location="((13,49),(13,51))" Value="OD">
+                          <!--OD-->
+                        </SqlIdentifier>
+                        <SqlIdentifier Location="((13,52),(13,59))" Value="OrderID">
+                          <!--OrderID-->
+                        </SqlIdentifier>
+                      </SqlObjectIdentifier>
+                    </SqlScalarRefExpression>
+                  </SqlComparisonBooleanExpression>
+                </SqlBinaryBooleanExpression>
+                <SqlComparisonBooleanExpression Location="((13,64),(13,90))" ComparisonOperator="Equals">
+                  <!--OD.ProductID = P.ProductID-->
+                  <SqlScalarRefExpression Location="((13,64),(13,76))" ColumnOrPropertyName="ProductID" MultipartIdentifier="OD.ProductID">
+                    <!--OD.ProductID-->
+                    <SqlObjectIdentifier Location="((13,64),(13,76))" SchemaName="OD" ObjectName="ProductID">
+                      <!--OD.ProductID-->
+                      <SqlIdentifier Location="((13,64),(13,66))" Value="OD">
+                        <!--OD-->
+                      </SqlIdentifier>
+                      <SqlIdentifier Location="((13,67),(13,76))" Value="ProductID">
+                        <!--ProductID-->
+                      </SqlIdentifier>
+                    </SqlObjectIdentifier>
+                  </SqlScalarRefExpression>
+                  <SqlScalarRefExpression Location="((13,79),(13,90))" ColumnOrPropertyName="ProductID" MultipartIdentifier="P.ProductID">
+                    <!--P.ProductID-->
+                    <SqlObjectIdentifier Location="((13,79),(13,90))" SchemaName="P" ObjectName="ProductID">
+                      <!--P.ProductID-->
+                      <SqlIdentifier Location="((13,79),(13,80))" Value="P">
+                        <!--P-->
+                      </SqlIdentifier>
+                      <SqlIdentifier Location="((13,81),(13,90))" Value="ProductID">
+                        <!--ProductID-->
+                      </SqlIdentifier>
+                    </SqlObjectIdentifier>
+                  </SqlScalarRefExpression>
+                </SqlComparisonBooleanExpression>
+              </SqlBinaryBooleanExpression>
+            </SqlWhereClause>
+            <SqlGroupByClause Location="((14,1),(14,21))" HasAll="False" Option="None">
+              <!--GROUP BY ProductName-->
+              <SqlSimpleGroupByItem Location="((14,10),(14,21))">
+                <!--ProductName-->
+                <SqlColumnRefExpression Location="((14,10),(14,21))" ColumnName="ProductName" MultipartIdentifier="ProductName">
+                  <!--ProductName-->
+                  <SqlObjectIdentifier Location="((14,10),(14,21))" ObjectName="ProductName">
+                    <!--ProductName-->
+                    <SqlIdentifier Location="((14,10),(14,21))" Value="ProductName">
+                      <!--ProductName-->
+                    </SqlIdentifier>
+                  </SqlObjectIdentifier>
+                </SqlColumnRefExpression>
+              </SqlSimpleGroupByItem>
+            </SqlGroupByClause>
+          </SqlQuerySpecification>
+        </SqlSelectSpecification>
+      </SqlSelectStatement>
+    </SqlAlterProcedureStatement>
+    <Tokens>
+      <Token location="((7,3), (8,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((8,1), (8,6))" id="199" type="TOKEN_ALTER">ALTER</Token>
+      <Token location="((8,6), (8,7))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((8,7), (8,16))" id="275" type="TOKEN_PROCEDURE">PROCEDURE</Token>
+      <Token location="((8,16), (8,17))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((8,17), (8,22))" id="171" type="TOKEN_ID">[dbo]</Token>
+      <Token location="((8,22), (8,23))" id="46" type=".">.</Token>
+      <Token location="((8,23), (8,38))" id="171" type="TOKEN_ID">[CustOrderHist]</Token>
+      <Token location="((8,38), (8,39))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((8,39), (8,50))" id="173" type="TOKEN_VARIABLE">@CustomerID</Token>
+      <Token location="((8,50), (8,51))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((8,51), (8,56))" id="171" type="TOKEN_ID">nchar</Token>
+      <Token location="((8,56), (8,57))" id="40" type="(">(</Token>
+      <Token location="((8,57), (8,58))" id="182" type="TOKEN_INTEGER">5</Token>
+      <Token location="((8,58), (8,59))" id="41" type=")">)</Token>
+      <Token location="((8,59), (9,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((9,1), (9,3))" id="203" type="TOKEN_AS">AS</Token>
+      <Token location="((9,3), (10,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((10,1), (10,7))" id="285" type="TOKEN_SELECT">SELECT</Token>
+      <Token location="((10,7), (10,8))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((10,8), (10,19))" id="171" type="TOKEN_ID">ProductName</Token>
+      <Token location="((10,19), (10,20))" id="44" type=",">,</Token>
+      <Token location="((10,20), (10,21))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((10,21), (10,26))" id="171" type="TOKEN_ID">Total</Token>
+      <Token location="((10,26), (10,27))" id="61" type="=">=</Token>
+      <Token location="((10,27), (10,30))" id="171" type="TOKEN_ID">SUM</Token>
+      <Token location="((10,30), (10,31))" id="40" type="(">(</Token>
+      <Token location="((10,31), (10,39))" id="171" type="TOKEN_ID">Quantity</Token>
+      <Token location="((10,39), (10,40))" id="41" type=")">)</Token>
+      <Token location="((10,40), (11,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((11,1), (11,5))" id="242" type="TOKEN_FROM">FROM</Token>
+      <Token location="((11,5), (11,6))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((11,6), (11,14))" id="171" type="TOKEN_ID">Products</Token>
+      <Token location="((11,14), (11,15))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((11,15), (11,16))" id="171" type="TOKEN_ID">P</Token>
+      <Token location="((11,16), (11,17))" id="44" type=",">,</Token>
+      <Token location="((11,17), (11,18))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((11,18), (11,33))" id="171" type="TOKEN_ID">[Order Details]</Token>
+      <Token location="((11,33), (11,34))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((11,34), (11,36))" id="171" type="TOKEN_ID">OD</Token>
+      <Token location="((11,36), (11,37))" id="44" type=",">,</Token>
+      <Token location="((11,37), (11,38))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((11,38), (11,44))" id="171" type="TOKEN_ID">Orders</Token>
+      <Token location="((11,44), (11,45))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((11,45), (11,46))" id="171" type="TOKEN_ID">O</Token>
+      <Token location="((11,46), (11,47))" id="44" type=",">,</Token>
+      <Token location="((11,47), (11,48))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((11,48), (11,57))" id="171" type="TOKEN_ID">Customers</Token>
+      <Token location="((11,57), (11,58))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((11,58), (11,59))" id="171" type="TOKEN_ID">C</Token>
+      <Token location="((11,59), (12,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((12,1), (12,6))" id="305" type="TOKEN_WHERE">WHERE</Token>
+      <Token location="((12,6), (12,7))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((12,7), (12,8))" id="171" type="TOKEN_ID">C</Token>
+      <Token location="((12,8), (12,9))" id="46" type=".">.</Token>
+      <Token location="((12,9), (12,19))" id="171" type="TOKEN_ID">CustomerID</Token>
+      <Token location="((12,19), (12,20))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((12,20), (12,21))" id="61" type="=">=</Token>
+      <Token location="((12,21), (12,22))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((12,22), (12,33))" id="173" type="TOKEN_VARIABLE">@CustomerID</Token>
+      <Token location="((12,33), (13,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((13,1), (13,4))" id="136" type="TOKEN_AND">AND</Token>
+      <Token location="((13,4), (13,5))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((13,5), (13,6))" id="171" type="TOKEN_ID">C</Token>
+      <Token location="((13,6), (13,7))" id="46" type=".">.</Token>
+      <Token location="((13,7), (13,17))" id="171" type="TOKEN_ID">CustomerID</Token>
+      <Token location="((13,17), (13,18))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((13,18), (13,19))" id="61" type="=">=</Token>
+      <Token location="((13,19), (13,20))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((13,20), (13,21))" id="171" type="TOKEN_ID">O</Token>
+      <Token location="((13,21), (13,22))" id="46" type=".">.</Token>
+      <Token location="((13,22), (13,32))" id="171" type="TOKEN_ID">CustomerID</Token>
+      <Token location="((13,32), (13,33))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((13,33), (13,36))" id="136" type="TOKEN_AND">AND</Token>
+      <Token location="((13,36), (13,37))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((13,37), (13,38))" id="171" type="TOKEN_ID">O</Token>
+      <Token location="((13,38), (13,39))" id="46" type=".">.</Token>
+      <Token location="((13,39), (13,46))" id="171" type="TOKEN_ID">OrderID</Token>
+      <Token location="((13,46), (13,47))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((13,47), (13,48))" id="61" type="=">=</Token>
+      <Token location="((13,48), (13,49))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((13,49), (13,51))" id="171" type="TOKEN_ID">OD</Token>
+      <Token location="((13,51), (13,52))" id="46" type=".">.</Token>
+      <Token location="((13,52), (13,59))" id="171" type="TOKEN_ID">OrderID</Token>
+      <Token location="((13,59), (13,60))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((13,60), (13,63))" id="136" type="TOKEN_AND">AND</Token>
+      <Token location="((13,63), (13,64))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((13,64), (13,66))" id="171" type="TOKEN_ID">OD</Token>
+      <Token location="((13,66), (13,67))" id="46" type=".">.</Token>
+      <Token location="((13,67), (13,76))" id="171" type="TOKEN_ID">ProductID</Token>
+      <Token location="((13,76), (13,77))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((13,77), (13,78))" id="61" type="=">=</Token>
+      <Token location="((13,78), (13,79))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((13,79), (13,80))" id="171" type="TOKEN_ID">P</Token>
+      <Token location="((13,80), (13,81))" id="46" type=".">.</Token>
+      <Token location="((13,81), (13,90))" id="171" type="TOKEN_ID">ProductID</Token>
+      <Token location="((13,90), (14,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((14,1), (14,6))" id="245" type="TOKEN_GROUP">GROUP</Token>
+      <Token location="((14,6), (14,7))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((14,7), (14,9))" id="211" type="TOKEN_BY">BY</Token>
+      <Token location="((14,9), (14,10))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((14,10), (14,21))" id="171" type="TOKEN_ID">ProductName</Token>
+      <Token location="((14,21), (16,1))" id="544" type="LEX_WHITE">\r\n\r\n</Token>
+    </Tokens>
+  </SqlBatch>
+</SqlScript>

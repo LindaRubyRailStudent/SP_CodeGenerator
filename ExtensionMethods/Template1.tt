@@ -1,0 +1,59 @@
+﻿<#@ template debug="true" hostSpecific="true" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="System.Core" #>
+<#@ Assembly Name="System.Windows.Forms" #>
+<#@ Assembly name="System.Xml" #>
+<#@ Assembly Name="System.Xml.Linq"#>
+<#@ assembly name="C:\webtech\THESIS\TsqlParser\TsqlParser\bin\Debug\TsqlParser.dll" #>
+<#@ assembly name="C:\Sp_CodeGenerator\ExtensionMethods\bin\x86\Debug\ExtensionMethods.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Xml" #>
+<#@ import namespace="System.Xml.Linq" #>
+<#
+	string	SampleInputFile = System.IO.File.ReadAllText(@"C:\Sp_CodeGenerator\Sp_CodeGenerator\Templates\XMLFiles\AndOrOpertor.xml");
+	XDocument XmlDoc = Parse(SampleInputFile);
+	List<ExtensionMethods.Token> listTokens = ExtensionMethods.ExtensionMethods.getToken(XmlDoc);
+	List<ExtensionMethods.Token> preparedTokens = ExtensionMethods.ExtensionMethods.gParams(listTokens);
+	
+#>
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Data;
+using DataBaseLayer;
+using ExtensionMethods;
+
+namespace ExtensionMethods
+{
+	public class GetRepVariable
+	{
+		public static List<string> gRepVariable(List<Token> stinglist)
+		{
+			List<string> StringList = new List<String>();
+			foreach(var s in stinglist)
+			{
+				if(s.Sql == "from")
+				{
+					string repVariable = s.Value + "Repository";
+					StringList.Add(repVariable);
+				}
+			}
+			return StringList;
+		}
+	}
+}
+
+<#+
+  // Insert any template procedures here
+ private XDocument Parse(string Input){ 
+	XDocument XmlDoc = System.Xml.Linq.XDocument.Parse(Input);
+	return XmlDoc;
+}
+
+#>

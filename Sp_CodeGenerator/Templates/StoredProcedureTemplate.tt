@@ -1,0 +1,75 @@
+﻿<#@ template  debug="true" hostSpecific="true" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="System.Core" #>
+<#@ Assembly Name="System.Windows.Forms" #>
+<#@ Assembly Name="System.Xml"#>
+<#@ Assembly Name="System.Xml.Linq"#>
+<#@ assembly name="C:\webtech\THESIS\TsqlParser\TsqlParser\bin\Debug\TsqlParser.dll" #>
+<#@ assembly name="C:\Sp_CodeGenerator\ExtensionMethods\bin\x86\Debug\ExtensionMethods.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Xml"#>
+<#@ import namespace="System.Xml.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Windows.Forms" #>
+<#@ include file="EF.Utility.CS.ttinclude"#>
+
+<#
+string SampleInputFile = System.IO.File.ReadAllText(@"C:\Sp_CodeGenerator\Sp_CodeGenerator\Templates\XMLFiles\AndOrOpertor.xml");
+	MetadataLoader loader = new MetadataLoader(this);
+	string inputFile = @"C:\Sp_CodeGenerator\AWorks_Database\Model1xml.xml";
+	EdmItemCollection itemCollection = loader.CreateEdmItemCollection(inputFile);
+	string EFXmlFiile = System.IO.File.ReadAllText(@"C:\Sp_CodeGenerator\AWorks_Database\Model1xml.xml");
+	XDocument EfXmlXDoc = Parse(EFXmlFiile);
+
+#>
+
+// This is the output code from your template
+// you only get syntax-highlighting here - not intellisense
+namespace Sp_CodeGenerator{
+	using System;
+	using System.Collections.Generic;
+	using DataBaseLayer;
+	using System.Linq;
+
+
+ public class MyGeneratedClass{
+	private NorthwindEntities db = new NorthwindEntities();
+	<# XDocument XmlDoc = Parse(SampleInputFile); 
+	List<ExtensionMethods.Token> listTokens = ExtensionMethods.ExtensionMethods.getToken(XmlDoc);
+	String classString = createClass(listTokens);
+	#>
+  }
+}
+
+<#+
+	///<summary>ParseFile
+	///returns the input string file as an XDocument
+	///</summary>
+	///<param> string of Parsed SQL expressed as XML</param>
+	///<returns> XDocument </returns>
+private XDocument Parse(string Input){ 
+	XDocument XmlDoc = System.Xml.Linq.XDocument.Parse(Input);
+	return XmlDoc;
+}
+
+private string createClass(List<ExtensionMethods.Token> listTokens)
+		{
+			StringBuilder sb = new StringBuilder();
+			List<ExtensionMethods.Token> p = ExtensionMethods.ExtensionMethods.gParams(listTokens);
+			
+			List<string> repositoryVariable = ExtensionMethods.ExtensionMethods.gRepVariable(p);
+			sb.Append("public IList<Product> GetProducts(int unitsInStock, int unitPrice, string productName){").AppendLine();
+			sb.Append("var products = from p in db.Products").AppendLine();
+			sb.Append("where p.UnitsInStock >= unitsInStock").AppendLine();
+			sb.Append("&& p.UnitPrice = unitPrice || p.ProductName = productName").AppendLine();
+			sb.Append("select new {p.UnitsInStock, p.UnitPrice, p.ProductName};").AppendLine();
+			sb.Append("return products as IList<Product>;}"); 
+			return sb.ToString();
+		}
+
+#>

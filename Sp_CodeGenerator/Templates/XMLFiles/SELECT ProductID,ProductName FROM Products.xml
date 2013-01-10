@@ -1,0 +1,69 @@
+<SqlScript Location="((1,1), (2,1))">
+  <!--SELECT ProductID,ProductName FROM Products
+-->
+  <Errors />
+  <SqlBatch Location="((1,1), (2,1))">
+    <!--SELECT ProductID,ProductName FROM Products
+-->
+    <SqlSelectStatement Location="((1,1),(1,43))">
+      <!--SELECT ProductID,ProductName FROM Products-->
+      <SqlSelectSpecification Location="((1,1),(1,43))">
+        <!--SELECT ProductID,ProductName FROM Products-->
+        <SqlQuerySpecification Location="((1,1),(1,43))">
+          <!--SELECT ProductID,ProductName FROM Products-->
+          <SqlSelectClause Location="((1,1),(1,29))" IsDistinct="False">
+            <!--SELECT ProductID,ProductName-->
+            <SqlSelectScalarExpression Location="((1,8),(1,17))">
+              <!--ProductID-->
+              <SqlColumnRefExpression Location="((1,8),(1,17))" ColumnName="ProductID" MultipartIdentifier="ProductID">
+                <!--ProductID-->
+                <SqlObjectIdentifier Location="((1,8),(1,17))" ObjectName="ProductID">
+                  <!--ProductID-->
+                  <SqlIdentifier Location="((1,8),(1,17))" Value="ProductID">
+                    <!--ProductID-->
+                  </SqlIdentifier>
+                </SqlObjectIdentifier>
+              </SqlColumnRefExpression>
+            </SqlSelectScalarExpression>
+            <SqlSelectScalarExpression Location="((1,18),(1,29))">
+              <!--ProductName-->
+              <SqlColumnRefExpression Location="((1,18),(1,29))" ColumnName="ProductName" MultipartIdentifier="ProductName">
+                <!--ProductName-->
+                <SqlObjectIdentifier Location="((1,18),(1,29))" ObjectName="ProductName">
+                  <!--ProductName-->
+                  <SqlIdentifier Location="((1,18),(1,29))" Value="ProductName">
+                    <!--ProductName-->
+                  </SqlIdentifier>
+                </SqlObjectIdentifier>
+              </SqlColumnRefExpression>
+            </SqlSelectScalarExpression>
+          </SqlSelectClause>
+          <SqlFromClause Location="((1,30),(1,43))">
+            <!--FROM Products-->
+            <SqlTableRefExpression Location="((1,35),(1,43))" ObjectIdentifier="Products">
+              <!--Products-->
+              <SqlObjectIdentifier Location="((1,35),(1,43))" ObjectName="Products">
+                <!--Products-->
+                <SqlIdentifier Location="((1,35),(1,43))" Value="Products">
+                  <!--Products-->
+                </SqlIdentifier>
+              </SqlObjectIdentifier>
+            </SqlTableRefExpression>
+          </SqlFromClause>
+        </SqlQuerySpecification>
+      </SqlSelectSpecification>
+    </SqlSelectStatement>
+    <Tokens>
+      <Token location="((1,1), (1,7))" id="285" type="TOKEN_SELECT">SELECT</Token>
+      <Token location="((1,7), (1,8))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((1,8), (1,17))" id="171" type="TOKEN_ID">ProductID</Token>
+      <Token location="((1,17), (1,18))" id="44" type=",">,</Token>
+      <Token location="((1,18), (1,29))" id="171" type="TOKEN_ID">ProductName</Token>
+      <Token location="((1,29), (1,30))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((1,30), (1,34))" id="242" type="TOKEN_FROM">FROM</Token>
+      <Token location="((1,34), (1,35))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((1,35), (1,43))" id="171" type="TOKEN_ID">Products</Token>
+      <Token location="((1,43), (2,1))" id="544" type="LEX_WHITE">\r\n</Token>
+    </Tokens>
+  </SqlBatch>
+</SqlScript>
