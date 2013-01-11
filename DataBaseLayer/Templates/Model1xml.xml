@@ -4,9 +4,9 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AdventureWorksLTModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-        <EntityContainer Name="AdventureWorksLTModelStoreContainer">
-          <EntitySet Name="BuildVersion" EntityType="AdventureWorksLTModel.Store.BuildVersion" store:Type="Tables" store:Schema="dbo" store:Name="BuildVersion">
+      <Schema Namespace="AdventureWorksLT2008R2Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="AdventureWorksLT2008R2ModelStoreContainer">
+          <EntitySet Name="BuildVersion" EntityType="AdventureWorksLT2008R2Model.Store.BuildVersion" store:Type="Tables" store:Schema="dbo" store:Name="BuildVersion">
             <DefiningQuery>SELECT 
       [BuildVersion].[SystemInformationID] AS [SystemInformationID], 
       [BuildVersion].[Database Version] AS [Database Version], 
@@ -14,25 +14,25 @@
       [BuildVersion].[ModifiedDate] AS [ModifiedDate]
       FROM [dbo].[BuildVersion] AS [BuildVersion]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="ErrorLog" EntityType="AdventureWorksLTModel.Store.ErrorLog" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Address" EntityType="AdventureWorksLTModel.Store.Address" store:Type="Tables" Schema="SalesLT" />
-          <EntitySet Name="Customer" EntityType="AdventureWorksLTModel.Store.Customer" store:Type="Tables" Schema="SalesLT" />
-          <EntitySet Name="CustomerAddress" EntityType="AdventureWorksLTModel.Store.CustomerAddress" store:Type="Tables" Schema="SalesLT" />
-          <EntitySet Name="Product" EntityType="AdventureWorksLTModel.Store.Product" store:Type="Tables" Schema="SalesLT" />
-          <EntitySet Name="ProductCategory" EntityType="AdventureWorksLTModel.Store.ProductCategory" store:Type="Tables" Schema="SalesLT" />
-          <EntitySet Name="ProductDescription" EntityType="AdventureWorksLTModel.Store.ProductDescription" store:Type="Tables" Schema="SalesLT" />
-          <EntitySet Name="ProductModel" EntityType="AdventureWorksLTModel.Store.ProductModel" store:Type="Tables" Schema="SalesLT" />
-          <EntitySet Name="ProductModelProductDescription" EntityType="AdventureWorksLTModel.Store.ProductModelProductDescription" store:Type="Tables" Schema="SalesLT" />
-          <EntitySet Name="SalesOrderDetail" EntityType="AdventureWorksLTModel.Store.SalesOrderDetail" store:Type="Tables" Schema="SalesLT" />
-          <EntitySet Name="SalesOrderHeader" EntityType="AdventureWorksLTModel.Store.SalesOrderHeader" store:Type="Tables" Schema="SalesLT" />
-          <EntitySet Name="vGetAllCategories" EntityType="AdventureWorksLTModel.Store.vGetAllCategories" store:Type="Views" store:Schema="SalesLT" store:Name="vGetAllCategories">
+          <EntitySet Name="ErrorLog" EntityType="AdventureWorksLT2008R2Model.Store.ErrorLog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Address" EntityType="AdventureWorksLT2008R2Model.Store.Address" store:Type="Tables" Schema="SalesLT" />
+          <EntitySet Name="Customer" EntityType="AdventureWorksLT2008R2Model.Store.Customer" store:Type="Tables" Schema="SalesLT" />
+          <EntitySet Name="CustomerAddress" EntityType="AdventureWorksLT2008R2Model.Store.CustomerAddress" store:Type="Tables" Schema="SalesLT" />
+          <EntitySet Name="Product" EntityType="AdventureWorksLT2008R2Model.Store.Product" store:Type="Tables" Schema="SalesLT" />
+          <EntitySet Name="ProductCategory" EntityType="AdventureWorksLT2008R2Model.Store.ProductCategory" store:Type="Tables" Schema="SalesLT" />
+          <EntitySet Name="ProductDescription" EntityType="AdventureWorksLT2008R2Model.Store.ProductDescription" store:Type="Tables" Schema="SalesLT" />
+          <EntitySet Name="ProductModel" EntityType="AdventureWorksLT2008R2Model.Store.ProductModel" store:Type="Tables" Schema="SalesLT" />
+          <EntitySet Name="ProductModelProductDescription" EntityType="AdventureWorksLT2008R2Model.Store.ProductModelProductDescription" store:Type="Tables" Schema="SalesLT" />
+          <EntitySet Name="SalesOrderDetail" EntityType="AdventureWorksLT2008R2Model.Store.SalesOrderDetail" store:Type="Tables" Schema="SalesLT" />
+          <EntitySet Name="SalesOrderHeader" EntityType="AdventureWorksLT2008R2Model.Store.SalesOrderHeader" store:Type="Tables" Schema="SalesLT" />
+          <EntitySet Name="vGetAllCategories" EntityType="AdventureWorksLT2008R2Model.Store.vGetAllCategories" store:Type="Views" store:Schema="SalesLT" store:Name="vGetAllCategories">
             <DefiningQuery>SELECT 
       [vGetAllCategories].[ParentProductCategoryName] AS [ParentProductCategoryName], 
       [vGetAllCategories].[ProductCategoryName] AS [ProductCategoryName], 
       [vGetAllCategories].[ProductCategoryID] AS [ProductCategoryID]
       FROM [SalesLT].[vGetAllCategories] AS [vGetAllCategories]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vProductAndDescription" EntityType="AdventureWorksLTModel.Store.vProductAndDescription" store:Type="Views" store:Schema="SalesLT" store:Name="vProductAndDescription">
+          <EntitySet Name="vProductAndDescription" EntityType="AdventureWorksLT2008R2Model.Store.vProductAndDescription" store:Type="Views" store:Schema="SalesLT" store:Name="vProductAndDescription">
             <DefiningQuery>SELECT 
       [vProductAndDescription].[ProductID] AS [ProductID], 
       [vProductAndDescription].[Name] AS [Name], 
@@ -41,7 +41,7 @@
       [vProductAndDescription].[Description] AS [Description]
       FROM [SalesLT].[vProductAndDescription] AS [vProductAndDescription]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vProductModelCatalogDescription" EntityType="AdventureWorksLTModel.Store.vProductModelCatalogDescription" store:Type="Views" store:Schema="SalesLT" store:Name="vProductModelCatalogDescription">
+          <EntitySet Name="vProductModelCatalogDescription" EntityType="AdventureWorksLT2008R2Model.Store.vProductModelCatalogDescription" store:Type="Views" store:Schema="SalesLT" store:Name="vProductModelCatalogDescription">
             <DefiningQuery>SELECT 
       [vProductModelCatalogDescription].[ProductModelID] AS [ProductModelID], 
       [vProductModelCatalogDescription].[Name] AS [Name], 
@@ -70,51 +70,51 @@
       [vProductModelCatalogDescription].[ModifiedDate] AS [ModifiedDate]
       FROM [SalesLT].[vProductModelCatalogDescription] AS [vProductModelCatalogDescription]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK_CustomerAddress_Address_AddressID" Association="AdventureWorksLTModel.Store.FK_CustomerAddress_Address_AddressID">
+          <AssociationSet Name="FK_CustomerAddress_Address_AddressID" Association="AdventureWorksLT2008R2Model.Store.FK_CustomerAddress_Address_AddressID">
             <End Role="Address" EntitySet="Address" />
             <End Role="CustomerAddress" EntitySet="CustomerAddress" />
           </AssociationSet>
-          <AssociationSet Name="FK_CustomerAddress_Customer_CustomerID" Association="AdventureWorksLTModel.Store.FK_CustomerAddress_Customer_CustomerID">
+          <AssociationSet Name="FK_CustomerAddress_Customer_CustomerID" Association="AdventureWorksLT2008R2Model.Store.FK_CustomerAddress_Customer_CustomerID">
             <End Role="Customer" EntitySet="Customer" />
             <End Role="CustomerAddress" EntitySet="CustomerAddress" />
           </AssociationSet>
-          <AssociationSet Name="FK_Product_ProductCategory_ProductCategoryID" Association="AdventureWorksLTModel.Store.FK_Product_ProductCategory_ProductCategoryID">
+          <AssociationSet Name="FK_Product_ProductCategory_ProductCategoryID" Association="AdventureWorksLT2008R2Model.Store.FK_Product_ProductCategory_ProductCategoryID">
             <End Role="ProductCategory" EntitySet="ProductCategory" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
-          <AssociationSet Name="FK_Product_ProductModel_ProductModelID" Association="AdventureWorksLTModel.Store.FK_Product_ProductModel_ProductModelID">
+          <AssociationSet Name="FK_Product_ProductModel_ProductModelID" Association="AdventureWorksLT2008R2Model.Store.FK_Product_ProductModel_ProductModelID">
             <End Role="ProductModel" EntitySet="ProductModel" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID" Association="AdventureWorksLTModel.Store.FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID">
+          <AssociationSet Name="FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID" Association="AdventureWorksLT2008R2Model.Store.FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID">
             <End Role="ProductCategory" EntitySet="ProductCategory" />
             <End Role="ProductCategory1" EntitySet="ProductCategory" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID" Association="AdventureWorksLTModel.Store.FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID">
+          <AssociationSet Name="FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID" Association="AdventureWorksLT2008R2Model.Store.FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID">
             <End Role="ProductDescription" EntitySet="ProductDescription" />
             <End Role="ProductModelProductDescription" EntitySet="ProductModelProductDescription" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProductModelProductDescription_ProductModel_ProductModelID" Association="AdventureWorksLTModel.Store.FK_ProductModelProductDescription_ProductModel_ProductModelID">
+          <AssociationSet Name="FK_ProductModelProductDescription_ProductModel_ProductModelID" Association="AdventureWorksLT2008R2Model.Store.FK_ProductModelProductDescription_ProductModel_ProductModelID">
             <End Role="ProductModel" EntitySet="ProductModel" />
             <End Role="ProductModelProductDescription" EntitySet="ProductModelProductDescription" />
           </AssociationSet>
-          <AssociationSet Name="FK_SalesOrderDetail_Product_ProductID" Association="AdventureWorksLTModel.Store.FK_SalesOrderDetail_Product_ProductID">
+          <AssociationSet Name="FK_SalesOrderDetail_Product_ProductID" Association="AdventureWorksLT2008R2Model.Store.FK_SalesOrderDetail_Product_ProductID">
             <End Role="Product" EntitySet="Product" />
             <End Role="SalesOrderDetail" EntitySet="SalesOrderDetail" />
           </AssociationSet>
-          <AssociationSet Name="FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID" Association="AdventureWorksLTModel.Store.FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID">
+          <AssociationSet Name="FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID" Association="AdventureWorksLT2008R2Model.Store.FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID">
             <End Role="SalesOrderHeader" EntitySet="SalesOrderHeader" />
             <End Role="SalesOrderDetail" EntitySet="SalesOrderDetail" />
           </AssociationSet>
-          <AssociationSet Name="FK_SalesOrderHeader_Address_BillTo_AddressID" Association="AdventureWorksLTModel.Store.FK_SalesOrderHeader_Address_BillTo_AddressID">
+          <AssociationSet Name="FK_SalesOrderHeader_Address_BillTo_AddressID" Association="AdventureWorksLT2008R2Model.Store.FK_SalesOrderHeader_Address_BillTo_AddressID">
             <End Role="Address" EntitySet="Address" />
             <End Role="SalesOrderHeader" EntitySet="SalesOrderHeader" />
           </AssociationSet>
-          <AssociationSet Name="FK_SalesOrderHeader_Address_ShipTo_AddressID" Association="AdventureWorksLTModel.Store.FK_SalesOrderHeader_Address_ShipTo_AddressID">
+          <AssociationSet Name="FK_SalesOrderHeader_Address_ShipTo_AddressID" Association="AdventureWorksLT2008R2Model.Store.FK_SalesOrderHeader_Address_ShipTo_AddressID">
             <End Role="Address" EntitySet="Address" />
             <End Role="SalesOrderHeader" EntitySet="SalesOrderHeader" />
           </AssociationSet>
-          <AssociationSet Name="FK_SalesOrderHeader_Customer_CustomerID" Association="AdventureWorksLTModel.Store.FK_SalesOrderHeader_Customer_CustomerID">
+          <AssociationSet Name="FK_SalesOrderHeader_Customer_CustomerID" Association="AdventureWorksLT2008R2Model.Store.FK_SalesOrderHeader_Customer_CustomerID">
             <End Role="Customer" EntitySet="Customer" />
             <End Role="SalesOrderHeader" EntitySet="SalesOrderHeader" />
           </AssociationSet>
@@ -363,8 +363,8 @@
           <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
         </EntityType>
         <Association Name="FK_CustomerAddress_Address_AddressID">
-          <End Role="Address" Type="AdventureWorksLTModel.Store.Address" Multiplicity="1" />
-          <End Role="CustomerAddress" Type="AdventureWorksLTModel.Store.CustomerAddress" Multiplicity="*" />
+          <End Role="Address" Type="AdventureWorksLT2008R2Model.Store.Address" Multiplicity="1" />
+          <End Role="CustomerAddress" Type="AdventureWorksLT2008R2Model.Store.CustomerAddress" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Address">
               <PropertyRef Name="AddressID" />
@@ -375,8 +375,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CustomerAddress_Customer_CustomerID">
-          <End Role="Customer" Type="AdventureWorksLTModel.Store.Customer" Multiplicity="1" />
-          <End Role="CustomerAddress" Type="AdventureWorksLTModel.Store.CustomerAddress" Multiplicity="*" />
+          <End Role="Customer" Type="AdventureWorksLT2008R2Model.Store.Customer" Multiplicity="1" />
+          <End Role="CustomerAddress" Type="AdventureWorksLT2008R2Model.Store.CustomerAddress" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customer">
               <PropertyRef Name="CustomerID" />
@@ -387,8 +387,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Product_ProductCategory_ProductCategoryID">
-          <End Role="ProductCategory" Type="AdventureWorksLTModel.Store.ProductCategory" Multiplicity="0..1" />
-          <End Role="Product" Type="AdventureWorksLTModel.Store.Product" Multiplicity="*" />
+          <End Role="ProductCategory" Type="AdventureWorksLT2008R2Model.Store.ProductCategory" Multiplicity="0..1" />
+          <End Role="Product" Type="AdventureWorksLT2008R2Model.Store.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ProductCategory">
               <PropertyRef Name="ProductCategoryID" />
@@ -399,8 +399,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Product_ProductModel_ProductModelID">
-          <End Role="ProductModel" Type="AdventureWorksLTModel.Store.ProductModel" Multiplicity="0..1" />
-          <End Role="Product" Type="AdventureWorksLTModel.Store.Product" Multiplicity="*" />
+          <End Role="ProductModel" Type="AdventureWorksLT2008R2Model.Store.ProductModel" Multiplicity="0..1" />
+          <End Role="Product" Type="AdventureWorksLT2008R2Model.Store.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ProductModel">
               <PropertyRef Name="ProductModelID" />
@@ -411,8 +411,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID">
-          <End Role="ProductCategory" Type="AdventureWorksLTModel.Store.ProductCategory" Multiplicity="0..1" />
-          <End Role="ProductCategory1" Type="AdventureWorksLTModel.Store.ProductCategory" Multiplicity="*" />
+          <End Role="ProductCategory" Type="AdventureWorksLT2008R2Model.Store.ProductCategory" Multiplicity="0..1" />
+          <End Role="ProductCategory1" Type="AdventureWorksLT2008R2Model.Store.ProductCategory" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ProductCategory">
               <PropertyRef Name="ProductCategoryID" />
@@ -423,8 +423,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID">
-          <End Role="ProductDescription" Type="AdventureWorksLTModel.Store.ProductDescription" Multiplicity="1" />
-          <End Role="ProductModelProductDescription" Type="AdventureWorksLTModel.Store.ProductModelProductDescription" Multiplicity="*" />
+          <End Role="ProductDescription" Type="AdventureWorksLT2008R2Model.Store.ProductDescription" Multiplicity="1" />
+          <End Role="ProductModelProductDescription" Type="AdventureWorksLT2008R2Model.Store.ProductModelProductDescription" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ProductDescription">
               <PropertyRef Name="ProductDescriptionID" />
@@ -435,8 +435,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ProductModelProductDescription_ProductModel_ProductModelID">
-          <End Role="ProductModel" Type="AdventureWorksLTModel.Store.ProductModel" Multiplicity="1" />
-          <End Role="ProductModelProductDescription" Type="AdventureWorksLTModel.Store.ProductModelProductDescription" Multiplicity="*" />
+          <End Role="ProductModel" Type="AdventureWorksLT2008R2Model.Store.ProductModel" Multiplicity="1" />
+          <End Role="ProductModelProductDescription" Type="AdventureWorksLT2008R2Model.Store.ProductModelProductDescription" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ProductModel">
               <PropertyRef Name="ProductModelID" />
@@ -447,8 +447,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SalesOrderDetail_Product_ProductID">
-          <End Role="Product" Type="AdventureWorksLTModel.Store.Product" Multiplicity="1" />
-          <End Role="SalesOrderDetail" Type="AdventureWorksLTModel.Store.SalesOrderDetail" Multiplicity="*" />
+          <End Role="Product" Type="AdventureWorksLT2008R2Model.Store.Product" Multiplicity="1" />
+          <End Role="SalesOrderDetail" Type="AdventureWorksLT2008R2Model.Store.SalesOrderDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Product">
               <PropertyRef Name="ProductID" />
@@ -459,10 +459,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID">
-          <End Role="SalesOrderHeader" Type="AdventureWorksLTModel.Store.SalesOrderHeader" Multiplicity="1">
+          <End Role="SalesOrderHeader" Type="AdventureWorksLT2008R2Model.Store.SalesOrderHeader" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="SalesOrderDetail" Type="AdventureWorksLTModel.Store.SalesOrderDetail" Multiplicity="*" />
+          <End Role="SalesOrderDetail" Type="AdventureWorksLT2008R2Model.Store.SalesOrderDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SalesOrderHeader">
               <PropertyRef Name="SalesOrderID" />
@@ -473,8 +473,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SalesOrderHeader_Address_BillTo_AddressID">
-          <End Role="Address" Type="AdventureWorksLTModel.Store.Address" Multiplicity="0..1" />
-          <End Role="SalesOrderHeader" Type="AdventureWorksLTModel.Store.SalesOrderHeader" Multiplicity="*" />
+          <End Role="Address" Type="AdventureWorksLT2008R2Model.Store.Address" Multiplicity="0..1" />
+          <End Role="SalesOrderHeader" Type="AdventureWorksLT2008R2Model.Store.SalesOrderHeader" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Address">
               <PropertyRef Name="AddressID" />
@@ -485,8 +485,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SalesOrderHeader_Address_ShipTo_AddressID">
-          <End Role="Address" Type="AdventureWorksLTModel.Store.Address" Multiplicity="0..1" />
-          <End Role="SalesOrderHeader" Type="AdventureWorksLTModel.Store.SalesOrderHeader" Multiplicity="*" />
+          <End Role="Address" Type="AdventureWorksLT2008R2Model.Store.Address" Multiplicity="0..1" />
+          <End Role="SalesOrderHeader" Type="AdventureWorksLT2008R2Model.Store.SalesOrderHeader" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Address">
               <PropertyRef Name="AddressID" />
@@ -497,8 +497,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SalesOrderHeader_Customer_CustomerID">
-          <End Role="Customer" Type="AdventureWorksLTModel.Store.Customer" Multiplicity="1" />
-          <End Role="SalesOrderHeader" Type="AdventureWorksLTModel.Store.SalesOrderHeader" Multiplicity="*" />
+          <End Role="Customer" Type="AdventureWorksLT2008R2Model.Store.Customer" Multiplicity="1" />
+          <End Role="SalesOrderHeader" Type="AdventureWorksLT2008R2Model.Store.SalesOrderHeader" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customer">
               <PropertyRef Name="CustomerID" />
@@ -508,14 +508,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="CalcInnerJoin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="CInnerJoin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="RevenueCalcuation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="SelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="SelectAllAlt" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="SelectDistinct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="SelectSubset" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="SelectWhereNoParams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="ufnGetSalesOrderStatusText" ReturnType="nvarchar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Status" Type="tinyint" Mode="In" />
         </Function>
@@ -523,99 +515,72 @@
           <Parameter Name="ErrorLogID" Type="int" Mode="InOut" />
         </Function>
         <Function Name="uspPrintError" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="Where3Conditions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Name" Type="nvarchar" Mode="In" />
-          <Parameter Name="ProductID" Type="int" Mode="In" />
-        </Function>
-        <Function Name="WhereBetweenValues" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Idval1" Type="int" Mode="In" />
-          <Parameter Name="Idval2" Type="int" Mode="In" />
-        </Function>
-        <Function Name="WhereClauseOneArgument" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Name" Type="nvarchar" Mode="In" />
-          <Parameter Name="Color" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="WhereComparisonOperator" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Name" Type="nvarchar" Mode="In" />
-          <Parameter Name="ProductID" Type="int" Mode="In" />
-        </Function>
-        <Function Name="WhereLikeString" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Name" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="WhereListValues" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Name" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="WhereSeveralConditions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Name" Type="nvarchar" Mode="In" />
-          <Parameter Name="Color" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="WhereSimpleEquality" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="AdventureWorksLTModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-        <EntityContainer Name="AWorksLTEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="BuildVersions" EntityType="AdventureWorksLTModel.BuildVersion" />
-          <EntitySet Name="ErrorLogs" EntityType="AdventureWorksLTModel.ErrorLog" />
-          <EntitySet Name="Addresses" EntityType="AdventureWorksLTModel.Address" />
-          <EntitySet Name="Customers" EntityType="AdventureWorksLTModel.Customer" />
-          <EntitySet Name="CustomerAddresses" EntityType="AdventureWorksLTModel.CustomerAddress" />
-          <EntitySet Name="Products" EntityType="AdventureWorksLTModel.Product" />
-          <EntitySet Name="ProductCategories" EntityType="AdventureWorksLTModel.ProductCategory" />
-          <EntitySet Name="ProductDescriptions" EntityType="AdventureWorksLTModel.ProductDescription" />
-          <EntitySet Name="ProductModels" EntityType="AdventureWorksLTModel.ProductModel" />
-          <EntitySet Name="ProductModelProductDescriptions" EntityType="AdventureWorksLTModel.ProductModelProductDescription" />
-          <EntitySet Name="SalesOrderDetails" EntityType="AdventureWorksLTModel.SalesOrderDetail" />
-          <EntitySet Name="SalesOrderHeaders" EntityType="AdventureWorksLTModel.SalesOrderHeader" />
-          <EntitySet Name="vGetAllCategories" EntityType="AdventureWorksLTModel.vGetAllCategory" />
-          <EntitySet Name="vProductAndDescriptions" EntityType="AdventureWorksLTModel.vProductAndDescription" />
-          <EntitySet Name="vProductModelCatalogDescriptions" EntityType="AdventureWorksLTModel.vProductModelCatalogDescription" />
-          <AssociationSet Name="FK_CustomerAddress_Address_AddressID" Association="AdventureWorksLTModel.FK_CustomerAddress_Address_AddressID">
+      <Schema Namespace="AdventureWorksLT2008R2Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="AdventureWorksLT2008R2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BuildVersions" EntityType="AdventureWorksLT2008R2Model.BuildVersion" />
+          <EntitySet Name="ErrorLogs" EntityType="AdventureWorksLT2008R2Model.ErrorLog" />
+          <EntitySet Name="Addresses" EntityType="AdventureWorksLT2008R2Model.Address" />
+          <EntitySet Name="Customers" EntityType="AdventureWorksLT2008R2Model.Customer" />
+          <EntitySet Name="CustomerAddresses" EntityType="AdventureWorksLT2008R2Model.CustomerAddress" />
+          <EntitySet Name="Products" EntityType="AdventureWorksLT2008R2Model.Product" />
+          <EntitySet Name="ProductCategories" EntityType="AdventureWorksLT2008R2Model.ProductCategory" />
+          <EntitySet Name="ProductDescriptions" EntityType="AdventureWorksLT2008R2Model.ProductDescription" />
+          <EntitySet Name="ProductModels" EntityType="AdventureWorksLT2008R2Model.ProductModel" />
+          <EntitySet Name="ProductModelProductDescriptions" EntityType="AdventureWorksLT2008R2Model.ProductModelProductDescription" />
+          <EntitySet Name="SalesOrderDetails" EntityType="AdventureWorksLT2008R2Model.SalesOrderDetail" />
+          <EntitySet Name="SalesOrderHeaders" EntityType="AdventureWorksLT2008R2Model.SalesOrderHeader" />
+          <EntitySet Name="vGetAllCategories" EntityType="AdventureWorksLT2008R2Model.vGetAllCategory" />
+          <EntitySet Name="vProductAndDescriptions" EntityType="AdventureWorksLT2008R2Model.vProductAndDescription" />
+          <EntitySet Name="vProductModelCatalogDescriptions" EntityType="AdventureWorksLT2008R2Model.vProductModelCatalogDescription" />
+          <AssociationSet Name="FK_CustomerAddress_Address_AddressID" Association="AdventureWorksLT2008R2Model.FK_CustomerAddress_Address_AddressID">
             <End Role="Address" EntitySet="Addresses" />
             <End Role="CustomerAddress" EntitySet="CustomerAddresses" />
           </AssociationSet>
-          <AssociationSet Name="FK_SalesOrderHeader_Address_BillTo_AddressID" Association="AdventureWorksLTModel.FK_SalesOrderHeader_Address_BillTo_AddressID">
+          <AssociationSet Name="FK_SalesOrderHeader_Address_BillTo_AddressID" Association="AdventureWorksLT2008R2Model.FK_SalesOrderHeader_Address_BillTo_AddressID">
             <End Role="Address" EntitySet="Addresses" />
             <End Role="SalesOrderHeader" EntitySet="SalesOrderHeaders" />
           </AssociationSet>
-          <AssociationSet Name="FK_SalesOrderHeader_Address_ShipTo_AddressID" Association="AdventureWorksLTModel.FK_SalesOrderHeader_Address_ShipTo_AddressID">
+          <AssociationSet Name="FK_SalesOrderHeader_Address_ShipTo_AddressID" Association="AdventureWorksLT2008R2Model.FK_SalesOrderHeader_Address_ShipTo_AddressID">
             <End Role="Address" EntitySet="Addresses" />
             <End Role="SalesOrderHeader" EntitySet="SalesOrderHeaders" />
           </AssociationSet>
-          <AssociationSet Name="FK_CustomerAddress_Customer_CustomerID" Association="AdventureWorksLTModel.FK_CustomerAddress_Customer_CustomerID">
+          <AssociationSet Name="FK_CustomerAddress_Customer_CustomerID" Association="AdventureWorksLT2008R2Model.FK_CustomerAddress_Customer_CustomerID">
             <End Role="Customer" EntitySet="Customers" />
             <End Role="CustomerAddress" EntitySet="CustomerAddresses" />
           </AssociationSet>
-          <AssociationSet Name="FK_SalesOrderHeader_Customer_CustomerID" Association="AdventureWorksLTModel.FK_SalesOrderHeader_Customer_CustomerID">
+          <AssociationSet Name="FK_SalesOrderHeader_Customer_CustomerID" Association="AdventureWorksLT2008R2Model.FK_SalesOrderHeader_Customer_CustomerID">
             <End Role="Customer" EntitySet="Customers" />
             <End Role="SalesOrderHeader" EntitySet="SalesOrderHeaders" />
           </AssociationSet>
-          <AssociationSet Name="FK_Product_ProductCategory_ProductCategoryID" Association="AdventureWorksLTModel.FK_Product_ProductCategory_ProductCategoryID">
+          <AssociationSet Name="FK_Product_ProductCategory_ProductCategoryID" Association="AdventureWorksLT2008R2Model.FK_Product_ProductCategory_ProductCategoryID">
             <End Role="ProductCategory" EntitySet="ProductCategories" />
             <End Role="Product" EntitySet="Products" />
           </AssociationSet>
-          <AssociationSet Name="FK_Product_ProductModel_ProductModelID" Association="AdventureWorksLTModel.FK_Product_ProductModel_ProductModelID">
+          <AssociationSet Name="FK_Product_ProductModel_ProductModelID" Association="AdventureWorksLT2008R2Model.FK_Product_ProductModel_ProductModelID">
             <End Role="ProductModel" EntitySet="ProductModels" />
             <End Role="Product" EntitySet="Products" />
           </AssociationSet>
-          <AssociationSet Name="FK_SalesOrderDetail_Product_ProductID" Association="AdventureWorksLTModel.FK_SalesOrderDetail_Product_ProductID">
+          <AssociationSet Name="FK_SalesOrderDetail_Product_ProductID" Association="AdventureWorksLT2008R2Model.FK_SalesOrderDetail_Product_ProductID">
             <End Role="Product" EntitySet="Products" />
             <End Role="SalesOrderDetail" EntitySet="SalesOrderDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID" Association="AdventureWorksLTModel.FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID">
+          <AssociationSet Name="FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID" Association="AdventureWorksLT2008R2Model.FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID">
             <End Role="ProductCategory" EntitySet="ProductCategories" />
             <End Role="ProductCategory1" EntitySet="ProductCategories" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID" Association="AdventureWorksLTModel.FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID">
+          <AssociationSet Name="FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID" Association="AdventureWorksLT2008R2Model.FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID">
             <End Role="ProductDescription" EntitySet="ProductDescriptions" />
             <End Role="ProductModelProductDescription" EntitySet="ProductModelProductDescriptions" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProductModelProductDescription_ProductModel_ProductModelID" Association="AdventureWorksLTModel.FK_ProductModelProductDescription_ProductModel_ProductModelID">
+          <AssociationSet Name="FK_ProductModelProductDescription_ProductModel_ProductModelID" Association="AdventureWorksLT2008R2Model.FK_ProductModelProductDescription_ProductModel_ProductModelID">
             <End Role="ProductModel" EntitySet="ProductModels" />
             <End Role="ProductModelProductDescription" EntitySet="ProductModelProductDescriptions" />
           </AssociationSet>
-          <AssociationSet Name="FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID" Association="AdventureWorksLTModel.FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID">
+          <AssociationSet Name="FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID" Association="AdventureWorksLT2008R2Model.FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID">
             <End Role="SalesOrderHeader" EntitySet="SalesOrderHeaders" />
             <End Role="SalesOrderDetail" EntitySet="SalesOrderDetails" />
           </AssociationSet>
@@ -659,9 +624,9 @@
           <Property Name="PostalCode" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
           <Property Name="rowguid" Type="Guid" Nullable="false" />
           <Property Name="ModifiedDate" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="CustomerAddresses" Relationship="AdventureWorksLTModel.FK_CustomerAddress_Address_AddressID" FromRole="Address" ToRole="CustomerAddress" />
-          <NavigationProperty Name="SalesOrderHeaders" Relationship="AdventureWorksLTModel.FK_SalesOrderHeader_Address_BillTo_AddressID" FromRole="Address" ToRole="SalesOrderHeader" />
-          <NavigationProperty Name="SalesOrderHeaders1" Relationship="AdventureWorksLTModel.FK_SalesOrderHeader_Address_ShipTo_AddressID" FromRole="Address" ToRole="SalesOrderHeader" />
+          <NavigationProperty Name="CustomerAddresses" Relationship="AdventureWorksLT2008R2Model.FK_CustomerAddress_Address_AddressID" FromRole="Address" ToRole="CustomerAddress" />
+          <NavigationProperty Name="SalesOrderHeaders" Relationship="AdventureWorksLT2008R2Model.FK_SalesOrderHeader_Address_BillTo_AddressID" FromRole="Address" ToRole="SalesOrderHeader" />
+          <NavigationProperty Name="SalesOrderHeaders1" Relationship="AdventureWorksLT2008R2Model.FK_SalesOrderHeader_Address_ShipTo_AddressID" FromRole="Address" ToRole="SalesOrderHeader" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -682,8 +647,8 @@
           <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
           <Property Name="rowguid" Type="Guid" Nullable="false" />
           <Property Name="ModifiedDate" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="CustomerAddresses" Relationship="AdventureWorksLTModel.FK_CustomerAddress_Customer_CustomerID" FromRole="Customer" ToRole="CustomerAddress" />
-          <NavigationProperty Name="SalesOrderHeaders" Relationship="AdventureWorksLTModel.FK_SalesOrderHeader_Customer_CustomerID" FromRole="Customer" ToRole="SalesOrderHeader" />
+          <NavigationProperty Name="CustomerAddresses" Relationship="AdventureWorksLT2008R2Model.FK_CustomerAddress_Customer_CustomerID" FromRole="Customer" ToRole="CustomerAddress" />
+          <NavigationProperty Name="SalesOrderHeaders" Relationship="AdventureWorksLT2008R2Model.FK_SalesOrderHeader_Customer_CustomerID" FromRole="Customer" ToRole="SalesOrderHeader" />
         </EntityType>
         <EntityType Name="CustomerAddress">
           <Key>
@@ -695,8 +660,8 @@
           <Property Name="AddressType" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="rowguid" Type="Guid" Nullable="false" />
           <Property Name="ModifiedDate" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="Address" Relationship="AdventureWorksLTModel.FK_CustomerAddress_Address_AddressID" FromRole="CustomerAddress" ToRole="Address" />
-          <NavigationProperty Name="Customer" Relationship="AdventureWorksLTModel.FK_CustomerAddress_Customer_CustomerID" FromRole="CustomerAddress" ToRole="Customer" />
+          <NavigationProperty Name="Address" Relationship="AdventureWorksLT2008R2Model.FK_CustomerAddress_Address_AddressID" FromRole="CustomerAddress" ToRole="Address" />
+          <NavigationProperty Name="Customer" Relationship="AdventureWorksLT2008R2Model.FK_CustomerAddress_Customer_CustomerID" FromRole="CustomerAddress" ToRole="Customer" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -719,9 +684,9 @@
           <Property Name="ThumbnailPhotoFileName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="rowguid" Type="Guid" Nullable="false" />
           <Property Name="ModifiedDate" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="ProductCategory" Relationship="AdventureWorksLTModel.FK_Product_ProductCategory_ProductCategoryID" FromRole="Product" ToRole="ProductCategory" />
-          <NavigationProperty Name="ProductModel" Relationship="AdventureWorksLTModel.FK_Product_ProductModel_ProductModelID" FromRole="Product" ToRole="ProductModel" />
-          <NavigationProperty Name="SalesOrderDetails" Relationship="AdventureWorksLTModel.FK_SalesOrderDetail_Product_ProductID" FromRole="Product" ToRole="SalesOrderDetail" />
+          <NavigationProperty Name="ProductCategory" Relationship="AdventureWorksLT2008R2Model.FK_Product_ProductCategory_ProductCategoryID" FromRole="Product" ToRole="ProductCategory" />
+          <NavigationProperty Name="ProductModel" Relationship="AdventureWorksLT2008R2Model.FK_Product_ProductModel_ProductModelID" FromRole="Product" ToRole="ProductModel" />
+          <NavigationProperty Name="SalesOrderDetails" Relationship="AdventureWorksLT2008R2Model.FK_SalesOrderDetail_Product_ProductID" FromRole="Product" ToRole="SalesOrderDetail" />
         </EntityType>
         <EntityType Name="ProductCategory">
           <Key>
@@ -732,9 +697,9 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="rowguid" Type="Guid" Nullable="false" />
           <Property Name="ModifiedDate" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="Products" Relationship="AdventureWorksLTModel.FK_Product_ProductCategory_ProductCategoryID" FromRole="ProductCategory" ToRole="Product" />
-          <NavigationProperty Name="ProductCategory1" Relationship="AdventureWorksLTModel.FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID" FromRole="ProductCategory" ToRole="ProductCategory1" />
-          <NavigationProperty Name="ProductCategory2" Relationship="AdventureWorksLTModel.FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID" FromRole="ProductCategory1" ToRole="ProductCategory" />
+          <NavigationProperty Name="Products" Relationship="AdventureWorksLT2008R2Model.FK_Product_ProductCategory_ProductCategoryID" FromRole="ProductCategory" ToRole="Product" />
+          <NavigationProperty Name="ProductCategory1" Relationship="AdventureWorksLT2008R2Model.FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID" FromRole="ProductCategory" ToRole="ProductCategory1" />
+          <NavigationProperty Name="ProductCategory2" Relationship="AdventureWorksLT2008R2Model.FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID" FromRole="ProductCategory1" ToRole="ProductCategory" />
         </EntityType>
         <EntityType Name="ProductDescription">
           <Key>
@@ -744,7 +709,7 @@
           <Property Name="Description" Type="String" Nullable="false" MaxLength="400" Unicode="true" FixedLength="false" />
           <Property Name="rowguid" Type="Guid" Nullable="false" />
           <Property Name="ModifiedDate" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="ProductModelProductDescriptions" Relationship="AdventureWorksLTModel.FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID" FromRole="ProductDescription" ToRole="ProductModelProductDescription" />
+          <NavigationProperty Name="ProductModelProductDescriptions" Relationship="AdventureWorksLT2008R2Model.FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID" FromRole="ProductDescription" ToRole="ProductModelProductDescription" />
         </EntityType>
         <EntityType Name="ProductModel">
           <Key>
@@ -755,8 +720,8 @@
           <Property Name="CatalogDescription" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="rowguid" Type="Guid" Nullable="false" />
           <Property Name="ModifiedDate" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="Products" Relationship="AdventureWorksLTModel.FK_Product_ProductModel_ProductModelID" FromRole="ProductModel" ToRole="Product" />
-          <NavigationProperty Name="ProductModelProductDescriptions" Relationship="AdventureWorksLTModel.FK_ProductModelProductDescription_ProductModel_ProductModelID" FromRole="ProductModel" ToRole="ProductModelProductDescription" />
+          <NavigationProperty Name="Products" Relationship="AdventureWorksLT2008R2Model.FK_Product_ProductModel_ProductModelID" FromRole="ProductModel" ToRole="Product" />
+          <NavigationProperty Name="ProductModelProductDescriptions" Relationship="AdventureWorksLT2008R2Model.FK_ProductModelProductDescription_ProductModel_ProductModelID" FromRole="ProductModel" ToRole="ProductModelProductDescription" />
         </EntityType>
         <EntityType Name="ProductModelProductDescription">
           <Key>
@@ -769,8 +734,8 @@
           <Property Name="Culture" Type="String" Nullable="false" MaxLength="6" Unicode="true" FixedLength="true" />
           <Property Name="rowguid" Type="Guid" Nullable="false" />
           <Property Name="ModifiedDate" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="ProductDescription" Relationship="AdventureWorksLTModel.FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID" FromRole="ProductModelProductDescription" ToRole="ProductDescription" />
-          <NavigationProperty Name="ProductModel" Relationship="AdventureWorksLTModel.FK_ProductModelProductDescription_ProductModel_ProductModelID" FromRole="ProductModelProductDescription" ToRole="ProductModel" />
+          <NavigationProperty Name="ProductDescription" Relationship="AdventureWorksLT2008R2Model.FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID" FromRole="ProductModelProductDescription" ToRole="ProductDescription" />
+          <NavigationProperty Name="ProductModel" Relationship="AdventureWorksLT2008R2Model.FK_ProductModelProductDescription_ProductModel_ProductModelID" FromRole="ProductModelProductDescription" ToRole="ProductModel" />
         </EntityType>
         <EntityType Name="SalesOrderDetail">
           <Key>
@@ -786,8 +751,8 @@
           <Property Name="LineTotal" Type="Decimal" Nullable="false" Precision="38" Scale="6" annotation:StoreGeneratedPattern="Computed" />
           <Property Name="rowguid" Type="Guid" Nullable="false" />
           <Property Name="ModifiedDate" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="Product" Relationship="AdventureWorksLTModel.FK_SalesOrderDetail_Product_ProductID" FromRole="SalesOrderDetail" ToRole="Product" />
-          <NavigationProperty Name="SalesOrderHeader" Relationship="AdventureWorksLTModel.FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID" FromRole="SalesOrderDetail" ToRole="SalesOrderHeader" />
+          <NavigationProperty Name="Product" Relationship="AdventureWorksLT2008R2Model.FK_SalesOrderDetail_Product_ProductID" FromRole="SalesOrderDetail" ToRole="Product" />
+          <NavigationProperty Name="SalesOrderHeader" Relationship="AdventureWorksLT2008R2Model.FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID" FromRole="SalesOrderDetail" ToRole="SalesOrderHeader" />
         </EntityType>
         <EntityType Name="SalesOrderHeader">
           <Key>
@@ -815,10 +780,10 @@
           <Property Name="Comment" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="rowguid" Type="Guid" Nullable="false" />
           <Property Name="ModifiedDate" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="Address" Relationship="AdventureWorksLTModel.FK_SalesOrderHeader_Address_BillTo_AddressID" FromRole="SalesOrderHeader" ToRole="Address" />
-          <NavigationProperty Name="Address1" Relationship="AdventureWorksLTModel.FK_SalesOrderHeader_Address_ShipTo_AddressID" FromRole="SalesOrderHeader" ToRole="Address" />
-          <NavigationProperty Name="Customer" Relationship="AdventureWorksLTModel.FK_SalesOrderHeader_Customer_CustomerID" FromRole="SalesOrderHeader" ToRole="Customer" />
-          <NavigationProperty Name="SalesOrderDetails" Relationship="AdventureWorksLTModel.FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID" FromRole="SalesOrderHeader" ToRole="SalesOrderDetail" />
+          <NavigationProperty Name="Address" Relationship="AdventureWorksLT2008R2Model.FK_SalesOrderHeader_Address_BillTo_AddressID" FromRole="SalesOrderHeader" ToRole="Address" />
+          <NavigationProperty Name="Address1" Relationship="AdventureWorksLT2008R2Model.FK_SalesOrderHeader_Address_ShipTo_AddressID" FromRole="SalesOrderHeader" ToRole="Address" />
+          <NavigationProperty Name="Customer" Relationship="AdventureWorksLT2008R2Model.FK_SalesOrderHeader_Customer_CustomerID" FromRole="SalesOrderHeader" ToRole="Customer" />
+          <NavigationProperty Name="SalesOrderDetails" Relationship="AdventureWorksLT2008R2Model.FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID" FromRole="SalesOrderHeader" ToRole="SalesOrderDetail" />
         </EntityType>
         <EntityType Name="vGetAllCategory">
           <Key>
@@ -876,8 +841,8 @@
           <Property Name="ModifiedDate" Type="DateTime" Nullable="false" />
         </EntityType>
         <Association Name="FK_CustomerAddress_Address_AddressID">
-          <End Role="Address" Type="AdventureWorksLTModel.Address" Multiplicity="1" />
-          <End Role="CustomerAddress" Type="AdventureWorksLTModel.CustomerAddress" Multiplicity="*" />
+          <End Role="Address" Type="AdventureWorksLT2008R2Model.Address" Multiplicity="1" />
+          <End Role="CustomerAddress" Type="AdventureWorksLT2008R2Model.CustomerAddress" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Address">
               <PropertyRef Name="AddressID" />
@@ -888,8 +853,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SalesOrderHeader_Address_BillTo_AddressID">
-          <End Role="Address" Type="AdventureWorksLTModel.Address" Multiplicity="0..1" />
-          <End Role="SalesOrderHeader" Type="AdventureWorksLTModel.SalesOrderHeader" Multiplicity="*" />
+          <End Role="Address" Type="AdventureWorksLT2008R2Model.Address" Multiplicity="0..1" />
+          <End Role="SalesOrderHeader" Type="AdventureWorksLT2008R2Model.SalesOrderHeader" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Address">
               <PropertyRef Name="AddressID" />
@@ -900,8 +865,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SalesOrderHeader_Address_ShipTo_AddressID">
-          <End Role="Address" Type="AdventureWorksLTModel.Address" Multiplicity="0..1" />
-          <End Role="SalesOrderHeader" Type="AdventureWorksLTModel.SalesOrderHeader" Multiplicity="*" />
+          <End Role="Address" Type="AdventureWorksLT2008R2Model.Address" Multiplicity="0..1" />
+          <End Role="SalesOrderHeader" Type="AdventureWorksLT2008R2Model.SalesOrderHeader" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Address">
               <PropertyRef Name="AddressID" />
@@ -912,8 +877,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CustomerAddress_Customer_CustomerID">
-          <End Role="Customer" Type="AdventureWorksLTModel.Customer" Multiplicity="1" />
-          <End Role="CustomerAddress" Type="AdventureWorksLTModel.CustomerAddress" Multiplicity="*" />
+          <End Role="Customer" Type="AdventureWorksLT2008R2Model.Customer" Multiplicity="1" />
+          <End Role="CustomerAddress" Type="AdventureWorksLT2008R2Model.CustomerAddress" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customer">
               <PropertyRef Name="CustomerID" />
@@ -924,8 +889,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SalesOrderHeader_Customer_CustomerID">
-          <End Role="Customer" Type="AdventureWorksLTModel.Customer" Multiplicity="1" />
-          <End Role="SalesOrderHeader" Type="AdventureWorksLTModel.SalesOrderHeader" Multiplicity="*" />
+          <End Role="Customer" Type="AdventureWorksLT2008R2Model.Customer" Multiplicity="1" />
+          <End Role="SalesOrderHeader" Type="AdventureWorksLT2008R2Model.SalesOrderHeader" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customer">
               <PropertyRef Name="CustomerID" />
@@ -936,8 +901,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Product_ProductCategory_ProductCategoryID">
-          <End Role="ProductCategory" Type="AdventureWorksLTModel.ProductCategory" Multiplicity="0..1" />
-          <End Role="Product" Type="AdventureWorksLTModel.Product" Multiplicity="*" />
+          <End Role="ProductCategory" Type="AdventureWorksLT2008R2Model.ProductCategory" Multiplicity="0..1" />
+          <End Role="Product" Type="AdventureWorksLT2008R2Model.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ProductCategory">
               <PropertyRef Name="ProductCategoryID" />
@@ -948,8 +913,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Product_ProductModel_ProductModelID">
-          <End Role="ProductModel" Type="AdventureWorksLTModel.ProductModel" Multiplicity="0..1" />
-          <End Role="Product" Type="AdventureWorksLTModel.Product" Multiplicity="*" />
+          <End Role="ProductModel" Type="AdventureWorksLT2008R2Model.ProductModel" Multiplicity="0..1" />
+          <End Role="Product" Type="AdventureWorksLT2008R2Model.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ProductModel">
               <PropertyRef Name="ProductModelID" />
@@ -960,8 +925,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SalesOrderDetail_Product_ProductID">
-          <End Role="Product" Type="AdventureWorksLTModel.Product" Multiplicity="1" />
-          <End Role="SalesOrderDetail" Type="AdventureWorksLTModel.SalesOrderDetail" Multiplicity="*" />
+          <End Role="Product" Type="AdventureWorksLT2008R2Model.Product" Multiplicity="1" />
+          <End Role="SalesOrderDetail" Type="AdventureWorksLT2008R2Model.SalesOrderDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Product">
               <PropertyRef Name="ProductID" />
@@ -972,8 +937,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID">
-          <End Role="ProductCategory" Type="AdventureWorksLTModel.ProductCategory" Multiplicity="0..1" />
-          <End Role="ProductCategory1" Type="AdventureWorksLTModel.ProductCategory" Multiplicity="*" />
+          <End Role="ProductCategory" Type="AdventureWorksLT2008R2Model.ProductCategory" Multiplicity="0..1" />
+          <End Role="ProductCategory1" Type="AdventureWorksLT2008R2Model.ProductCategory" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ProductCategory">
               <PropertyRef Name="ProductCategoryID" />
@@ -984,8 +949,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID">
-          <End Role="ProductDescription" Type="AdventureWorksLTModel.ProductDescription" Multiplicity="1" />
-          <End Role="ProductModelProductDescription" Type="AdventureWorksLTModel.ProductModelProductDescription" Multiplicity="*" />
+          <End Role="ProductDescription" Type="AdventureWorksLT2008R2Model.ProductDescription" Multiplicity="1" />
+          <End Role="ProductModelProductDescription" Type="AdventureWorksLT2008R2Model.ProductModelProductDescription" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ProductDescription">
               <PropertyRef Name="ProductDescriptionID" />
@@ -996,8 +961,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ProductModelProductDescription_ProductModel_ProductModelID">
-          <End Role="ProductModel" Type="AdventureWorksLTModel.ProductModel" Multiplicity="1" />
-          <End Role="ProductModelProductDescription" Type="AdventureWorksLTModel.ProductModelProductDescription" Multiplicity="*" />
+          <End Role="ProductModel" Type="AdventureWorksLT2008R2Model.ProductModel" Multiplicity="1" />
+          <End Role="ProductModelProductDescription" Type="AdventureWorksLT2008R2Model.ProductModelProductDescription" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ProductModel">
               <PropertyRef Name="ProductModelID" />
@@ -1008,10 +973,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID">
-          <End Role="SalesOrderHeader" Type="AdventureWorksLTModel.SalesOrderHeader" Multiplicity="1">
+          <End Role="SalesOrderHeader" Type="AdventureWorksLT2008R2Model.SalesOrderHeader" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="SalesOrderDetail" Type="AdventureWorksLTModel.SalesOrderDetail" Multiplicity="*" />
+          <End Role="SalesOrderDetail" Type="AdventureWorksLT2008R2Model.SalesOrderDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SalesOrderHeader">
               <PropertyRef Name="SalesOrderID" />
@@ -1026,9 +991,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="AdventureWorksLTModelStoreContainer" CdmEntityContainer="AWorksLTEntities">
+        <EntityContainerMapping StorageEntityContainer="AdventureWorksLT2008R2ModelStoreContainer" CdmEntityContainer="AdventureWorksLT2008R2Entities">
           <EntitySetMapping Name="BuildVersions">
-            <EntityTypeMapping TypeName="AdventureWorksLTModel.BuildVersion">
+            <EntityTypeMapping TypeName="AdventureWorksLT2008R2Model.BuildVersion">
               <MappingFragment StoreEntitySet="BuildVersion">
                 <ScalarProperty Name="SystemInformationID" ColumnName="SystemInformationID" />
                 <ScalarProperty Name="Database_Version" ColumnName="Database Version" />
@@ -1038,7 +1003,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ErrorLogs">
-            <EntityTypeMapping TypeName="AdventureWorksLTModel.ErrorLog">
+            <EntityTypeMapping TypeName="AdventureWorksLT2008R2Model.ErrorLog">
               <MappingFragment StoreEntitySet="ErrorLog">
                 <ScalarProperty Name="ErrorLogID" ColumnName="ErrorLogID" />
                 <ScalarProperty Name="ErrorTime" ColumnName="ErrorTime" />
@@ -1053,7 +1018,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Addresses">
-            <EntityTypeMapping TypeName="AdventureWorksLTModel.Address">
+            <EntityTypeMapping TypeName="AdventureWorksLT2008R2Model.Address">
               <MappingFragment StoreEntitySet="Address">
                 <ScalarProperty Name="AddressID" ColumnName="AddressID" />
                 <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
@@ -1068,7 +1033,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Customers">
-            <EntityTypeMapping TypeName="AdventureWorksLTModel.Customer">
+            <EntityTypeMapping TypeName="AdventureWorksLT2008R2Model.Customer">
               <MappingFragment StoreEntitySet="Customer">
                 <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
                 <ScalarProperty Name="NameStyle" ColumnName="NameStyle" />
@@ -1089,7 +1054,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CustomerAddresses">
-            <EntityTypeMapping TypeName="AdventureWorksLTModel.CustomerAddress">
+            <EntityTypeMapping TypeName="AdventureWorksLT2008R2Model.CustomerAddress">
               <MappingFragment StoreEntitySet="CustomerAddress">
                 <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
                 <ScalarProperty Name="AddressID" ColumnName="AddressID" />
@@ -1100,7 +1065,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="AdventureWorksLTModel.Product">
+            <EntityTypeMapping TypeName="AdventureWorksLT2008R2Model.Product">
               <MappingFragment StoreEntitySet="Product">
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1123,7 +1088,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductCategories">
-            <EntityTypeMapping TypeName="AdventureWorksLTModel.ProductCategory">
+            <EntityTypeMapping TypeName="AdventureWorksLT2008R2Model.ProductCategory">
               <MappingFragment StoreEntitySet="ProductCategory">
                 <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
                 <ScalarProperty Name="ParentProductCategoryID" ColumnName="ParentProductCategoryID" />
@@ -1134,7 +1099,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductDescriptions">
-            <EntityTypeMapping TypeName="AdventureWorksLTModel.ProductDescription">
+            <EntityTypeMapping TypeName="AdventureWorksLT2008R2Model.ProductDescription">
               <MappingFragment StoreEntitySet="ProductDescription">
                 <ScalarProperty Name="ProductDescriptionID" ColumnName="ProductDescriptionID" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -1144,7 +1109,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductModels">
-            <EntityTypeMapping TypeName="AdventureWorksLTModel.ProductModel">
+            <EntityTypeMapping TypeName="AdventureWorksLT2008R2Model.ProductModel">
               <MappingFragment StoreEntitySet="ProductModel">
                 <ScalarProperty Name="ProductModelID" ColumnName="ProductModelID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1155,7 +1120,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductModelProductDescriptions">
-            <EntityTypeMapping TypeName="AdventureWorksLTModel.ProductModelProductDescription">
+            <EntityTypeMapping TypeName="AdventureWorksLT2008R2Model.ProductModelProductDescription">
               <MappingFragment StoreEntitySet="ProductModelProductDescription">
                 <ScalarProperty Name="ProductModelID" ColumnName="ProductModelID" />
                 <ScalarProperty Name="ProductDescriptionID" ColumnName="ProductDescriptionID" />
@@ -1166,7 +1131,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SalesOrderDetails">
-            <EntityTypeMapping TypeName="AdventureWorksLTModel.SalesOrderDetail">
+            <EntityTypeMapping TypeName="AdventureWorksLT2008R2Model.SalesOrderDetail">
               <MappingFragment StoreEntitySet="SalesOrderDetail">
                 <ScalarProperty Name="SalesOrderID" ColumnName="SalesOrderID" />
                 <ScalarProperty Name="SalesOrderDetailID" ColumnName="SalesOrderDetailID" />
@@ -1181,7 +1146,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SalesOrderHeaders">
-            <EntityTypeMapping TypeName="AdventureWorksLTModel.SalesOrderHeader">
+            <EntityTypeMapping TypeName="AdventureWorksLT2008R2Model.SalesOrderHeader">
               <MappingFragment StoreEntitySet="SalesOrderHeader">
                 <ScalarProperty Name="SalesOrderID" ColumnName="SalesOrderID" />
                 <ScalarProperty Name="RevisionNumber" ColumnName="RevisionNumber" />
@@ -1209,7 +1174,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vGetAllCategories">
-            <EntityTypeMapping TypeName="AdventureWorksLTModel.vGetAllCategory">
+            <EntityTypeMapping TypeName="AdventureWorksLT2008R2Model.vGetAllCategory">
               <MappingFragment StoreEntitySet="vGetAllCategories">
                 <ScalarProperty Name="ParentProductCategoryName" ColumnName="ParentProductCategoryName" />
                 <ScalarProperty Name="ProductCategoryName" ColumnName="ProductCategoryName" />
@@ -1218,7 +1183,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vProductAndDescriptions">
-            <EntityTypeMapping TypeName="AdventureWorksLTModel.vProductAndDescription">
+            <EntityTypeMapping TypeName="AdventureWorksLT2008R2Model.vProductAndDescription">
               <MappingFragment StoreEntitySet="vProductAndDescription">
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1229,7 +1194,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vProductModelCatalogDescriptions">
-            <EntityTypeMapping TypeName="AdventureWorksLTModel.vProductModelCatalogDescription">
+            <EntityTypeMapping TypeName="AdventureWorksLT2008R2Model.vProductModelCatalogDescription">
               <MappingFragment StoreEntitySet="vProductModelCatalogDescription">
                 <ScalarProperty Name="ProductModelID" ColumnName="ProductModelID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1281,72 +1246,81 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="Model1">
-        <EntityTypeShape EntityType="AdventureWorksLTModel.BuildVersion" Width="1.5" PointX="3.5" PointY="13.625" Height="1.5923063151041665" IsExpanded="true" />
-        <EntityTypeShape EntityType="AdventureWorksLTModel.ErrorLog" Width="1.5" PointX="3.5" PointY="11" Height="2.4140429687499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="AdventureWorksLTModel.Address" Width="1.5" PointX="3.5" PointY="5.625" Height="2.9070849609375005" IsExpanded="true" />
-        <EntityTypeShape EntityType="AdventureWorksLTModel.Customer" Width="1.5" PointX="3.5" PointY="1.5" Height="3.7288216145833335" IsExpanded="true" />
-        <EntityTypeShape EntityType="AdventureWorksLTModel.CustomerAddress" Width="1.5" PointX="1.5" PointY="4.625" Height="2.0853483072916656" IsExpanded="true" />
-        <EntityTypeShape EntityType="AdventureWorksLTModel.Product" Width="1.5" PointX="8.125" PointY="5.125" Height="4.2218636067708317" IsExpanded="true" />
-        <EntityTypeShape EntityType="AdventureWorksLTModel.ProductCategory" Width="1.5" PointX="8.125" PointY="9.75" Height="2.2496956380208317" IsExpanded="true" />
-        <EntityTypeShape EntityType="AdventureWorksLTModel.ProductDescription" Width="1.5" PointX="10.375" PointY="10.25" Height="1.7566536458333317" IsExpanded="true" />
-        <EntityTypeShape EntityType="AdventureWorksLTModel.ProductModel" Width="1.5" PointX="10.375" PointY="5.25" Height="2.0853483072916674" IsExpanded="true" />
-        <EntityTypeShape EntityType="AdventureWorksLTModel.ProductModelProductDescription" Width="1.5" PointX="10.375" PointY="7.75" Height="2.0853483072916674" IsExpanded="true" />
-        <EntityTypeShape EntityType="AdventureWorksLTModel.SalesOrderDetail" Width="1.5" PointX="8.25" PointY="1.875" Height="2.7427376302083308" IsExpanded="true" />
-        <EntityTypeShape EntityType="AdventureWorksLTModel.SalesOrderHeader" Width="1.5" PointX="6" PointY="5" Height="5.2079475911458308" IsExpanded="true" />
-        <EntityTypeShape EntityType="AdventureWorksLTModel.vGetAllCategory" Width="1.5" PointX="5.75" PointY="13.125" Height="1.4279589843750031" IsExpanded="true" />
-        <EntityTypeShape EntityType="AdventureWorksLTModel.vProductAndDescription" Width="1.5" PointX="5.75" PointY="11" Height="1.7566536458333388" IsExpanded="true" />
-        <EntityTypeShape EntityType="AdventureWorksLTModel.vProductModelCatalogDescription" Width="1.5" PointX="1.375" PointY="10.625" Height="5.0436002604166683" IsExpanded="true" />
-        <AssociationConnector Association="AdventureWorksLTModel.FK_CustomerAddress_Address_AddressID" ManuallyRouted="false">
-          <ConnectorPoint PointX="3.5" PointY="6.1676741536458328" />
-          <ConnectorPoint PointX="3" PointY="6.1676741536458328" />
+        <EntityTypeShape EntityType="AdventureWorksLT2008R2Model.BuildVersion" Width="1.5" PointX="2.75" PointY="3.125" Height="1.5923063151041665" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksLT2008R2Model.ErrorLog" Width="1.5" PointX="0.75" PointY="10.125" Height="2.4140429687499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksLT2008R2Model.Address" Width="1.5" PointX="0.75" PointY="6.125" Height="2.9070849609375005" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksLT2008R2Model.Customer" Width="1.5" PointX="0.75" PointY="0.75" Height="3.7288216145833335" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksLT2008R2Model.CustomerAddress" Width="1.5" PointX="3" PointY="6.625" Height="2.0853483072916656" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksLT2008R2Model.Product" Width="1.5" PointX="6" PointY="12.5" Height="4.2218636067708317" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksLT2008R2Model.ProductCategory" Width="1.5" PointX="3.75" PointY="12.125" Height="2.2496956380208317" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksLT2008R2Model.ProductDescription" Width="1.5" PointX="3.75" PointY="18.25" Height="1.7566536458333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksLT2008R2Model.ProductModel" Width="1.5" PointX="3.75" PointY="15.125" Height="2.0853483072916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksLT2008R2Model.ProductModelProductDescription" Width="1.5" PointX="6" PointY="18.125" Height="2.0853483072916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksLT2008R2Model.SalesOrderDetail" Width="1.5" PointX="8.25" PointY="6.25" Height="2.7427376302083308" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksLT2008R2Model.SalesOrderHeader" Width="1.5" PointX="6" PointY="5" Height="5.2079475911458308" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksLT2008R2Model.vGetAllCategory" Width="1.5" PointX="8.75" PointY="3.125" Height="1.4279589843750031" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksLT2008R2Model.vProductAndDescription" Width="1.5" PointX="8.75" PointY="10.125" Height="1.7566536458333388" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksLT2008R2Model.vProductModelCatalogDescription" Width="1.5" PointX="10.75" PointY="3.125" Height="5.0436002604166683" IsExpanded="true" />
+        <AssociationConnector Association="AdventureWorksLT2008R2Model.FK_CustomerAddress_Address_AddressID" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="7.6676741536458328" />
+          <ConnectorPoint PointX="3" PointY="7.6676741536458328" />
         </AssociationConnector>
-        <AssociationConnector Association="AdventureWorksLTModel.FK_SalesOrderHeader_Address_BillTo_AddressID" ManuallyRouted="false">
-          <ConnectorPoint PointX="5" PointY="7.07854248046875" />
-          <ConnectorPoint PointX="6" PointY="7.07854248046875" />
+        <AssociationConnector Association="AdventureWorksLT2008R2Model.FK_SalesOrderHeader_Address_BillTo_AddressID" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="6.34375" />
+          <ConnectorPoint PointX="4.322916666666667" PointY="6.3437499999999991" />
+          <ConnectorPoint PointX="4.489583333333333" PointY="6.34375" />
+          <ConnectorPoint PointX="6" PointY="6.34375" />
         </AssociationConnector>
-        <AssociationConnector Association="AdventureWorksLTModel.FK_SalesOrderHeader_Address_ShipTo_AddressID" ManuallyRouted="false">
-          <ConnectorPoint PointX="5" PointY="6.2892712402343749" />
-          <ConnectorPoint PointX="6" PointY="6.2892712402343749" />
+        <AssociationConnector Association="AdventureWorksLT2008R2Model.FK_SalesOrderHeader_Address_ShipTo_AddressID" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="8.9024666341145817" />
+          <ConnectorPoint PointX="6" PointY="8.9024666341145817" />
         </AssociationConnector>
-        <AssociationConnector Association="AdventureWorksLTModel.FK_CustomerAddress_Customer_CustomerID" ManuallyRouted="false">
-          <ConnectorPoint PointX="3.5" PointY="4.9269108072916667" />
-          <ConnectorPoint PointX="3" PointY="4.9269108072916667" />
+        <AssociationConnector Association="AdventureWorksLT2008R2Model.FK_CustomerAddress_Customer_CustomerID" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="1.90625" />
+          <ConnectorPoint PointX="4.40625" PointY="1.90625" />
+          <ConnectorPoint PointX="4.40625" PointY="6.625" />
         </AssociationConnector>
-        <AssociationConnector Association="AdventureWorksLTModel.FK_SalesOrderHeader_Customer_CustomerID" ManuallyRouted="false">
-          <ConnectorPoint PointX="5" PointY="3.2499995" />
-          <ConnectorPoint PointX="6.75" PointY="3.2499995" />
+        <AssociationConnector Association="AdventureWorksLT2008R2Model.FK_SalesOrderHeader_Customer_CustomerID" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.5156275000000008" />
+          <ConnectorPoint PointX="4.322916666666667" PointY="2.5156275000000003" />
+          <ConnectorPoint PointX="4.489583333333333" PointY="2.5156275000000008" />
+          <ConnectorPoint PointX="6.75" PointY="2.5156275000000008" />
           <ConnectorPoint PointX="6.75" PointY="5" />
         </AssociationConnector>
-        <AssociationConnector Association="AdventureWorksLTModel.FK_Product_ProductCategory_ProductCategoryID" ManuallyRouted="false">
-          <ConnectorPoint PointX="8.875" PointY="9.75" />
-          <ConnectorPoint PointX="8.875" PointY="9.3468636067708317" />
+        <AssociationConnector Association="AdventureWorksLT2008R2Model.FK_Product_ProductCategory_ProductCategoryID" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.25" PointY="13.437347819010416" />
+          <ConnectorPoint PointX="6" PointY="13.437347819010416" />
         </AssociationConnector>
-        <AssociationConnector Association="AdventureWorksLTModel.FK_Product_ProductModel_ProductModelID" ManuallyRouted="false">
-          <ConnectorPoint PointX="10.375" PointY="6.2926741536458337" />
-          <ConnectorPoint PointX="9.625" PointY="6.2926741536458337" />
+        <AssociationConnector Association="AdventureWorksLT2008R2Model.FK_Product_ProductModel_ProductModelID" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.25" PointY="15.923431803385416" />
+          <ConnectorPoint PointX="6" PointY="15.923431803385416" />
         </AssociationConnector>
-        <AssociationConnector Association="AdventureWorksLTModel.FK_SalesOrderDetail_Product_ProductID" ManuallyRouted="false">
-          <ConnectorPoint PointX="8.9375" PointY="5.125" />
-          <ConnectorPoint PointX="8.9375" PointY="4.6177376302083308" />
+        <AssociationConnector Association="AdventureWorksLT2008R2Model.FK_SalesOrderDetail_Product_ProductID" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="14.610931803385416" />
+          <ConnectorPoint PointX="8.46875" PointY="14.610931803385416" />
+          <ConnectorPoint PointX="8.46875" PointY="8.9927376302083317" />
         </AssociationConnector>
-        <AssociationConnector Association="AdventureWorksLTModel.FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID" ManuallyRouted="false">
-          <ConnectorPoint PointX="8.6569230769230767" PointY="11.999695638020832" />
-          <ConnectorPoint PointX="8.6569230769230767" PointY="12.249695638020832" />
-          <ConnectorPoint PointX="9.1034615384615378" PointY="12.249695638020832" />
-          <ConnectorPoint PointX="9.1034615384615378" PointY="11.999695638020832" />
+        <AssociationConnector Association="AdventureWorksLT2008R2Model.FK_ProductCategory_ProductCategory_ParentProductCategoryID_ProductCategoryID" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.2819230769230767" PointY="14.374695638020832" />
+          <ConnectorPoint PointX="4.2819230769230767" PointY="14.624695638020832" />
+          <ConnectorPoint PointX="4.7284615384615378" PointY="14.624695638020832" />
+          <ConnectorPoint PointX="4.7284615384615378" PointY="14.374695638020832" />
         </AssociationConnector>
-        <AssociationConnector Association="AdventureWorksLTModel.FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID" ManuallyRouted="false">
-          <ConnectorPoint PointX="11.125" PointY="10.25" />
-          <ConnectorPoint PointX="11.125" PointY="9.8353483072916674" />
+        <AssociationConnector Association="AdventureWorksLT2008R2Model.FK_ProductModelProductDescription_ProductDescription_ProductDescriptionID" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.25" PointY="19.128326822916666" />
+          <ConnectorPoint PointX="5.541666666666667" PointY="19.128326822916666" />
+          <ConnectorPoint PointX="5.708333333333333" PointY="19.128326822916666" />
+          <ConnectorPoint PointX="6" PointY="19.128326822916666" />
         </AssociationConnector>
-        <AssociationConnector Association="AdventureWorksLTModel.FK_ProductModelProductDescription_ProductModel_ProductModelID" ManuallyRouted="false">
-          <ConnectorPoint PointX="11.125" PointY="7.3353483072916674" />
-          <ConnectorPoint PointX="11.125" PointY="7.75" />
+        <AssociationConnector Association="AdventureWorksLT2008R2Model.FK_ProductModelProductDescription_ProductModel_ProductModelID" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.25" PointY="17.210348307291667" />
+          <ConnectorPoint PointX="5.625" PointY="17.585348307291667" />
+          <ConnectorPoint PointX="5.625" PointY="19.700589565104167" />
+          <ConnectorPoint PointX="6" PointY="19.700589565104167" />
         </AssociationConnector>
-        <AssociationConnector Association="AdventureWorksLTModel.FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID" ManuallyRouted="false">
-          <ConnectorPoint PointX="7.1562525" PointY="5" />
-          <ConnectorPoint PointX="7.1562525" PointY="2.5624997499999997" />
-          <ConnectorPoint PointX="8.25" PointY="2.5624997499999997" />
+        <AssociationConnector Association="AdventureWorksLT2008R2Model.FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="7.6213688151041659" />
+          <ConnectorPoint PointX="8.25" PointY="7.6213688151041659" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

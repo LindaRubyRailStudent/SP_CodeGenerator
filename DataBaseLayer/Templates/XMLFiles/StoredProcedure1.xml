@@ -1,0 +1,850 @@
+<SqlScript Location="((1,1), (26,1))">
+  <!--USE [Northwind]
+GO
+/****** Object:  StoredProcedure [dbo].[SalesByCategory]    Script Date: 11/18/2012 11:52:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[SalesByCategory]
+    @CategoryName nvarchar(15), @OrdYear nvarchar(4) = '1998'
+AS
+IF @OrdYear != '1996' AND @OrdYear != '1997' AND @OrdYear != '1998' 
+BEGIN
+	SELECT @OrdYear = '1998'
+END
+
+SELECT ProductName,
+	TotalPurchase=ROUND(SUM(CONVERT(decimal(14,2), OD.Quantity * (1-OD.Discount) * OD.UnitPrice)), 0)
+FROM [Order Details] OD, Orders O, Products P, Categories C
+WHERE OD.OrderID = O.OrderID 
+	AND OD.ProductID = P.ProductID 
+	AND P.CategoryID = C.CategoryID
+	AND C.CategoryName = @CategoryName
+	AND SUBSTRING(CONVERT(nvarchar(22), O.OrderDate, 111), 1, 4) = @OrdYear
+GROUP BY ProductName
+ORDER BY ProductName
+-->
+  <Errors />
+  <SqlBatch Location="((1,1), (2,1))">
+    <!--USE [Northwind]
+-->
+    <SqlUseStatement Location="((1,1),(1,16))" DatabaseName="Northwind">
+      <!--USE [Northwind]-->
+      <SqlIdentifier Location="((1,5),(1,16))" Value="Northwind">
+        <!--[Northwind]-->
+      </SqlIdentifier>
+    </SqlUseStatement>
+    <Tokens>
+      <Token location="((1,1), (1,4))" id="301" type="TOKEN_USEDB">USE</Token>
+      <Token location="((1,4), (1,5))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((1,5), (1,16))" id="171" type="TOKEN_ID">[Northwind]</Token>
+      <Token location="((1,16), (2,1))" id="544" type="LEX_WHITE">\r\n</Token>
+    </Tokens>
+  </SqlBatch>
+  <SqlBatch Location="((2,3), (5,1))">
+    <!--
+/****** Object:  StoredProcedure [dbo].[SalesByCategory]    Script Date: 11/18/2012 11:52:49 ******/
+SET ANSI_NULLS ON
+-->
+    <SqlNullStatement Location="((4,1),(4,18))">
+      <!--SET ANSI_NULLS ON-->
+    </SqlNullStatement>
+    <Tokens>
+      <Token location="((2,3), (3,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((3,1), (3,101))" id="546" type="LEX_MULTILINE_COMMENT">/****** Object:  StoredProcedure [dbo].[SalesByCategory]    Script Date: 11/18/2012 11:52:49 ******/</Token>
+      <Token location="((3,101), (4,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((4,1), (4,4))" id="148" type="TOKEN_SET">SET</Token>
+      <Token location="((4,4), (4,5))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((4,5), (4,15))" id="171" type="TOKEN_ID">ANSI_NULLS</Token>
+      <Token location="((4,15), (4,16))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((4,16), (4,18))" id="268" type="TOKEN_ON">ON</Token>
+      <Token location="((4,18), (5,1))" id="544" type="LEX_WHITE">\r\n</Token>
+    </Tokens>
+  </SqlBatch>
+  <SqlBatch Location="((5,3), (7,1))">
+    <!--
+SET QUOTED_IDENTIFIER ON
+-->
+    <SqlNullStatement Location="((6,1),(6,25))">
+      <!--SET QUOTED_IDENTIFIER ON-->
+    </SqlNullStatement>
+    <Tokens>
+      <Token location="((5,3), (6,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((6,1), (6,4))" id="148" type="TOKEN_SET">SET</Token>
+      <Token location="((6,4), (6,5))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((6,5), (6,22))" id="171" type="TOKEN_ID">QUOTED_IDENTIFIER</Token>
+      <Token location="((6,22), (6,23))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((6,23), (6,25))" id="268" type="TOKEN_ON">ON</Token>
+      <Token location="((6,25), (7,1))" id="544" type="LEX_WHITE">\r\n</Token>
+    </Tokens>
+  </SqlBatch>
+  <SqlBatch Location="((7,3), (26,1))">
+    <!--
+ALTER PROCEDURE [dbo].[SalesByCategory]
+    @CategoryName nvarchar(15), @OrdYear nvarchar(4) = '1998'
+AS
+IF @OrdYear != '1996' AND @OrdYear != '1997' AND @OrdYear != '1998' 
+BEGIN
+	SELECT @OrdYear = '1998'
+END
+
+SELECT ProductName,
+	TotalPurchase=ROUND(SUM(CONVERT(decimal(14,2), OD.Quantity * (1-OD.Discount) * OD.UnitPrice)), 0)
+FROM [Order Details] OD, Orders O, Products P, Categories C
+WHERE OD.OrderID = O.OrderID 
+	AND OD.ProductID = P.ProductID 
+	AND P.CategoryID = C.CategoryID
+	AND C.CategoryName = @CategoryName
+	AND SUBSTRING(CONVERT(nvarchar(22), O.OrderDate, 111), 1, 4) = @OrdYear
+GROUP BY ProductName
+ORDER BY ProductName
+-->
+    <SqlAlterProcedureStatement Location="((8,1),(25,21))">
+      <!--ALTER PROCEDURE [dbo].[SalesByCategory]
+    @CategoryName nvarchar(15), @OrdYear nvarchar(4) = '1998'
+AS
+IF @OrdYear != '1996' AND @OrdYear != '1997' AND @OrdYear != '1998' 
+BEGIN
+	SELECT @OrdYear = '1998'
+END
+
+SELECT ProductName,
+	TotalPurchase=ROUND(SUM(CONVERT(decimal(14,2), OD.Quantity * (1-OD.Discount) * OD.UnitPrice)), 0)
+FROM [Order Details] OD, Orders O, Products P, Categories C
+WHERE OD.OrderID = O.OrderID 
+	AND OD.ProductID = P.ProductID 
+	AND P.CategoryID = C.CategoryID
+	AND C.CategoryName = @CategoryName
+	AND SUBSTRING(CONVERT(nvarchar(22), O.OrderDate, 111), 1, 4) = @OrdYear
+GROUP BY ProductName
+ORDER BY ProductName-->
+      <SqlProcedureDefinition Location="((8,17),(10,3))" Name="dbo.SalesByCategory" IsForReplication="False">
+        <!--[dbo].[SalesByCategory]
+    @CategoryName nvarchar(15), @OrdYear nvarchar(4) = '1998'
+AS-->
+        <SqlObjectIdentifier Location="((8,17),(8,40))" SchemaName="dbo" ObjectName="SalesByCategory">
+          <!--[dbo].[SalesByCategory]-->
+          <SqlIdentifier Location="((8,17),(8,22))" Value="dbo">
+            <!--[dbo]-->
+          </SqlIdentifier>
+          <SqlIdentifier Location="((8,23),(8,40))" Value="SalesByCategory">
+            <!--[SalesByCategory]-->
+          </SqlIdentifier>
+        </SqlObjectIdentifier>
+        <SqlParameterDeclaration Location="((9,5),(9,31))" IsOutput="False" Name="@CategoryName">
+          <!--@CategoryName nvarchar(15)-->
+          <SqlDataTypeSpecification Location="((9,19),(9,31))" Argument1="15" IsMaximum="False" IsCursor="False" XmlDocumentConstraint="None">
+            <!--nvarchar(15)-->
+            <SqlDataType Location="((9,19),(9,27))" ObjectIdentifier="nvarchar" National="False" Varying="False">
+              <!--nvarchar-->
+              <SqlObjectIdentifier Location="((9,19),(9,27))" ObjectName="nvarchar">
+                <!--nvarchar-->
+                <SqlIdentifier Location="((9,19),(9,27))" Value="nvarchar">
+                  <!--nvarchar-->
+                </SqlIdentifier>
+              </SqlObjectIdentifier>
+            </SqlDataType>
+          </SqlDataTypeSpecification>
+        </SqlParameterDeclaration>
+        <SqlParameterDeclaration Location="((9,33),(9,62))" IsOutput="False" Name="@OrdYear">
+          <!--@OrdYear nvarchar(4) = '1998'-->
+          <SqlDataTypeSpecification Location="((9,42),(9,53))" Argument1="4" IsMaximum="False" IsCursor="False" XmlDocumentConstraint="None">
+            <!--nvarchar(4)-->
+            <SqlDataType Location="((9,42),(9,50))" ObjectIdentifier="nvarchar" National="False" Varying="False">
+              <!--nvarchar-->
+              <SqlObjectIdentifier Location="((9,42),(9,50))" ObjectName="nvarchar">
+                <!--nvarchar-->
+                <SqlIdentifier Location="((9,42),(9,50))" Value="nvarchar">
+                  <!--nvarchar-->
+                </SqlIdentifier>
+              </SqlObjectIdentifier>
+            </SqlDataType>
+          </SqlDataTypeSpecification>
+          <SqlLiteralExpression Location="((9,56),(9,62))" Value="1998" Type="String">
+            <!--'1998'-->
+          </SqlLiteralExpression>
+        </SqlParameterDeclaration>
+      </SqlProcedureDefinition>
+      <SqlIfElseStatement Location="((11,1),(14,4))">
+        <!--IF @OrdYear != '1996' AND @OrdYear != '1997' AND @OrdYear != '1998' 
+BEGIN
+	SELECT @OrdYear = '1998'
+END-->
+        <SqlBinaryBooleanExpression Location="((11,4),(11,68))" Operator="And">
+          <!--@OrdYear != '1996' AND @OrdYear != '1997' AND @OrdYear != '1998'-->
+          <SqlBinaryBooleanExpression Location="((11,4),(11,45))" Operator="And">
+            <!--@OrdYear != '1996' AND @OrdYear != '1997'-->
+            <SqlComparisonBooleanExpression Location="((11,4),(11,22))" ComparisonOperator="NotEqual">
+              <!--@OrdYear != '1996'-->
+              <SqlScalarVariableRefExpression Location="((11,4),(11,12))" VariableName="@OrdYear">
+                <!--@OrdYear-->
+              </SqlScalarVariableRefExpression>
+              <SqlLiteralExpression Location="((11,16),(11,22))" Value="1996" Type="String">
+                <!--'1996'-->
+              </SqlLiteralExpression>
+            </SqlComparisonBooleanExpression>
+            <SqlComparisonBooleanExpression Location="((11,27),(11,45))" ComparisonOperator="NotEqual">
+              <!--@OrdYear != '1997'-->
+              <SqlScalarVariableRefExpression Location="((11,27),(11,35))" VariableName="@OrdYear">
+                <!--@OrdYear-->
+              </SqlScalarVariableRefExpression>
+              <SqlLiteralExpression Location="((11,39),(11,45))" Value="1997" Type="String">
+                <!--'1997'-->
+              </SqlLiteralExpression>
+            </SqlComparisonBooleanExpression>
+          </SqlBinaryBooleanExpression>
+          <SqlComparisonBooleanExpression Location="((11,50),(11,68))" ComparisonOperator="NotEqual">
+            <!--@OrdYear != '1998'-->
+            <SqlScalarVariableRefExpression Location="((11,50),(11,58))" VariableName="@OrdYear">
+              <!--@OrdYear-->
+            </SqlScalarVariableRefExpression>
+            <SqlLiteralExpression Location="((11,62),(11,68))" Value="1998" Type="String">
+              <!--'1998'-->
+            </SqlLiteralExpression>
+          </SqlComparisonBooleanExpression>
+        </SqlBinaryBooleanExpression>
+        <SqlCompoundStatement Location="((12,1),(14,4))">
+          <!--BEGIN
+	SELECT @OrdYear = '1998'
+END-->
+          <SqlSelectStatement Location="((13,2),(13,26))">
+            <!--SELECT @OrdYear = '1998'-->
+            <SqlSelectSpecification Location="((13,2),(13,26))">
+              <!--SELECT @OrdYear = '1998'-->
+              <SqlQuerySpecification Location="((13,2),(13,26))">
+                <!--SELECT @OrdYear = '1998'-->
+                <SqlSelectClause Location="((13,2),(13,26))" IsDistinct="False">
+                  <!--SELECT @OrdYear = '1998'-->
+                  <SqlSelectVariableAssignmentExpression Location="((13,9),(13,26))">
+                    <!--@OrdYear = '1998'-->
+                    <SqlScalarVariableAssignment Location="((13,9),(13,26))" Operator="Assignment">
+                      <!--@OrdYear = '1998'-->
+                      <SqlScalarVariableRefExpression Location="((13,9),(13,17))" VariableName="@OrdYear">
+                        <!--@OrdYear-->
+                      </SqlScalarVariableRefExpression>
+                      <SqlLiteralExpression Location="((13,20),(13,26))" Value="1998" Type="String">
+                        <!--'1998'-->
+                      </SqlLiteralExpression>
+                    </SqlScalarVariableAssignment>
+                  </SqlSelectVariableAssignmentExpression>
+                </SqlSelectClause>
+              </SqlQuerySpecification>
+            </SqlSelectSpecification>
+          </SqlSelectStatement>
+        </SqlCompoundStatement>
+      </SqlIfElseStatement>
+      <SqlSelectStatement Location="((16,1),(25,21))">
+        <!--SELECT ProductName,
+	TotalPurchase=ROUND(SUM(CONVERT(decimal(14,2), OD.Quantity * (1-OD.Discount) * OD.UnitPrice)), 0)
+FROM [Order Details] OD, Orders O, Products P, Categories C
+WHERE OD.OrderID = O.OrderID 
+	AND OD.ProductID = P.ProductID 
+	AND P.CategoryID = C.CategoryID
+	AND C.CategoryName = @CategoryName
+	AND SUBSTRING(CONVERT(nvarchar(22), O.OrderDate, 111), 1, 4) = @OrdYear
+GROUP BY ProductName
+ORDER BY ProductName-->
+        <SqlSelectSpecification Location="((16,1),(25,21))">
+          <!--SELECT ProductName,
+	TotalPurchase=ROUND(SUM(CONVERT(decimal(14,2), OD.Quantity * (1-OD.Discount) * OD.UnitPrice)), 0)
+FROM [Order Details] OD, Orders O, Products P, Categories C
+WHERE OD.OrderID = O.OrderID 
+	AND OD.ProductID = P.ProductID 
+	AND P.CategoryID = C.CategoryID
+	AND C.CategoryName = @CategoryName
+	AND SUBSTRING(CONVERT(nvarchar(22), O.OrderDate, 111), 1, 4) = @OrdYear
+GROUP BY ProductName
+ORDER BY ProductName-->
+          <SqlQuerySpecification Location="((16,1),(24,21))">
+            <!--SELECT ProductName,
+	TotalPurchase=ROUND(SUM(CONVERT(decimal(14,2), OD.Quantity * (1-OD.Discount) * OD.UnitPrice)), 0)
+FROM [Order Details] OD, Orders O, Products P, Categories C
+WHERE OD.OrderID = O.OrderID 
+	AND OD.ProductID = P.ProductID 
+	AND P.CategoryID = C.CategoryID
+	AND C.CategoryName = @CategoryName
+	AND SUBSTRING(CONVERT(nvarchar(22), O.OrderDate, 111), 1, 4) = @OrdYear
+GROUP BY ProductName-->
+            <SqlSelectClause Location="((16,1),(17,99))" IsDistinct="False">
+              <!--SELECT ProductName,
+	TotalPurchase=ROUND(SUM(CONVERT(decimal(14,2), OD.Quantity * (1-OD.Discount) * OD.UnitPrice)), 0)-->
+              <SqlSelectScalarExpression Location="((16,8),(16,19))">
+                <!--ProductName-->
+                <SqlColumnRefExpression Location="((16,8),(16,19))" ColumnName="ProductName" MultipartIdentifier="ProductName">
+                  <!--ProductName-->
+                  <SqlObjectIdentifier Location="((16,8),(16,19))" ObjectName="ProductName">
+                    <!--ProductName-->
+                    <SqlIdentifier Location="((16,8),(16,19))" Value="ProductName">
+                      <!--ProductName-->
+                    </SqlIdentifier>
+                  </SqlObjectIdentifier>
+                </SqlColumnRefExpression>
+              </SqlSelectScalarExpression>
+              <SqlSelectScalarExpression Location="((17,2),(17,99))" Alias="TotalPurchase">
+                <!--TotalPurchase=ROUND(SUM(CONVERT(decimal(14,2), OD.Quantity * (1-OD.Discount) * OD.UnitPrice)), 0)-->
+                <SqlIdentifier Location="((17,2),(17,15))" Value="TotalPurchase">
+                  <!--TotalPurchase-->
+                </SqlIdentifier>
+                <SqlBuiltinScalarFunctionCallExpression Location="((17,16),(17,99))" FunctionName="ROUND" IsStar="False">
+                  <!--ROUND(SUM(CONVERT(decimal(14,2), OD.Quantity * (1-OD.Discount) * OD.UnitPrice)), 0)-->
+                  <SqlAggregateFunctionCallExpression Location="((17,22),(17,95))" SetQuantifier="None" FunctionName="SUM" IsStar="False">
+                    <!--SUM(CONVERT(decimal(14,2), OD.Quantity * (1-OD.Discount) * OD.UnitPrice))-->
+                    <SqlConvertExpression Location="((17,26),(17,94))" FunctionName="CONVERT" IsStar="False">
+                      <!--CONVERT(decimal(14,2), OD.Quantity * (1-OD.Discount) * OD.UnitPrice)-->
+                      <SqlDataTypeSpecification Location="((17,34),(17,47))" Argument1="14" Argument2="2" IsMaximum="False" IsCursor="False" XmlDocumentConstraint="None">
+                        <!--decimal(14,2)-->
+                        <SqlDataType Location="((17,34),(17,41))" ObjectIdentifier="decimal" National="False" Varying="False">
+                          <!--decimal-->
+                          <SqlObjectIdentifier Location="((17,34),(17,41))" ObjectName="decimal">
+                            <!--decimal-->
+                            <SqlIdentifier Location="((17,34),(17,41))" Value="decimal">
+                              <!--decimal-->
+                            </SqlIdentifier>
+                          </SqlObjectIdentifier>
+                        </SqlDataType>
+                      </SqlDataTypeSpecification>
+                      <SqlBinaryScalarExpression Location="((17,49),(17,93))" Operator="Multiply">
+                        <!--OD.Quantity * (1-OD.Discount) * OD.UnitPrice-->
+                        <SqlBinaryScalarExpression Location="((17,49),(17,78))" Operator="Multiply">
+                          <!--OD.Quantity * (1-OD.Discount)-->
+                          <SqlScalarRefExpression Location="((17,49),(17,60))" ColumnOrPropertyName="Quantity" MultipartIdentifier="OD.Quantity">
+                            <!--OD.Quantity-->
+                            <SqlObjectIdentifier Location="((17,49),(17,60))" SchemaName="OD" ObjectName="Quantity">
+                              <!--OD.Quantity-->
+                              <SqlIdentifier Location="((17,49),(17,51))" Value="OD">
+                                <!--OD-->
+                              </SqlIdentifier>
+                              <SqlIdentifier Location="((17,52),(17,60))" Value="Quantity">
+                                <!--Quantity-->
+                              </SqlIdentifier>
+                            </SqlObjectIdentifier>
+                          </SqlScalarRefExpression>
+                          <SqlBinaryScalarExpression Location="((17,63),(17,78))" Operator="Subtract">
+                            <!--(1-OD.Discount)-->
+                            <SqlLiteralExpression Location="((17,64),(17,65))" Value="1" Type="Integer">
+                              <!--1-->
+                            </SqlLiteralExpression>
+                            <SqlScalarRefExpression Location="((17,66),(17,77))" ColumnOrPropertyName="Discount" MultipartIdentifier="OD.Discount">
+                              <!--OD.Discount-->
+                              <SqlObjectIdentifier Location="((17,66),(17,77))" SchemaName="OD" ObjectName="Discount">
+                                <!--OD.Discount-->
+                                <SqlIdentifier Location="((17,66),(17,68))" Value="OD">
+                                  <!--OD-->
+                                </SqlIdentifier>
+                                <SqlIdentifier Location="((17,69),(17,77))" Value="Discount">
+                                  <!--Discount-->
+                                </SqlIdentifier>
+                              </SqlObjectIdentifier>
+                            </SqlScalarRefExpression>
+                          </SqlBinaryScalarExpression>
+                        </SqlBinaryScalarExpression>
+                        <SqlScalarRefExpression Location="((17,81),(17,93))" ColumnOrPropertyName="UnitPrice" MultipartIdentifier="OD.UnitPrice">
+                          <!--OD.UnitPrice-->
+                          <SqlObjectIdentifier Location="((17,81),(17,93))" SchemaName="OD" ObjectName="UnitPrice">
+                            <!--OD.UnitPrice-->
+                            <SqlIdentifier Location="((17,81),(17,83))" Value="OD">
+                              <!--OD-->
+                            </SqlIdentifier>
+                            <SqlIdentifier Location="((17,84),(17,93))" Value="UnitPrice">
+                              <!--UnitPrice-->
+                            </SqlIdentifier>
+                          </SqlObjectIdentifier>
+                        </SqlScalarRefExpression>
+                      </SqlBinaryScalarExpression>
+                    </SqlConvertExpression>
+                  </SqlAggregateFunctionCallExpression>
+                  <SqlLiteralExpression Location="((17,97),(17,98))" Value="0" Type="Integer">
+                    <!--0-->
+                  </SqlLiteralExpression>
+                </SqlBuiltinScalarFunctionCallExpression>
+              </SqlSelectScalarExpression>
+            </SqlSelectClause>
+            <SqlFromClause Location="((18,1),(18,60))">
+              <!--FROM [Order Details] OD, Orders O, Products P, Categories C-->
+              <SqlTableRefExpression Location="((18,6),(18,24))" ObjectIdentifier="Order Details" Alias="OD">
+                <!--[Order Details] OD-->
+                <SqlObjectIdentifier Location="((18,6),(18,21))" ObjectName="Order Details">
+                  <!--[Order Details]-->
+                  <SqlIdentifier Location="((18,6),(18,21))" Value="Order Details">
+                    <!--[Order Details]-->
+                  </SqlIdentifier>
+                </SqlObjectIdentifier>
+                <SqlIdentifier Location="((18,22),(18,24))" Value="OD">
+                  <!--OD-->
+                </SqlIdentifier>
+              </SqlTableRefExpression>
+              <SqlTableRefExpression Location="((18,26),(18,34))" ObjectIdentifier="Orders" Alias="O">
+                <!--Orders O-->
+                <SqlObjectIdentifier Location="((18,26),(18,32))" ObjectName="Orders">
+                  <!--Orders-->
+                  <SqlIdentifier Location="((18,26),(18,32))" Value="Orders">
+                    <!--Orders-->
+                  </SqlIdentifier>
+                </SqlObjectIdentifier>
+                <SqlIdentifier Location="((18,33),(18,34))" Value="O">
+                  <!--O-->
+                </SqlIdentifier>
+              </SqlTableRefExpression>
+              <SqlTableRefExpression Location="((18,36),(18,46))" ObjectIdentifier="Products" Alias="P">
+                <!--Products P-->
+                <SqlObjectIdentifier Location="((18,36),(18,44))" ObjectName="Products">
+                  <!--Products-->
+                  <SqlIdentifier Location="((18,36),(18,44))" Value="Products">
+                    <!--Products-->
+                  </SqlIdentifier>
+                </SqlObjectIdentifier>
+                <SqlIdentifier Location="((18,45),(18,46))" Value="P">
+                  <!--P-->
+                </SqlIdentifier>
+              </SqlTableRefExpression>
+              <SqlTableRefExpression Location="((18,48),(18,60))" ObjectIdentifier="Categories" Alias="C">
+                <!--Categories C-->
+                <SqlObjectIdentifier Location="((18,48),(18,58))" ObjectName="Categories">
+                  <!--Categories-->
+                  <SqlIdentifier Location="((18,48),(18,58))" Value="Categories">
+                    <!--Categories-->
+                  </SqlIdentifier>
+                </SqlObjectIdentifier>
+                <SqlIdentifier Location="((18,59),(18,60))" Value="C">
+                  <!--C-->
+                </SqlIdentifier>
+              </SqlTableRefExpression>
+            </SqlFromClause>
+            <SqlWhereClause Location="((19,1),(23,73))">
+              <!--WHERE OD.OrderID = O.OrderID 
+	AND OD.ProductID = P.ProductID 
+	AND P.CategoryID = C.CategoryID
+	AND C.CategoryName = @CategoryName
+	AND SUBSTRING(CONVERT(nvarchar(22), O.OrderDate, 111), 1, 4) = @OrdYear-->
+              <SqlBinaryBooleanExpression Location="((19,7),(23,73))" Operator="And">
+                <!--OD.OrderID = O.OrderID 
+	AND OD.ProductID = P.ProductID 
+	AND P.CategoryID = C.CategoryID
+	AND C.CategoryName = @CategoryName
+	AND SUBSTRING(CONVERT(nvarchar(22), O.OrderDate, 111), 1, 4) = @OrdYear-->
+                <SqlBinaryBooleanExpression Location="((19,7),(22,36))" Operator="And">
+                  <!--OD.OrderID = O.OrderID 
+	AND OD.ProductID = P.ProductID 
+	AND P.CategoryID = C.CategoryID
+	AND C.CategoryName = @CategoryName-->
+                  <SqlBinaryBooleanExpression Location="((19,7),(21,33))" Operator="And">
+                    <!--OD.OrderID = O.OrderID 
+	AND OD.ProductID = P.ProductID 
+	AND P.CategoryID = C.CategoryID-->
+                    <SqlBinaryBooleanExpression Location="((19,7),(20,32))" Operator="And">
+                      <!--OD.OrderID = O.OrderID 
+	AND OD.ProductID = P.ProductID-->
+                      <SqlComparisonBooleanExpression Location="((19,7),(19,29))" ComparisonOperator="Equals">
+                        <!--OD.OrderID = O.OrderID-->
+                        <SqlScalarRefExpression Location="((19,7),(19,17))" ColumnOrPropertyName="OrderID" MultipartIdentifier="OD.OrderID">
+                          <!--OD.OrderID-->
+                          <SqlObjectIdentifier Location="((19,7),(19,17))" SchemaName="OD" ObjectName="OrderID">
+                            <!--OD.OrderID-->
+                            <SqlIdentifier Location="((19,7),(19,9))" Value="OD">
+                              <!--OD-->
+                            </SqlIdentifier>
+                            <SqlIdentifier Location="((19,10),(19,17))" Value="OrderID">
+                              <!--OrderID-->
+                            </SqlIdentifier>
+                          </SqlObjectIdentifier>
+                        </SqlScalarRefExpression>
+                        <SqlScalarRefExpression Location="((19,20),(19,29))" ColumnOrPropertyName="OrderID" MultipartIdentifier="O.OrderID">
+                          <!--O.OrderID-->
+                          <SqlObjectIdentifier Location="((19,20),(19,29))" SchemaName="O" ObjectName="OrderID">
+                            <!--O.OrderID-->
+                            <SqlIdentifier Location="((19,20),(19,21))" Value="O">
+                              <!--O-->
+                            </SqlIdentifier>
+                            <SqlIdentifier Location="((19,22),(19,29))" Value="OrderID">
+                              <!--OrderID-->
+                            </SqlIdentifier>
+                          </SqlObjectIdentifier>
+                        </SqlScalarRefExpression>
+                      </SqlComparisonBooleanExpression>
+                      <SqlComparisonBooleanExpression Location="((20,6),(20,32))" ComparisonOperator="Equals">
+                        <!--OD.ProductID = P.ProductID-->
+                        <SqlScalarRefExpression Location="((20,6),(20,18))" ColumnOrPropertyName="ProductID" MultipartIdentifier="OD.ProductID">
+                          <!--OD.ProductID-->
+                          <SqlObjectIdentifier Location="((20,6),(20,18))" SchemaName="OD" ObjectName="ProductID">
+                            <!--OD.ProductID-->
+                            <SqlIdentifier Location="((20,6),(20,8))" Value="OD">
+                              <!--OD-->
+                            </SqlIdentifier>
+                            <SqlIdentifier Location="((20,9),(20,18))" Value="ProductID">
+                              <!--ProductID-->
+                            </SqlIdentifier>
+                          </SqlObjectIdentifier>
+                        </SqlScalarRefExpression>
+                        <SqlScalarRefExpression Location="((20,21),(20,32))" ColumnOrPropertyName="ProductID" MultipartIdentifier="P.ProductID">
+                          <!--P.ProductID-->
+                          <SqlObjectIdentifier Location="((20,21),(20,32))" SchemaName="P" ObjectName="ProductID">
+                            <!--P.ProductID-->
+                            <SqlIdentifier Location="((20,21),(20,22))" Value="P">
+                              <!--P-->
+                            </SqlIdentifier>
+                            <SqlIdentifier Location="((20,23),(20,32))" Value="ProductID">
+                              <!--ProductID-->
+                            </SqlIdentifier>
+                          </SqlObjectIdentifier>
+                        </SqlScalarRefExpression>
+                      </SqlComparisonBooleanExpression>
+                    </SqlBinaryBooleanExpression>
+                    <SqlComparisonBooleanExpression Location="((21,6),(21,33))" ComparisonOperator="Equals">
+                      <!--P.CategoryID = C.CategoryID-->
+                      <SqlScalarRefExpression Location="((21,6),(21,18))" ColumnOrPropertyName="CategoryID" MultipartIdentifier="P.CategoryID">
+                        <!--P.CategoryID-->
+                        <SqlObjectIdentifier Location="((21,6),(21,18))" SchemaName="P" ObjectName="CategoryID">
+                          <!--P.CategoryID-->
+                          <SqlIdentifier Location="((21,6),(21,7))" Value="P">
+                            <!--P-->
+                          </SqlIdentifier>
+                          <SqlIdentifier Location="((21,8),(21,18))" Value="CategoryID">
+                            <!--CategoryID-->
+                          </SqlIdentifier>
+                        </SqlObjectIdentifier>
+                      </SqlScalarRefExpression>
+                      <SqlScalarRefExpression Location="((21,21),(21,33))" ColumnOrPropertyName="CategoryID" MultipartIdentifier="C.CategoryID">
+                        <!--C.CategoryID-->
+                        <SqlObjectIdentifier Location="((21,21),(21,33))" SchemaName="C" ObjectName="CategoryID">
+                          <!--C.CategoryID-->
+                          <SqlIdentifier Location="((21,21),(21,22))" Value="C">
+                            <!--C-->
+                          </SqlIdentifier>
+                          <SqlIdentifier Location="((21,23),(21,33))" Value="CategoryID">
+                            <!--CategoryID-->
+                          </SqlIdentifier>
+                        </SqlObjectIdentifier>
+                      </SqlScalarRefExpression>
+                    </SqlComparisonBooleanExpression>
+                  </SqlBinaryBooleanExpression>
+                  <SqlComparisonBooleanExpression Location="((22,6),(22,36))" ComparisonOperator="Equals">
+                    <!--C.CategoryName = @CategoryName-->
+                    <SqlScalarRefExpression Location="((22,6),(22,20))" ColumnOrPropertyName="CategoryName" MultipartIdentifier="C.CategoryName">
+                      <!--C.CategoryName-->
+                      <SqlObjectIdentifier Location="((22,6),(22,20))" SchemaName="C" ObjectName="CategoryName">
+                        <!--C.CategoryName-->
+                        <SqlIdentifier Location="((22,6),(22,7))" Value="C">
+                          <!--C-->
+                        </SqlIdentifier>
+                        <SqlIdentifier Location="((22,8),(22,20))" Value="CategoryName">
+                          <!--CategoryName-->
+                        </SqlIdentifier>
+                      </SqlObjectIdentifier>
+                    </SqlScalarRefExpression>
+                    <SqlScalarVariableRefExpression Location="((22,23),(22,36))" VariableName="@CategoryName">
+                      <!--@CategoryName-->
+                    </SqlScalarVariableRefExpression>
+                  </SqlComparisonBooleanExpression>
+                </SqlBinaryBooleanExpression>
+                <SqlComparisonBooleanExpression Location="((23,6),(23,73))" ComparisonOperator="Equals">
+                  <!--SUBSTRING(CONVERT(nvarchar(22), O.OrderDate, 111), 1, 4) = @OrdYear-->
+                  <SqlBuiltinScalarFunctionCallExpression Location="((23,6),(23,62))" FunctionName="SUBSTRING" IsStar="False">
+                    <!--SUBSTRING(CONVERT(nvarchar(22), O.OrderDate, 111), 1, 4)-->
+                    <SqlConvertExpression Location="((23,16),(23,55))" FunctionName="CONVERT" IsStar="False">
+                      <!--CONVERT(nvarchar(22), O.OrderDate, 111)-->
+                      <SqlDataTypeSpecification Location="((23,24),(23,36))" Argument1="22" IsMaximum="False" IsCursor="False" XmlDocumentConstraint="None">
+                        <!--nvarchar(22)-->
+                        <SqlDataType Location="((23,24),(23,32))" ObjectIdentifier="nvarchar" National="False" Varying="False">
+                          <!--nvarchar-->
+                          <SqlObjectIdentifier Location="((23,24),(23,32))" ObjectName="nvarchar">
+                            <!--nvarchar-->
+                            <SqlIdentifier Location="((23,24),(23,32))" Value="nvarchar">
+                              <!--nvarchar-->
+                            </SqlIdentifier>
+                          </SqlObjectIdentifier>
+                        </SqlDataType>
+                      </SqlDataTypeSpecification>
+                      <SqlScalarRefExpression Location="((23,38),(23,49))" ColumnOrPropertyName="OrderDate" MultipartIdentifier="O.OrderDate">
+                        <!--O.OrderDate-->
+                        <SqlObjectIdentifier Location="((23,38),(23,49))" SchemaName="O" ObjectName="OrderDate">
+                          <!--O.OrderDate-->
+                          <SqlIdentifier Location="((23,38),(23,39))" Value="O">
+                            <!--O-->
+                          </SqlIdentifier>
+                          <SqlIdentifier Location="((23,40),(23,49))" Value="OrderDate">
+                            <!--OrderDate-->
+                          </SqlIdentifier>
+                        </SqlObjectIdentifier>
+                      </SqlScalarRefExpression>
+                      <SqlLiteralExpression Location="((23,51),(23,54))" Value="111" Type="Integer">
+                        <!--111-->
+                      </SqlLiteralExpression>
+                    </SqlConvertExpression>
+                    <SqlLiteralExpression Location="((23,57),(23,58))" Value="1" Type="Integer">
+                      <!--1-->
+                    </SqlLiteralExpression>
+                    <SqlLiteralExpression Location="((23,60),(23,61))" Value="4" Type="Integer">
+                      <!--4-->
+                    </SqlLiteralExpression>
+                  </SqlBuiltinScalarFunctionCallExpression>
+                  <SqlScalarVariableRefExpression Location="((23,65),(23,73))" VariableName="@OrdYear">
+                    <!--@OrdYear-->
+                  </SqlScalarVariableRefExpression>
+                </SqlComparisonBooleanExpression>
+              </SqlBinaryBooleanExpression>
+            </SqlWhereClause>
+            <SqlGroupByClause Location="((24,1),(24,21))" HasAll="False" Option="None">
+              <!--GROUP BY ProductName-->
+              <SqlSimpleGroupByItem Location="((24,10),(24,21))">
+                <!--ProductName-->
+                <SqlColumnRefExpression Location="((24,10),(24,21))" ColumnName="ProductName" MultipartIdentifier="ProductName">
+                  <!--ProductName-->
+                  <SqlObjectIdentifier Location="((24,10),(24,21))" ObjectName="ProductName">
+                    <!--ProductName-->
+                    <SqlIdentifier Location="((24,10),(24,21))" Value="ProductName">
+                      <!--ProductName-->
+                    </SqlIdentifier>
+                  </SqlObjectIdentifier>
+                </SqlColumnRefExpression>
+              </SqlSimpleGroupByItem>
+            </SqlGroupByClause>
+          </SqlQuerySpecification>
+          <SqlOrderByClause Location="((25,1),(25,21))">
+            <!--ORDER BY ProductName-->
+            <SqlOrderByItem Location="((25,10),(25,21))" SortOrder="None">
+              <!--ProductName-->
+              <SqlColumnRefExpression Location="((25,10),(25,21))" ColumnName="ProductName" MultipartIdentifier="ProductName">
+                <!--ProductName-->
+                <SqlObjectIdentifier Location="((25,10),(25,21))" ObjectName="ProductName">
+                  <!--ProductName-->
+                  <SqlIdentifier Location="((25,10),(25,21))" Value="ProductName">
+                    <!--ProductName-->
+                  </SqlIdentifier>
+                </SqlObjectIdentifier>
+              </SqlColumnRefExpression>
+            </SqlOrderByItem>
+          </SqlOrderByClause>
+        </SqlSelectSpecification>
+      </SqlSelectStatement>
+    </SqlAlterProcedureStatement>
+    <Tokens>
+      <Token location="((7,3), (8,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((8,1), (8,6))" id="199" type="TOKEN_ALTER">ALTER</Token>
+      <Token location="((8,6), (8,7))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((8,7), (8,16))" id="275" type="TOKEN_PROCEDURE">PROCEDURE</Token>
+      <Token location="((8,16), (8,17))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((8,17), (8,22))" id="171" type="TOKEN_ID">[dbo]</Token>
+      <Token location="((8,22), (8,23))" id="46" type=".">.</Token>
+      <Token location="((8,23), (8,40))" id="171" type="TOKEN_ID">[SalesByCategory]</Token>
+      <Token location="((8,40), (9,5))" id="544" type="LEX_WHITE">\r\n    </Token>
+      <Token location="((9,5), (9,18))" id="173" type="TOKEN_VARIABLE">@CategoryName</Token>
+      <Token location="((9,18), (9,19))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((9,19), (9,27))" id="171" type="TOKEN_ID">nvarchar</Token>
+      <Token location="((9,27), (9,28))" id="40" type="(">(</Token>
+      <Token location="((9,28), (9,30))" id="182" type="TOKEN_INTEGER">15</Token>
+      <Token location="((9,30), (9,31))" id="41" type=")">)</Token>
+      <Token location="((9,31), (9,32))" id="44" type=",">,</Token>
+      <Token location="((9,32), (9,33))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((9,33), (9,41))" id="173" type="TOKEN_VARIABLE">@OrdYear</Token>
+      <Token location="((9,41), (9,42))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((9,42), (9,50))" id="171" type="TOKEN_ID">nvarchar</Token>
+      <Token location="((9,50), (9,51))" id="40" type="(">(</Token>
+      <Token location="((9,51), (9,52))" id="182" type="TOKEN_INTEGER">4</Token>
+      <Token location="((9,52), (9,53))" id="41" type=")">)</Token>
+      <Token location="((9,53), (9,54))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((9,54), (9,55))" id="61" type="=">=</Token>
+      <Token location="((9,55), (9,56))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((9,56), (9,62))" id="174" type="TOKEN_STRING">'1998'</Token>
+      <Token location="((9,62), (10,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((10,1), (10,3))" id="203" type="TOKEN_AS">AS</Token>
+      <Token location="((10,3), (11,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((11,1), (11,3))" id="249" type="TOKEN_IF">IF</Token>
+      <Token location="((11,3), (11,4))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((11,4), (11,12))" id="173" type="TOKEN_VARIABLE">@OrdYear</Token>
+      <Token location="((11,12), (11,13))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((11,13), (11,14))" id="33" type="!">!</Token>
+      <Token location="((11,14), (11,15))" id="61" type="=">=</Token>
+      <Token location="((11,15), (11,16))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((11,16), (11,22))" id="174" type="TOKEN_STRING">'1996'</Token>
+      <Token location="((11,22), (11,23))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((11,23), (11,26))" id="136" type="TOKEN_AND">AND</Token>
+      <Token location="((11,26), (11,27))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((11,27), (11,35))" id="173" type="TOKEN_VARIABLE">@OrdYear</Token>
+      <Token location="((11,35), (11,36))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((11,36), (11,37))" id="33" type="!">!</Token>
+      <Token location="((11,37), (11,38))" id="61" type="=">=</Token>
+      <Token location="((11,38), (11,39))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((11,39), (11,45))" id="174" type="TOKEN_STRING">'1997'</Token>
+      <Token location="((11,45), (11,46))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((11,46), (11,49))" id="136" type="TOKEN_AND">AND</Token>
+      <Token location="((11,49), (11,50))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((11,50), (11,58))" id="173" type="TOKEN_VARIABLE">@OrdYear</Token>
+      <Token location="((11,58), (11,59))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((11,59), (11,60))" id="33" type="!">!</Token>
+      <Token location="((11,60), (11,61))" id="61" type="=">=</Token>
+      <Token location="((11,61), (11,62))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((11,62), (11,68))" id="174" type="TOKEN_STRING">'1998'</Token>
+      <Token location="((11,68), (12,1))" id="544" type="LEX_WHITE"> \r\n</Token>
+      <Token location="((12,1), (12,6))" id="536" type="TOKEN_BEGIN_CS">BEGIN</Token>
+      <Token location="((12,6), (13,2))" id="544" type="LEX_WHITE">\r\n\t</Token>
+      <Token location="((13,2), (13,8))" id="285" type="TOKEN_SELECT">SELECT</Token>
+      <Token location="((13,8), (13,9))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((13,9), (13,17))" id="173" type="TOKEN_VARIABLE">@OrdYear</Token>
+      <Token location="((13,17), (13,18))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((13,18), (13,19))" id="61" type="=">=</Token>
+      <Token location="((13,19), (13,20))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((13,20), (13,26))" id="174" type="TOKEN_STRING">'1998'</Token>
+      <Token location="((13,26), (14,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((14,1), (14,4))" id="537" type="TOKEN_END_CS">END</Token>
+      <Token location="((14,4), (16,1))" id="544" type="LEX_WHITE">\r\n\r\n</Token>
+      <Token location="((16,1), (16,7))" id="285" type="TOKEN_SELECT">SELECT</Token>
+      <Token location="((16,7), (16,8))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((16,8), (16,19))" id="171" type="TOKEN_ID">ProductName</Token>
+      <Token location="((16,19), (16,20))" id="44" type=",">,</Token>
+      <Token location="((16,20), (17,2))" id="544" type="LEX_WHITE">\r\n\t</Token>
+      <Token location="((17,2), (17,15))" id="171" type="TOKEN_ID">TotalPurchase</Token>
+      <Token location="((17,15), (17,16))" id="61" type="=">=</Token>
+      <Token location="((17,16), (17,21))" id="171" type="TOKEN_ID">ROUND</Token>
+      <Token location="((17,21), (17,22))" id="40" type="(">(</Token>
+      <Token location="((17,22), (17,25))" id="171" type="TOKEN_ID">SUM</Token>
+      <Token location="((17,25), (17,26))" id="40" type="(">(</Token>
+      <Token location="((17,26), (17,33))" id="221" type="TOKEN_CONVERT">CONVERT</Token>
+      <Token location="((17,33), (17,34))" id="40" type="(">(</Token>
+      <Token location="((17,34), (17,41))" id="171" type="TOKEN_ID">decimal</Token>
+      <Token location="((17,41), (17,42))" id="40" type="(">(</Token>
+      <Token location="((17,42), (17,44))" id="182" type="TOKEN_INTEGER">14</Token>
+      <Token location="((17,44), (17,45))" id="44" type=",">,</Token>
+      <Token location="((17,45), (17,46))" id="182" type="TOKEN_INTEGER">2</Token>
+      <Token location="((17,46), (17,47))" id="41" type=")">)</Token>
+      <Token location="((17,47), (17,48))" id="44" type=",">,</Token>
+      <Token location="((17,48), (17,49))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((17,49), (17,51))" id="171" type="TOKEN_ID">OD</Token>
+      <Token location="((17,51), (17,52))" id="46" type=".">.</Token>
+      <Token location="((17,52), (17,60))" id="171" type="TOKEN_ID">Quantity</Token>
+      <Token location="((17,60), (17,61))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((17,61), (17,62))" id="42" type="*">*</Token>
+      <Token location="((17,62), (17,63))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((17,63), (17,64))" id="40" type="(">(</Token>
+      <Token location="((17,64), (17,65))" id="182" type="TOKEN_INTEGER">1</Token>
+      <Token location="((17,65), (17,66))" id="45" type="-">-</Token>
+      <Token location="((17,66), (17,68))" id="171" type="TOKEN_ID">OD</Token>
+      <Token location="((17,68), (17,69))" id="46" type=".">.</Token>
+      <Token location="((17,69), (17,77))" id="171" type="TOKEN_ID">Discount</Token>
+      <Token location="((17,77), (17,78))" id="41" type=")">)</Token>
+      <Token location="((17,78), (17,79))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((17,79), (17,80))" id="42" type="*">*</Token>
+      <Token location="((17,80), (17,81))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((17,81), (17,83))" id="171" type="TOKEN_ID">OD</Token>
+      <Token location="((17,83), (17,84))" id="46" type=".">.</Token>
+      <Token location="((17,84), (17,93))" id="171" type="TOKEN_ID">UnitPrice</Token>
+      <Token location="((17,93), (17,94))" id="41" type=")">)</Token>
+      <Token location="((17,94), (17,95))" id="41" type=")">)</Token>
+      <Token location="((17,95), (17,96))" id="44" type=",">,</Token>
+      <Token location="((17,96), (17,97))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((17,97), (17,98))" id="182" type="TOKEN_INTEGER">0</Token>
+      <Token location="((17,98), (17,99))" id="41" type=")">)</Token>
+      <Token location="((17,99), (18,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((18,1), (18,5))" id="242" type="TOKEN_FROM">FROM</Token>
+      <Token location="((18,5), (18,6))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((18,6), (18,21))" id="171" type="TOKEN_ID">[Order Details]</Token>
+      <Token location="((18,21), (18,22))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((18,22), (18,24))" id="171" type="TOKEN_ID">OD</Token>
+      <Token location="((18,24), (18,25))" id="44" type=",">,</Token>
+      <Token location="((18,25), (18,26))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((18,26), (18,32))" id="171" type="TOKEN_ID">Orders</Token>
+      <Token location="((18,32), (18,33))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((18,33), (18,34))" id="171" type="TOKEN_ID">O</Token>
+      <Token location="((18,34), (18,35))" id="44" type=",">,</Token>
+      <Token location="((18,35), (18,36))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((18,36), (18,44))" id="171" type="TOKEN_ID">Products</Token>
+      <Token location="((18,44), (18,45))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((18,45), (18,46))" id="171" type="TOKEN_ID">P</Token>
+      <Token location="((18,46), (18,47))" id="44" type=",">,</Token>
+      <Token location="((18,47), (18,48))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((18,48), (18,58))" id="171" type="TOKEN_ID">Categories</Token>
+      <Token location="((18,58), (18,59))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((18,59), (18,60))" id="171" type="TOKEN_ID">C</Token>
+      <Token location="((18,60), (19,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((19,1), (19,6))" id="305" type="TOKEN_WHERE">WHERE</Token>
+      <Token location="((19,6), (19,7))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((19,7), (19,9))" id="171" type="TOKEN_ID">OD</Token>
+      <Token location="((19,9), (19,10))" id="46" type=".">.</Token>
+      <Token location="((19,10), (19,17))" id="171" type="TOKEN_ID">OrderID</Token>
+      <Token location="((19,17), (19,18))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((19,18), (19,19))" id="61" type="=">=</Token>
+      <Token location="((19,19), (19,20))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((19,20), (19,21))" id="171" type="TOKEN_ID">O</Token>
+      <Token location="((19,21), (19,22))" id="46" type=".">.</Token>
+      <Token location="((19,22), (19,29))" id="171" type="TOKEN_ID">OrderID</Token>
+      <Token location="((19,29), (20,2))" id="544" type="LEX_WHITE"> \r\n\t</Token>
+      <Token location="((20,2), (20,5))" id="136" type="TOKEN_AND">AND</Token>
+      <Token location="((20,5), (20,6))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((20,6), (20,8))" id="171" type="TOKEN_ID">OD</Token>
+      <Token location="((20,8), (20,9))" id="46" type=".">.</Token>
+      <Token location="((20,9), (20,18))" id="171" type="TOKEN_ID">ProductID</Token>
+      <Token location="((20,18), (20,19))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((20,19), (20,20))" id="61" type="=">=</Token>
+      <Token location="((20,20), (20,21))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((20,21), (20,22))" id="171" type="TOKEN_ID">P</Token>
+      <Token location="((20,22), (20,23))" id="46" type=".">.</Token>
+      <Token location="((20,23), (20,32))" id="171" type="TOKEN_ID">ProductID</Token>
+      <Token location="((20,32), (21,2))" id="544" type="LEX_WHITE"> \r\n\t</Token>
+      <Token location="((21,2), (21,5))" id="136" type="TOKEN_AND">AND</Token>
+      <Token location="((21,5), (21,6))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((21,6), (21,7))" id="171" type="TOKEN_ID">P</Token>
+      <Token location="((21,7), (21,8))" id="46" type=".">.</Token>
+      <Token location="((21,8), (21,18))" id="171" type="TOKEN_ID">CategoryID</Token>
+      <Token location="((21,18), (21,19))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((21,19), (21,20))" id="61" type="=">=</Token>
+      <Token location="((21,20), (21,21))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((21,21), (21,22))" id="171" type="TOKEN_ID">C</Token>
+      <Token location="((21,22), (21,23))" id="46" type=".">.</Token>
+      <Token location="((21,23), (21,33))" id="171" type="TOKEN_ID">CategoryID</Token>
+      <Token location="((21,33), (22,2))" id="544" type="LEX_WHITE">\r\n\t</Token>
+      <Token location="((22,2), (22,5))" id="136" type="TOKEN_AND">AND</Token>
+      <Token location="((22,5), (22,6))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((22,6), (22,7))" id="171" type="TOKEN_ID">C</Token>
+      <Token location="((22,7), (22,8))" id="46" type=".">.</Token>
+      <Token location="((22,8), (22,20))" id="171" type="TOKEN_ID">CategoryName</Token>
+      <Token location="((22,20), (22,21))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((22,21), (22,22))" id="61" type="=">=</Token>
+      <Token location="((22,22), (22,23))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((22,23), (22,36))" id="173" type="TOKEN_VARIABLE">@CategoryName</Token>
+      <Token location="((22,36), (23,2))" id="544" type="LEX_WHITE">\r\n\t</Token>
+      <Token location="((23,2), (23,5))" id="136" type="TOKEN_AND">AND</Token>
+      <Token location="((23,5), (23,6))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((23,6), (23,15))" id="171" type="TOKEN_ID">SUBSTRING</Token>
+      <Token location="((23,15), (23,16))" id="40" type="(">(</Token>
+      <Token location="((23,16), (23,23))" id="221" type="TOKEN_CONVERT">CONVERT</Token>
+      <Token location="((23,23), (23,24))" id="40" type="(">(</Token>
+      <Token location="((23,24), (23,32))" id="171" type="TOKEN_ID">nvarchar</Token>
+      <Token location="((23,32), (23,33))" id="40" type="(">(</Token>
+      <Token location="((23,33), (23,35))" id="182" type="TOKEN_INTEGER">22</Token>
+      <Token location="((23,35), (23,36))" id="41" type=")">)</Token>
+      <Token location="((23,36), (23,37))" id="44" type=",">,</Token>
+      <Token location="((23,37), (23,38))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((23,38), (23,39))" id="171" type="TOKEN_ID">O</Token>
+      <Token location="((23,39), (23,40))" id="46" type=".">.</Token>
+      <Token location="((23,40), (23,49))" id="171" type="TOKEN_ID">OrderDate</Token>
+      <Token location="((23,49), (23,50))" id="44" type=",">,</Token>
+      <Token location="((23,50), (23,51))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((23,51), (23,54))" id="182" type="TOKEN_INTEGER">111</Token>
+      <Token location="((23,54), (23,55))" id="41" type=")">)</Token>
+      <Token location="((23,55), (23,56))" id="44" type=",">,</Token>
+      <Token location="((23,56), (23,57))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((23,57), (23,58))" id="182" type="TOKEN_INTEGER">1</Token>
+      <Token location="((23,58), (23,59))" id="44" type=",">,</Token>
+      <Token location="((23,59), (23,60))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((23,60), (23,61))" id="182" type="TOKEN_INTEGER">4</Token>
+      <Token location="((23,61), (23,62))" id="41" type=")">)</Token>
+      <Token location="((23,62), (23,63))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((23,63), (23,64))" id="61" type="=">=</Token>
+      <Token location="((23,64), (23,65))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((23,65), (23,73))" id="173" type="TOKEN_VARIABLE">@OrdYear</Token>
+      <Token location="((23,73), (24,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((24,1), (24,6))" id="245" type="TOKEN_GROUP">GROUP</Token>
+      <Token location="((24,6), (24,7))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((24,7), (24,9))" id="211" type="TOKEN_BY">BY</Token>
+      <Token location="((24,9), (24,10))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((24,10), (24,21))" id="171" type="TOKEN_ID">ProductName</Token>
+      <Token location="((24,21), (25,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((25,1), (25,6))" id="271" type="TOKEN_ORDER">ORDER</Token>
+      <Token location="((25,6), (25,7))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((25,7), (25,9))" id="211" type="TOKEN_BY">BY</Token>
+      <Token location="((25,9), (25,10))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((25,10), (25,21))" id="171" type="TOKEN_ID">ProductName</Token>
+      <Token location="((25,21), (26,1))" id="544" type="LEX_WHITE">\r\n</Token>
+    </Tokens>
+  </SqlBatch>
+</SqlScript>

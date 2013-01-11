@@ -13,10 +13,10 @@ using System.Data.Entity.Infrastructure;
 
 namespace AWorks_Database
 {
-    public partial class AdventureWorksLT2008R2Entities : DbContext
+    public partial class AWorksLTEntities : DbContext
     {
-        public AdventureWorksLT2008R2Entities()
-            : base("name=AdventureWorksLT2008R2Entities")
+        public AWorksLTEntities()
+            : base("name=AWorksLTEntities")
         {
         }
     

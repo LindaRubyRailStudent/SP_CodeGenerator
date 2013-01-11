@@ -75,8 +75,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AndOrOpertor.xml" />
+    <Content Include="Templates\AndOrOpertor.xml" />
+    <Content Include="Templates\Model1xml.xml" />
     <Content Include="Templates\XMLFiles\AndOrOpertor.xml" />
     <Content Include="Templates\XMLFiles\CustOrdHist.xml" />
+    <Content Include="Templates\XMLFiles\Model1xml.xml" />
     <Content Include="Templates\XMLFiles\SELECT ProductID, ProductName FROM Products,Customers.xml" />
     <Content Include="Templates\XMLFiles\SELECT ProductID,ProductName FROM Products.xml" />
     <Content Include="Templates\XMLFiles\SelectDistinct.xml" />

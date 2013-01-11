@@ -1,0 +1,78 @@
+<SqlScript Location="((1,1), (1,60))">
+  <!--SELECT ProductName FROM Products WHERE ProductName = 'Tofu'-->
+  <Errors />
+  <SqlBatch Location="((1,1), (1,60))">
+    <!--SELECT ProductName FROM Products WHERE ProductName = 'Tofu'-->
+    <SqlSelectStatement Location="((1,1),(1,60))">
+      <!--SELECT ProductName FROM Products WHERE ProductName = 'Tofu'-->
+      <SqlSelectSpecification Location="((1,1),(1,60))">
+        <!--SELECT ProductName FROM Products WHERE ProductName = 'Tofu'-->
+        <SqlQuerySpecification Location="((1,1),(1,60))">
+          <!--SELECT ProductName FROM Products WHERE ProductName = 'Tofu'-->
+          <SqlSelectClause Location="((1,1),(1,19))" IsDistinct="False">
+            <!--SELECT ProductName-->
+            <SqlSelectScalarExpression Location="((1,8),(1,19))">
+              <!--ProductName-->
+              <SqlColumnRefExpression Location="((1,8),(1,19))" ColumnName="ProductName" MultipartIdentifier="ProductName">
+                <!--ProductName-->
+                <SqlObjectIdentifier Location="((1,8),(1,19))" ObjectName="ProductName">
+                  <!--ProductName-->
+                  <SqlIdentifier Location="((1,8),(1,19))" Value="ProductName">
+                    <!--ProductName-->
+                  </SqlIdentifier>
+                </SqlObjectIdentifier>
+              </SqlColumnRefExpression>
+            </SqlSelectScalarExpression>
+          </SqlSelectClause>
+          <SqlFromClause Location="((1,20),(1,33))">
+            <!--FROM Products-->
+            <SqlTableRefExpression Location="((1,25),(1,33))" ObjectIdentifier="Products">
+              <!--Products-->
+              <SqlObjectIdentifier Location="((1,25),(1,33))" ObjectName="Products">
+                <!--Products-->
+                <SqlIdentifier Location="((1,25),(1,33))" Value="Products">
+                  <!--Products-->
+                </SqlIdentifier>
+              </SqlObjectIdentifier>
+            </SqlTableRefExpression>
+          </SqlFromClause>
+          <SqlWhereClause Location="((1,34),(1,60))">
+            <!--WHERE ProductName = 'Tofu'-->
+            <SqlComparisonBooleanExpression Location="((1,40),(1,60))" ComparisonOperator="Equals">
+              <!--ProductName = 'Tofu'-->
+              <SqlColumnRefExpression Location="((1,40),(1,51))" ColumnName="ProductName" MultipartIdentifier="ProductName">
+                <!--ProductName-->
+                <SqlObjectIdentifier Location="((1,40),(1,51))" ObjectName="ProductName">
+                  <!--ProductName-->
+                  <SqlIdentifier Location="((1,40),(1,51))" Value="ProductName">
+                    <!--ProductName-->
+                  </SqlIdentifier>
+                </SqlObjectIdentifier>
+              </SqlColumnRefExpression>
+              <SqlLiteralExpression Location="((1,54),(1,60))" Value="Tofu" Type="String">
+                <!--'Tofu'-->
+              </SqlLiteralExpression>
+            </SqlComparisonBooleanExpression>
+          </SqlWhereClause>
+        </SqlQuerySpecification>
+      </SqlSelectSpecification>
+    </SqlSelectStatement>
+    <Tokens>
+      <Token location="((1,1), (1,7))" id="285" type="TOKEN_SELECT">SELECT</Token>
+      <Token location="((1,7), (1,8))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((1,8), (1,19))" id="171" type="TOKEN_ID">ProductName</Token>
+      <Token location="((1,19), (1,20))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((1,20), (1,24))" id="242" type="TOKEN_FROM">FROM</Token>
+      <Token location="((1,24), (1,25))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((1,25), (1,33))" id="171" type="TOKEN_ID">Products</Token>
+      <Token location="((1,33), (1,34))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((1,34), (1,39))" id="305" type="TOKEN_WHERE">WHERE</Token>
+      <Token location="((1,39), (1,40))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((1,40), (1,51))" id="171" type="TOKEN_ID">ProductName</Token>
+      <Token location="((1,51), (1,52))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((1,52), (1,53))" id="61" type="=">=</Token>
+      <Token location="((1,53), (1,54))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((1,54), (1,60))" id="174" type="TOKEN_STRING">'Tofu'</Token>
+    </Tokens>
+  </SqlBatch>
+</SqlScript>

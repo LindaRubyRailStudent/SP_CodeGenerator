@@ -159,6 +159,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
@@ -171,6 +172,39 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="AndOrOpertor.xml" />
+    <Content Include="Model1xml.xml" />
+    <Content Include="Templates\AndOrOpertor.xml" />
+    <Content Include="Templates\Model1xml.xml" />
+    <Content Include="Templates\XMLFiles\AndOrOpertor.xml" />
+    <Content Include="Templates\XMLFiles\CustOrdHist.xml" />
+    <Content Include="Templates\XMLFiles\Model1xml.xml" />
+    <Content Include="Templates\XMLFiles\SELECT ProductID, ProductName FROM Products,Customers.xml" />
+    <Content Include="Templates\XMLFiles\SELECT ProductID,ProductName FROM Products.xml" />
+    <Content Include="Templates\XMLFiles\SelectDistinct.xml" />
+    <Content Include="Templates\XMLFiles\Selectstatement.xml" />
+    <Content Include="Templates\XMLFiles\SelectTest.xml" />
+    <Content Include="Templates\XMLFiles\StoredProcedure1.xml" />
+    <Content Include="Templates\XMLFiles\tokens.xml" />
+    <Content Include="Templates\XMLFiles\WhereEqualsInteger.xml" />
+    <Content Include="Templates\XMLFiles\WhereEqualsString.xml" />
+    <Content Include="Templates\XMLFiles\WhereGreaterThanorEqual.xml" />
+    <Content Include="XMLFiles\AndOrOpertor.xml" />
+    <Content Include="XMLFiles\CustOrdHist.xml" />
+    <Content Include="XMLFiles\Model1xml.xml" />
+    <Content Include="XMLFiles\SELECT ProductID, ProductName FROM Products,Customers.xml" />
+    <Content Include="XMLFiles\SELECT ProductID,ProductName FROM Products.xml" />
+    <Content Include="XMLFiles\SelectDistinct.xml" />
+    <Content Include="XMLFiles\Selectstatement.xml" />
+    <Content Include="XMLFiles\SelectTest.xml" />
+    <Content Include="XMLFiles\StoredProcedure1.xml" />
+    <Content Include="XMLFiles\tokens.xml" />
+    <Content Include="XMLFiles\WhereEqualsInteger.xml" />
+    <Content Include="XMLFiles\WhereEqualsString.xml" />
+    <Content Include="XMLFiles\WhereGreaterThanorEqual.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

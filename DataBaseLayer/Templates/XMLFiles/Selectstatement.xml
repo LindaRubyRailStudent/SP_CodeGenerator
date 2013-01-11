@@ -1,0 +1,46 @@
+<SqlScript Location="((1,1), (2,1))">
+  <!--SELECT * FROM Products
+-->
+  <Errors />
+  <SqlBatch Location="((1,1), (2,1))">
+    <!--SELECT * FROM Products
+-->
+    <SqlSelectStatement Location="((1,1),(1,23))">
+      <!--SELECT * FROM Products-->
+      <SqlSelectSpecification Location="((1,1),(1,23))">
+        <!--SELECT * FROM Products-->
+        <SqlQuerySpecification Location="((1,1),(1,23))">
+          <!--SELECT * FROM Products-->
+          <SqlSelectClause Location="((1,1),(1,9))" IsDistinct="False">
+            <!--SELECT *-->
+            <SqlSelectStarExpression Location="((1,8),(1,9))">
+              <!--*-->
+            </SqlSelectStarExpression>
+          </SqlSelectClause>
+          <SqlFromClause Location="((1,10),(1,23))">
+            <!--FROM Products-->
+            <SqlTableRefExpression Location="((1,15),(1,23))" ObjectIdentifier="Products">
+              <!--Products-->
+              <SqlObjectIdentifier Location="((1,15),(1,23))" ObjectName="Products">
+                <!--Products-->
+                <SqlIdentifier Location="((1,15),(1,23))" Value="Products">
+                  <!--Products-->
+                </SqlIdentifier>
+              </SqlObjectIdentifier>
+            </SqlTableRefExpression>
+          </SqlFromClause>
+        </SqlQuerySpecification>
+      </SqlSelectSpecification>
+    </SqlSelectStatement>
+    <Tokens>
+      <Token location="((1,1), (1,7))" id="285" type="TOKEN_SELECT">SELECT</Token>
+      <Token location="((1,7), (1,8))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((1,8), (1,9))" id="42" type="*">*</Token>
+      <Token location="((1,9), (1,10))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((1,10), (1,14))" id="242" type="TOKEN_FROM">FROM</Token>
+      <Token location="((1,14), (1,15))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((1,15), (1,23))" id="171" type="TOKEN_ID">Products</Token>
+      <Token location="((1,23), (2,1))" id="544" type="LEX_WHITE">\r\n</Token>
+    </Tokens>
+  </SqlBatch>
+</SqlScript>
