@@ -52,6 +52,9 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.Management.Sdk.Sfc, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.Smo, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -69,6 +72,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Generic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReadStoredProc.cs" />
     <Compile Include="Template1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -95,6 +99,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AWorks\AWorks.csproj">
+      <Project>{44B1AF3B-1894-435F-8977-A130BB51695C}</Project>
+      <Name>AWorks</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataBaseLayer\DataBaseLayer.csproj">
       <Project>{0C126BCD-87AE-4798-948D-C0EE84861D4A}</Project>
       <Name>DataBaseLayer</Name>
@@ -102,6 +110,21 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="XMLFiles\AndOrOpertor.xml" />
+    <Content Include="XMLFiles\CustOrdHist.xml" />
+    <Content Include="XMLFiles\Model1xml.xml" />
+    <Content Include="XMLFiles\SELECT ProductID, ProductName FROM Products,Customers.xml" />
+    <Content Include="XMLFiles\SELECT ProductID,ProductName FROM Products.xml" />
+    <Content Include="XMLFiles\SelectDistinct.xml" />
+    <Content Include="XMLFiles\Selectstatement.xml" />
+    <Content Include="XMLFiles\SelectTest.xml" />
+    <Content Include="XMLFiles\StoredProcedure1.xml" />
+    <Content Include="XMLFiles\tokens.xml" />
+    <Content Include="XMLFiles\WhereEqualsInteger.xml" />
+    <Content Include="XMLFiles\WhereEqualsString.xml" />
+    <Content Include="XMLFiles\WhereGreaterThanorEqual.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

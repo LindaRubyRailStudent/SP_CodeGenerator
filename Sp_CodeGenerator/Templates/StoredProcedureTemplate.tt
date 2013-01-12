@@ -6,7 +6,7 @@
 <#@ Assembly Name="System.Xml.Linq"#>
 <#@ assembly name="EnvDTE" #>
 <#@ assembly name="C:\webtech\THESIS\TsqlParser\TsqlParser\bin\Debug\TsqlParser.dll" #>
-<#@ assembly name="C:\Sp_CodeGenerator\ExtensionMethods\bin\x86\Debug\ExtensionMethods.dll" #>
+<#@ assembly name="C:\Sp_CodeGenerator\ExtensionMethods\obj\x86\Debug\ExtensionMethods.dll" #>
 <#@ import namespace="System" #>
 <#@ import namespace="System.IO" #>
 <#@ import namespace="System.Diagnostics" #>
@@ -21,6 +21,7 @@
 <#@ include file="EF.Utility.CS.ttinclude"#>
 
 <#
+	// reads in the Xml file
 	string SampleInputFile = System.IO.File.ReadAllText(this.Host.ResolvePath(@"XMLFiles\AndOrOpertor.xml"));
 	MetadataLoader loader = new MetadataLoader(this);
 	string inputFile = @"c:\Sp_CodeGenerator\AWorks_Database\Model1.edmx";
@@ -28,9 +29,10 @@
 	var entityCollection = itemCollection.GetItems< System.Data.Metadata.Edm.EntityType>();
 	string EFXmlFiile = System.IO.File.ReadAllText(this.Host.ResolvePath(@"XMLFiles\Model1xml.xml"));
 	XDocument EfXmlXDoc = Parse(EFXmlFiile);
-	//IServiceProvider serviceProvider = (IServiceProvider)this.Host;
-	//DTE dte = serviceProvider.GetService(typeof(DTE)) as DTE;
-	//foreach(EdmProperty edmproperty in itemCollection.Item.MetadataProperties.
+
+	//Parses the Stored Procedures to XML files and saves them to the Templates\XMLFiles Folder
+	//TsqlParser.ParseSql p = new TsqlParser.ParseSql();
+	//p.Main();
 
 #>
 

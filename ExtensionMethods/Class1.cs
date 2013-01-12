@@ -9,6 +9,7 @@ using DataBaseLayer;
 using System.Data.Entity.Design.PluralizationServices;
 using System.Globalization;
 using System.Data.Metadata.Edm;
+using AWorks;
 
 
 namespace ExtensionMethods
@@ -241,8 +242,8 @@ namespace ExtensionMethods
         /// <returns>The list of tokens with the dataType property completed</returns>
         public static List<Token> gDataType(List<Token> list)
         {
-            NorthwindEntities db = new NorthwindEntities();
-            Product product = new Product();
+            DataBaseLayer.NorthwindEntities db = new NorthwindEntities();
+            DataBaseLayer.Product product = new DataBaseLayer.Product();
             foreach (var t in list)
             {
                 if (t.Sql == "param")
@@ -363,6 +364,14 @@ namespace ExtensionMethods
             }
             return StringList;
         }
+
+        //public static object callProc()
+        //{
+        //    AWorks.AWorksLTEntities context = new AWorksLTEntities();
+        //    int x = context.CalcInnerJoin();
+        //    object o = new object();
+        //    return o;
+        //}
 
     }
 }
