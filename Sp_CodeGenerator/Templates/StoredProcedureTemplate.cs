@@ -6,12 +6,20 @@
 namespace Sp_CodeGenerator{
 	using System;
 	using System.Collections.Generic;
-	using DataBaseLayer;
+	using AWorks;
 	using System.Linq;
 
 
  public class MyGeneratedClass{
-	private NorthwindEntities db = new NorthwindEntities();
-	  }
+	private AWorksLTEntities db = new AWorksLTEntities();
+	
+	public IList<Product> SelectAllAlt()
+	{
+		var products  = from p in db.Products
+					orderby p.Name ascending
+					select new { p };
+					return products as IList<Product>;
+	}
+  }
 }
 

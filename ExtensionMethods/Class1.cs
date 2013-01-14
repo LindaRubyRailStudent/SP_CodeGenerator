@@ -372,6 +372,5 @@ namespace ExtensionMethods
         //    object o = new object();
         //    return o;
         //}
-
     }
 }

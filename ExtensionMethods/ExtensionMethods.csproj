@@ -70,9 +70,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="FromClause.cs" />
     <Compile Include="Generic.cs" />
+    <Compile Include="OrderByClause.cs" />
+    <Compile Include="ProcDef.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReadStoredProc.cs" />
+    <Compile Include="SelectClause.cs" />
     <Compile Include="Template1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -114,6 +117,21 @@
   <ItemGroup>
     <Content Include="XMLFiles\AndOrOpertor.xml" />
     <Content Include="XMLFiles\CustOrdHist.xml" />
+    <Content Include="XMLFiles\dbo.CalcInnerJoin.StoredProcedure.txt.xml" />
+    <Content Include="XMLFiles\dbo.CInnerJoin.StoredProcedure.sql.xml" />
+    <Content Include="XMLFiles\dbo.RevenueCalcuation.StoredProcedure.sql.xml" />
+    <Content Include="XMLFiles\dbo.SelectAll.StoredProcedure.sql.xml" />
+    <Content Include="XMLFiles\dbo.SelectAllAlt.StoredProcedure.sql.xml" />
+    <Content Include="XMLFiles\dbo.SelectDistinct.StoredProcedure.sql.xml" />
+    <Content Include="XMLFiles\dbo.SelectSubset.StoredProcedure.sql.xml" />
+    <Content Include="XMLFiles\dbo.SelectWhereNoParams.StoredProcedure.sql.xml" />
+    <Content Include="XMLFiles\dbo.Where3Conditions.StoredProcedure.sql.xml" />
+    <Content Include="XMLFiles\dbo.WhereBetweenValues.StoredProcedure.sql.xml" />
+    <Content Include="XMLFiles\dbo.WhereClauseOneArgument.StoredProcedure.sql.xml" />
+    <Content Include="XMLFiles\dbo.WhereComparisonOperator.StoredProcedure.sql.xml" />
+    <Content Include="XMLFiles\dbo.WhereLikeString.StoredProcedure.sql.xml" />
+    <Content Include="XMLFiles\dbo.WhereListValues.StoredProcedure.sql.xml" />
+    <Content Include="XMLFiles\dbo.WhereSeveralConditions.StoredProcedure.sql.xml" />
     <Content Include="XMLFiles\Model1xml.xml" />
     <Content Include="XMLFiles\SELECT ProductID, ProductName FROM Products,Customers.xml" />
     <Content Include="XMLFiles\SELECT ProductID,ProductName FROM Products.xml" />

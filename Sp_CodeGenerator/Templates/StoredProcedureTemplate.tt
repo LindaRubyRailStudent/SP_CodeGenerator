@@ -22,7 +22,7 @@
 
 <#
 	// reads in the Xml file
-	string SampleInputFile = System.IO.File.ReadAllText(this.Host.ResolvePath(@"XMLFiles\AndOrOpertor.xml"));
+	string SampleInputFile = System.IO.File.ReadAllText(this.Host.ResolvePath(@"dbo.SelectAllAlt.StoredProcedure.sql.xml"));
 	MetadataLoader loader = new MetadataLoader(this);
 	string inputFile = @"c:\Sp_CodeGenerator\AWorks_Database\Model1.edmx";
 	EdmItemCollection itemCollection = loader.CreateEdmItemCollection(inputFile);
@@ -41,16 +41,24 @@
 namespace Sp_CodeGenerator{
 	using System;
 	using System.Collections.Generic;
-	using DataBaseLayer;
+	using AWorks;
 	using System.Linq;
 
 
  public class MyGeneratedClass{
-	private NorthwindEntities db = new NorthwindEntities();
-	<# XDocument XmlDoc = Parse(SampleInputFile); 
-	List<ExtensionMethods.Token> listTokens = ExtensionMethods.ExtensionMethods.getToken(XmlDoc);
-	String classString = createClass(listTokens);
+	private AWorksLTEntities db = new AWorksLTEntities();
+	<# XDocument XmlDoc = Parse(SampleInputFile);
+	//List<ExtensionMethods.Token> listTokens = ExtensionMethods.ExtensionMethods.getToken(XmlDoc);
+	//String classString = createClass(listTokens);
+	ExtensionMethods.ProcDef procedureDef = ExtensionMethods.ProcDef.getProcDef(XmlDoc);
+	ExtensionMethods.SelectClause selectClause = ExtensionMethods.SelectClause.getSelectClause(XmlDoc);
+	ExtensionMethods.FromClause fromClause = ExtensionMethods.FromClause.getFromClause(XmlDoc);
+	ExtensionMethods.OrderByClause orderClause = ExtensionMethods.OrderByClause.getOrderBy(XmlDoc);
+
+	string classString = writeClass(procedureDef, selectClause, fromClause, orderClause);
 	#>
+
+	<#= classString #>
   }
 }
 
@@ -80,4 +88,19 @@ private string createClass(List<ExtensionMethods.Token> listTokens)
 			return sb.ToString();
 		}
 
+private string writeClass(ExtensionMethods.ProcDef procedureDef, ExtensionMethods.SelectClause selectClause, ExtensionMethods.FromClause fromClause, ExtensionMethods.OrderByClause orderBy){
+		StringBuilder sb = new StringBuilder();
+		sb.Append("public IList<Product> " + procedureDef.ObjectName + "()").AppendLine();
+		sb.Append("	{").AppendLine();
+		sb.Append("		var " + ExtensionMethods.ExtensionMethods.Pluralise(fromClause._tableAlias.FirstOrDefault().ToLower()) + "  = from p in db." + ExtensionMethods.ExtensionMethods.Pluralise(fromClause._tableAlias.FirstOrDefault()) + "").AppendLine();		
+		if(orderBy._orderby.Count != 0){
+			foreach(var l in orderBy._orderby){
+			sb.Append("					orderby p." + l.Key + " " + l.Value.ToLower()).AppendLine();
+            }
+		}	
+		sb.Append("					select new { p };").AppendLine();
+		sb.Append("					return " + ExtensionMethods.ExtensionMethods.Pluralise(fromClause._tableAlias.FirstOrDefault().ToLower())+" as IList<Product>;").AppendLine();
+		sb.Append("	}");
+		return sb.ToString();
+        }
 #>
