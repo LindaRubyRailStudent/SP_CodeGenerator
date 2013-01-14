@@ -87,6 +87,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UnitOfWork.tt</DependentUpon>
     </Compile>
+    <Compile Include="WhereClause.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -115,6 +116,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="dbo.SelectWhereNoParams.StoredProcedure.sql.xml" />
     <Content Include="XMLFiles\AndOrOpertor.xml" />
     <Content Include="XMLFiles\CustOrdHist.xml" />
     <Content Include="XMLFiles\dbo.CalcInnerJoin.StoredProcedure.txt.xml" />

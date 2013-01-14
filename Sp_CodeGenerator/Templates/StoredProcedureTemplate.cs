@@ -13,11 +13,13 @@ namespace Sp_CodeGenerator{
  public class MyGeneratedClass{
 	private AWorksLTEntities db = new AWorksLTEntities();
 	
-	public IList<Product> SelectAllAlt()
+	public IList<Product> SelectWhereNoParams()
 	{
 		var products  = from p in db.Products
 					orderby p.Name ascending
-					select new { p };
+					where   p.Name  ==  "R"
+					 &&    p.Weight  <  4
+					select new {p.Name, p.ProductNumber, p.ListPrice, };
 					return products as IList<Product>;
 	}
   }

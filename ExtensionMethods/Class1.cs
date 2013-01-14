@@ -372,5 +372,19 @@ namespace ExtensionMethods
         //    object o = new object();
         //    return o;
         //}
+
+        public static String convertBinBool(this String s){
+            s = s.Replace("and", " && ");
+            s = s.Replace("or", " | ");
+            s = s.Replace("not", " ! ");
+            return s;
+        }
+
+        public static String ToInvertedCommas(this String s)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("\"" + s + "\"");
+            return sb.ToString();
+        }
     }
 }

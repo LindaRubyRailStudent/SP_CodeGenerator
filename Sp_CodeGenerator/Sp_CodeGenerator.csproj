@@ -81,6 +81,8 @@
     <Content Include="AndOrOpertor.xml" />
     <Content Include="Templates\AndOrOpertor.xml" />
     <Content Include="Templates\dbo.SelectAllAlt.StoredProcedure.sql.xml" />
+    <Content Include="Templates\dbo.SelectSubset.StoredProcedure.sql.xml" />
+    <Content Include="Templates\dbo.SelectWhereNoParams.StoredProcedure.sql.xml" />
     <Content Include="Templates\Model1xml.xml" />
     <Content Include="Templates\XMLFiles\AndOrOpertor.xml" />
     <Content Include="Templates\XMLFiles\CustOrdHist.xml" />

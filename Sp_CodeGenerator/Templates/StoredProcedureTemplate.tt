@@ -22,7 +22,7 @@
 
 <#
 	// reads in the Xml file
-	string SampleInputFile = System.IO.File.ReadAllText(this.Host.ResolvePath(@"dbo.SelectAllAlt.StoredProcedure.sql.xml"));
+	string SampleInputFile = System.IO.File.ReadAllText(this.Host.ResolvePath(@"dbo.SelectWhereNoParams.StoredProcedure.sql.xml"));
 	MetadataLoader loader = new MetadataLoader(this);
 	string inputFile = @"c:\Sp_CodeGenerator\AWorks_Database\Model1.edmx";
 	EdmItemCollection itemCollection = loader.CreateEdmItemCollection(inputFile);
@@ -54,8 +54,9 @@ namespace Sp_CodeGenerator{
 	ExtensionMethods.SelectClause selectClause = ExtensionMethods.SelectClause.getSelectClause(XmlDoc);
 	ExtensionMethods.FromClause fromClause = ExtensionMethods.FromClause.getFromClause(XmlDoc);
 	ExtensionMethods.OrderByClause orderClause = ExtensionMethods.OrderByClause.getOrderBy(XmlDoc);
+	List<ExtensionMethods.WhereClause> whereClause = ExtensionMethods.WhereClause.getWhereClause(XmlDoc);
 
-	string classString = writeClass(procedureDef, selectClause, fromClause, orderClause);
+	string classString = writeClass(procedureDef, selectClause, fromClause, orderClause, whereClause);
 	#>
 
 	<#= classString #>
@@ -88,7 +89,12 @@ private string createClass(List<ExtensionMethods.Token> listTokens)
 			return sb.ToString();
 		}
 
-private string writeClass(ExtensionMethods.ProcDef procedureDef, ExtensionMethods.SelectClause selectClause, ExtensionMethods.FromClause fromClause, ExtensionMethods.OrderByClause orderBy){
+private string writeClass(ExtensionMethods.ProcDef procedureDef, 
+							ExtensionMethods.SelectClause selectClause, 
+							ExtensionMethods.FromClause fromClause, 
+							ExtensionMethods.OrderByClause orderBy, 
+							List<ExtensionMethods.WhereClause> whereClause)
+		{
 		StringBuilder sb = new StringBuilder();
 		sb.Append("public IList<Product> " + procedureDef.ObjectName + "()").AppendLine();
 		sb.Append("	{").AppendLine();
@@ -97,8 +103,18 @@ private string writeClass(ExtensionMethods.ProcDef procedureDef, ExtensionMethod
 			foreach(var l in orderBy._orderby){
 			sb.Append("					orderby p." + l.Key + " " + l.Value.ToLower()).AppendLine();
             }
-		}	
-		sb.Append("					select new { p };").AppendLine();
+		}
+		if(whereClause.Count() != 0){
+			for (int i = 0; i<whereClause.Count(); i++){
+				sb.Append("					"+whereClause[i]._binaryBoolean + "   p." + whereClause[i]._operator + " " + whereClause[i]._searchCondition + " " + whereClause[i]._expression.Key ).AppendLine();
+            }
+        }
+
+		sb.Append("					select new {");	
+			foreach(var c in selectClause._columnName){
+				sb.Append("p."+c + ", ");
+			}	
+		sb.Append("};").AppendLine();
 		sb.Append("					return " + ExtensionMethods.ExtensionMethods.Pluralise(fromClause._tableAlias.FirstOrDefault().ToLower())+" as IList<Product>;").AppendLine();
 		sb.Append("	}");
 		return sb.ToString();
