@@ -22,7 +22,7 @@
 
 <#
 	// reads in the Xml file
-	string SampleInputFile = System.IO.File.ReadAllText(this.Host.ResolvePath(@"dbo.SelectWhereNoParams.StoredProcedure.sql.xml"));
+	string SampleInputFile = System.IO.File.ReadAllText(this.Host.ResolvePath(@"dbo.CInnerJoin.StoredProcedure.sql.xml"));
 	MetadataLoader loader = new MetadataLoader(this);
 	string inputFile = @"c:\Sp_CodeGenerator\AWorks_Database\Model1.edmx";
 	EdmItemCollection itemCollection = loader.CreateEdmItemCollection(inputFile);
@@ -33,7 +33,6 @@
 	//Parses the Stored Procedures to XML files and saves them to the Templates\XMLFiles Folder
 	//TsqlParser.ParseSql p = new TsqlParser.ParseSql();
 	//p.Main();
-
 #>
 
 // This is the output code from your template
@@ -50,11 +49,37 @@ namespace Sp_CodeGenerator{
 	<# XDocument XmlDoc = Parse(SampleInputFile);
 	//List<ExtensionMethods.Token> listTokens = ExtensionMethods.ExtensionMethods.getToken(XmlDoc);
 	//String classString = createClass(listTokens);
+	XmlDocument Xmldocument = new XmlDocument();
+	Xmldocument.Load(this.Host.ResolvePath(@"dbo.CInnerJoin.StoredProcedure.sql.xml"));
+
+	/// From Clause Objects
+	List<object> fromclause = ExtensionMethods.FromClause.ReadNodes(Xmldocument);
+	List<ExtensionMethods.SqlComparisonBooleanExpression> sqlCompBoolList = ExtensionMethods.SqlComparisonBooleanExpression.getSqlCompBool(fromclause);
+	List<ExtensionMethods.SqlConditionClause> sqlCondition = ExtensionMethods.SqlConditionClause.getSqlCondition(fromclause);
+	List<ExtensionMethods.SqlObjectIdentifier> sqlObjectID = ExtensionMethods.SqlObjectIdentifier.getSqlObjectIdentifier(fromclause);
+	List<ExtensionMethods.SqlQualifiedJoinTableExpression> sqlQualifiedJoin = ExtensionMethods.SqlQualifiedJoinTableExpression.getSqlQualifiedJoin(fromclause);
+	List<ExtensionMethods.SqlScalarRefExpression> sqlScalarRef = ExtensionMethods.SqlScalarRefExpression.getSqlScalarRef(fromclause);
+	List<ExtensionMethods.SqlTableRefExpression> sqlTableRef = ExtensionMethods.SqlTableRefExpression.getSqlTableRef(fromclause);
+	ExtensionMethods.FromClause frClause = new ExtensionMethods.FromClause();
+	String fromstring = frClause.writeFromClause(sqlCompBoolList, sqlCondition, sqlObjectID, sqlQualifiedJoin, sqlScalarRef, sqlTableRef);
+	
+	
+	/// Select Clause Object
+	ExtensionMethods.SelectClause sClause = new ExtensionMethods.SelectClause();
+	List<object> selectClauseList = sClause.Readnodes(Xmldocument);
+	List<ExtensionMethods.SqlSelectScalarExpression> selectScalarList = ExtensionMethods.SqlSelectScalarExpression.getSqlSelectScalarExpression(selectClauseList);
+	List<ExtensionMethods.SqlScalarRefExpression> scalarRefList = ExtensionMethods.SqlScalarRefExpression.getSqlScalarRef(selectClauseList);
+	List<ExtensionMethods.SqlIdentifier> sqlIdentifierList = ExtensionMethods.SqlIdentifier.getSqlIdentifier(selectClauseList);
+	List<ExtensionMethods.SqlBinaryScalarExpression> binaryScalarList = ExtensionMethods.SqlBinaryScalarExpression.getSqlBinaryExpression(selectClauseList);
+	List<ExtensionMethods.SqlColumnRefExpression> columnRefList  = ExtensionMethods.SqlColumnRefExpression.getSqlColumnRefExpression(selectClauseList);
+
 	ExtensionMethods.ProcDef procedureDef = ExtensionMethods.ProcDef.getProcDef(XmlDoc);
+	//sClause.dictionList = ExtensionMethods.SelectClause.Readnodes(Xmldocument);	
 	ExtensionMethods.SelectClause selectClause = ExtensionMethods.SelectClause.getSelectClause(XmlDoc);
 	ExtensionMethods.FromClause fromClause = ExtensionMethods.FromClause.getFromClause(XmlDoc);
 	ExtensionMethods.OrderByClause orderClause = ExtensionMethods.OrderByClause.getOrderBy(XmlDoc);
 	List<ExtensionMethods.WhereClause> whereClause = ExtensionMethods.WhereClause.getWhereClause(XmlDoc);
+
 
 	string classString = writeClass(procedureDef, selectClause, fromClause, orderClause, whereClause);
 	#>

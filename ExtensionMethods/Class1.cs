@@ -10,11 +10,11 @@ using System.Data.Entity.Design.PluralizationServices;
 using System.Globalization;
 using System.Data.Metadata.Edm;
 using AWorks;
-
+using ExtensionMethods;
 
 namespace ExtensionMethods
 {
-    public static class ExtensionMethods
+    public  static class ExtensionMethods
     {
 
         /// <summary>
@@ -386,5 +386,128 @@ namespace ExtensionMethods
             sb.Append("\"" + s + "\"");
             return sb.ToString();
         }
+
+        public static List<Dictionary<string, Dictionary<string, string>>> 
+            TraverseNodes(
+            XmlNodeList nodeList, 
+            List<Dictionary<string, Dictionary<string, string>>> dict, 
+            String locationparam)
+        {
+            foreach (XmlNode xNode in nodeList)
+            {
+                Dictionary<string, Dictionary<string, string>> elementDictionary = new Dictionary<string, Dictionary<string, string>>();
+                String elementName = xNode.Name;
+                String location = "";
+                Dictionary<string, string> attributeDictionary = new Dictionary<string, string>();
+                if (xNode.Attributes != null)
+                {
+                    foreach (XmlAttribute att in xNode.Attributes)
+                    {
+                        if (att.Name == "Location")
+                        {
+                            location = att.Value;
+                        }
+                        attributeDictionary.Add(att.Name, att.Value);
+                    }
+                    attributeDictionary.Add("parentLocation", locationparam);
+                    elementDictionary.Add(elementName, attributeDictionary);
+                    List<Dictionary<string, Dictionary<string, string>>> newList = new List<Dictionary<string, Dictionary<string, string>>>();
+                    newList.Add(elementDictionary);
+                    dict.AddRange(newList);
+                    if (xNode.HasChildNodes)
+                    {
+                        TraverseNodes(xNode.ChildNodes, dict, location);
+                    }
+                }
+            }
+            return dict;
+        }
+
+        public static string writeClass(
+            List<Dictionary<string, Dictionary<string, string>>> selectClauseList, 
+            List<Dictionary<string,Dictionary<string, string>>> fromClauseList)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("public CInnerJoin_Result CInnderJoin()").AppendLine();
+            sb.Append("{").AppendLine();
+            sb.Append("     var result = from p in db.Products").AppendLine();
+            sb.Append("                 join sod in db.SalesOrderDetails on p.ProductID equals sod.ProductID").AppendLine();
+            sb.Append("                 orderby p.Name descending").AppendLine();
+            sb.Append("                 select new").AppendLine();
+            sb.Append("                 {").AppendLine();
+            sb.Append("                     p.Name,").AppendLine();
+            sb.Append("                     NonSalesDiscountSales = ( sod.OrderQty * sod.UnitPrice),").AppendLine();
+            sb.Append("                     Discounts = (( sod.OrderQty * sod.UnitPrice) * sod.UnitPriceDiscount").AppendLine();
+            sb.Append("                 }").AppendLine();
+            sb.Append("      return result as CInnerJoin_Result;").AppendLine();
+            sb.Append("     }").AppendLine();
+            sb.Append(" }");
+            return sb.ToString();
+        }
+
+        public static void SqlTableRefExpression(List<Dictionary<string, Dictionary<string, string>>> fromClauseList)
+        {
+            StringBuilder sb = new StringBuilder();
+            string alias;
+            string location = "";
+
+            for(int i = 0; i < fromClauseList.Count(); i++)
+            {
+                List<Dictionary<string, string>> newStringList = new List<Dictionary<string, string>>();
+                if (fromClauseList[i].FirstOrDefault().Key == "SqlTableRefExpression")
+                {
+                    Dictionary<string, string> values = fromClauseList[i].FirstOrDefault().Value;                    
+                    foreach(var v in values){
+                        if (v.Key == "Location"){ location = v.Value; }
+                        if (v.Key == "Alias") { alias = v.Value; }
+                    }
+                    getChildLocationElements(fromClauseList, location);
+                    System.Diagnostics.Debug.Print(getChildLocationElements(fromClauseList, location).Values.FirstOrDefault().ToString());
+                }
+            }
+        }
+
+        public static Dictionary<string,string> getChildLocationElements(List<Dictionary<string, Dictionary<string, string>>> fromClauseList, string location)
+        {
+            Dictionary<string, string> childDictionary = new Dictionary<string, string>();
+
+            for (int i = 0; i < fromClauseList.Count(); i++)
+            {
+                foreach (KeyValuePair<string, string> f in fromClauseList[i].FirstOrDefault().Value)
+                {
+                    if (f.Key == "parentLocation" && f.Value == location)
+                    {
+                        childDictionary = fromClauseList[i].FirstOrDefault().Value;
+                    }
+                }
+            }
+            return childDictionary; 
+        }
+
+        public static string isLocation(this KeyValuePair<string, string> s)
+        {
+            if (s.Key == "Location")
+            {
+                return s.Value;
+            }
+            else
+            {
+                return "";
+            }
+        }
+
+        public static string isAlias(this KeyValuePair<string, string> s)
+        {
+            if (s.Key == "Alias")
+            {
+                return s.Value;
+            }
+            else
+            {
+                return "";
+            }
+
+        }
     }
-}
+
+} 

@@ -13,14 +13,8 @@ namespace Sp_CodeGenerator{
  public class MyGeneratedClass{
 	private AWorksLTEntities db = new AWorksLTEntities();
 	
-	public IList<Product> SelectWhereNoParams()
+	public IList<Product> CInnerJoin()
 	{
-		var products  = from p in db.Products
-					orderby p.Name ascending
-					where   p.Name  ==  "R"
-					 &&    p.Weight  <  4
-					select new {p.Name, p.ProductNumber, p.ListPrice, };
-					return products as IList<Product>;
 	}
   }
 }
