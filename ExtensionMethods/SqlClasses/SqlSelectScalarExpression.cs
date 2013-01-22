@@ -17,13 +17,18 @@ namespace ExtensionMethods
             _location = location;
             _alias = alias;
         }
+        public SqlSelectScalarExpression(string parentlocation, string location)
+        {
+            _parentLocation = parentlocation;
+            _location = location;
+        }
 
         public SqlSelectScalarExpression()
         {
 
         }
 
-        public static List<SqlSelectScalarExpression> getSqlSelectScalarExpression(List<object> selectClauseList)
+        public List<SqlSelectScalarExpression> getSqlSelectScalarExpression(List<object> selectClauseList)
         {
             List<SqlSelectScalarExpression> selectScalarExpList = new List<SqlSelectScalarExpression>();
 

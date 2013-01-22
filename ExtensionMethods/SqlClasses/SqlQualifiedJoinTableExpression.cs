@@ -29,7 +29,7 @@ namespace ExtensionMethods
 
         }
 
-        public static List<SqlQualifiedJoinTableExpression> getSqlQualifiedJoin(List<Object> fromClause)
+        public List<SqlQualifiedJoinTableExpression> getSqlQualifiedJoin(List<Object> fromClause)
         {
             List<SqlQualifiedJoinTableExpression> sqlQualifiedJoin = new List<SqlQualifiedJoinTableExpression>();
             foreach (var s in fromClause)

@@ -80,6 +80,9 @@ namespace ExtensionMethods
             l = l.Replace("NotEqual", " != ");
             l = l.Replace("NotLessThan", " !< ");
             l = l.Replace("NotGreaterThan", " !> ");
+            l = l.Replace("Multiply", " * ");
+            l = l.Replace("And", " &&");
+            l = l.Replace("Or", " ||");
             return l;
         }
 
@@ -93,6 +96,12 @@ namespace ExtensionMethods
             g = g.Replace("GreaterThan", " > ");
             g = g.Replace("LessThan", " < ");
             return g;
+        }
+
+        public static string singleEqual(this string e)
+        {
+            e = e.Replace("==", "=");
+            return e;
         }
 
         /// <summary>

@@ -102,96 +102,158 @@ namespace ExtensionMethods
             return new List<Dictionary<string, Dictionary<string, string>>>();
         }
 
-        public  List<Object> Readnodes(XmlDocument xmldocument)
+        public string writeSelectClause(
+            List<SqlSelectScalarExpression> selectScalarList, 
+            List<SqlScalarRefExpression> scalarRefList, 
+            List<SqlIdentifier> sqlIdentifierList, 
+            List<SqlBinaryScalarExpression> binaryScalarList, 
+            List<SqlColumnRefExpression> columnRefList, 
+            List<SqlSelectStarExpression> starList, 
+            SqlSelectClause sqlSelectClause)
         {
-            List<Object> selectList = new List<Object>();
-            String location = "Root";
-            selectList = TraverseNodes(xmldocument.GetElementsByTagName("SqlSelectClause"), selectList, location);
-            return selectList;
+            StringBuilder sb = new StringBuilder();
+            if (starList.Count() != 0)
+            {
+                sb.Append(" select p;").AppendLine();
+            }
+            else
+            {
+                sb.Append(loopSqlSelectScalar(selectScalarList, columnRefList, scalarRefList, binaryScalarList, sqlIdentifierList, sqlSelectClause));
+            }
+            return sb.ToString();
         }
 
-        public  List<object> TraverseNodes(XmlNodeList nodeList, List<Object> selectList, String locationparam)
+        public string loopSqlSelectScalar(
+            List<SqlSelectScalarExpression> selectScalarList, 
+            List<SqlColumnRefExpression> columnRefList, 
+            List<SqlScalarRefExpression> scalarRefList, 
+            List<SqlBinaryScalarExpression> binaryScalarList,
+            List<SqlIdentifier> sqlIdentifierList, 
+            SqlSelectClause sqlSelect)
         {
-            foreach (XmlNode xNode in nodeList)
+            StringBuilder sb = new StringBuilder();
+            sb.Append("select new {");
+            sb.Append(checkColumnRef(selectScalarList, columnRefList));
+            sb.Append(checkScalarRef(selectScalarList, scalarRefList));
+            sb.Append(checkBinaryScalar(selectScalarList, binaryScalarList, columnRefList,sqlIdentifierList ));
+            sb.Append(isDistinct(sqlSelect));
+            return sb.ToString();        
+        }
+
+        public string checkColumnRef(List<SqlSelectScalarExpression> selectScalarList, List<SqlColumnRefExpression> columnRefList)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (var selectScalar in selectScalarList)
             {
-                if (xNode.Attributes != null)
+                string location = selectScalar._location;
+                foreach (var c in columnRefList)
                 {
-                    checkTypes(xNode, selectList, locationparam);
-                    String location = xNode.Attributes[0].Value;
-                    if (xNode.HasChildNodes)
+                    if (c._parentLocation == location)
                     {
-                        TraverseNodes(xNode.ChildNodes, selectList, location);
+                        if (selectScalar._alias != null)
+                        {
+                            sb.Append(selectScalar._alias + " = ");
+                        }
+                        sb.Append(" p." + c._columnName + ",");
                     }
                 }
             }
-            return selectList;
+            sb.AppendLine();
+            return sb.ToString();
         }
 
-        public  List<object> checkTypes(XmlNode xNode, List<object> dict, String locationparam)
+        public string checkScalarRef(List<SqlSelectScalarExpression> selectScalarList, List<SqlScalarRefExpression> scalarRefList)
         {
-            String elementName = xNode.Name;
-            if (elementName == "SqlQualifiedJoinTableExpression")
+            StringBuilder sb = new StringBuilder();
+            foreach (var selectScalar in selectScalarList)
             {
-                SqlQualifiedJoinTableExpression sqCompBoolExp = new SqlQualifiedJoinTableExpression(xNode.Attributes[0].Value, xNode.Attributes[1].Value, locationparam);
-                dict.Add(sqCompBoolExp);
-            }
-            if (elementName == "SqlTableRefExpression")
-            {
-                SqlTableRefExpression sqlTableRefExp = new SqlTableRefExpression(locationparam, xNode.Attributes[0].Value, xNode.Attributes[1].Value, xNode.Attributes[2].Value);
-                dict.Add(sqlTableRefExp);
-            }
-            if (elementName == "SqlObjectIdentifier")
-            {
-                if (xNode.Attributes.Count == 3)
+                string location = selectScalar._location;
+                foreach (var scalarRef in scalarRefList)
                 {
-                    SqlObjectIdentifier sqlObjID = new SqlObjectIdentifier(locationparam, xNode.Attributes[0].Value, xNode.Attributes[1].Value, xNode.Attributes[2].Value);
-                    dict.Add(sqlObjID);
-                }
-                if (xNode.Attributes.Count == 2)
-                {
-                    SqlObjectIdentifier sqlObjID = new SqlObjectIdentifier(locationparam, xNode.Attributes[0].Value, xNode.Attributes[1].Value);
-                }
-                else
-                {
-                    SqlObjectIdentifier sqlObjID = new SqlObjectIdentifier();
+                    if (scalarRef._parentLocation == location)
+                    {
+                        if (selectScalar._alias != null)
+                        {
+                            sb.Append(selectScalar._alias + " = ");
+                        }
+                        sb.Append(scalarRef._multipartIdentifier + ",");
+                    }
                 }
             }
-            if (elementName == "SqlConditionClause")
+            sb.AppendLine();
+            return sb.ToString();
+        }
+
+        public string checkBinaryScalar(
+            List<SqlSelectScalarExpression> selectScalarList, 
+            List<SqlBinaryScalarExpression> binarySclarList, 
+            List<SqlColumnRefExpression> columnRefList,
+            List<SqlIdentifier> sqlIdentifierList)
+        {
+            StringBuilder sb = new StringBuilder();
+            string binaryOperator = "";
+            string binaryLocation = "";
+            foreach (var s in selectScalarList)
             {
-                SqlConditionClause sqlConditCl = new SqlConditionClause(locationparam, xNode.Attributes[0].Value);
-                dict.Add(sqlConditCl);
+                string location = s._location;
+                foreach (var b in binarySclarList)
+                {
+                    if (b._parentLocation == location)
+                    {
+                        binaryOperator = b._operator.convertOperator();
+                        binaryLocation = b._location;
+                        sb.Append(findIdentifier(sqlIdentifierList, location));
+                        Condition condition = findBinaryColumns(binaryLocation, columnRefList, binaryOperator);
+                        sb.Append(" ( " + condition._conditionA + " " + condition._operator + " " + condition._conditionB + " )");
+                    }
+                }
+
             }
-            if (elementName == "SqlComparisonBooleanExpression")
+            return sb.ToString();        
+        }
+
+        public Condition findBinaryColumns(string binarylocation, List<SqlColumnRefExpression> columnRefList, string binaryOpertor)
+        {
+            Condition condition = new Condition();
+            List<string> columnList = new List<string>();
+            foreach (var c in columnRefList)
             {
-                SqlComparisonBooleanExpression sqlComparBool = new SqlComparisonBooleanExpression(locationparam, xNode.Attributes[0].Value, xNode.Attributes[1].Value);
-                dict.Add(sqlComparBool);
+                if (c._parentLocation == binarylocation)
+                {
+                    columnList.Add(c._columnName);
+                }
             }
-            if (elementName == "SqlScalarRefExpression")
+            condition._conditionA = columnList[0];
+            condition._operator = binaryOpertor;
+            condition._conditionB = columnList[1];
+            return condition;
+        }
+
+        public String findIdentifier(List<SqlIdentifier> sqlIdentifierList, string parentlocation)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (var s in sqlIdentifierList)
             {
-                SqlScalarRefExpression sqlScalarRef = new SqlScalarRefExpression(locationparam, xNode.Attributes[0].Value, xNode.Attributes[1].Value, xNode.Attributes[2].Value);
-                dict.Add(sqlScalarRef);
+                if (s._parentLocation == parentlocation)
+                {
+                    sb.Append(s._value + " = ");
+                }
             }
-            if (elementName == "SqlBinaryScalarExpression")
+            return sb.ToString();
+        }
+
+        public String isDistinct(SqlSelectClause sqlSelect)
+        {
+            StringBuilder sb = new StringBuilder();
+            if (sqlSelect._isDistinct == "True")
             {
-                SqlBinaryScalarExpression sqlBinaryScalar = new SqlBinaryScalarExpression(locationparam, xNode.Attributes[0].Value, xNode.Attributes[1].Value);
-                dict.Add(sqlBinaryScalar);
+                sb.Append(" }).Distinct();");
             }
-            if (elementName == "SqlColumnRefExpression")
+            else
             {
-                SqlColumnRefExpression sqlColumnRef = new SqlColumnRefExpression(locationparam, xNode.Attributes[0].Value, xNode.Attributes[1].Value, xNode.Attributes[2].Value);
-                dict.Add(sqlColumnRef);
+                sb.Append(" });");
             }
-            if (elementName == "SqlIdentifier")
-            {
-                SqlIdentifier sqlIdentifer = new SqlIdentifier(locationparam, xNode.Attributes[0].Value, xNode.Attributes[1].Value);
-                dict.Add(sqlIdentifer);
-            }
-            if (elementName == "SqlSelectScalarExpression")
-            {
-                SqlSelectScalarExpression sqlSelectScalar = new SqlSelectScalarExpression(locationparam, xNode.Attributes[0].Value, xNode.Attributes[1].Value);
-                dict.Add(sqlSelectScalar);
-            }
-            return dict;
+            return sb.ToString();
         }
     }
 }

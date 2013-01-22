@@ -32,7 +32,7 @@ namespace ExtensionMethods
         {
         }
 
-        public static List<SqlObjectIdentifier> getSqlObjectIdentifier(List<object> fromclause)
+        public List<SqlObjectIdentifier> getSqlObjectIdentifier(List<object> fromclause)
         {
             List<SqlObjectIdentifier> sqlObjectIdList = new List<SqlObjectIdentifier>();
             foreach (var s in fromclause)

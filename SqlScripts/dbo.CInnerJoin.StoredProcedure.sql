@@ -1,6 +1,6 @@
 USE [AdventureWorksLT2008R2]
 GO
-/****** Object:  StoredProcedure [dbo].[CInnerJoin]    Script Date: 01/12/2013 13:23:48 ******/
+/****** Object:  StoredProcedure [dbo].[CInnerJoin]    Script Date: 01/21/2013 10:57:16 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10,7 +10,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [dbo].[CInnerJoin]
+ALTER PROCEDURE [dbo].[CInnerJoin]
 	-- Add the parameters for the stored procedure here
 
 AS
@@ -21,11 +21,9 @@ BEGIN
 
     -- Insert statements for procedure here
 		SELECT p.Name AS ProductName, 
-NonDiscountSales = (OrderQty * UnitPrice),
-Discounts = ((OrderQty * UnitPrice) * UnitPriceDiscount)
+NonDiscountSales = (OrderQty * UnitPrice)
 FROM SalesLT.Product AS p 
 INNER JOIN SalesLt.SalesOrderDetail AS sod
 ON p.ProductID = sod.ProductID 
 ORDER BY ProductName DESC;
 END
-GO

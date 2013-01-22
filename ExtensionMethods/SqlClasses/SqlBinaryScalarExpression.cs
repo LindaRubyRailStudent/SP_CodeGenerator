@@ -7,9 +7,9 @@ namespace ExtensionMethods
 {
     public class SqlBinaryScalarExpression
     {
-        string _parentLocation;
-        string _location;
-        string _operator;
+        public string _parentLocation;
+        public string _location;
+        public string _operator;
 
         public SqlBinaryScalarExpression(string parentLocation, string location, string binOperator)
         {
@@ -23,7 +23,7 @@ namespace ExtensionMethods
 
         }
 
-        public static List<SqlBinaryScalarExpression> getSqlBinaryExpression(List<object> selectClauseList)
+        public List<SqlBinaryScalarExpression> getSqlBinaryExpression(List<object> selectClauseList)
         {
             List<SqlBinaryScalarExpression> binaryScalarList = new List<SqlBinaryScalarExpression>();
             foreach (var s in selectClauseList)

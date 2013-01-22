@@ -12,9 +12,14 @@ namespace Sp_CodeGenerator{
 
  public class MyGeneratedClass{
 	private AWorksLTEntities db = new AWorksLTEntities();
+
 	
 	public IList<Product> CInnerJoin()
 	{
+		var products  = from p in db.Products
+					orderby p.ProductName descending
+					select new {p.OrderQty, p.UnitPrice, p.OrderQty, p.UnitPrice, p.UnitPriceDiscount, };
+					return products as IList<Product>;
 	}
   }
 }

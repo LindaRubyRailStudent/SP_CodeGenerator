@@ -36,5 +36,26 @@ namespace ExtensionMethods
             OrderByClause newOrderByClause = new OrderByClause(dictionaryList);
             return newOrderByClause;
         }
+
+        public OrderByClause()
+        {
+
+        }
+
+        public string writeOrderByClause(List<SqlOrderByItem> orderbyList, List<SqlColumnRefExpression> columnlist)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (var o in orderbyList)
+            {
+                foreach (var c in columnlist)
+                {
+                    if (o._location == c._parentLocation)
+                    {
+                        sb.Append("orderby " + c._columnName);
+                    }
+                }
+            }
+            return sb.ToString();       
+        }
     }
 }

@@ -63,15 +63,46 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Templates\StoredProcedureTemplate.cs">
+    <Compile Include="Templates\dbo.CInnerJoin.StoredProcedure.sql.xml.cs">
+      <DependentUpon>MultipleOutput.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\dbo.SelectAll.StoredProcedure.sql.xml.cs">
+      <DependentUpon>MultipleOutput.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\dbo.SelectAllAlt.StoredProcedure.sql.xml.cs">
+      <DependentUpon>MultipleOutput.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\dbo.SelectDistinct.StoredProcedure.sql.xml.cs">
+      <DependentUpon>MultipleOutput.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\dbo.SelectSubset.StoredProcedure.sql.xml.cs">
+      <DependentUpon>MultipleOutput.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\dbo.SelectWhereNoParams.StoredProcedure.sql.xml.cs">
+      <DependentUpon>MultipleOutput.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\dbo.WhereComparisonOperator.StoredProcedure.sql.xml.cs">
+      <DependentUpon>MultipleOutput.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\MultipleOutput.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>MultipleOutput.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\StoredProcedureTemplate.cs">
       <DependentUpon>StoredProcedureTemplate.tt</DependentUpon>
+      <SubType>Code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Templates\MultipleOutput.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MultipleOutput.cs</LastGenOutput>
+    </None>
     <None Include="Templates\StoredProcedureTemplate.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>StoredProcedureTemplate.cs</LastGenOutput>
@@ -79,12 +110,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AndOrOpertor.xml" />
-    <Content Include="Templates\AndOrOpertor.xml" />
-    <Content Include="Templates\dbo.CInnerJoin.StoredProcedure.sql.xml" />
-    <Content Include="Templates\dbo.SelectAllAlt.StoredProcedure.sql.xml" />
-    <Content Include="Templates\dbo.SelectSubset.StoredProcedure.sql.xml" />
-    <Content Include="Templates\dbo.SelectWhereNoParams.StoredProcedure.sql.xml" />
-    <Content Include="Templates\Model1xml.xml" />
+    <Content Include="Templates\CompletedXmlFiles\dbo.CInnerJoin.StoredProcedure.sql.xml" />
+    <Content Include="Templates\CompletedXmlFiles\dbo.SelectAll.StoredProcedure.sql.xml" />
+    <Content Include="Templates\CompletedXmlFiles\dbo.SelectAllAlt.StoredProcedure.sql.xml" />
+    <Content Include="Templates\CompletedXmlFiles\dbo.SelectDistinct.StoredProcedure.sql.xml" />
+    <Content Include="Templates\CompletedXmlFiles\dbo.SelectSubset.StoredProcedure.sql.xml" />
+    <Content Include="Templates\CompletedXmlFiles\dbo.SelectWhereNoParams.StoredProcedure.sql.xml" />
+    <Content Include="Templates\CompletedXmlFiles\dbo.WhereComparisonOperator.StoredProcedure.sql.xml" />
     <Content Include="Templates\XMLFiles\AndOrOpertor.xml" />
     <Content Include="Templates\XMLFiles\CustOrdHist.xml" />
     <Content Include="Templates\XMLFiles\dbo.CalcInnerJoin.StoredProcedure.txt.xml" />

@@ -25,8 +25,12 @@ namespace ExtensionMethods
             _location = location;
             _columnNameOrPropertyName = columnNameOrPropertName;
         }
+        public SqlScalarRefExpression()
+        {
 
-        public static List<SqlScalarRefExpression> getSqlScalarRef(List<object> fromclause)
+        }
+
+        public List<SqlScalarRefExpression> getSqlScalarRef(List<object> fromclause)
         {
             List<SqlScalarRefExpression> sqlScalarList = new List<SqlScalarRefExpression>();
             foreach (var s in fromclause)

@@ -22,7 +22,7 @@ namespace ExtensionMethods
         {
         }
 
-        public static List<SqlComparisonBooleanExpression> getSqlCompBool(List<object> fromClause)
+        public List<SqlComparisonBooleanExpression> getSqlCompBool(List<object> fromClause)
         {
             List<SqlComparisonBooleanExpression> sqlCompBoolList = new List<SqlComparisonBooleanExpression>();
             foreach (var s in fromClause)

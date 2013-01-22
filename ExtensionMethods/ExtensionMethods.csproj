@@ -77,16 +77,21 @@
     <Compile Include="ProcDef.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelectClause.cs" />
-    <Compile Include="SqlBinaryScalarExpression.cs" />
-    <Compile Include="SqlColumnRefExpression.cs" />
-    <Compile Include="SqlComparisonBooleanExpression.cs" />
-    <Compile Include="SqlConditionClause.cs" />
-    <Compile Include="SqlIdentifier.cs" />
-    <Compile Include="SqlObjectIdentifier.cs" />
-    <Compile Include="SqlQualifiedJoinTableExpression.cs" />
-    <Compile Include="SqlScalarRefExpression.cs" />
-    <Compile Include="SqlSelectScalarExpression.cs" />
-    <Compile Include="SqlTableRefExpression.cs" />
+    <Compile Include="SqlClasses\SqlBinaryBooleanExpression.cs" />
+    <Compile Include="SqlClasses\SqlBinaryScalarExpression.cs" />
+    <Compile Include="SqlClasses\SqlColumnRefExpression.cs" />
+    <Compile Include="SqlClasses\SqlComparisonBooleanExpression.cs" />
+    <Compile Include="SqlClasses\SqlConditionClause.cs" />
+    <Compile Include="SqlClasses\SqlIdentifier.cs" />
+    <Compile Include="SqlClasses\SqlLiteralExpression.cs" />
+    <Compile Include="SqlClasses\SqlObjectIdentifier.cs" />
+    <Compile Include="SqlClasses\SqlOrderByItem.cs" />
+    <Compile Include="SqlClasses\SqlQualifiedJoinTableExpression.cs" />
+    <Compile Include="SqlClasses\SqlScalarRefExpression.cs" />
+    <Compile Include="SqlClasses\SqlSelectClause.cs" />
+    <Compile Include="SqlClasses\SqlSelectScalarExpression.cs" />
+    <Compile Include="SqlClasses\SqlSelectStarExpression.cs" />
+    <Compile Include="SqlClasses\SqlTableRefExpression.cs" />
     <Compile Include="Template1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -98,6 +103,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UnitOfWork.tt</DependentUpon>
     </Compile>
+    <Compile Include="WalkNodes.cs" />
     <Compile Include="WhereClause.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -127,8 +133,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="dbo.CInnerJoin.StoredProcedure.sql.xml" />
-    <Content Include="dbo.SelectWhereNoParams.StoredProcedure.sql.xml" />
     <Content Include="XMLFiles\AndOrOpertor.xml" />
     <Content Include="XMLFiles\CustOrdHist.xml" />
     <Content Include="XMLFiles\dbo.CalcInnerJoin.StoredProcedure.txt.xml" />

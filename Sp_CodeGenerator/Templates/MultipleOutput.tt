@@ -1,0 +1,127 @@
+﻿<#@ template debug="true" hostSpecific="true" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="System.Core" #>
+<#@ Assembly Name="System.Windows.Forms" #>
+<#@ Assembly Name="System.Xml"#>
+<#@ Assembly Name="System.Xml.Linq"#>
+<#@ assembly name="C:\webtech\THESIS\TsqlParser\TsqlParser\bin\Debug\TsqlParser.dll" #>
+<#@ assembly name="C:\Sp_CodeGenerator\ExtensionMethods\obj\x86\Debug\ExtensionMethods.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Xml"#>
+<#@ import namespace="System.Xml.Linq" #>
+<#@ include file="EF.Utility.CS.ttinclude"#> 
+
+<#
+	var fileManager = EntityFrameworkTemplateFileManager.Create(this);
+
+	/// Instantiates a 
+	TsqlParser.ParseSql sqlParser = new TsqlParser.ParseSql();
+	sqlParser.Main();
+#>
+
+<#
+	DirectoryInfo directory = new DirectoryInfo(this.Host.ResolvePath(@"CompletedXmlFiles\"));
+	foreach(FileInfo file in directory.GetFiles())
+	{
+		//create a new file for each 
+		string fileName = file.Name;
+		fileManager.StartNewFile(fileName + ".cs");
+
+		//create a new XmlDocument and read in each xmlfile
+		XmlDocument xmlDoc = new XmlDocument();
+		xmlDoc.Load(@"C:\Sp_CodeGenerator\Sp_CodeGenerator\Templates\CompletedXmlFiles\" +fileName);
+
+		//Load in EntityFramework Edmx file
+		MetadataLoader loader = new MetadataLoader(this);
+		string inputFile = @"c:\Sp_CodeGenerator\AWorks_Database\Model1.edmx";
+		EdmItemCollection itemCollection = loader.CreateEdmItemCollection(inputFile);
+		var EntityCollection = itemCollection.GetItems<System.Data.Metadata.Edm.EntityType>();
+
+		/// From Clause Objects
+
+		List<object> fromclause = new ExtensionMethods.WalkNodes().ReadNodes(xmlDoc, "SqlFromClause");
+		List<ExtensionMethods.SqlComparisonBooleanExpression> sqlCompBoolList = new ExtensionMethods.SqlComparisonBooleanExpression().getSqlCompBool(fromclause);
+		List<ExtensionMethods.SqlConditionClause> sqlCondition = new ExtensionMethods.SqlConditionClause().getSqlCondition(fromclause);
+		List<ExtensionMethods.SqlObjectIdentifier> sqlObjectID = new ExtensionMethods.SqlObjectIdentifier().getSqlObjectIdentifier(fromclause);
+		List<ExtensionMethods.SqlQualifiedJoinTableExpression> sqlQualifiedJoin = new ExtensionMethods.SqlQualifiedJoinTableExpression().getSqlQualifiedJoin(fromclause);
+		List<ExtensionMethods.SqlScalarRefExpression> sqlScalarRef = new ExtensionMethods.SqlScalarRefExpression().getSqlScalarRef(fromclause);
+		List<ExtensionMethods.SqlTableRefExpression> sqlTableRef = new ExtensionMethods.SqlTableRefExpression().getSqlTableRef(fromclause);		
+		ExtensionMethods.FromClause frClause = new ExtensionMethods.FromClause();
+		String fromstring = frClause.writeFromClause(sqlCompBoolList, sqlCondition, sqlObjectID, sqlQualifiedJoin, sqlScalarRef, sqlTableRef);
+
+		/// Select Clause Object
+		List<object> selectClauseList = new ExtensionMethods.WalkNodes().ReadNodes(xmlDoc, "SqlSelectClause");
+		List<ExtensionMethods.SqlSelectScalarExpression> selectScalarList = new  ExtensionMethods.SqlSelectScalarExpression().getSqlSelectScalarExpression(selectClauseList);
+		List<ExtensionMethods.SqlScalarRefExpression> scalarRefList = new ExtensionMethods.SqlScalarRefExpression().getSqlScalarRef(selectClauseList);
+		List<ExtensionMethods.SqlIdentifier> sqlIdentifierList = new ExtensionMethods.SqlIdentifier().getSqlIdentifier(selectClauseList);
+		List<ExtensionMethods.SqlBinaryScalarExpression> binaryScalarList = new ExtensionMethods.SqlBinaryScalarExpression().getSqlBinaryExpression(selectClauseList);
+		List<ExtensionMethods.SqlColumnRefExpression> columnRefList  = new ExtensionMethods.SqlColumnRefExpression().getSqlColumnRefExpression(selectClauseList);
+		List<ExtensionMethods.SqlSelectStarExpression> sqlStar = new ExtensionMethods.SqlSelectStarExpression().getSqlSelectStar(selectClauseList);
+		ExtensionMethods.SqlSelectClause sqlSelect = new ExtensionMethods.SqlSelectClause().gSelectClause(selectClauseList);
+		string selectstring = new ExtensionMethods.SelectClause().writeSelectClause(selectScalarList, scalarRefList, sqlIdentifierList, binaryScalarList, columnRefList, sqlStar, sqlSelect);
+		
+		/// Stored Procedure Definition
+		string procedureDef = new ExtensionMethods.ProcDef().getProcDef(xmlDoc);
+
+		/// Get Return Type from the Edmx File
+		//string returnType = new ExtensionMethods.ProcDef().getReturnType(procedureDef, edmxFile);
+
+		/// Where Clause Objects
+		List<object> whereNodes = new ExtensionMethods.WalkNodes().ReadNodes(xmlDoc, "SqlWhereClause");
+		List<ExtensionMethods.SqlBinaryBooleanExpression> binaryBooleanList = new ExtensionMethods.SqlBinaryBooleanExpression().getBinaryBoolean(whereNodes);
+		List<ExtensionMethods.SqlComparisonBooleanExpression> comparisonBoolList = new ExtensionMethods.SqlComparisonBooleanExpression().getSqlCompBool(whereNodes);
+		List<ExtensionMethods.SqlLiteralExpression> literalList = new ExtensionMethods.SqlLiteralExpression().getSqlLiteral(whereNodes);
+		List<ExtensionMethods.SqlColumnRefExpression> whereColumnRefList = new ExtensionMethods.SqlColumnRefExpression().getSqlColumnRefExpression(whereNodes);
+		string whereString = new ExtensionMethods.WhereClause().writeWhereClause(binaryBooleanList, comparisonBoolList, literalList, whereColumnRefList);
+
+		///Get OrderByClause Objects
+		List<object> orderbyNodes = new ExtensionMethods.WalkNodes().ReadNodes(xmlDoc, "SqlOrderByClause");
+		List<ExtensionMethods.SqlOrderByItem> orderbyList = new ExtensionMethods.SqlOrderByItem().getSqlOrderBy(orderbyNodes);
+		List<ExtensionMethods.SqlColumnRefExpression> orderyBycolumnRef = new ExtensionMethods.SqlColumnRefExpression().getSqlColumnRefExpression(orderbyNodes);
+		string orderbyString = new ExtensionMethods.OrderByClause().writeOrderByClause(orderbyList, orderyBycolumnRef);
+#>
+
+// This is the output code from your template
+// you only get syntax-highlighting here - not intellisense
+namespace Sp_CodeGenerator{
+	using System;
+	using System.Collections.Generic;
+	using AWorks;
+	using System.Linq;
+
+
+ public class <#= procedureDef #> {
+	private AWorksLTEntities db = new AWorksLTEntities();
+
+	public <#= procedureDef #>_Result <#= procedureDef #>_Method(){
+				<#= fromstring #>
+				<#= whereString #>
+				<#= orderbyString #>
+				<#= selectstring #>
+			return result as <#= procedureDef #>_Result;
+			}
+		}
+	}
+
+<# 
+  }
+	fileManager.Process();
+
+ #>
+ 
+<#+
+  	///<summary>ParseFile
+	///returns the input string file as an XDocument
+	///</summary>
+	///<param> string of Parsed SQL expressed as XML</param>
+	///<returns> XDocument </returns>
+	private XDocument Parse(string Input){ 
+		XDocument XmlDoc = System.Xml.Linq.XDocument.Parse(Input);
+		return XmlDoc;
+}
+#>

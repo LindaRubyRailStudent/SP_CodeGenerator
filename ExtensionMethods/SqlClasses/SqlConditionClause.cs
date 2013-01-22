@@ -20,7 +20,7 @@ namespace ExtensionMethods
         {
         }
 
-        public static List<SqlConditionClause> getSqlCondition(List<object> fromClause)
+        public List<SqlConditionClause> getSqlCondition(List<object> fromClause)
         {
             List<SqlConditionClause> sqlCondClauseList = new List<SqlConditionClause>();
             foreach (var s in fromClause)

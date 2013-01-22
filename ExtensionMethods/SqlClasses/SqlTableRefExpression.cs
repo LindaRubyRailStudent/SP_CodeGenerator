@@ -31,7 +31,7 @@ namespace ExtensionMethods
         {
         }
 
-        public static List<SqlTableRefExpression> getSqlTableRef(List<object> fromclause)
+        public List<SqlTableRefExpression> getSqlTableRef(List<object> fromclause)
         {
             List<SqlTableRefExpression> sqlTableRefList = new List<SqlTableRefExpression>();
             foreach (var s in fromclause)

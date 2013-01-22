@@ -24,7 +24,8 @@ namespace ExtensionMethods
         {
 
         }
-        public static List<SqlColumnRefExpression> getSqlColumnRefExpression(List<object> selectClauseList)
+
+        public List<SqlColumnRefExpression> getSqlColumnRefExpression(List<object> selectClauseList)
         {
             List<SqlColumnRefExpression> columnRefList = new List<SqlColumnRefExpression>();
             foreach (var s in selectClauseList)
