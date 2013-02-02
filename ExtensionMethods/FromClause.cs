@@ -78,20 +78,36 @@ namespace ExtensionMethods
         /// <param name="sqlScalarRef">List of SqlScalarRefExpression objects </param>
         /// <param name="sqlTablRef"> List of SqlTableRefExpression objects </param>
         /// <returns> a string representing the from statement of the c# method </returns>
-        public String writeFromClause(List<SqlComparisonBooleanExpression> sqlComparBoolean, List<SqlConditionClause> sqlConditionClause, List<SqlObjectIdentifier> sqlObjectIdentifier, List<SqlQualifiedJoinTableExpression> sqlQualifiedJoinExp, List<SqlScalarRefExpression> sqlScalarRef, List<SqlTableRefExpression> sqlTablRef)
+        public String writeFromClause(
+            List<SqlComparisonBooleanExpression> sqlComparBoolean, 
+            List<SqlConditionClause> sqlConditionClause, 
+            List<SqlObjectIdentifier> sqlObjectIdentifier, 
+            List<SqlQualifiedJoinTableExpression> sqlQualifiedJoinExp, 
+            List<SqlScalarRefExpression> sqlScalarRef, 
+            List<SqlTableRefExpression> sqlTablRef, 
+            String fromComment)
         {
             StringBuilder sb = new StringBuilder();
-            Dictionary<string, string> tables = getTables(sqlTablRef, sqlObjectIdentifier);
-            sb.Append(" var result = ( from " + sqlTablRef.FirstOrDefault()._alias + " in db." + sqlObjectIdentifier.FirstOrDefault()._objectName.Pluralise()).AppendLine();
-            if (sqlConditionClause.Count > 0) { 
-                Condition conditions = getConditions(sqlConditionClause, sqlComparBoolean, sqlScalarRef);
-                if (sqlQualifiedJoinExp.Count() > 0)
+            try
+            {               
+                Dictionary<string, string> tables = getTables(sqlTablRef, sqlObjectIdentifier);
+                sb.Append(" var result = ( " );
+                sb.Append(loopFrom(sqlTablRef, sqlObjectIdentifier, sqlConditionClause));
+                if (sqlConditionClause.Count > 0)
                 {
-                    sb.Append(" join " + tables.ElementAt(1).Key + " in " + " db." + tables.ElementAt(1).Value.Pluralise() + " on " + conditions._conditionA + " " + conditions._operator.ToLower() + " " + conditions._conditionB);
+                    Condition conditions = getConditions(sqlConditionClause, sqlComparBoolean, sqlScalarRef);
+                    if (sqlQualifiedJoinExp.Count() > 0)
+                    {
+                        sb.Append(" join " + tables.ElementAt(1).Key + " in " + " db." + tables.ElementAt(1).Value.Pluralise() + " on " + conditions._conditionA + " " + conditions._operator.ToLower() + " " + conditions._conditionB);
+                    }
                 }
+                return sb.ToString();
             }
-
-            return sb.ToString(); 
+            catch
+            {
+                sb.Append(fromComment);
+                return sb.ToString();
+            }
         }
 
         public static Dictionary<string, string> getTables(List<SqlTableRefExpression> tableRefs, List<SqlObjectIdentifier> objectList)
@@ -122,7 +138,10 @@ namespace ExtensionMethods
         /// </summary>
         /// <returns> A Condition object </returns>
         /// <remarks> finds both multipartidentifiers and places them in an object with the relevant operator </remarks>
-        public Condition getConditions(List<SqlConditionClause> sqlConditionClause, List<SqlComparisonBooleanExpression> sqlComparBoolean, List<SqlScalarRefExpression> sqlScalarRef)
+        public Condition getConditions(
+            List<SqlConditionClause> sqlConditionClause, 
+            List<SqlComparisonBooleanExpression> sqlComparBoolean, 
+            List<SqlScalarRefExpression> sqlScalarRef)
         {
             Condition conditions = new Condition();
             String parentlocation = sqlConditionClause[0]._location;
@@ -137,5 +156,26 @@ namespace ExtensionMethods
             }
             return conditions;
         }
-    }
+
+        public String loopFrom(
+            List<SqlTableRefExpression> tableRef, 
+            List<SqlObjectIdentifier> sqlObjectIdentifier, 
+            List<SqlConditionClause> conditionClause)
+        {
+            StringBuilder sb = new StringBuilder();
+            var result = tableRef.Zip(sqlObjectIdentifier, (t, o) => new { Key = o._objectName, Value = t._alias });
+            if (conditionClause.Count == 0)
+            {               
+                foreach (var r in result)
+                {
+                    sb.Append("from " + r.Value + " in db." + r.Key.Pluralise()).AppendLine();
+                }
+            }
+            else
+            {
+                sb.Append("from " + result.FirstOrDefault().Value + " in db." + result.FirstOrDefault().Key.Pluralise()).AppendLine();
+            }
+            return sb.ToString();            
+        }
+    } 
 }

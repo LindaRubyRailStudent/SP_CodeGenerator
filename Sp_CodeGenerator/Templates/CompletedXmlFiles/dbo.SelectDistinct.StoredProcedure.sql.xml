@@ -1,7 +1,7 @@
-<SqlScript Location="((1,1), (28,1))">
+<SqlScript Location="((1,1), (27,1))">
   <!--USE [AdventureWorksLT2008R2]
 GO
-/****** Object:  StoredProcedure [dbo].[SelectDistinct]    Script Date: 01/12/2013 13:23:48 ******/
+/****** Object:  StoredProcedure [dbo].[SelectDistinct]    Script Date: 01/29/2013 15:03:22 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -11,7 +11,7 @@ GO
 - - Create date: <Create Date,,>
 - - Description:	<Description,,>
 - - =============================================
-CREATE PROCEDURE [dbo].[SelectDistinct]
+ALTER PROCEDURE [dbo].[SelectDistinct]
 	- - Add the parameters for the stored procedure here
 	
 AS
@@ -21,11 +21,10 @@ BEGIN
 	SET NOCOUNT ON;
 
     - - Insert statements for procedure here
-		SELECT DISTINCT LastName
-FROM SalesLT.Customer
-ORDER BY LastName;
+		SELECT DISTINCT c.SalesPerson
+FROM SalesLT.Customer AS c
+ORDER BY c.SalesPerson ASC;
 END
-GO
 -->
   <Errors />
   <SqlBatch Location="((1,1), (2,1))">
@@ -46,7 +45,7 @@ GO
   </SqlBatch>
   <SqlBatch Location="((2,3), (5,1))">
     <!--
-/****** Object:  StoredProcedure [dbo].[SelectDistinct]    Script Date: 01/12/2013 13:23:48 ******/
+/****** Object:  StoredProcedure [dbo].[SelectDistinct]    Script Date: 01/29/2013 15:03:22 ******/
 SET ANSI_NULLS ON
 -->
     <SqlNullStatement Location="((4,1),(4,18))">
@@ -54,7 +53,7 @@ SET ANSI_NULLS ON
     </SqlNullStatement>
     <Tokens>
       <Token location="((2,3), (3,1))" id="544" type="LEX_WHITE">\r\n</Token>
-      <Token location="((3,1), (3,100))" id="546" type="LEX_MULTILINE_COMMENT">/****** Object:  StoredProcedure [dbo].[SelectDistinct]    Script Date: 01/12/2013 13:23:48 ******/</Token>
+      <Token location="((3,1), (3,100))" id="546" type="LEX_MULTILINE_COMMENT">/****** Object:  StoredProcedure [dbo].[SelectDistinct]    Script Date: 01/29/2013 15:03:22 ******/</Token>
       <Token location="((3,100), (4,1))" id="544" type="LEX_WHITE">\r\n</Token>
       <Token location="((4,1), (4,4))" id="148" type="TOKEN_SET">SET</Token>
       <Token location="((4,4), (4,5))" id="544" type="LEX_WHITE"> </Token>
@@ -88,7 +87,7 @@ SET QUOTED_IDENTIFIER ON
 - - Create date: <Create Date,,>
 - - Description:	<Description,,>
 - - =============================================
-CREATE PROCEDURE [dbo].[SelectDistinct]
+ALTER PROCEDURE [dbo].[SelectDistinct]
 	- - Add the parameters for the stored procedure here
 	
 AS
@@ -98,13 +97,13 @@ BEGIN
 	SET NOCOUNT ON;
 
     - - Insert statements for procedure here
-		SELECT DISTINCT LastName
-FROM SalesLT.Customer
-ORDER BY LastName;
+		SELECT DISTINCT c.SalesPerson
+FROM SalesLT.Customer AS c
+ORDER BY c.SalesPerson ASC;
 END
 -->
-    <SqlCreateProcedureStatement Location="((13,1),(26,4))">
-      <!--CREATE PROCEDURE [dbo].[SelectDistinct]
+    <SqlAlterProcedureStatement Location="((13,1),(26,4))">
+      <!--ALTER PROCEDURE [dbo].[SelectDistinct]
 	- - Add the parameters for the stored procedure here
 	
 AS
@@ -114,21 +113,21 @@ BEGIN
 	SET NOCOUNT ON;
 
     - - Insert statements for procedure here
-		SELECT DISTINCT LastName
-FROM SalesLT.Customer
-ORDER BY LastName;
+		SELECT DISTINCT c.SalesPerson
+FROM SalesLT.Customer AS c
+ORDER BY c.SalesPerson ASC;
 END-->
-      <SqlProcedureDefinition Location="((13,18),(16,3))" Name="dbo.SelectDistinct" IsForReplication="False">
+      <SqlProcedureDefinition Location="((13,17),(16,3))" Name="dbo.SelectDistinct" IsForReplication="False">
         <!--[dbo].[SelectDistinct]
 	- - Add the parameters for the stored procedure here
 	
 AS-->
-        <SqlObjectIdentifier Location="((13,18),(13,40))" SchemaName="dbo" ObjectName="SelectDistinct">
+        <SqlObjectIdentifier Location="((13,17),(13,39))" SchemaName="dbo" ObjectName="SelectDistinct">
           <!--[dbo].[SelectDistinct]-->
-          <SqlIdentifier Location="((13,18),(13,23))" Value="dbo">
+          <SqlIdentifier Location="((13,17),(13,22))" Value="dbo">
             <!--[dbo]-->
           </SqlIdentifier>
-          <SqlIdentifier Location="((13,24),(13,40))" Value="SelectDistinct">
+          <SqlIdentifier Location="((13,23),(13,39))" Value="SelectDistinct">
             <!--[SelectDistinct]-->
           </SqlIdentifier>
         </SqlObjectIdentifier>
@@ -140,43 +139,46 @@ AS-->
 	SET NOCOUNT ON;
 
     - - Insert statements for procedure here
-		SELECT DISTINCT LastName
-FROM SalesLT.Customer
-ORDER BY LastName;
+		SELECT DISTINCT c.SalesPerson
+FROM SalesLT.Customer AS c
+ORDER BY c.SalesPerson ASC;
 END-->
         <SqlNullStatement Location="((20,2),(20,17))">
           <!--SET NOCOUNT ON;-->
         </SqlNullStatement>
-        <SqlSelectStatement Location="((23,3),(25,18))">
-          <!--SELECT DISTINCT LastName
-FROM SalesLT.Customer
-ORDER BY LastName-->
-          <SqlSelectSpecification Location="((23,3),(25,18))">
-            <!--SELECT DISTINCT LastName
-FROM SalesLT.Customer
-ORDER BY LastName-->
-            <SqlQuerySpecification Location="((23,3),(24,22))">
-              <!--SELECT DISTINCT LastName
-FROM SalesLT.Customer-->
-              <SqlSelectClause Location="((23,3),(23,27))" IsDistinct="True">
-                <!--SELECT DISTINCT LastName-->
-                <SqlSelectScalarExpression Location="((23,19),(23,27))">
-                  <!--LastName-->
-                  <SqlColumnRefExpression Location="((23,19),(23,27))" ColumnName="LastName" MultipartIdentifier="LastName">
-                    <!--LastName-->
-                    <SqlObjectIdentifier Location="((23,19),(23,27))" ObjectName="LastName">
-                      <!--LastName-->
-                      <SqlIdentifier Location="((23,19),(23,27))" Value="LastName">
-                        <!--LastName-->
+        <SqlSelectStatement Location="((23,3),(25,27))">
+          <!--SELECT DISTINCT c.SalesPerson
+FROM SalesLT.Customer AS c
+ORDER BY c.SalesPerson ASC-->
+          <SqlSelectSpecification Location="((23,3),(25,27))">
+            <!--SELECT DISTINCT c.SalesPerson
+FROM SalesLT.Customer AS c
+ORDER BY c.SalesPerson ASC-->
+            <SqlQuerySpecification Location="((23,3),(24,27))">
+              <!--SELECT DISTINCT c.SalesPerson
+FROM SalesLT.Customer AS c-->
+              <SqlSelectClause Location="((23,3),(23,32))" IsDistinct="True">
+                <!--SELECT DISTINCT c.SalesPerson-->
+                <SqlSelectScalarExpression Location="((23,19),(23,32))">
+                  <!--c.SalesPerson-->
+                  <SqlScalarRefExpression Location="((23,19),(23,32))" ColumnOrPropertyName="SalesPerson" MultipartIdentifier="c.SalesPerson">
+                    <!--c.SalesPerson-->
+                    <SqlObjectIdentifier Location="((23,19),(23,32))" SchemaName="c" ObjectName="SalesPerson">
+                      <!--c.SalesPerson-->
+                      <SqlIdentifier Location="((23,19),(23,20))" Value="c">
+                        <!--c-->
+                      </SqlIdentifier>
+                      <SqlIdentifier Location="((23,21),(23,32))" Value="SalesPerson">
+                        <!--SalesPerson-->
                       </SqlIdentifier>
                     </SqlObjectIdentifier>
-                  </SqlColumnRefExpression>
+                  </SqlScalarRefExpression>
                 </SqlSelectScalarExpression>
               </SqlSelectClause>
-              <SqlFromClause Location="((24,1),(24,22))">
-                <!--FROM SalesLT.Customer-->
-                <SqlTableRefExpression Location="((24,6),(24,22))" ObjectIdentifier="SalesLT.Customer">
-                  <!--SalesLT.Customer-->
+              <SqlFromClause Location="((24,1),(24,27))">
+                <!--FROM SalesLT.Customer AS c-->
+                <SqlTableRefExpression Location="((24,6),(24,27))" ObjectIdentifier="SalesLT.Customer" Alias="c">
+                  <!--SalesLT.Customer AS c-->
                   <SqlObjectIdentifier Location="((24,6),(24,22))" SchemaName="SalesLT" ObjectName="Customer">
                     <!--SalesLT.Customer-->
                     <SqlIdentifier Location="((24,6),(24,13))" Value="SalesLT">
@@ -186,28 +188,34 @@ FROM SalesLT.Customer-->
                       <!--Customer-->
                     </SqlIdentifier>
                   </SqlObjectIdentifier>
+                  <SqlIdentifier Location="((24,26),(24,27))" Value="c">
+                    <!--c-->
+                  </SqlIdentifier>
                 </SqlTableRefExpression>
               </SqlFromClause>
             </SqlQuerySpecification>
-            <SqlOrderByClause Location="((25,1),(25,18))">
-              <!--ORDER BY LastName-->
-              <SqlOrderByItem Location="((25,10),(25,18))" SortOrder="None">
-                <!--LastName-->
-                <SqlColumnRefExpression Location="((25,10),(25,18))" ColumnName="LastName" MultipartIdentifier="LastName">
-                  <!--LastName-->
-                  <SqlObjectIdentifier Location="((25,10),(25,18))" ObjectName="LastName">
-                    <!--LastName-->
-                    <SqlIdentifier Location="((25,10),(25,18))" Value="LastName">
-                      <!--LastName-->
+            <SqlOrderByClause Location="((25,1),(25,27))">
+              <!--ORDER BY c.SalesPerson ASC-->
+              <SqlOrderByItem Location="((25,10),(25,27))" SortOrder="Ascending">
+                <!--c.SalesPerson ASC-->
+                <SqlScalarRefExpression Location="((25,10),(25,23))" ColumnOrPropertyName="SalesPerson" MultipartIdentifier="c.SalesPerson">
+                  <!--c.SalesPerson-->
+                  <SqlObjectIdentifier Location="((25,10),(25,23))" SchemaName="c" ObjectName="SalesPerson">
+                    <!--c.SalesPerson-->
+                    <SqlIdentifier Location="((25,10),(25,11))" Value="c">
+                      <!--c-->
+                    </SqlIdentifier>
+                    <SqlIdentifier Location="((25,12),(25,23))" Value="SalesPerson">
+                      <!--SalesPerson-->
                     </SqlIdentifier>
                   </SqlObjectIdentifier>
-                </SqlColumnRefExpression>
+                </SqlScalarRefExpression>
               </SqlOrderByItem>
             </SqlOrderByClause>
           </SqlSelectSpecification>
         </SqlSelectStatement>
       </SqlCompoundStatement>
-    </SqlCreateProcedureStatement>
+    </SqlAlterProcedureStatement>
     <Tokens>
       <Token location="((7,3), (8,1))" id="544" type="LEX_WHITE">\r\n</Token>
       <Token location="((8,1), (8,50))" id="545" type="LEX_END_OF_LINE_COMMENT">-- =============================================\r</Token>
@@ -220,14 +228,14 @@ FROM SalesLT.Customer-->
       <Token location="((11,33), (12,1))" id="544" type="LEX_WHITE">\n</Token>
       <Token location="((12,1), (12,50))" id="545" type="LEX_END_OF_LINE_COMMENT">-- =============================================\r</Token>
       <Token location="((12,50), (13,1))" id="544" type="LEX_WHITE">\n</Token>
-      <Token location="((13,1), (13,7))" id="144" type="TOKEN_CREATE">CREATE</Token>
-      <Token location="((13,7), (13,8))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((13,8), (13,17))" id="275" type="TOKEN_PROCEDURE">PROCEDURE</Token>
-      <Token location="((13,17), (13,18))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((13,18), (13,23))" id="171" type="TOKEN_ID">[dbo]</Token>
-      <Token location="((13,23), (13,24))" id="46" type=".">.</Token>
-      <Token location="((13,24), (13,40))" id="171" type="TOKEN_ID">[SelectDistinct]</Token>
-      <Token location="((13,40), (14,2))" id="544" type="LEX_WHITE">\r\n\t</Token>
+      <Token location="((13,1), (13,6))" id="199" type="TOKEN_ALTER">ALTER</Token>
+      <Token location="((13,6), (13,7))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((13,7), (13,16))" id="275" type="TOKEN_PROCEDURE">PROCEDURE</Token>
+      <Token location="((13,16), (13,17))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((13,17), (13,22))" id="171" type="TOKEN_ID">[dbo]</Token>
+      <Token location="((13,22), (13,23))" id="46" type=".">.</Token>
+      <Token location="((13,23), (13,39))" id="171" type="TOKEN_ID">[SelectDistinct]</Token>
+      <Token location="((13,39), (14,2))" id="544" type="LEX_WHITE">\r\n\t</Token>
       <Token location="((14,2), (14,54))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Add the parameters for the stored procedure here\r</Token>
       <Token location="((14,54), (16,1))" id="544" type="LEX_WHITE">\n\t\r\n</Token>
       <Token location="((16,1), (16,3))" id="203" type="TOKEN_AS">AS</Token>
@@ -251,30 +259,33 @@ FROM SalesLT.Customer-->
       <Token location="((23,9), (23,10))" id="544" type="LEX_WHITE"> </Token>
       <Token location="((23,10), (23,18))" id="229" type="TOKEN_DISTINCT">DISTINCT</Token>
       <Token location="((23,18), (23,19))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((23,19), (23,27))" id="171" type="TOKEN_ID">LastName</Token>
-      <Token location="((23,27), (24,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((23,19), (23,20))" id="171" type="TOKEN_ID">c</Token>
+      <Token location="((23,20), (23,21))" id="46" type=".">.</Token>
+      <Token location="((23,21), (23,32))" id="171" type="TOKEN_ID">SalesPerson</Token>
+      <Token location="((23,32), (24,1))" id="544" type="LEX_WHITE">\r\n</Token>
       <Token location="((24,1), (24,5))" id="242" type="TOKEN_FROM">FROM</Token>
       <Token location="((24,5), (24,6))" id="544" type="LEX_WHITE"> </Token>
       <Token location="((24,6), (24,13))" id="171" type="TOKEN_ID">SalesLT</Token>
       <Token location="((24,13), (24,14))" id="46" type=".">.</Token>
       <Token location="((24,14), (24,22))" id="171" type="TOKEN_ID">Customer</Token>
-      <Token location="((24,22), (25,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((24,22), (24,23))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((24,23), (24,25))" id="203" type="TOKEN_AS">AS</Token>
+      <Token location="((24,25), (24,26))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((24,26), (24,27))" id="171" type="TOKEN_ID">c</Token>
+      <Token location="((24,27), (25,1))" id="544" type="LEX_WHITE">\r\n</Token>
       <Token location="((25,1), (25,6))" id="271" type="TOKEN_ORDER">ORDER</Token>
       <Token location="((25,6), (25,7))" id="544" type="LEX_WHITE"> </Token>
       <Token location="((25,7), (25,9))" id="211" type="TOKEN_BY">BY</Token>
       <Token location="((25,9), (25,10))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((25,10), (25,18))" id="171" type="TOKEN_ID">LastName</Token>
-      <Token location="((25,18), (25,19))" id="59" type=";">;</Token>
-      <Token location="((25,19), (26,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((25,10), (25,11))" id="171" type="TOKEN_ID">c</Token>
+      <Token location="((25,11), (25,12))" id="46" type=".">.</Token>
+      <Token location="((25,12), (25,23))" id="171" type="TOKEN_ID">SalesPerson</Token>
+      <Token location="((25,23), (25,24))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((25,24), (25,27))" id="205" type="TOKEN_ASC">ASC</Token>
+      <Token location="((25,27), (25,28))" id="59" type=";">;</Token>
+      <Token location="((25,28), (26,1))" id="544" type="LEX_WHITE">\r\n</Token>
       <Token location="((26,1), (26,4))" id="537" type="TOKEN_END_CS">END</Token>
       <Token location="((26,4), (27,1))" id="544" type="LEX_WHITE">\r\n</Token>
-    </Tokens>
-  </SqlBatch>
-  <SqlBatch Location="((27,3), (28,1))">
-    <!--
--->
-    <Tokens>
-      <Token location="((27,3), (28,1))" id="544" type="LEX_WHITE">\r\n</Token>
     </Tokens>
   </SqlBatch>
 </SqlScript>

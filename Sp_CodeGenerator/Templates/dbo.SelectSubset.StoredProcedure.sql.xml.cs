@@ -4,22 +4,27 @@
 namespace Sp_CodeGenerator{
 	using System;
 	using System.Collections.Generic;
-	using AWorks;
 	using System.Linq;
 
 
  public class SelectSubset {
-	private AWorksLTEntities db = new AWorksLTEntities();
+	private AdventureWorksLT2008R2Entities db = new AdventureWorksLT2008R2Entities();
 
-	public SelectSubset_Result SelectSubset_Method(){
+	public List<SelectSubset_Result> SelectSubset_Method(){
 				 var result = ( from p in db.Products
 
 				
-				orderby Name
-				select new { p.Name, p.ProductNumber, p.ListPrice,
-
- });
-			return result as SelectSubset_Result;
+				orderby p.Name ascending
+				select new { p.Name, p.ProductNumber, p.ListPrice, });
+				List<SelectSubset_Result> listresult = new List<SelectSubset_Result>();
+foreach ( var r in result )
+{
+     SelectSubset_Result s = new SelectSubset_Result();
+s.Name = r.Name;
+s.ProductNumber = r.ProductNumber;
+s.Price = r.ListPrice;
+listresult.Add(s);
+}return listresult;
 			}
 		}
 	}

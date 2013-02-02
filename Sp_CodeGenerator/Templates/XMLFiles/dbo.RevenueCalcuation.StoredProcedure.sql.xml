@@ -1,7 +1,7 @@
-<SqlScript Location="((1,1), (31,1))">
+<SqlScript Location="((1,1), (30,1))">
   <!--USE [AdventureWorksLT2008R2]
 GO
-/****** Object:  StoredProcedure [dbo].[RevenueCalcuation]    Script Date: 01/12/2013 13:23:48 ******/
+/****** Object:  StoredProcedure [dbo].[RevenueCalcuation]    Script Date: 01/27/2013 21:27:14 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -11,7 +11,7 @@ GO
 - - Create date: <Create Date,,>
 - - Description:	<Description,,>
 - - =============================================
-CREATE PROCEDURE [dbo].[RevenueCalcuation]
+ALTER PROCEDURE [dbo].[RevenueCalcuation]
 	- - Add the parameters for the stored procedure here
 	
 AS
@@ -26,9 +26,8 @@ p.Name AS ProductName
 FROM SalesLT.Product AS p 
 INNER JOIN SalesLT.SalesOrderDetail AS sod
 ON p.ProductID = sod.ProductID 
-ORDER BY ProductName ASC;
+ORDER BY p.Name ASC;
 END
-GO
 -->
   <Errors />
   <SqlBatch Location="((1,1), (2,1))">
@@ -49,7 +48,7 @@ GO
   </SqlBatch>
   <SqlBatch Location="((2,3), (5,1))">
     <!--
-/****** Object:  StoredProcedure [dbo].[RevenueCalcuation]    Script Date: 01/12/2013 13:23:48 ******/
+/****** Object:  StoredProcedure [dbo].[RevenueCalcuation]    Script Date: 01/27/2013 21:27:14 ******/
 SET ANSI_NULLS ON
 -->
     <SqlNullStatement Location="((4,1),(4,18))">
@@ -57,7 +56,7 @@ SET ANSI_NULLS ON
     </SqlNullStatement>
     <Tokens>
       <Token location="((2,3), (3,1))" id="544" type="LEX_WHITE">\r\n</Token>
-      <Token location="((3,1), (3,103))" id="546" type="LEX_MULTILINE_COMMENT">/****** Object:  StoredProcedure [dbo].[RevenueCalcuation]    Script Date: 01/12/2013 13:23:48 ******/</Token>
+      <Token location="((3,1), (3,103))" id="546" type="LEX_MULTILINE_COMMENT">/****** Object:  StoredProcedure [dbo].[RevenueCalcuation]    Script Date: 01/27/2013 21:27:14 ******/</Token>
       <Token location="((3,103), (4,1))" id="544" type="LEX_WHITE">\r\n</Token>
       <Token location="((4,1), (4,4))" id="148" type="TOKEN_SET">SET</Token>
       <Token location="((4,4), (4,5))" id="544" type="LEX_WHITE"> </Token>
@@ -91,7 +90,7 @@ SET QUOTED_IDENTIFIER ON
 - - Create date: <Create Date,,>
 - - Description:	<Description,,>
 - - =============================================
-CREATE PROCEDURE [dbo].[RevenueCalcuation]
+ALTER PROCEDURE [dbo].[RevenueCalcuation]
 	- - Add the parameters for the stored procedure here
 	
 AS
@@ -106,11 +105,11 @@ p.Name AS ProductName
 FROM SalesLT.Product AS p 
 INNER JOIN SalesLT.SalesOrderDetail AS sod
 ON p.ProductID = sod.ProductID 
-ORDER BY ProductName ASC;
+ORDER BY p.Name ASC;
 END
 -->
-    <SqlCreateProcedureStatement Location="((13,1),(29,4))">
-      <!--CREATE PROCEDURE [dbo].[RevenueCalcuation]
+    <SqlAlterProcedureStatement Location="((13,1),(29,4))">
+      <!--ALTER PROCEDURE [dbo].[RevenueCalcuation]
 	- - Add the parameters for the stored procedure here
 	
 AS
@@ -125,19 +124,19 @@ p.Name AS ProductName
 FROM SalesLT.Product AS p 
 INNER JOIN SalesLT.SalesOrderDetail AS sod
 ON p.ProductID = sod.ProductID 
-ORDER BY ProductName ASC;
+ORDER BY p.Name ASC;
 END-->
-      <SqlProcedureDefinition Location="((13,18),(16,3))" Name="dbo.RevenueCalcuation" IsForReplication="False">
+      <SqlProcedureDefinition Location="((13,17),(16,3))" Name="dbo.RevenueCalcuation" IsForReplication="False">
         <!--[dbo].[RevenueCalcuation]
 	- - Add the parameters for the stored procedure here
 	
 AS-->
-        <SqlObjectIdentifier Location="((13,18),(13,43))" SchemaName="dbo" ObjectName="RevenueCalcuation">
+        <SqlObjectIdentifier Location="((13,17),(13,42))" SchemaName="dbo" ObjectName="RevenueCalcuation">
           <!--[dbo].[RevenueCalcuation]-->
-          <SqlIdentifier Location="((13,18),(13,23))" Value="dbo">
+          <SqlIdentifier Location="((13,17),(13,22))" Value="dbo">
             <!--[dbo]-->
           </SqlIdentifier>
-          <SqlIdentifier Location="((13,24),(13,43))" Value="RevenueCalcuation">
+          <SqlIdentifier Location="((13,23),(13,42))" Value="RevenueCalcuation">
             <!--[RevenueCalcuation]-->
           </SqlIdentifier>
         </SqlObjectIdentifier>
@@ -154,25 +153,25 @@ p.Name AS ProductName
 FROM SalesLT.Product AS p 
 INNER JOIN SalesLT.SalesOrderDetail AS sod
 ON p.ProductID = sod.ProductID 
-ORDER BY ProductName ASC;
+ORDER BY p.Name ASC;
 END-->
         <SqlNullStatement Location="((20,2),(20,17))">
           <!--SET NOCOUNT ON;-->
         </SqlNullStatement>
-        <SqlSelectStatement Location="((23,3),(28,25))">
+        <SqlSelectStatement Location="((23,3),(28,20))">
           <!--SELECT 'Total income is', ((OrderQty * UnitPrice) * (1.0 - UnitPriceDiscount)), ' for ',
 p.Name AS ProductName 
 FROM SalesLT.Product AS p 
 INNER JOIN SalesLT.SalesOrderDetail AS sod
 ON p.ProductID = sod.ProductID 
-ORDER BY ProductName ASC-->
-          <SqlSelectSpecification Location="((23,3),(28,25))">
+ORDER BY p.Name ASC-->
+          <SqlSelectSpecification Location="((23,3),(28,20))">
             <!--SELECT 'Total income is', ((OrderQty * UnitPrice) * (1.0 - UnitPriceDiscount)), ' for ',
 p.Name AS ProductName 
 FROM SalesLT.Product AS p 
 INNER JOIN SalesLT.SalesOrderDetail AS sod
 ON p.ProductID = sod.ProductID 
-ORDER BY ProductName ASC-->
+ORDER BY p.Name ASC-->
             <SqlQuerySpecification Location="((23,3),(27,31))">
               <!--SELECT 'Total income is', ((OrderQty * UnitPrice) * (1.0 - UnitPriceDiscount)), ' for ',
 p.Name AS ProductName 
@@ -326,25 +325,28 @@ ON p.ProductID = sod.ProductID-->
                 </SqlQualifiedJoinTableExpression>
               </SqlFromClause>
             </SqlQuerySpecification>
-            <SqlOrderByClause Location="((28,1),(28,25))">
-              <!--ORDER BY ProductName ASC-->
-              <SqlOrderByItem Location="((28,10),(28,25))" SortOrder="Ascending">
-                <!--ProductName ASC-->
-                <SqlColumnRefExpression Location="((28,10),(28,21))" ColumnName="ProductName" MultipartIdentifier="ProductName">
-                  <!--ProductName-->
-                  <SqlObjectIdentifier Location="((28,10),(28,21))" ObjectName="ProductName">
-                    <!--ProductName-->
-                    <SqlIdentifier Location="((28,10),(28,21))" Value="ProductName">
-                      <!--ProductName-->
+            <SqlOrderByClause Location="((28,1),(28,20))">
+              <!--ORDER BY p.Name ASC-->
+              <SqlOrderByItem Location="((28,10),(28,20))" SortOrder="Ascending">
+                <!--p.Name ASC-->
+                <SqlScalarRefExpression Location="((28,10),(28,16))" ColumnOrPropertyName="Name" MultipartIdentifier="p.Name">
+                  <!--p.Name-->
+                  <SqlObjectIdentifier Location="((28,10),(28,16))" SchemaName="p" ObjectName="Name">
+                    <!--p.Name-->
+                    <SqlIdentifier Location="((28,10),(28,11))" Value="p">
+                      <!--p-->
+                    </SqlIdentifier>
+                    <SqlIdentifier Location="((28,12),(28,16))" Value="Name">
+                      <!--Name-->
                     </SqlIdentifier>
                   </SqlObjectIdentifier>
-                </SqlColumnRefExpression>
+                </SqlScalarRefExpression>
               </SqlOrderByItem>
             </SqlOrderByClause>
           </SqlSelectSpecification>
         </SqlSelectStatement>
       </SqlCompoundStatement>
-    </SqlCreateProcedureStatement>
+    </SqlAlterProcedureStatement>
     <Tokens>
       <Token location="((7,3), (8,1))" id="544" type="LEX_WHITE">\r\n</Token>
       <Token location="((8,1), (8,50))" id="545" type="LEX_END_OF_LINE_COMMENT">-- =============================================\r</Token>
@@ -357,14 +359,14 @@ ON p.ProductID = sod.ProductID-->
       <Token location="((11,33), (12,1))" id="544" type="LEX_WHITE">\n</Token>
       <Token location="((12,1), (12,50))" id="545" type="LEX_END_OF_LINE_COMMENT">-- =============================================\r</Token>
       <Token location="((12,50), (13,1))" id="544" type="LEX_WHITE">\n</Token>
-      <Token location="((13,1), (13,7))" id="144" type="TOKEN_CREATE">CREATE</Token>
-      <Token location="((13,7), (13,8))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((13,8), (13,17))" id="275" type="TOKEN_PROCEDURE">PROCEDURE</Token>
-      <Token location="((13,17), (13,18))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((13,18), (13,23))" id="171" type="TOKEN_ID">[dbo]</Token>
-      <Token location="((13,23), (13,24))" id="46" type=".">.</Token>
-      <Token location="((13,24), (13,43))" id="171" type="TOKEN_ID">[RevenueCalcuation]</Token>
-      <Token location="((13,43), (14,2))" id="544" type="LEX_WHITE">\r\n\t</Token>
+      <Token location="((13,1), (13,6))" id="199" type="TOKEN_ALTER">ALTER</Token>
+      <Token location="((13,6), (13,7))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((13,7), (13,16))" id="275" type="TOKEN_PROCEDURE">PROCEDURE</Token>
+      <Token location="((13,16), (13,17))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((13,17), (13,22))" id="171" type="TOKEN_ID">[dbo]</Token>
+      <Token location="((13,22), (13,23))" id="46" type=".">.</Token>
+      <Token location="((13,23), (13,42))" id="171" type="TOKEN_ID">[RevenueCalcuation]</Token>
+      <Token location="((13,42), (14,2))" id="544" type="LEX_WHITE">\r\n\t</Token>
       <Token location="((14,2), (14,54))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Add the parameters for the stored procedure here\r</Token>
       <Token location="((14,54), (16,1))" id="544" type="LEX_WHITE">\n\t\r\n</Token>
       <Token location="((16,1), (16,3))" id="203" type="TOKEN_AS">AS</Token>
@@ -459,20 +461,15 @@ ON p.ProductID = sod.ProductID-->
       <Token location="((28,6), (28,7))" id="544" type="LEX_WHITE"> </Token>
       <Token location="((28,7), (28,9))" id="211" type="TOKEN_BY">BY</Token>
       <Token location="((28,9), (28,10))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((28,10), (28,21))" id="171" type="TOKEN_ID">ProductName</Token>
-      <Token location="((28,21), (28,22))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((28,22), (28,25))" id="205" type="TOKEN_ASC">ASC</Token>
-      <Token location="((28,25), (28,26))" id="59" type=";">;</Token>
-      <Token location="((28,26), (29,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((28,10), (28,11))" id="171" type="TOKEN_ID">p</Token>
+      <Token location="((28,11), (28,12))" id="46" type=".">.</Token>
+      <Token location="((28,12), (28,16))" id="171" type="TOKEN_ID">Name</Token>
+      <Token location="((28,16), (28,17))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((28,17), (28,20))" id="205" type="TOKEN_ASC">ASC</Token>
+      <Token location="((28,20), (28,21))" id="59" type=";">;</Token>
+      <Token location="((28,21), (29,1))" id="544" type="LEX_WHITE">\r\n</Token>
       <Token location="((29,1), (29,4))" id="537" type="TOKEN_END_CS">END</Token>
       <Token location="((29,4), (30,1))" id="544" type="LEX_WHITE">\r\n</Token>
-    </Tokens>
-  </SqlBatch>
-  <SqlBatch Location="((30,3), (31,1))">
-    <!--
--->
-    <Tokens>
-      <Token location="((30,3), (31,1))" id="544" type="LEX_WHITE">\r\n</Token>
     </Tokens>
   </SqlBatch>
 </SqlScript>

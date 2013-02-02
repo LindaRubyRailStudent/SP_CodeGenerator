@@ -1,11 +1,12 @@
-<SqlScript Location="((1,1), (30,1))">
+<SqlScript Location="((1,1), (31,1))">
   <!--USE [AdventureWorksLT2008R2]
 GO
-/****** Object:  StoredProcedure [dbo].[CInnerJoin]    Script Date: 01/21/2013 10:57:16 ******/
+/****** Object:  StoredProcedure [dbo].[CInnerJoin]    Script Date: 01/24/2013 12:21:14 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+- - Batch submitted through debugger: SQLQuery1.sql|7|0|C:\Users\Linda\AppData\Local\Temp\~vsA6EC.sql
 - - =============================================
 - - Author:		<Author,,Name>
 - - Create date: <Create Date,,>
@@ -22,11 +23,11 @@ BEGIN
 
     - - Insert statements for procedure here
 		SELECT p.Name AS ProductName, 
-NonDiscountSales = (OrderQty * UnitPrice)
+NonDiscountSales = (sod.OrderQty * sod.UnitPrice)
 FROM SalesLT.Product AS p 
 INNER JOIN SalesLt.SalesOrderDetail AS sod
 ON p.ProductID = sod.ProductID 
-ORDER BY ProductName DESC;
+ORDER BY p.Name DESC;
 END
 -->
   <Errors />
@@ -48,7 +49,7 @@ END
   </SqlBatch>
   <SqlBatch Location="((2,3), (5,1))">
     <!--
-/****** Object:  StoredProcedure [dbo].[CInnerJoin]    Script Date: 01/21/2013 10:57:16 ******/
+/****** Object:  StoredProcedure [dbo].[CInnerJoin]    Script Date: 01/24/2013 12:21:14 ******/
 SET ANSI_NULLS ON
 -->
     <SqlNullStatement Location="((4,1),(4,18))">
@@ -56,7 +57,7 @@ SET ANSI_NULLS ON
     </SqlNullStatement>
     <Tokens>
       <Token location="((2,3), (3,1))" id="544" type="LEX_WHITE">\r\n</Token>
-      <Token location="((3,1), (3,96))" id="546" type="LEX_MULTILINE_COMMENT">/****** Object:  StoredProcedure [dbo].[CInnerJoin]    Script Date: 01/21/2013 10:57:16 ******/</Token>
+      <Token location="((3,1), (3,96))" id="546" type="LEX_MULTILINE_COMMENT">/****** Object:  StoredProcedure [dbo].[CInnerJoin]    Script Date: 01/24/2013 12:21:14 ******/</Token>
       <Token location="((3,96), (4,1))" id="544" type="LEX_WHITE">\r\n</Token>
       <Token location="((4,1), (4,4))" id="148" type="TOKEN_SET">SET</Token>
       <Token location="((4,4), (4,5))" id="544" type="LEX_WHITE"> </Token>
@@ -83,8 +84,9 @@ SET QUOTED_IDENTIFIER ON
       <Token location="((6,25), (7,1))" id="544" type="LEX_WHITE">\r\n</Token>
     </Tokens>
   </SqlBatch>
-  <SqlBatch Location="((7,3), (30,1))">
+  <SqlBatch Location="((7,3), (31,1))">
     <!--
+- - Batch submitted through debugger: SQLQuery1.sql|7|0|C:\Users\Linda\AppData\Local\Temp\~vsA6EC.sql
 - - =============================================
 - - Author:		<Author,,Name>
 - - Create date: <Create Date,,>
@@ -101,14 +103,14 @@ BEGIN
 
     - - Insert statements for procedure here
 		SELECT p.Name AS ProductName, 
-NonDiscountSales = (OrderQty * UnitPrice)
+NonDiscountSales = (sod.OrderQty * sod.UnitPrice)
 FROM SalesLT.Product AS p 
 INNER JOIN SalesLt.SalesOrderDetail AS sod
 ON p.ProductID = sod.ProductID 
-ORDER BY ProductName DESC;
+ORDER BY p.Name DESC;
 END
 -->
-    <SqlAlterProcedureStatement Location="((13,1),(29,4))">
+    <SqlAlterProcedureStatement Location="((14,1),(30,4))">
       <!--ALTER PROCEDURE [dbo].[CInnerJoin]
 	- - Add the parameters for the stored procedure here
 
@@ -120,28 +122,28 @@ BEGIN
 
     - - Insert statements for procedure here
 		SELECT p.Name AS ProductName, 
-NonDiscountSales = (OrderQty * UnitPrice)
+NonDiscountSales = (sod.OrderQty * sod.UnitPrice)
 FROM SalesLT.Product AS p 
 INNER JOIN SalesLt.SalesOrderDetail AS sod
 ON p.ProductID = sod.ProductID 
-ORDER BY ProductName DESC;
+ORDER BY p.Name DESC;
 END-->
-      <SqlProcedureDefinition Location="((13,17),(16,3))" Name="dbo.CInnerJoin" IsForReplication="False">
+      <SqlProcedureDefinition Location="((14,17),(17,3))" Name="dbo.CInnerJoin" IsForReplication="False">
         <!--[dbo].[CInnerJoin]
 	- - Add the parameters for the stored procedure here
 
 AS-->
-        <SqlObjectIdentifier Location="((13,17),(13,35))" SchemaName="dbo" ObjectName="CInnerJoin">
+        <SqlObjectIdentifier Location="((14,17),(14,35))" SchemaName="dbo" ObjectName="CInnerJoin">
           <!--[dbo].[CInnerJoin]-->
-          <SqlIdentifier Location="((13,17),(13,22))" Value="dbo">
+          <SqlIdentifier Location="((14,17),(14,22))" Value="dbo">
             <!--[dbo]-->
           </SqlIdentifier>
-          <SqlIdentifier Location="((13,23),(13,35))" Value="CInnerJoin">
+          <SqlIdentifier Location="((14,23),(14,35))" Value="CInnerJoin">
             <!--[CInnerJoin]-->
           </SqlIdentifier>
         </SqlObjectIdentifier>
       </SqlProcedureDefinition>
-      <SqlCompoundStatement Location="((17,1),(29,4))">
+      <SqlCompoundStatement Location="((18,1),(30,4))">
         <!--BEGIN
 	- - SET NOCOUNT ON added to prevent extra result sets from
 	- - interfering with SELECT statements.
@@ -149,146 +151,152 @@ AS-->
 
     - - Insert statements for procedure here
 		SELECT p.Name AS ProductName, 
-NonDiscountSales = (OrderQty * UnitPrice)
+NonDiscountSales = (sod.OrderQty * sod.UnitPrice)
 FROM SalesLT.Product AS p 
 INNER JOIN SalesLt.SalesOrderDetail AS sod
 ON p.ProductID = sod.ProductID 
-ORDER BY ProductName DESC;
+ORDER BY p.Name DESC;
 END-->
-        <SqlNullStatement Location="((20,2),(20,17))">
+        <SqlNullStatement Location="((21,2),(21,17))">
           <!--SET NOCOUNT ON;-->
         </SqlNullStatement>
-        <SqlSelectStatement Location="((23,3),(28,26))">
+        <SqlSelectStatement Location="((24,3),(29,21))">
           <!--SELECT p.Name AS ProductName, 
-NonDiscountSales = (OrderQty * UnitPrice)
+NonDiscountSales = (sod.OrderQty * sod.UnitPrice)
 FROM SalesLT.Product AS p 
 INNER JOIN SalesLt.SalesOrderDetail AS sod
 ON p.ProductID = sod.ProductID 
-ORDER BY ProductName DESC-->
-          <SqlSelectSpecification Location="((23,3),(28,26))">
+ORDER BY p.Name DESC-->
+          <SqlSelectSpecification Location="((24,3),(29,21))">
             <!--SELECT p.Name AS ProductName, 
-NonDiscountSales = (OrderQty * UnitPrice)
+NonDiscountSales = (sod.OrderQty * sod.UnitPrice)
 FROM SalesLT.Product AS p 
 INNER JOIN SalesLt.SalesOrderDetail AS sod
 ON p.ProductID = sod.ProductID 
-ORDER BY ProductName DESC-->
-            <SqlQuerySpecification Location="((23,3),(27,31))">
+ORDER BY p.Name DESC-->
+            <SqlQuerySpecification Location="((24,3),(28,31))">
               <!--SELECT p.Name AS ProductName, 
-NonDiscountSales = (OrderQty * UnitPrice)
+NonDiscountSales = (sod.OrderQty * sod.UnitPrice)
 FROM SalesLT.Product AS p 
 INNER JOIN SalesLt.SalesOrderDetail AS sod
 ON p.ProductID = sod.ProductID-->
-              <SqlSelectClause Location="((23,3),(24,42))" IsDistinct="False">
+              <SqlSelectClause Location="((24,3),(25,50))" IsDistinct="False">
                 <!--SELECT p.Name AS ProductName, 
-NonDiscountSales = (OrderQty * UnitPrice)-->
-                <SqlSelectScalarExpression Location="((23,10),(23,31))" Alias="ProductName">
+NonDiscountSales = (sod.OrderQty * sod.UnitPrice)-->
+                <SqlSelectScalarExpression Location="((24,10),(24,31))" Alias="ProductName">
                   <!--p.Name AS ProductName-->
-                  <SqlScalarRefExpression Location="((23,10),(23,16))" ColumnOrPropertyName="Name" MultipartIdentifier="p.Name">
+                  <SqlScalarRefExpression Location="((24,10),(24,16))" ColumnOrPropertyName="Name" MultipartIdentifier="p.Name">
                     <!--p.Name-->
-                    <SqlObjectIdentifier Location="((23,10),(23,16))" SchemaName="p" ObjectName="Name">
+                    <SqlObjectIdentifier Location="((24,10),(24,16))" SchemaName="p" ObjectName="Name">
                       <!--p.Name-->
-                      <SqlIdentifier Location="((23,10),(23,11))" Value="p">
+                      <SqlIdentifier Location="((24,10),(24,11))" Value="p">
                         <!--p-->
                       </SqlIdentifier>
-                      <SqlIdentifier Location="((23,12),(23,16))" Value="Name">
+                      <SqlIdentifier Location="((24,12),(24,16))" Value="Name">
                         <!--Name-->
                       </SqlIdentifier>
                     </SqlObjectIdentifier>
                   </SqlScalarRefExpression>
-                  <SqlIdentifier Location="((23,20),(23,31))" Value="ProductName">
+                  <SqlIdentifier Location="((24,20),(24,31))" Value="ProductName">
                     <!--ProductName-->
                   </SqlIdentifier>
                 </SqlSelectScalarExpression>
-                <SqlSelectScalarExpression Location="((24,1),(24,42))" Alias="NonDiscountSales">
-                  <!--NonDiscountSales = (OrderQty * UnitPrice)-->
-                  <SqlIdentifier Location="((24,1),(24,17))" Value="NonDiscountSales">
+                <SqlSelectScalarExpression Location="((25,1),(25,50))" Alias="NonDiscountSales">
+                  <!--NonDiscountSales = (sod.OrderQty * sod.UnitPrice)-->
+                  <SqlIdentifier Location="((25,1),(25,17))" Value="NonDiscountSales">
                     <!--NonDiscountSales-->
                   </SqlIdentifier>
-                  <SqlBinaryScalarExpression Location="((24,20),(24,42))" Operator="Multiply">
-                    <!--(OrderQty * UnitPrice)-->
-                    <SqlColumnRefExpression Location="((24,21),(24,29))" ColumnName="OrderQty" MultipartIdentifier="OrderQty">
-                      <!--OrderQty-->
-                      <SqlObjectIdentifier Location="((24,21),(24,29))" ObjectName="OrderQty">
-                        <!--OrderQty-->
-                        <SqlIdentifier Location="((24,21),(24,29))" Value="OrderQty">
+                  <SqlBinaryScalarExpression Location="((25,20),(25,50))" Operator="Multiply">
+                    <!--(sod.OrderQty * sod.UnitPrice)-->
+                    <SqlScalarRefExpression Location="((25,21),(25,33))" ColumnOrPropertyName="OrderQty" MultipartIdentifier="sod.OrderQty">
+                      <!--sod.OrderQty-->
+                      <SqlObjectIdentifier Location="((25,21),(25,33))" SchemaName="sod" ObjectName="OrderQty">
+                        <!--sod.OrderQty-->
+                        <SqlIdentifier Location="((25,21),(25,24))" Value="sod">
+                          <!--sod-->
+                        </SqlIdentifier>
+                        <SqlIdentifier Location="((25,25),(25,33))" Value="OrderQty">
                           <!--OrderQty-->
                         </SqlIdentifier>
                       </SqlObjectIdentifier>
-                    </SqlColumnRefExpression>
-                    <SqlColumnRefExpression Location="((24,32),(24,41))" ColumnName="UnitPrice" MultipartIdentifier="UnitPrice">
-                      <!--UnitPrice-->
-                      <SqlObjectIdentifier Location="((24,32),(24,41))" ObjectName="UnitPrice">
-                        <!--UnitPrice-->
-                        <SqlIdentifier Location="((24,32),(24,41))" Value="UnitPrice">
+                    </SqlScalarRefExpression>
+                    <SqlScalarRefExpression Location="((25,36),(25,49))" ColumnOrPropertyName="UnitPrice" MultipartIdentifier="sod.UnitPrice">
+                      <!--sod.UnitPrice-->
+                      <SqlObjectIdentifier Location="((25,36),(25,49))" SchemaName="sod" ObjectName="UnitPrice">
+                        <!--sod.UnitPrice-->
+                        <SqlIdentifier Location="((25,36),(25,39))" Value="sod">
+                          <!--sod-->
+                        </SqlIdentifier>
+                        <SqlIdentifier Location="((25,40),(25,49))" Value="UnitPrice">
                           <!--UnitPrice-->
                         </SqlIdentifier>
                       </SqlObjectIdentifier>
-                    </SqlColumnRefExpression>
+                    </SqlScalarRefExpression>
                   </SqlBinaryScalarExpression>
                 </SqlSelectScalarExpression>
               </SqlSelectClause>
-              <SqlFromClause Location="((25,1),(27,31))">
+              <SqlFromClause Location="((26,1),(28,31))">
                 <!--FROM SalesLT.Product AS p 
 INNER JOIN SalesLt.SalesOrderDetail AS sod
 ON p.ProductID = sod.ProductID-->
-                <SqlQualifiedJoinTableExpression Location="((25,6),(27,31))" JoinOperator="InnerJoin">
+                <SqlQualifiedJoinTableExpression Location="((26,6),(28,31))" JoinOperator="InnerJoin">
                   <!--SalesLT.Product AS p 
 INNER JOIN SalesLt.SalesOrderDetail AS sod
 ON p.ProductID = sod.ProductID-->
-                  <SqlTableRefExpression Location="((25,6),(25,26))" ObjectIdentifier="SalesLT.Product" Alias="p">
+                  <SqlTableRefExpression Location="((26,6),(26,26))" ObjectIdentifier="SalesLT.Product" Alias="p">
                     <!--SalesLT.Product AS p-->
-                    <SqlObjectIdentifier Location="((25,6),(25,21))" SchemaName="SalesLT" ObjectName="Product">
+                    <SqlObjectIdentifier Location="((26,6),(26,21))" SchemaName="SalesLT" ObjectName="Product">
                       <!--SalesLT.Product-->
-                      <SqlIdentifier Location="((25,6),(25,13))" Value="SalesLT">
+                      <SqlIdentifier Location="((26,6),(26,13))" Value="SalesLT">
                         <!--SalesLT-->
                       </SqlIdentifier>
-                      <SqlIdentifier Location="((25,14),(25,21))" Value="Product">
+                      <SqlIdentifier Location="((26,14),(26,21))" Value="Product">
                         <!--Product-->
                       </SqlIdentifier>
                     </SqlObjectIdentifier>
-                    <SqlIdentifier Location="((25,25),(25,26))" Value="p">
+                    <SqlIdentifier Location="((26,25),(26,26))" Value="p">
                       <!--p-->
                     </SqlIdentifier>
                   </SqlTableRefExpression>
-                  <SqlTableRefExpression Location="((26,12),(26,43))" ObjectIdentifier="SalesLt.SalesOrderDetail" Alias="sod">
+                  <SqlTableRefExpression Location="((27,12),(27,43))" ObjectIdentifier="SalesLt.SalesOrderDetail" Alias="sod">
                     <!--SalesLt.SalesOrderDetail AS sod-->
-                    <SqlObjectIdentifier Location="((26,12),(26,36))" SchemaName="SalesLt" ObjectName="SalesOrderDetail">
+                    <SqlObjectIdentifier Location="((27,12),(27,36))" SchemaName="SalesLt" ObjectName="SalesOrderDetail">
                       <!--SalesLt.SalesOrderDetail-->
-                      <SqlIdentifier Location="((26,12),(26,19))" Value="SalesLt">
+                      <SqlIdentifier Location="((27,12),(27,19))" Value="SalesLt">
                         <!--SalesLt-->
                       </SqlIdentifier>
-                      <SqlIdentifier Location="((26,20),(26,36))" Value="SalesOrderDetail">
+                      <SqlIdentifier Location="((27,20),(27,36))" Value="SalesOrderDetail">
                         <!--SalesOrderDetail-->
                       </SqlIdentifier>
                     </SqlObjectIdentifier>
-                    <SqlIdentifier Location="((26,40),(26,43))" Value="sod">
+                    <SqlIdentifier Location="((27,40),(27,43))" Value="sod">
                       <!--sod-->
                     </SqlIdentifier>
                   </SqlTableRefExpression>
-                  <SqlConditionClause Location="((27,1),(27,31))">
+                  <SqlConditionClause Location="((28,1),(28,31))">
                     <!--ON p.ProductID = sod.ProductID-->
-                    <SqlComparisonBooleanExpression Location="((27,4),(27,31))" ComparisonOperator="Equals">
+                    <SqlComparisonBooleanExpression Location="((28,4),(28,31))" ComparisonOperator="Equals">
                       <!--p.ProductID = sod.ProductID-->
-                      <SqlScalarRefExpression Location="((27,4),(27,15))" ColumnOrPropertyName="ProductID" MultipartIdentifier="p.ProductID">
+                      <SqlScalarRefExpression Location="((28,4),(28,15))" ColumnOrPropertyName="ProductID" MultipartIdentifier="p.ProductID">
                         <!--p.ProductID-->
-                        <SqlObjectIdentifier Location="((27,4),(27,15))" SchemaName="p" ObjectName="ProductID">
+                        <SqlObjectIdentifier Location="((28,4),(28,15))" SchemaName="p" ObjectName="ProductID">
                           <!--p.ProductID-->
-                          <SqlIdentifier Location="((27,4),(27,5))" Value="p">
+                          <SqlIdentifier Location="((28,4),(28,5))" Value="p">
                             <!--p-->
                           </SqlIdentifier>
-                          <SqlIdentifier Location="((27,6),(27,15))" Value="ProductID">
+                          <SqlIdentifier Location="((28,6),(28,15))" Value="ProductID">
                             <!--ProductID-->
                           </SqlIdentifier>
                         </SqlObjectIdentifier>
                       </SqlScalarRefExpression>
-                      <SqlScalarRefExpression Location="((27,18),(27,31))" ColumnOrPropertyName="ProductID" MultipartIdentifier="sod.ProductID">
+                      <SqlScalarRefExpression Location="((28,18),(28,31))" ColumnOrPropertyName="ProductID" MultipartIdentifier="sod.ProductID">
                         <!--sod.ProductID-->
-                        <SqlObjectIdentifier Location="((27,18),(27,31))" SchemaName="sod" ObjectName="ProductID">
+                        <SqlObjectIdentifier Location="((28,18),(28,31))" SchemaName="sod" ObjectName="ProductID">
                           <!--sod.ProductID-->
-                          <SqlIdentifier Location="((27,18),(27,21))" Value="sod">
+                          <SqlIdentifier Location="((28,18),(28,21))" Value="sod">
                             <!--sod-->
                           </SqlIdentifier>
-                          <SqlIdentifier Location="((27,22),(27,31))" Value="ProductID">
+                          <SqlIdentifier Location="((28,22),(28,31))" Value="ProductID">
                             <!--ProductID-->
                           </SqlIdentifier>
                         </SqlObjectIdentifier>
@@ -298,19 +306,22 @@ ON p.ProductID = sod.ProductID-->
                 </SqlQualifiedJoinTableExpression>
               </SqlFromClause>
             </SqlQuerySpecification>
-            <SqlOrderByClause Location="((28,1),(28,26))">
-              <!--ORDER BY ProductName DESC-->
-              <SqlOrderByItem Location="((28,10),(28,26))" SortOrder="Descending">
-                <!--ProductName DESC-->
-                <SqlColumnRefExpression Location="((28,10),(28,21))" ColumnName="ProductName" MultipartIdentifier="ProductName">
-                  <!--ProductName-->
-                  <SqlObjectIdentifier Location="((28,10),(28,21))" ObjectName="ProductName">
-                    <!--ProductName-->
-                    <SqlIdentifier Location="((28,10),(28,21))" Value="ProductName">
-                      <!--ProductName-->
+            <SqlOrderByClause Location="((29,1),(29,21))">
+              <!--ORDER BY p.Name DESC-->
+              <SqlOrderByItem Location="((29,10),(29,21))" SortOrder="Descending">
+                <!--p.Name DESC-->
+                <SqlScalarRefExpression Location="((29,10),(29,16))" ColumnOrPropertyName="Name" MultipartIdentifier="p.Name">
+                  <!--p.Name-->
+                  <SqlObjectIdentifier Location="((29,10),(29,16))" SchemaName="p" ObjectName="Name">
+                    <!--p.Name-->
+                    <SqlIdentifier Location="((29,10),(29,11))" Value="p">
+                      <!--p-->
+                    </SqlIdentifier>
+                    <SqlIdentifier Location="((29,12),(29,16))" Value="Name">
+                      <!--Name-->
                     </SqlIdentifier>
                   </SqlObjectIdentifier>
-                </SqlColumnRefExpression>
+                </SqlScalarRefExpression>
               </SqlOrderByItem>
             </SqlOrderByClause>
           </SqlSelectSpecification>
@@ -319,111 +330,119 @@ ON p.ProductID = sod.ProductID-->
     </SqlAlterProcedureStatement>
     <Tokens>
       <Token location="((7,3), (8,1))" id="544" type="LEX_WHITE">\r\n</Token>
-      <Token location="((8,1), (8,50))" id="545" type="LEX_END_OF_LINE_COMMENT">-- =============================================\r</Token>
-      <Token location="((8,50), (9,1))" id="544" type="LEX_WHITE">\n</Token>
-      <Token location="((9,1), (9,28))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Author:\t\t&lt;Author,,Name&gt;\r</Token>
-      <Token location="((9,28), (10,1))" id="544" type="LEX_WHITE">\n</Token>
-      <Token location="((10,1), (10,33))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Create date: &lt;Create Date,,&gt;\r</Token>
-      <Token location="((10,33), (11,1))" id="544" type="LEX_WHITE">\n</Token>
-      <Token location="((11,1), (11,33))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Description:\t&lt;Description,,&gt;\r</Token>
+      <Token location="((8,1), (8,102))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Batch submitted through debugger: SQLQuery1.sql|7|0|C:\\Users\\Linda\\AppData\\Local\\Temp\\~vsA6EC.sql\r</Token>
+      <Token location="((8,102), (9,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((9,1), (9,50))" id="545" type="LEX_END_OF_LINE_COMMENT">-- =============================================\r</Token>
+      <Token location="((9,50), (10,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((10,1), (10,28))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Author:\t\t&lt;Author,,Name&gt;\r</Token>
+      <Token location="((10,28), (11,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((11,1), (11,33))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Create date: &lt;Create Date,,&gt;\r</Token>
       <Token location="((11,33), (12,1))" id="544" type="LEX_WHITE">\n</Token>
-      <Token location="((12,1), (12,50))" id="545" type="LEX_END_OF_LINE_COMMENT">-- =============================================\r</Token>
-      <Token location="((12,50), (13,1))" id="544" type="LEX_WHITE">\n</Token>
-      <Token location="((13,1), (13,6))" id="199" type="TOKEN_ALTER">ALTER</Token>
-      <Token location="((13,6), (13,7))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((13,7), (13,16))" id="275" type="TOKEN_PROCEDURE">PROCEDURE</Token>
-      <Token location="((13,16), (13,17))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((13,17), (13,22))" id="171" type="TOKEN_ID">[dbo]</Token>
-      <Token location="((13,22), (13,23))" id="46" type=".">.</Token>
-      <Token location="((13,23), (13,35))" id="171" type="TOKEN_ID">[CInnerJoin]</Token>
-      <Token location="((13,35), (14,2))" id="544" type="LEX_WHITE">\r\n\t</Token>
-      <Token location="((14,2), (14,54))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Add the parameters for the stored procedure here\r</Token>
-      <Token location="((14,54), (16,1))" id="544" type="LEX_WHITE">\n\r\n</Token>
-      <Token location="((16,1), (16,3))" id="203" type="TOKEN_AS">AS</Token>
-      <Token location="((16,3), (17,1))" id="544" type="LEX_WHITE">\r\n</Token>
-      <Token location="((17,1), (17,6))" id="536" type="TOKEN_BEGIN_CS">BEGIN</Token>
-      <Token location="((17,6), (18,2))" id="544" type="LEX_WHITE">\r\n\t</Token>
-      <Token location="((18,2), (18,60))" id="545" type="LEX_END_OF_LINE_COMMENT">-- SET NOCOUNT ON added to prevent extra result sets from\r</Token>
-      <Token location="((18,60), (19,2))" id="544" type="LEX_WHITE">\n\t</Token>
-      <Token location="((19,2), (19,41))" id="545" type="LEX_END_OF_LINE_COMMENT">-- interfering with SELECT statements.\r</Token>
-      <Token location="((19,41), (20,2))" id="544" type="LEX_WHITE">\n\t</Token>
-      <Token location="((20,2), (20,5))" id="148" type="TOKEN_SET">SET</Token>
-      <Token location="((20,5), (20,6))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((20,6), (20,13))" id="171" type="TOKEN_ID">NOCOUNT</Token>
-      <Token location="((20,13), (20,14))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((20,14), (20,16))" id="268" type="TOKEN_ON">ON</Token>
-      <Token location="((20,16), (20,17))" id="59" type=";">;</Token>
-      <Token location="((20,17), (22,5))" id="544" type="LEX_WHITE">\r\n\r\n    </Token>
-      <Token location="((22,5), (22,45))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Insert statements for procedure here\r</Token>
-      <Token location="((22,45), (23,3))" id="544" type="LEX_WHITE">\n\t\t</Token>
-      <Token location="((23,3), (23,9))" id="285" type="TOKEN_SELECT">SELECT</Token>
-      <Token location="((23,9), (23,10))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((23,10), (23,11))" id="171" type="TOKEN_ID">p</Token>
-      <Token location="((23,11), (23,12))" id="46" type=".">.</Token>
-      <Token location="((23,12), (23,16))" id="171" type="TOKEN_ID">Name</Token>
-      <Token location="((23,16), (23,17))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((23,17), (23,19))" id="203" type="TOKEN_AS">AS</Token>
-      <Token location="((23,19), (23,20))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((23,20), (23,31))" id="171" type="TOKEN_ID">ProductName</Token>
-      <Token location="((23,31), (23,32))" id="44" type=",">,</Token>
-      <Token location="((23,32), (24,1))" id="544" type="LEX_WHITE"> \r\n</Token>
-      <Token location="((24,1), (24,17))" id="171" type="TOKEN_ID">NonDiscountSales</Token>
-      <Token location="((24,17), (24,18))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((24,18), (24,19))" id="61" type="=">=</Token>
+      <Token location="((12,1), (12,33))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Description:\t&lt;Description,,&gt;\r</Token>
+      <Token location="((12,33), (13,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((13,1), (13,50))" id="545" type="LEX_END_OF_LINE_COMMENT">-- =============================================\r</Token>
+      <Token location="((13,50), (14,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((14,1), (14,6))" id="199" type="TOKEN_ALTER">ALTER</Token>
+      <Token location="((14,6), (14,7))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((14,7), (14,16))" id="275" type="TOKEN_PROCEDURE">PROCEDURE</Token>
+      <Token location="((14,16), (14,17))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((14,17), (14,22))" id="171" type="TOKEN_ID">[dbo]</Token>
+      <Token location="((14,22), (14,23))" id="46" type=".">.</Token>
+      <Token location="((14,23), (14,35))" id="171" type="TOKEN_ID">[CInnerJoin]</Token>
+      <Token location="((14,35), (15,2))" id="544" type="LEX_WHITE">\r\n\t</Token>
+      <Token location="((15,2), (15,54))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Add the parameters for the stored procedure here\r</Token>
+      <Token location="((15,54), (17,1))" id="544" type="LEX_WHITE">\n\r\n</Token>
+      <Token location="((17,1), (17,3))" id="203" type="TOKEN_AS">AS</Token>
+      <Token location="((17,3), (18,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((18,1), (18,6))" id="536" type="TOKEN_BEGIN_CS">BEGIN</Token>
+      <Token location="((18,6), (19,2))" id="544" type="LEX_WHITE">\r\n\t</Token>
+      <Token location="((19,2), (19,60))" id="545" type="LEX_END_OF_LINE_COMMENT">-- SET NOCOUNT ON added to prevent extra result sets from\r</Token>
+      <Token location="((19,60), (20,2))" id="544" type="LEX_WHITE">\n\t</Token>
+      <Token location="((20,2), (20,41))" id="545" type="LEX_END_OF_LINE_COMMENT">-- interfering with SELECT statements.\r</Token>
+      <Token location="((20,41), (21,2))" id="544" type="LEX_WHITE">\n\t</Token>
+      <Token location="((21,2), (21,5))" id="148" type="TOKEN_SET">SET</Token>
+      <Token location="((21,5), (21,6))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((21,6), (21,13))" id="171" type="TOKEN_ID">NOCOUNT</Token>
+      <Token location="((21,13), (21,14))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((21,14), (21,16))" id="268" type="TOKEN_ON">ON</Token>
+      <Token location="((21,16), (21,17))" id="59" type=";">;</Token>
+      <Token location="((21,17), (23,5))" id="544" type="LEX_WHITE">\r\n\r\n    </Token>
+      <Token location="((23,5), (23,45))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Insert statements for procedure here\r</Token>
+      <Token location="((23,45), (24,3))" id="544" type="LEX_WHITE">\n\t\t</Token>
+      <Token location="((24,3), (24,9))" id="285" type="TOKEN_SELECT">SELECT</Token>
+      <Token location="((24,9), (24,10))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((24,10), (24,11))" id="171" type="TOKEN_ID">p</Token>
+      <Token location="((24,11), (24,12))" id="46" type=".">.</Token>
+      <Token location="((24,12), (24,16))" id="171" type="TOKEN_ID">Name</Token>
+      <Token location="((24,16), (24,17))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((24,17), (24,19))" id="203" type="TOKEN_AS">AS</Token>
       <Token location="((24,19), (24,20))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((24,20), (24,21))" id="40" type="(">(</Token>
-      <Token location="((24,21), (24,29))" id="171" type="TOKEN_ID">OrderQty</Token>
-      <Token location="((24,29), (24,30))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((24,30), (24,31))" id="42" type="*">*</Token>
-      <Token location="((24,31), (24,32))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((24,32), (24,41))" id="171" type="TOKEN_ID">UnitPrice</Token>
-      <Token location="((24,41), (24,42))" id="41" type=")">)</Token>
-      <Token location="((24,42), (25,1))" id="544" type="LEX_WHITE">\r\n</Token>
-      <Token location="((25,1), (25,5))" id="242" type="TOKEN_FROM">FROM</Token>
-      <Token location="((25,5), (25,6))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((25,6), (25,13))" id="171" type="TOKEN_ID">SalesLT</Token>
-      <Token location="((25,13), (25,14))" id="46" type=".">.</Token>
-      <Token location="((25,14), (25,21))" id="171" type="TOKEN_ID">Product</Token>
-      <Token location="((25,21), (25,22))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((25,22), (25,24))" id="203" type="TOKEN_AS">AS</Token>
-      <Token location="((25,24), (25,25))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((25,25), (25,26))" id="171" type="TOKEN_ID">p</Token>
-      <Token location="((25,26), (26,1))" id="544" type="LEX_WHITE"> \r\n</Token>
-      <Token location="((26,1), (26,6))" id="152" type="TOKEN_INNER">INNER</Token>
-      <Token location="((26,6), (26,7))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((26,7), (26,11))" id="157" type="TOKEN_JOIN">JOIN</Token>
-      <Token location="((26,11), (26,12))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((26,12), (26,19))" id="171" type="TOKEN_ID">SalesLt</Token>
-      <Token location="((26,19), (26,20))" id="46" type=".">.</Token>
-      <Token location="((26,20), (26,36))" id="171" type="TOKEN_ID">SalesOrderDetail</Token>
-      <Token location="((26,36), (26,37))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((26,37), (26,39))" id="203" type="TOKEN_AS">AS</Token>
-      <Token location="((26,39), (26,40))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((26,40), (26,43))" id="171" type="TOKEN_ID">sod</Token>
-      <Token location="((26,43), (27,1))" id="544" type="LEX_WHITE">\r\n</Token>
-      <Token location="((27,1), (27,3))" id="268" type="TOKEN_ON">ON</Token>
-      <Token location="((27,3), (27,4))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((27,4), (27,5))" id="171" type="TOKEN_ID">p</Token>
-      <Token location="((27,5), (27,6))" id="46" type=".">.</Token>
-      <Token location="((27,6), (27,15))" id="171" type="TOKEN_ID">ProductID</Token>
-      <Token location="((27,15), (27,16))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((27,16), (27,17))" id="61" type="=">=</Token>
-      <Token location="((27,17), (27,18))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((27,18), (27,21))" id="171" type="TOKEN_ID">sod</Token>
-      <Token location="((27,21), (27,22))" id="46" type=".">.</Token>
-      <Token location="((27,22), (27,31))" id="171" type="TOKEN_ID">ProductID</Token>
-      <Token location="((27,31), (28,1))" id="544" type="LEX_WHITE"> \r\n</Token>
-      <Token location="((28,1), (28,6))" id="271" type="TOKEN_ORDER">ORDER</Token>
-      <Token location="((28,6), (28,7))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((28,7), (28,9))" id="211" type="TOKEN_BY">BY</Token>
-      <Token location="((28,9), (28,10))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((28,10), (28,21))" id="171" type="TOKEN_ID">ProductName</Token>
-      <Token location="((28,21), (28,22))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((28,22), (28,26))" id="228" type="TOKEN_DESC">DESC</Token>
-      <Token location="((28,26), (28,27))" id="59" type=";">;</Token>
-      <Token location="((28,27), (29,1))" id="544" type="LEX_WHITE">\r\n</Token>
-      <Token location="((29,1), (29,4))" id="537" type="TOKEN_END_CS">END</Token>
-      <Token location="((29,4), (30,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((24,20), (24,31))" id="171" type="TOKEN_ID">ProductName</Token>
+      <Token location="((24,31), (24,32))" id="44" type=",">,</Token>
+      <Token location="((24,32), (25,1))" id="544" type="LEX_WHITE"> \r\n</Token>
+      <Token location="((25,1), (25,17))" id="171" type="TOKEN_ID">NonDiscountSales</Token>
+      <Token location="((25,17), (25,18))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((25,18), (25,19))" id="61" type="=">=</Token>
+      <Token location="((25,19), (25,20))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((25,20), (25,21))" id="40" type="(">(</Token>
+      <Token location="((25,21), (25,24))" id="171" type="TOKEN_ID">sod</Token>
+      <Token location="((25,24), (25,25))" id="46" type=".">.</Token>
+      <Token location="((25,25), (25,33))" id="171" type="TOKEN_ID">OrderQty</Token>
+      <Token location="((25,33), (25,34))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((25,34), (25,35))" id="42" type="*">*</Token>
+      <Token location="((25,35), (25,36))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((25,36), (25,39))" id="171" type="TOKEN_ID">sod</Token>
+      <Token location="((25,39), (25,40))" id="46" type=".">.</Token>
+      <Token location="((25,40), (25,49))" id="171" type="TOKEN_ID">UnitPrice</Token>
+      <Token location="((25,49), (25,50))" id="41" type=")">)</Token>
+      <Token location="((25,50), (26,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((26,1), (26,5))" id="242" type="TOKEN_FROM">FROM</Token>
+      <Token location="((26,5), (26,6))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((26,6), (26,13))" id="171" type="TOKEN_ID">SalesLT</Token>
+      <Token location="((26,13), (26,14))" id="46" type=".">.</Token>
+      <Token location="((26,14), (26,21))" id="171" type="TOKEN_ID">Product</Token>
+      <Token location="((26,21), (26,22))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((26,22), (26,24))" id="203" type="TOKEN_AS">AS</Token>
+      <Token location="((26,24), (26,25))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((26,25), (26,26))" id="171" type="TOKEN_ID">p</Token>
+      <Token location="((26,26), (27,1))" id="544" type="LEX_WHITE"> \r\n</Token>
+      <Token location="((27,1), (27,6))" id="152" type="TOKEN_INNER">INNER</Token>
+      <Token location="((27,6), (27,7))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((27,7), (27,11))" id="157" type="TOKEN_JOIN">JOIN</Token>
+      <Token location="((27,11), (27,12))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((27,12), (27,19))" id="171" type="TOKEN_ID">SalesLt</Token>
+      <Token location="((27,19), (27,20))" id="46" type=".">.</Token>
+      <Token location="((27,20), (27,36))" id="171" type="TOKEN_ID">SalesOrderDetail</Token>
+      <Token location="((27,36), (27,37))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((27,37), (27,39))" id="203" type="TOKEN_AS">AS</Token>
+      <Token location="((27,39), (27,40))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((27,40), (27,43))" id="171" type="TOKEN_ID">sod</Token>
+      <Token location="((27,43), (28,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((28,1), (28,3))" id="268" type="TOKEN_ON">ON</Token>
+      <Token location="((28,3), (28,4))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((28,4), (28,5))" id="171" type="TOKEN_ID">p</Token>
+      <Token location="((28,5), (28,6))" id="46" type=".">.</Token>
+      <Token location="((28,6), (28,15))" id="171" type="TOKEN_ID">ProductID</Token>
+      <Token location="((28,15), (28,16))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((28,16), (28,17))" id="61" type="=">=</Token>
+      <Token location="((28,17), (28,18))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((28,18), (28,21))" id="171" type="TOKEN_ID">sod</Token>
+      <Token location="((28,21), (28,22))" id="46" type=".">.</Token>
+      <Token location="((28,22), (28,31))" id="171" type="TOKEN_ID">ProductID</Token>
+      <Token location="((28,31), (29,1))" id="544" type="LEX_WHITE"> \r\n</Token>
+      <Token location="((29,1), (29,6))" id="271" type="TOKEN_ORDER">ORDER</Token>
+      <Token location="((29,6), (29,7))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((29,7), (29,9))" id="211" type="TOKEN_BY">BY</Token>
+      <Token location="((29,9), (29,10))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((29,10), (29,11))" id="171" type="TOKEN_ID">p</Token>
+      <Token location="((29,11), (29,12))" id="46" type=".">.</Token>
+      <Token location="((29,12), (29,16))" id="171" type="TOKEN_ID">Name</Token>
+      <Token location="((29,16), (29,17))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((29,17), (29,21))" id="228" type="TOKEN_DESC">DESC</Token>
+      <Token location="((29,21), (29,22))" id="59" type=";">;</Token>
+      <Token location="((29,22), (30,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((30,1), (30,4))" id="537" type="TOKEN_END_CS">END</Token>
+      <Token location="((30,4), (31,1))" id="544" type="LEX_WHITE">\r\n</Token>
     </Tokens>
   </SqlBatch>
 </SqlScript>

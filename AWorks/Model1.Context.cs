@@ -14,10 +14,10 @@ using System.Data.Objects;
 
 namespace AWorks
 {
-    public partial class AWorksLTEntities : DbContext
+    public partial class AdWorksLTEntities : DbContext
     {
-        public AWorksLTEntities()
-            : base("name=AWorksLTEntities")
+        public AdWorksLTEntities()
+            : base("name=AdWorksLTEntities")
         {
         }
     
@@ -39,16 +39,25 @@ namespace AWorks
         public DbSet<SalesOrderDetail> SalesOrderDetails { get; set; }
         public DbSet<SalesOrderHeader> SalesOrderHeaders { get; set; }
     
-        public virtual int CalcInnerJoin()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CalcInnerJoin");
-        }
-    
         public virtual ObjectResult<CInnerJoin_Result> CInnerJoin()
         {
             ((IObjectContextAdapter)this).ObjectContext.MetadataWorkspace.LoadFromAssembly(typeof(CInnerJoin_Result).Assembly);
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CInnerJoin_Result>("CInnerJoin");
+        }
+    
+        public virtual ObjectResult<InnerJoinWhereMethod_Result> InnerJoinWhereMethod()
+        {
+            ((IObjectContextAdapter)this).ObjectContext.MetadataWorkspace.LoadFromAssembly(typeof(InnerJoinWhereMethod_Result).Assembly);
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<InnerJoinWhereMethod_Result>("InnerJoinWhereMethod");
+        }
+    
+        public virtual ObjectResult<MultipleTables_Result> MultipleTables()
+        {
+            ((IObjectContextAdapter)this).ObjectContext.MetadataWorkspace.LoadFromAssembly(typeof(MultipleTables_Result).Assembly);
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<MultipleTables_Result>("MultipleTables");
         }
     
         public virtual ObjectResult<RevenueCalcuation_Result> RevenueCalcuation()
@@ -77,6 +86,20 @@ namespace AWorks
             ((IObjectContextAdapter)this).ObjectContext.MetadataWorkspace.LoadFromAssembly(typeof(SelectDistinct_Result).Assembly);
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SelectDistinct_Result>("SelectDistinct");
+        }
+    
+        public virtual ObjectResult<SelectMultipleDistinct_Result> SelectMultipleDistinct()
+        {
+            ((IObjectContextAdapter)this).ObjectContext.MetadataWorkspace.LoadFromAssembly(typeof(SelectMultipleDistinct_Result).Assembly);
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SelectMultipleDistinct_Result>("SelectMultipleDistinct");
+        }
+    
+        public virtual ObjectResult<SelectStar_Result> SelectStar()
+        {
+            ((IObjectContextAdapter)this).ObjectContext.MetadataWorkspace.LoadFromAssembly(typeof(SelectStar_Result).Assembly);
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SelectStar_Result>("SelectStar");
         }
     
         public virtual ObjectResult<SelectSubset_Result> SelectSubset()

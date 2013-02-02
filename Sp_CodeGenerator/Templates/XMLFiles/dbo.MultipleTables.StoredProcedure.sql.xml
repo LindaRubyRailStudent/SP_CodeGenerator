@@ -1,0 +1,335 @@
+<SqlScript Location="((1,1), (34,1))">
+  <!--- - ================================================
+- - Template generated from Template Explorer using:
+- - Create Procedure (New Menu).SQL
+- -
+- - Use the Specify Values for Template Parameters 
+- - command (Ctrl-Shift-M) to fill in the parameter 
+- - values below.
+- -
+- - This block of comments will not be included in
+- - the definition of the procedure.
+- - ================================================
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+- - =============================================
+- - Author:		<Author,,Name>
+- - Create date: <Create Date,,>
+- - Description:	<Description,,>
+- - =============================================
+CREATE PROCEDURE MultipleTables
+
+AS
+BEGIN
+	- - SET NOCOUNT ON added to prevent extra result sets from
+	- - interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    - - Insert statements for procedure here
+	SELECT c.FirstName, c.LastName, ad.AddressLine1
+	FROM SalesLT.Address AS ad, SalesLT.Customer AS c 
+END
+GO
+-->
+  <Errors />
+  <SqlBatch Location="((1,1), (13,1))">
+    <!--- - ================================================
+- - Template generated from Template Explorer using:
+- - Create Procedure (New Menu).SQL
+- -
+- - Use the Specify Values for Template Parameters 
+- - command (Ctrl-Shift-M) to fill in the parameter 
+- - values below.
+- -
+- - This block of comments will not be included in
+- - the definition of the procedure.
+- - ================================================
+SET ANSI_NULLS ON
+-->
+    <SqlNullStatement Location="((12,1),(12,18))">
+      <!--SET ANSI_NULLS ON-->
+    </SqlNullStatement>
+    <Tokens>
+      <Token location="((1,1), (1,53))" id="545" type="LEX_END_OF_LINE_COMMENT">-- ================================================\r</Token>
+      <Token location="((1,53), (2,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((2,1), (2,53))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Template generated from Template Explorer using:\r</Token>
+      <Token location="((2,53), (3,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((3,1), (3,36))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Create Procedure (New Menu).SQL\r</Token>
+      <Token location="((3,36), (4,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((4,1), (4,4))" id="545" type="LEX_END_OF_LINE_COMMENT">--\r</Token>
+      <Token location="((4,4), (5,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((5,1), (5,52))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Use the Specify Values for Template Parameters \r</Token>
+      <Token location="((5,52), (6,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((6,1), (6,53))" id="545" type="LEX_END_OF_LINE_COMMENT">-- command (Ctrl-Shift-M) to fill in the parameter \r</Token>
+      <Token location="((6,53), (7,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((7,1), (7,18))" id="545" type="LEX_END_OF_LINE_COMMENT">-- values below.\r</Token>
+      <Token location="((7,18), (8,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((8,1), (8,4))" id="545" type="LEX_END_OF_LINE_COMMENT">--\r</Token>
+      <Token location="((8,4), (9,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((9,1), (9,51))" id="545" type="LEX_END_OF_LINE_COMMENT">-- This block of comments will not be included in\r</Token>
+      <Token location="((9,51), (10,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((10,1), (10,37))" id="545" type="LEX_END_OF_LINE_COMMENT">-- the definition of the procedure.\r</Token>
+      <Token location="((10,37), (11,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((11,1), (11,53))" id="545" type="LEX_END_OF_LINE_COMMENT">-- ================================================\r</Token>
+      <Token location="((11,53), (12,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((12,1), (12,4))" id="148" type="TOKEN_SET">SET</Token>
+      <Token location="((12,4), (12,5))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((12,5), (12,15))" id="171" type="TOKEN_ID">ANSI_NULLS</Token>
+      <Token location="((12,15), (12,16))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((12,16), (12,18))" id="268" type="TOKEN_ON">ON</Token>
+      <Token location="((12,18), (13,1))" id="544" type="LEX_WHITE">\r\n</Token>
+    </Tokens>
+  </SqlBatch>
+  <SqlBatch Location="((13,3), (15,1))">
+    <!--
+SET QUOTED_IDENTIFIER ON
+-->
+    <SqlNullStatement Location="((14,1),(14,25))">
+      <!--SET QUOTED_IDENTIFIER ON-->
+    </SqlNullStatement>
+    <Tokens>
+      <Token location="((13,3), (14,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((14,1), (14,4))" id="148" type="TOKEN_SET">SET</Token>
+      <Token location="((14,4), (14,5))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((14,5), (14,22))" id="171" type="TOKEN_ID">QUOTED_IDENTIFIER</Token>
+      <Token location="((14,22), (14,23))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((14,23), (14,25))" id="268" type="TOKEN_ON">ON</Token>
+      <Token location="((14,25), (15,1))" id="544" type="LEX_WHITE">\r\n</Token>
+    </Tokens>
+  </SqlBatch>
+  <SqlBatch Location="((15,3), (33,1))">
+    <!--
+- - =============================================
+- - Author:		<Author,,Name>
+- - Create date: <Create Date,,>
+- - Description:	<Description,,>
+- - =============================================
+CREATE PROCEDURE MultipleTables
+
+AS
+BEGIN
+	- - SET NOCOUNT ON added to prevent extra result sets from
+	- - interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    - - Insert statements for procedure here
+	SELECT c.FirstName, c.LastName, ad.AddressLine1
+	FROM SalesLT.Address AS ad, SalesLT.Customer AS c 
+END
+-->
+    <SqlCreateProcedureStatement Location="((21,1),(32,4))">
+      <!--CREATE PROCEDURE MultipleTables
+
+AS
+BEGIN
+	- - SET NOCOUNT ON added to prevent extra result sets from
+	- - interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    - - Insert statements for procedure here
+	SELECT c.FirstName, c.LastName, ad.AddressLine1
+	FROM SalesLT.Address AS ad, SalesLT.Customer AS c 
+END-->
+      <SqlProcedureDefinition Location="((21,18),(23,3))" Name="MultipleTables" IsForReplication="False">
+        <!--MultipleTables
+
+AS-->
+        <SqlObjectIdentifier Location="((21,18),(21,32))" ObjectName="MultipleTables">
+          <!--MultipleTables-->
+          <SqlIdentifier Location="((21,18),(21,32))" Value="MultipleTables">
+            <!--MultipleTables-->
+          </SqlIdentifier>
+        </SqlObjectIdentifier>
+      </SqlProcedureDefinition>
+      <SqlCompoundStatement Location="((24,1),(32,4))">
+        <!--BEGIN
+	- - SET NOCOUNT ON added to prevent extra result sets from
+	- - interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    - - Insert statements for procedure here
+	SELECT c.FirstName, c.LastName, ad.AddressLine1
+	FROM SalesLT.Address AS ad, SalesLT.Customer AS c 
+END-->
+        <SqlNullStatement Location="((27,2),(27,17))">
+          <!--SET NOCOUNT ON;-->
+        </SqlNullStatement>
+        <SqlSelectStatement Location="((30,2),(31,51))">
+          <!--SELECT c.FirstName, c.LastName, ad.AddressLine1
+	FROM SalesLT.Address AS ad, SalesLT.Customer AS c-->
+          <SqlSelectSpecification Location="((30,2),(31,51))">
+            <!--SELECT c.FirstName, c.LastName, ad.AddressLine1
+	FROM SalesLT.Address AS ad, SalesLT.Customer AS c-->
+            <SqlQuerySpecification Location="((30,2),(31,51))">
+              <!--SELECT c.FirstName, c.LastName, ad.AddressLine1
+	FROM SalesLT.Address AS ad, SalesLT.Customer AS c-->
+              <SqlSelectClause Location="((30,2),(30,49))" IsDistinct="False">
+                <!--SELECT c.FirstName, c.LastName, ad.AddressLine1-->
+                <SqlSelectScalarExpression Location="((30,9),(30,20))">
+                  <!--c.FirstName-->
+                  <SqlScalarRefExpression Location="((30,9),(30,20))" ColumnOrPropertyName="FirstName" MultipartIdentifier="c.FirstName">
+                    <!--c.FirstName-->
+                    <SqlObjectIdentifier Location="((30,9),(30,20))" SchemaName="c" ObjectName="FirstName">
+                      <!--c.FirstName-->
+                      <SqlIdentifier Location="((30,9),(30,10))" Value="c">
+                        <!--c-->
+                      </SqlIdentifier>
+                      <SqlIdentifier Location="((30,11),(30,20))" Value="FirstName">
+                        <!--FirstName-->
+                      </SqlIdentifier>
+                    </SqlObjectIdentifier>
+                  </SqlScalarRefExpression>
+                </SqlSelectScalarExpression>
+                <SqlSelectScalarExpression Location="((30,22),(30,32))">
+                  <!--c.LastName-->
+                  <SqlScalarRefExpression Location="((30,22),(30,32))" ColumnOrPropertyName="LastName" MultipartIdentifier="c.LastName">
+                    <!--c.LastName-->
+                    <SqlObjectIdentifier Location="((30,22),(30,32))" SchemaName="c" ObjectName="LastName">
+                      <!--c.LastName-->
+                      <SqlIdentifier Location="((30,22),(30,23))" Value="c">
+                        <!--c-->
+                      </SqlIdentifier>
+                      <SqlIdentifier Location="((30,24),(30,32))" Value="LastName">
+                        <!--LastName-->
+                      </SqlIdentifier>
+                    </SqlObjectIdentifier>
+                  </SqlScalarRefExpression>
+                </SqlSelectScalarExpression>
+                <SqlSelectScalarExpression Location="((30,34),(30,49))">
+                  <!--ad.AddressLine1-->
+                  <SqlScalarRefExpression Location="((30,34),(30,49))" ColumnOrPropertyName="AddressLine1" MultipartIdentifier="ad.AddressLine1">
+                    <!--ad.AddressLine1-->
+                    <SqlObjectIdentifier Location="((30,34),(30,49))" SchemaName="ad" ObjectName="AddressLine1">
+                      <!--ad.AddressLine1-->
+                      <SqlIdentifier Location="((30,34),(30,36))" Value="ad">
+                        <!--ad-->
+                      </SqlIdentifier>
+                      <SqlIdentifier Location="((30,37),(30,49))" Value="AddressLine1">
+                        <!--AddressLine1-->
+                      </SqlIdentifier>
+                    </SqlObjectIdentifier>
+                  </SqlScalarRefExpression>
+                </SqlSelectScalarExpression>
+              </SqlSelectClause>
+              <SqlFromClause Location="((31,2),(31,51))">
+                <!--FROM SalesLT.Address AS ad, SalesLT.Customer AS c-->
+                <SqlTableRefExpression Location="((31,7),(31,28))" ObjectIdentifier="SalesLT.Address" Alias="ad">
+                  <!--SalesLT.Address AS ad-->
+                  <SqlObjectIdentifier Location="((31,7),(31,22))" SchemaName="SalesLT" ObjectName="Address">
+                    <!--SalesLT.Address-->
+                    <SqlIdentifier Location="((31,7),(31,14))" Value="SalesLT">
+                      <!--SalesLT-->
+                    </SqlIdentifier>
+                    <SqlIdentifier Location="((31,15),(31,22))" Value="Address">
+                      <!--Address-->
+                    </SqlIdentifier>
+                  </SqlObjectIdentifier>
+                  <SqlIdentifier Location="((31,26),(31,28))" Value="ad">
+                    <!--ad-->
+                  </SqlIdentifier>
+                </SqlTableRefExpression>
+                <SqlTableRefExpression Location="((31,30),(31,51))" ObjectIdentifier="SalesLT.Customer" Alias="c">
+                  <!--SalesLT.Customer AS c-->
+                  <SqlObjectIdentifier Location="((31,30),(31,46))" SchemaName="SalesLT" ObjectName="Customer">
+                    <!--SalesLT.Customer-->
+                    <SqlIdentifier Location="((31,30),(31,37))" Value="SalesLT">
+                      <!--SalesLT-->
+                    </SqlIdentifier>
+                    <SqlIdentifier Location="((31,38),(31,46))" Value="Customer">
+                      <!--Customer-->
+                    </SqlIdentifier>
+                  </SqlObjectIdentifier>
+                  <SqlIdentifier Location="((31,50),(31,51))" Value="c">
+                    <!--c-->
+                  </SqlIdentifier>
+                </SqlTableRefExpression>
+              </SqlFromClause>
+            </SqlQuerySpecification>
+          </SqlSelectSpecification>
+        </SqlSelectStatement>
+      </SqlCompoundStatement>
+    </SqlCreateProcedureStatement>
+    <Tokens>
+      <Token location="((15,3), (16,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((16,1), (16,50))" id="545" type="LEX_END_OF_LINE_COMMENT">-- =============================================\r</Token>
+      <Token location="((16,50), (17,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((17,1), (17,28))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Author:\t\t&lt;Author,,Name&gt;\r</Token>
+      <Token location="((17,28), (18,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((18,1), (18,33))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Create date: &lt;Create Date,,&gt;\r</Token>
+      <Token location="((18,33), (19,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((19,1), (19,33))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Description:\t&lt;Description,,&gt;\r</Token>
+      <Token location="((19,33), (20,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((20,1), (20,50))" id="545" type="LEX_END_OF_LINE_COMMENT">-- =============================================\r</Token>
+      <Token location="((20,50), (21,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((21,1), (21,7))" id="144" type="TOKEN_CREATE">CREATE</Token>
+      <Token location="((21,7), (21,8))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((21,8), (21,17))" id="275" type="TOKEN_PROCEDURE">PROCEDURE</Token>
+      <Token location="((21,17), (21,18))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((21,18), (21,32))" id="171" type="TOKEN_ID">MultipleTables</Token>
+      <Token location="((21,32), (23,1))" id="544" type="LEX_WHITE">\r\n\r\n</Token>
+      <Token location="((23,1), (23,3))" id="203" type="TOKEN_AS">AS</Token>
+      <Token location="((23,3), (24,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((24,1), (24,6))" id="536" type="TOKEN_BEGIN_CS">BEGIN</Token>
+      <Token location="((24,6), (25,2))" id="544" type="LEX_WHITE">\r\n\t</Token>
+      <Token location="((25,2), (25,60))" id="545" type="LEX_END_OF_LINE_COMMENT">-- SET NOCOUNT ON added to prevent extra result sets from\r</Token>
+      <Token location="((25,60), (26,2))" id="544" type="LEX_WHITE">\n\t</Token>
+      <Token location="((26,2), (26,41))" id="545" type="LEX_END_OF_LINE_COMMENT">-- interfering with SELECT statements.\r</Token>
+      <Token location="((26,41), (27,2))" id="544" type="LEX_WHITE">\n\t</Token>
+      <Token location="((27,2), (27,5))" id="148" type="TOKEN_SET">SET</Token>
+      <Token location="((27,5), (27,6))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((27,6), (27,13))" id="171" type="TOKEN_ID">NOCOUNT</Token>
+      <Token location="((27,13), (27,14))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((27,14), (27,16))" id="268" type="TOKEN_ON">ON</Token>
+      <Token location="((27,16), (27,17))" id="59" type=";">;</Token>
+      <Token location="((27,17), (29,5))" id="544" type="LEX_WHITE">\r\n\r\n    </Token>
+      <Token location="((29,5), (29,45))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Insert statements for procedure here\r</Token>
+      <Token location="((29,45), (30,2))" id="544" type="LEX_WHITE">\n\t</Token>
+      <Token location="((30,2), (30,8))" id="285" type="TOKEN_SELECT">SELECT</Token>
+      <Token location="((30,8), (30,9))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((30,9), (30,10))" id="171" type="TOKEN_ID">c</Token>
+      <Token location="((30,10), (30,11))" id="46" type=".">.</Token>
+      <Token location="((30,11), (30,20))" id="171" type="TOKEN_ID">FirstName</Token>
+      <Token location="((30,20), (30,21))" id="44" type=",">,</Token>
+      <Token location="((30,21), (30,22))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((30,22), (30,23))" id="171" type="TOKEN_ID">c</Token>
+      <Token location="((30,23), (30,24))" id="46" type=".">.</Token>
+      <Token location="((30,24), (30,32))" id="171" type="TOKEN_ID">LastName</Token>
+      <Token location="((30,32), (30,33))" id="44" type=",">,</Token>
+      <Token location="((30,33), (30,34))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((30,34), (30,36))" id="171" type="TOKEN_ID">ad</Token>
+      <Token location="((30,36), (30,37))" id="46" type=".">.</Token>
+      <Token location="((30,37), (30,49))" id="171" type="TOKEN_ID">AddressLine1</Token>
+      <Token location="((30,49), (31,2))" id="544" type="LEX_WHITE">\r\n\t</Token>
+      <Token location="((31,2), (31,6))" id="242" type="TOKEN_FROM">FROM</Token>
+      <Token location="((31,6), (31,7))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((31,7), (31,14))" id="171" type="TOKEN_ID">SalesLT</Token>
+      <Token location="((31,14), (31,15))" id="46" type=".">.</Token>
+      <Token location="((31,15), (31,22))" id="171" type="TOKEN_ID">Address</Token>
+      <Token location="((31,22), (31,23))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((31,23), (31,25))" id="203" type="TOKEN_AS">AS</Token>
+      <Token location="((31,25), (31,26))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((31,26), (31,28))" id="171" type="TOKEN_ID">ad</Token>
+      <Token location="((31,28), (31,29))" id="44" type=",">,</Token>
+      <Token location="((31,29), (31,30))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((31,30), (31,37))" id="171" type="TOKEN_ID">SalesLT</Token>
+      <Token location="((31,37), (31,38))" id="46" type=".">.</Token>
+      <Token location="((31,38), (31,46))" id="171" type="TOKEN_ID">Customer</Token>
+      <Token location="((31,46), (31,47))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((31,47), (31,49))" id="203" type="TOKEN_AS">AS</Token>
+      <Token location="((31,49), (31,50))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((31,50), (31,51))" id="171" type="TOKEN_ID">c</Token>
+      <Token location="((31,51), (32,1))" id="544" type="LEX_WHITE"> \r\n</Token>
+      <Token location="((32,1), (32,4))" id="537" type="TOKEN_END_CS">END</Token>
+      <Token location="((32,4), (33,1))" id="544" type="LEX_WHITE">\r\n</Token>
+    </Tokens>
+  </SqlBatch>
+  <SqlBatch Location="((33,3), (34,1))">
+    <!--
+-->
+    <Tokens>
+      <Token location="((33,3), (34,1))" id="544" type="LEX_WHITE">\r\n</Token>
+    </Tokens>
+  </SqlBatch>
+</SqlScript>

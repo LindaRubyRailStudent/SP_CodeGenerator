@@ -14,7 +14,7 @@ namespace AWorks
 {
     public partial class SelectDistinct_Result
     {
-        public string LastName { get; set; }
+        public string SalesPerson { get; set; }
     }
     
 }

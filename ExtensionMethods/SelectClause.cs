@@ -30,6 +30,198 @@ namespace ExtensionMethods
             _distinct = distinct;
             _columnName = columnName;
             _expression = expression;
+        }       
+
+        public string writeSelectClause(
+            List<SqlSelectScalarExpression> selectScalarList, 
+            List<SqlScalarRefExpression> scalarRefList, 
+            List<SqlIdentifier> sqlIdentifierList, 
+            List<SqlBinaryScalarExpression> binaryScalarList, 
+            List<SqlColumnRefExpression> columnRefList, 
+            List<SqlSelectStarExpression> starList, 
+            SqlSelectClause sqlSelectClause,
+            String selectComment)
+        {
+            StringBuilder sb = new StringBuilder();
+            try
+            {
+                if (starList.Count() != 0)
+                {
+                    sb.Append(" select p );").AppendLine();
+                }
+                else
+                {
+                    sb.Append(loopSqlSelectScalar(selectScalarList, columnRefList, scalarRefList, binaryScalarList, sqlIdentifierList, sqlSelectClause));
+                }
+                return sb.ToString();
+            }
+            catch(Exception ex)
+            {
+                sb.Append("//" + ex.Message.Replace("\r\n", " ")).AppendLine();
+                sb.Append("// " + "SQL code to be interpreted").AppendLine();
+                sb.Append("// " + selectComment.Replace("\r\n", " ").Replace("\n", " ").Replace("\r", " "));
+                return sb.ToString();
+            }
+        }
+
+        public string loopSqlSelectScalar(
+            List<SqlSelectScalarExpression> selectScalarList, 
+            List<SqlColumnRefExpression> columnRefList, 
+            List<SqlScalarRefExpression> scalarRefList, 
+            List<SqlBinaryScalarExpression> binaryScalarList,
+            List<SqlIdentifier> sqlIdentifierList, 
+            SqlSelectClause sqlSelect)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("select new {");
+            if (columnRefList.Count != 0)
+            {
+                sb.Append(checkColumnRef(selectScalarList, columnRefList));
+            }
+            sb.Append(checkScalarRef(selectScalarList, scalarRefList));
+            sb.Append(checkBinaryScalar(selectScalarList, binaryScalarList, columnRefList,sqlIdentifierList, scalarRefList ));
+            sb.Append(isDistinct(sqlSelect));
+            return sb.ToString();        
+        }
+
+        public string checkColumnRef(List<SqlSelectScalarExpression> selectScalarList, List<SqlColumnRefExpression> columnRefList)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (var selectScalar in selectScalarList)
+            {
+                string location = selectScalar._location;
+                foreach (var c in columnRefList)
+                {
+                    if (c._parentLocation == location)
+                    {
+                        if (selectScalar._alias != null)
+                        {
+                            sb.Append(selectScalar._alias + " = ");
+                        }
+                        sb.Append(" p." + c._columnName + ",");
+                    }
+                }
+            }
+            return sb.ToString();
+        }
+
+        public string checkScalarRef(List<SqlSelectScalarExpression> selectScalarList, List<SqlScalarRefExpression> scalarRefList)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (var selectScalar in selectScalarList)
+            {
+                string location = selectScalar._location;
+                foreach (var scalarRef in scalarRefList)
+                {
+                    if (scalarRef._parentLocation == location)
+                    {
+                        if (selectScalar._alias != null)
+                        {
+                            sb.Append(selectScalar._alias + " = ");
+                        }
+                        sb.Append(scalarRef._multipartIdentifier + ",");
+                    }
+                }
+            }
+            return sb.ToString();
+        }
+
+        public string checkBinaryScalar(
+            List<SqlSelectScalarExpression> selectScalarList, 
+            List<SqlBinaryScalarExpression> binarySclarList, 
+            List<SqlColumnRefExpression> columnRefList,
+            List<SqlIdentifier> sqlIdentifierList,
+            List<SqlScalarRefExpression> scalarRefList)
+        {
+            StringBuilder sb = new StringBuilder();
+            string binaryOperator = "";
+            string binaryLocation = "";
+            foreach (var s in selectScalarList)
+            {
+                string location = s._location;
+                foreach (var b in binarySclarList)
+                {
+                    if (b._parentLocation == location)
+                    {
+                        binaryOperator = b._operator.convertOperator();
+                        binaryLocation = b._location;
+                        sb.Append(findIdentifier(sqlIdentifierList, location));
+                        Condition condition = new Condition();
+                        if (columnRefList.Count != 0)
+                        {
+                            condition = findBinaryColumns(binaryLocation, columnRefList, binaryOperator);
+                        }
+                        else
+                        {
+                            condition = findBinaryColumns(binaryLocation, scalarRefList, binaryOperator);
+                        }
+                        sb.Append(" ( " + condition._conditionA + " " + condition._operator + " " + condition._conditionB + " )");
+                    }
+                }
+
+            }
+            return sb.ToString();        
+        }
+
+        public Condition findBinaryColumns(string binarylocation, List<SqlColumnRefExpression> columnRefList, string binaryOpertor)
+        {
+            Condition condition = new Condition();
+            List<string> columnList = new List<string>();
+            foreach (var c in columnRefList)
+            {
+                if (c._parentLocation == binarylocation)
+                {
+                    columnList.Add(c._columnName);
+                }
+            }
+            condition._conditionA = columnList[0];
+            condition._operator = binaryOpertor;
+            condition._conditionB = columnList[1];
+            return condition;
+        }
+
+        public Condition findBinaryColumns(string binarylocation, List<SqlScalarRefExpression> scalarList, string binaryOpertor)
+        {
+            Condition condition = new Condition();
+            List<string> columnList = new List<string>();
+            foreach (var c in scalarList)
+            {
+                if (c._parentLocation == binarylocation)
+                {
+                    columnList.Add(c._multipartIdentifier);
+                }
+            }
+            condition._conditionA = columnList[0];
+            condition._operator = binaryOpertor;
+            condition._conditionB = columnList[1];
+            return condition;
+        }
+
+        public String findIdentifier(List<SqlIdentifier> sqlIdentifierList, string parentlocation)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (var s in sqlIdentifierList)
+            {
+                if (s._parentLocation == parentlocation)
+                {
+                    sb.Append(s._value + " = ");
+                }
+            }
+            return sb.ToString();
+        }
+
+        public String isDistinct(SqlSelectClause sqlSelect)
+        {
+            StringBuilder sb = new StringBuilder();
+            if (sqlSelect._isDistinct == "True")
+            {
+                sb.Append(" }).Distinct();");
+            }
+            else
+            {
+                sb.Append(" });");
+            }
+            return sb.ToString();
         }
 
         public static SelectClause getSelectClause(XDocument xmlDoc)
@@ -49,7 +241,7 @@ namespace ExtensionMethods
 
             if (xmlDoc.Descendants("SqlSelectStatement").Descendants("SqlSelectClause").Attributes("IsDistinct").FirstOrDefault().Value == "True")
             {
-                 distinctv = "true";
+                distinctv = "true";
             }
             else
             {
@@ -100,160 +292,6 @@ namespace ExtensionMethods
             List<XElement> grandchildren = new List<XElement>();
             List<List<XElement>> grandchildrenList = new List<List<XElement>>();
             return new List<Dictionary<string, Dictionary<string, string>>>();
-        }
-
-        public string writeSelectClause(
-            List<SqlSelectScalarExpression> selectScalarList, 
-            List<SqlScalarRefExpression> scalarRefList, 
-            List<SqlIdentifier> sqlIdentifierList, 
-            List<SqlBinaryScalarExpression> binaryScalarList, 
-            List<SqlColumnRefExpression> columnRefList, 
-            List<SqlSelectStarExpression> starList, 
-            SqlSelectClause sqlSelectClause)
-        {
-            StringBuilder sb = new StringBuilder();
-            if (starList.Count() != 0)
-            {
-                sb.Append(" select p;").AppendLine();
-            }
-            else
-            {
-                sb.Append(loopSqlSelectScalar(selectScalarList, columnRefList, scalarRefList, binaryScalarList, sqlIdentifierList, sqlSelectClause));
-            }
-            return sb.ToString();
-        }
-
-        public string loopSqlSelectScalar(
-            List<SqlSelectScalarExpression> selectScalarList, 
-            List<SqlColumnRefExpression> columnRefList, 
-            List<SqlScalarRefExpression> scalarRefList, 
-            List<SqlBinaryScalarExpression> binaryScalarList,
-            List<SqlIdentifier> sqlIdentifierList, 
-            SqlSelectClause sqlSelect)
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.Append("select new {");
-            sb.Append(checkColumnRef(selectScalarList, columnRefList));
-            sb.Append(checkScalarRef(selectScalarList, scalarRefList));
-            sb.Append(checkBinaryScalar(selectScalarList, binaryScalarList, columnRefList,sqlIdentifierList ));
-            sb.Append(isDistinct(sqlSelect));
-            return sb.ToString();        
-        }
-
-        public string checkColumnRef(List<SqlSelectScalarExpression> selectScalarList, List<SqlColumnRefExpression> columnRefList)
-        {
-            StringBuilder sb = new StringBuilder();
-            foreach (var selectScalar in selectScalarList)
-            {
-                string location = selectScalar._location;
-                foreach (var c in columnRefList)
-                {
-                    if (c._parentLocation == location)
-                    {
-                        if (selectScalar._alias != null)
-                        {
-                            sb.Append(selectScalar._alias + " = ");
-                        }
-                        sb.Append(" p." + c._columnName + ",");
-                    }
-                }
-            }
-            sb.AppendLine();
-            return sb.ToString();
-        }
-
-        public string checkScalarRef(List<SqlSelectScalarExpression> selectScalarList, List<SqlScalarRefExpression> scalarRefList)
-        {
-            StringBuilder sb = new StringBuilder();
-            foreach (var selectScalar in selectScalarList)
-            {
-                string location = selectScalar._location;
-                foreach (var scalarRef in scalarRefList)
-                {
-                    if (scalarRef._parentLocation == location)
-                    {
-                        if (selectScalar._alias != null)
-                        {
-                            sb.Append(selectScalar._alias + " = ");
-                        }
-                        sb.Append(scalarRef._multipartIdentifier + ",");
-                    }
-                }
-            }
-            sb.AppendLine();
-            return sb.ToString();
-        }
-
-        public string checkBinaryScalar(
-            List<SqlSelectScalarExpression> selectScalarList, 
-            List<SqlBinaryScalarExpression> binarySclarList, 
-            List<SqlColumnRefExpression> columnRefList,
-            List<SqlIdentifier> sqlIdentifierList)
-        {
-            StringBuilder sb = new StringBuilder();
-            string binaryOperator = "";
-            string binaryLocation = "";
-            foreach (var s in selectScalarList)
-            {
-                string location = s._location;
-                foreach (var b in binarySclarList)
-                {
-                    if (b._parentLocation == location)
-                    {
-                        binaryOperator = b._operator.convertOperator();
-                        binaryLocation = b._location;
-                        sb.Append(findIdentifier(sqlIdentifierList, location));
-                        Condition condition = findBinaryColumns(binaryLocation, columnRefList, binaryOperator);
-                        sb.Append(" ( " + condition._conditionA + " " + condition._operator + " " + condition._conditionB + " )");
-                    }
-                }
-
-            }
-            return sb.ToString();        
-        }
-
-        public Condition findBinaryColumns(string binarylocation, List<SqlColumnRefExpression> columnRefList, string binaryOpertor)
-        {
-            Condition condition = new Condition();
-            List<string> columnList = new List<string>();
-            foreach (var c in columnRefList)
-            {
-                if (c._parentLocation == binarylocation)
-                {
-                    columnList.Add(c._columnName);
-                }
-            }
-            condition._conditionA = columnList[0];
-            condition._operator = binaryOpertor;
-            condition._conditionB = columnList[1];
-            return condition;
-        }
-
-        public String findIdentifier(List<SqlIdentifier> sqlIdentifierList, string parentlocation)
-        {
-            StringBuilder sb = new StringBuilder();
-            foreach (var s in sqlIdentifierList)
-            {
-                if (s._parentLocation == parentlocation)
-                {
-                    sb.Append(s._value + " = ");
-                }
-            }
-            return sb.ToString();
-        }
-
-        public String isDistinct(SqlSelectClause sqlSelect)
-        {
-            StringBuilder sb = new StringBuilder();
-            if (sqlSelect._isDistinct == "True")
-            {
-                sb.Append(" }).Distinct();");
-            }
-            else
-            {
-                sb.Append(" });");
-            }
-            return sb.ToString();
         }
     }
 }

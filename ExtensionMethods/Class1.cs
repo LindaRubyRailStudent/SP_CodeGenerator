@@ -104,6 +104,13 @@ namespace ExtensionMethods
             return e;
         }
 
+        public static string convertDataType(this string d)
+        {
+            d = d.Replace("nvarchar", "string");
+            d = d.Replace("integer", "int");
+            return d;
+        }
+
         /// <summary>
         /// Creates a new List of Tokens generated from the parsed Sql XML document.  
         /// An XDocument which can be traversed from node to node is passed to the method

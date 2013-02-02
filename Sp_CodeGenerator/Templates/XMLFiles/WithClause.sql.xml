@@ -1,0 +1,470 @@
+<SqlScript Location="((1,1), (28,1))">
+  <!--- - ================================================
+- - Template generated from Template Explorer using:
+- - Create Procedure (New Menu).SQL
+- -
+- - Use the Specify Values for Template Parameters 
+- - command (Ctrl-Shift-M) to fill in the parameter 
+- - values below.
+- -
+- - This block of comments will not be included in
+- - the definition of the procedure.
+- - ================================================
+SET ANSI_NULLS ON
+GO
+- - Define the CTE expression name and column List
+WITH Sales_CTE (SalesOrderID, OrderDate, ShipDate, SubTotal)
+AS
+- - Define the CTE query
+(SELECT SalesOrderID, ShipDate, SubTotal, YEAR(OrderDate) AS SalesYear
+FROM SalesLT.SalesOrderHeader
+WHERE ShipDate IS NOT NULL
+)
+- -Define the outer query referencing the CTE name
+SELECT SalesOrderID, COUNT(SubTotal) AS TotalSales, OrderDate
+FROM Sales_CTE
+GROUP BY ShipDate, OrderDate, SalesOrderID
+ORDER BY SalesOrderID
+GO
+-->
+  <Errors />
+  <SqlBatch Location="((1,1), (13,1))">
+    <!--- - ================================================
+- - Template generated from Template Explorer using:
+- - Create Procedure (New Menu).SQL
+- -
+- - Use the Specify Values for Template Parameters 
+- - command (Ctrl-Shift-M) to fill in the parameter 
+- - values below.
+- -
+- - This block of comments will not be included in
+- - the definition of the procedure.
+- - ================================================
+SET ANSI_NULLS ON
+-->
+    <SqlNullStatement Location="((12,1),(12,18))">
+      <!--SET ANSI_NULLS ON-->
+    </SqlNullStatement>
+    <Tokens>
+      <Token location="((1,1), (1,53))" id="545" type="LEX_END_OF_LINE_COMMENT">-- ================================================\r</Token>
+      <Token location="((1,53), (2,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((2,1), (2,53))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Template generated from Template Explorer using:\r</Token>
+      <Token location="((2,53), (3,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((3,1), (3,36))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Create Procedure (New Menu).SQL\r</Token>
+      <Token location="((3,36), (4,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((4,1), (4,4))" id="545" type="LEX_END_OF_LINE_COMMENT">--\r</Token>
+      <Token location="((4,4), (5,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((5,1), (5,52))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Use the Specify Values for Template Parameters \r</Token>
+      <Token location="((5,52), (6,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((6,1), (6,53))" id="545" type="LEX_END_OF_LINE_COMMENT">-- command (Ctrl-Shift-M) to fill in the parameter \r</Token>
+      <Token location="((6,53), (7,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((7,1), (7,18))" id="545" type="LEX_END_OF_LINE_COMMENT">-- values below.\r</Token>
+      <Token location="((7,18), (8,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((8,1), (8,4))" id="545" type="LEX_END_OF_LINE_COMMENT">--\r</Token>
+      <Token location="((8,4), (9,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((9,1), (9,51))" id="545" type="LEX_END_OF_LINE_COMMENT">-- This block of comments will not be included in\r</Token>
+      <Token location="((9,51), (10,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((10,1), (10,37))" id="545" type="LEX_END_OF_LINE_COMMENT">-- the definition of the procedure.\r</Token>
+      <Token location="((10,37), (11,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((11,1), (11,53))" id="545" type="LEX_END_OF_LINE_COMMENT">-- ================================================\r</Token>
+      <Token location="((11,53), (12,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((12,1), (12,4))" id="148" type="TOKEN_SET">SET</Token>
+      <Token location="((12,4), (12,5))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((12,5), (12,15))" id="171" type="TOKEN_ID">ANSI_NULLS</Token>
+      <Token location="((12,15), (12,16))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((12,16), (12,18))" id="268" type="TOKEN_ON">ON</Token>
+      <Token location="((12,18), (13,1))" id="544" type="LEX_WHITE">\r\n</Token>
+    </Tokens>
+  </SqlBatch>
+  <SqlBatch Location="((13,3), (27,1))">
+    <!--
+- - Define the CTE expression name and column List
+WITH Sales_CTE (SalesOrderID, OrderDate, ShipDate, SubTotal)
+AS
+- - Define the CTE query
+(SELECT SalesOrderID, ShipDate, SubTotal, YEAR(OrderDate) AS SalesYear
+FROM SalesLT.SalesOrderHeader
+WHERE ShipDate IS NOT NULL
+)
+- -Define the outer query referencing the CTE name
+SELECT SalesOrderID, COUNT(SubTotal) AS TotalSales, OrderDate
+FROM Sales_CTE
+GROUP BY ShipDate, OrderDate, SalesOrderID
+ORDER BY SalesOrderID
+-->
+    <SqlSelectStatement Location="((15,1),(26,22))">
+      <!--WITH Sales_CTE (SalesOrderID, OrderDate, ShipDate, SubTotal)
+AS
+- - Define the CTE query
+(SELECT SalesOrderID, ShipDate, SubTotal, YEAR(OrderDate) AS SalesYear
+FROM SalesLT.SalesOrderHeader
+WHERE ShipDate IS NOT NULL
+)
+- -Define the outer query referencing the CTE name
+SELECT SalesOrderID, COUNT(SubTotal) AS TotalSales, OrderDate
+FROM Sales_CTE
+GROUP BY ShipDate, OrderDate, SalesOrderID
+ORDER BY SalesOrderID-->
+      <SqlQueryWithClause Location="((15,1),(21,2))">
+        <!--WITH Sales_CTE (SalesOrderID, OrderDate, ShipDate, SubTotal)
+AS
+- - Define the CTE query
+(SELECT SalesOrderID, ShipDate, SubTotal, YEAR(OrderDate) AS SalesYear
+FROM SalesLT.SalesOrderHeader
+WHERE ShipDate IS NOT NULL
+)-->
+        <SqlCommonTableExpression Location="((15,6),(21,2))" Name="Sales_CTE">
+          <!--Sales_CTE (SalesOrderID, OrderDate, ShipDate, SubTotal)
+AS
+- - Define the CTE query
+(SELECT SalesOrderID, ShipDate, SubTotal, YEAR(OrderDate) AS SalesYear
+FROM SalesLT.SalesOrderHeader
+WHERE ShipDate IS NOT NULL
+)-->
+          <SqlIdentifier Location="((15,6),(15,15))" Value="Sales_CTE">
+            <!--Sales_CTE-->
+          </SqlIdentifier>
+          <SqlIdentifier Location="((15,17),(15,29))" Value="SalesOrderID">
+            <!--SalesOrderID-->
+          </SqlIdentifier>
+          <SqlIdentifier Location="((15,31),(15,40))" Value="OrderDate">
+            <!--OrderDate-->
+          </SqlIdentifier>
+          <SqlIdentifier Location="((15,42),(15,50))" Value="ShipDate">
+            <!--ShipDate-->
+          </SqlIdentifier>
+          <SqlIdentifier Location="((15,52),(15,60))" Value="SubTotal">
+            <!--SubTotal-->
+          </SqlIdentifier>
+          <SqlQuerySpecification Location="((18,2),(20,27))">
+            <!--SELECT SalesOrderID, ShipDate, SubTotal, YEAR(OrderDate) AS SalesYear
+FROM SalesLT.SalesOrderHeader
+WHERE ShipDate IS NOT NULL-->
+            <SqlSelectClause Location="((18,2),(18,71))" IsDistinct="False">
+              <!--SELECT SalesOrderID, ShipDate, SubTotal, YEAR(OrderDate) AS SalesYear-->
+              <SqlSelectScalarExpression Location="((18,9),(18,21))">
+                <!--SalesOrderID-->
+                <SqlColumnRefExpression Location="((18,9),(18,21))" ColumnName="SalesOrderID" MultipartIdentifier="SalesOrderID">
+                  <!--SalesOrderID-->
+                  <SqlObjectIdentifier Location="((18,9),(18,21))" ObjectName="SalesOrderID">
+                    <!--SalesOrderID-->
+                    <SqlIdentifier Location="((18,9),(18,21))" Value="SalesOrderID">
+                      <!--SalesOrderID-->
+                    </SqlIdentifier>
+                  </SqlObjectIdentifier>
+                </SqlColumnRefExpression>
+              </SqlSelectScalarExpression>
+              <SqlSelectScalarExpression Location="((18,23),(18,31))">
+                <!--ShipDate-->
+                <SqlColumnRefExpression Location="((18,23),(18,31))" ColumnName="ShipDate" MultipartIdentifier="ShipDate">
+                  <!--ShipDate-->
+                  <SqlObjectIdentifier Location="((18,23),(18,31))" ObjectName="ShipDate">
+                    <!--ShipDate-->
+                    <SqlIdentifier Location="((18,23),(18,31))" Value="ShipDate">
+                      <!--ShipDate-->
+                    </SqlIdentifier>
+                  </SqlObjectIdentifier>
+                </SqlColumnRefExpression>
+              </SqlSelectScalarExpression>
+              <SqlSelectScalarExpression Location="((18,33),(18,41))">
+                <!--SubTotal-->
+                <SqlColumnRefExpression Location="((18,33),(18,41))" ColumnName="SubTotal" MultipartIdentifier="SubTotal">
+                  <!--SubTotal-->
+                  <SqlObjectIdentifier Location="((18,33),(18,41))" ObjectName="SubTotal">
+                    <!--SubTotal-->
+                    <SqlIdentifier Location="((18,33),(18,41))" Value="SubTotal">
+                      <!--SubTotal-->
+                    </SqlIdentifier>
+                  </SqlObjectIdentifier>
+                </SqlColumnRefExpression>
+              </SqlSelectScalarExpression>
+              <SqlSelectScalarExpression Location="((18,43),(18,71))" Alias="SalesYear">
+                <!--YEAR(OrderDate) AS SalesYear-->
+                <SqlBuiltinScalarFunctionCallExpression Location="((18,43),(18,58))" FunctionName="YEAR" IsStar="False">
+                  <!--YEAR(OrderDate)-->
+                  <SqlColumnRefExpression Location="((18,48),(18,57))" ColumnName="OrderDate" MultipartIdentifier="OrderDate">
+                    <!--OrderDate-->
+                    <SqlObjectIdentifier Location="((18,48),(18,57))" ObjectName="OrderDate">
+                      <!--OrderDate-->
+                      <SqlIdentifier Location="((18,48),(18,57))" Value="OrderDate">
+                        <!--OrderDate-->
+                      </SqlIdentifier>
+                    </SqlObjectIdentifier>
+                  </SqlColumnRefExpression>
+                </SqlBuiltinScalarFunctionCallExpression>
+                <SqlIdentifier Location="((18,62),(18,71))" Value="SalesYear">
+                  <!--SalesYear-->
+                </SqlIdentifier>
+              </SqlSelectScalarExpression>
+            </SqlSelectClause>
+            <SqlFromClause Location="((19,1),(19,30))">
+              <!--FROM SalesLT.SalesOrderHeader-->
+              <SqlTableRefExpression Location="((19,6),(19,30))" ObjectIdentifier="SalesLT.SalesOrderHeader">
+                <!--SalesLT.SalesOrderHeader-->
+                <SqlObjectIdentifier Location="((19,6),(19,30))" SchemaName="SalesLT" ObjectName="SalesOrderHeader">
+                  <!--SalesLT.SalesOrderHeader-->
+                  <SqlIdentifier Location="((19,6),(19,13))" Value="SalesLT">
+                    <!--SalesLT-->
+                  </SqlIdentifier>
+                  <SqlIdentifier Location="((19,14),(19,30))" Value="SalesOrderHeader">
+                    <!--SalesOrderHeader-->
+                  </SqlIdentifier>
+                </SqlObjectIdentifier>
+              </SqlTableRefExpression>
+            </SqlFromClause>
+            <SqlWhereClause Location="((20,1),(20,27))">
+              <!--WHERE ShipDate IS NOT NULL-->
+              <SqlIsNullBooleanExpression Location="((20,7),(20,27))" HasNot="True">
+                <!--ShipDate IS NOT NULL-->
+                <SqlColumnRefExpression Location="((20,7),(20,15))" ColumnName="ShipDate" MultipartIdentifier="ShipDate">
+                  <!--ShipDate-->
+                  <SqlObjectIdentifier Location="((20,7),(20,15))" ObjectName="ShipDate">
+                    <!--ShipDate-->
+                    <SqlIdentifier Location="((20,7),(20,15))" Value="ShipDate">
+                      <!--ShipDate-->
+                    </SqlIdentifier>
+                  </SqlObjectIdentifier>
+                </SqlColumnRefExpression>
+              </SqlIsNullBooleanExpression>
+            </SqlWhereClause>
+          </SqlQuerySpecification>
+        </SqlCommonTableExpression>
+      </SqlQueryWithClause>
+      <SqlSelectSpecification Location="((23,1),(26,22))">
+        <!--SELECT SalesOrderID, COUNT(SubTotal) AS TotalSales, OrderDate
+FROM Sales_CTE
+GROUP BY ShipDate, OrderDate, SalesOrderID
+ORDER BY SalesOrderID-->
+        <SqlQuerySpecification Location="((23,1),(25,43))">
+          <!--SELECT SalesOrderID, COUNT(SubTotal) AS TotalSales, OrderDate
+FROM Sales_CTE
+GROUP BY ShipDate, OrderDate, SalesOrderID-->
+          <SqlSelectClause Location="((23,1),(23,62))" IsDistinct="False">
+            <!--SELECT SalesOrderID, COUNT(SubTotal) AS TotalSales, OrderDate-->
+            <SqlSelectScalarExpression Location="((23,8),(23,20))">
+              <!--SalesOrderID-->
+              <SqlColumnRefExpression Location="((23,8),(23,20))" ColumnName="SalesOrderID" MultipartIdentifier="SalesOrderID">
+                <!--SalesOrderID-->
+                <SqlObjectIdentifier Location="((23,8),(23,20))" ObjectName="SalesOrderID">
+                  <!--SalesOrderID-->
+                  <SqlIdentifier Location="((23,8),(23,20))" Value="SalesOrderID">
+                    <!--SalesOrderID-->
+                  </SqlIdentifier>
+                </SqlObjectIdentifier>
+              </SqlColumnRefExpression>
+            </SqlSelectScalarExpression>
+            <SqlSelectScalarExpression Location="((23,22),(23,51))" Alias="TotalSales">
+              <!--COUNT(SubTotal) AS TotalSales-->
+              <SqlAggregateFunctionCallExpression Location="((23,22),(23,37))" SetQuantifier="None" FunctionName="COUNT" IsStar="False">
+                <!--COUNT(SubTotal)-->
+                <SqlColumnRefExpression Location="((23,28),(23,36))" ColumnName="SubTotal" MultipartIdentifier="SubTotal">
+                  <!--SubTotal-->
+                  <SqlObjectIdentifier Location="((23,28),(23,36))" ObjectName="SubTotal">
+                    <!--SubTotal-->
+                    <SqlIdentifier Location="((23,28),(23,36))" Value="SubTotal">
+                      <!--SubTotal-->
+                    </SqlIdentifier>
+                  </SqlObjectIdentifier>
+                </SqlColumnRefExpression>
+              </SqlAggregateFunctionCallExpression>
+              <SqlIdentifier Location="((23,41),(23,51))" Value="TotalSales">
+                <!--TotalSales-->
+              </SqlIdentifier>
+            </SqlSelectScalarExpression>
+            <SqlSelectScalarExpression Location="((23,53),(23,62))">
+              <!--OrderDate-->
+              <SqlColumnRefExpression Location="((23,53),(23,62))" ColumnName="OrderDate" MultipartIdentifier="OrderDate">
+                <!--OrderDate-->
+                <SqlObjectIdentifier Location="((23,53),(23,62))" ObjectName="OrderDate">
+                  <!--OrderDate-->
+                  <SqlIdentifier Location="((23,53),(23,62))" Value="OrderDate">
+                    <!--OrderDate-->
+                  </SqlIdentifier>
+                </SqlObjectIdentifier>
+              </SqlColumnRefExpression>
+            </SqlSelectScalarExpression>
+          </SqlSelectClause>
+          <SqlFromClause Location="((24,1),(24,15))">
+            <!--FROM Sales_CTE-->
+            <SqlTableRefExpression Location="((24,6),(24,15))" ObjectIdentifier="Sales_CTE">
+              <!--Sales_CTE-->
+              <SqlObjectIdentifier Location="((24,6),(24,15))" ObjectName="Sales_CTE">
+                <!--Sales_CTE-->
+                <SqlIdentifier Location="((24,6),(24,15))" Value="Sales_CTE">
+                  <!--Sales_CTE-->
+                </SqlIdentifier>
+              </SqlObjectIdentifier>
+            </SqlTableRefExpression>
+          </SqlFromClause>
+          <SqlGroupByClause Location="((25,1),(25,43))" HasAll="False" Option="None">
+            <!--GROUP BY ShipDate, OrderDate, SalesOrderID-->
+            <SqlSimpleGroupByItem Location="((25,10),(25,18))">
+              <!--ShipDate-->
+              <SqlColumnRefExpression Location="((25,10),(25,18))" ColumnName="ShipDate" MultipartIdentifier="ShipDate">
+                <!--ShipDate-->
+                <SqlObjectIdentifier Location="((25,10),(25,18))" ObjectName="ShipDate">
+                  <!--ShipDate-->
+                  <SqlIdentifier Location="((25,10),(25,18))" Value="ShipDate">
+                    <!--ShipDate-->
+                  </SqlIdentifier>
+                </SqlObjectIdentifier>
+              </SqlColumnRefExpression>
+            </SqlSimpleGroupByItem>
+            <SqlSimpleGroupByItem Location="((25,20),(25,29))">
+              <!--OrderDate-->
+              <SqlColumnRefExpression Location="((25,20),(25,29))" ColumnName="OrderDate" MultipartIdentifier="OrderDate">
+                <!--OrderDate-->
+                <SqlObjectIdentifier Location="((25,20),(25,29))" ObjectName="OrderDate">
+                  <!--OrderDate-->
+                  <SqlIdentifier Location="((25,20),(25,29))" Value="OrderDate">
+                    <!--OrderDate-->
+                  </SqlIdentifier>
+                </SqlObjectIdentifier>
+              </SqlColumnRefExpression>
+            </SqlSimpleGroupByItem>
+            <SqlSimpleGroupByItem Location="((25,31),(25,43))">
+              <!--SalesOrderID-->
+              <SqlColumnRefExpression Location="((25,31),(25,43))" ColumnName="SalesOrderID" MultipartIdentifier="SalesOrderID">
+                <!--SalesOrderID-->
+                <SqlObjectIdentifier Location="((25,31),(25,43))" ObjectName="SalesOrderID">
+                  <!--SalesOrderID-->
+                  <SqlIdentifier Location="((25,31),(25,43))" Value="SalesOrderID">
+                    <!--SalesOrderID-->
+                  </SqlIdentifier>
+                </SqlObjectIdentifier>
+              </SqlColumnRefExpression>
+            </SqlSimpleGroupByItem>
+          </SqlGroupByClause>
+        </SqlQuerySpecification>
+        <SqlOrderByClause Location="((26,1),(26,22))">
+          <!--ORDER BY SalesOrderID-->
+          <SqlOrderByItem Location="((26,10),(26,22))" SortOrder="None">
+            <!--SalesOrderID-->
+            <SqlColumnRefExpression Location="((26,10),(26,22))" ColumnName="SalesOrderID" MultipartIdentifier="SalesOrderID">
+              <!--SalesOrderID-->
+              <SqlObjectIdentifier Location="((26,10),(26,22))" ObjectName="SalesOrderID">
+                <!--SalesOrderID-->
+                <SqlIdentifier Location="((26,10),(26,22))" Value="SalesOrderID">
+                  <!--SalesOrderID-->
+                </SqlIdentifier>
+              </SqlObjectIdentifier>
+            </SqlColumnRefExpression>
+          </SqlOrderByItem>
+        </SqlOrderByClause>
+      </SqlSelectSpecification>
+    </SqlSelectStatement>
+    <Tokens>
+      <Token location="((13,3), (14,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((14,1), (14,51))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Define the CTE expression name and column List\r</Token>
+      <Token location="((14,51), (15,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((15,1), (15,5))" id="140" type="TOKEN_WITH">WITH</Token>
+      <Token location="((15,5), (15,6))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((15,6), (15,15))" id="437" type="TOKEN_s_AW_ID">Sales_CTE</Token>
+      <Token location="((15,15), (15,16))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((15,16), (15,17))" id="40" type="(">(</Token>
+      <Token location="((15,17), (15,29))" id="171" type="TOKEN_ID">SalesOrderID</Token>
+      <Token location="((15,29), (15,30))" id="44" type=",">,</Token>
+      <Token location="((15,30), (15,31))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((15,31), (15,40))" id="171" type="TOKEN_ID">OrderDate</Token>
+      <Token location="((15,40), (15,41))" id="44" type=",">,</Token>
+      <Token location="((15,41), (15,42))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((15,42), (15,50))" id="171" type="TOKEN_ID">ShipDate</Token>
+      <Token location="((15,50), (15,51))" id="44" type=",">,</Token>
+      <Token location="((15,51), (15,52))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((15,52), (15,60))" id="171" type="TOKEN_ID">SubTotal</Token>
+      <Token location="((15,60), (15,61))" id="41" type=")">)</Token>
+      <Token location="((15,61), (16,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((16,1), (16,3))" id="203" type="TOKEN_AS">AS</Token>
+      <Token location="((16,3), (17,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((17,1), (17,25))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Define the CTE query\r</Token>
+      <Token location="((17,25), (18,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((18,1), (18,2))" id="40" type="(">(</Token>
+      <Token location="((18,2), (18,8))" id="285" type="TOKEN_SELECT">SELECT</Token>
+      <Token location="((18,8), (18,9))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((18,9), (18,21))" id="171" type="TOKEN_ID">SalesOrderID</Token>
+      <Token location="((18,21), (18,22))" id="44" type=",">,</Token>
+      <Token location="((18,22), (18,23))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((18,23), (18,31))" id="171" type="TOKEN_ID">ShipDate</Token>
+      <Token location="((18,31), (18,32))" id="44" type=",">,</Token>
+      <Token location="((18,32), (18,33))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((18,33), (18,41))" id="171" type="TOKEN_ID">SubTotal</Token>
+      <Token location="((18,41), (18,42))" id="44" type=",">,</Token>
+      <Token location="((18,42), (18,43))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((18,43), (18,47))" id="171" type="TOKEN_ID">YEAR</Token>
+      <Token location="((18,47), (18,48))" id="40" type="(">(</Token>
+      <Token location="((18,48), (18,57))" id="171" type="TOKEN_ID">OrderDate</Token>
+      <Token location="((18,57), (18,58))" id="41" type=")">)</Token>
+      <Token location="((18,58), (18,59))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((18,59), (18,61))" id="203" type="TOKEN_AS">AS</Token>
+      <Token location="((18,61), (18,62))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((18,62), (18,71))" id="171" type="TOKEN_ID">SalesYear</Token>
+      <Token location="((18,71), (19,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((19,1), (19,5))" id="242" type="TOKEN_FROM">FROM</Token>
+      <Token location="((19,5), (19,6))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((19,6), (19,13))" id="171" type="TOKEN_ID">SalesLT</Token>
+      <Token location="((19,13), (19,14))" id="46" type=".">.</Token>
+      <Token location="((19,14), (19,30))" id="171" type="TOKEN_ID">SalesOrderHeader</Token>
+      <Token location="((19,30), (20,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((20,1), (20,6))" id="305" type="TOKEN_WHERE">WHERE</Token>
+      <Token location="((20,6), (20,7))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((20,7), (20,15))" id="171" type="TOKEN_ID">ShipDate</Token>
+      <Token location="((20,15), (20,16))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((20,16), (20,18))" id="255" type="TOKEN_IS">IS</Token>
+      <Token location="((20,18), (20,19))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((20,19), (20,22))" id="137" type="TOKEN_NOT">NOT</Token>
+      <Token location="((20,22), (20,23))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((20,23), (20,27))" id="264" type="TOKEN_NULL">NULL</Token>
+      <Token location="((20,27), (21,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((21,1), (21,2))" id="41" type=")">)</Token>
+      <Token location="((21,2), (22,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((22,1), (22,51))" id="545" type="LEX_END_OF_LINE_COMMENT">--Define the outer query referencing the CTE name\r</Token>
+      <Token location="((22,51), (23,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((23,1), (23,7))" id="285" type="TOKEN_SELECT">SELECT</Token>
+      <Token location="((23,7), (23,8))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((23,8), (23,20))" id="171" type="TOKEN_ID">SalesOrderID</Token>
+      <Token location="((23,20), (23,21))" id="44" type=",">,</Token>
+      <Token location="((23,21), (23,22))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((23,22), (23,27))" id="171" type="TOKEN_ID">COUNT</Token>
+      <Token location="((23,27), (23,28))" id="40" type="(">(</Token>
+      <Token location="((23,28), (23,36))" id="171" type="TOKEN_ID">SubTotal</Token>
+      <Token location="((23,36), (23,37))" id="41" type=")">)</Token>
+      <Token location="((23,37), (23,38))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((23,38), (23,40))" id="203" type="TOKEN_AS">AS</Token>
+      <Token location="((23,40), (23,41))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((23,41), (23,51))" id="171" type="TOKEN_ID">TotalSales</Token>
+      <Token location="((23,51), (23,52))" id="44" type=",">,</Token>
+      <Token location="((23,52), (23,53))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((23,53), (23,62))" id="171" type="TOKEN_ID">OrderDate</Token>
+      <Token location="((23,62), (24,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((24,1), (24,5))" id="242" type="TOKEN_FROM">FROM</Token>
+      <Token location="((24,5), (24,6))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((24,6), (24,15))" id="171" type="TOKEN_ID">Sales_CTE</Token>
+      <Token location="((24,15), (25,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((25,1), (25,6))" id="245" type="TOKEN_GROUP">GROUP</Token>
+      <Token location="((25,6), (25,7))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((25,7), (25,9))" id="211" type="TOKEN_BY">BY</Token>
+      <Token location="((25,9), (25,10))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((25,10), (25,18))" id="171" type="TOKEN_ID">ShipDate</Token>
+      <Token location="((25,18), (25,19))" id="44" type=",">,</Token>
+      <Token location="((25,19), (25,20))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((25,20), (25,29))" id="171" type="TOKEN_ID">OrderDate</Token>
+      <Token location="((25,29), (25,30))" id="44" type=",">,</Token>
+      <Token location="((25,30), (25,31))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((25,31), (25,43))" id="171" type="TOKEN_ID">SalesOrderID</Token>
+      <Token location="((25,43), (26,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((26,1), (26,6))" id="271" type="TOKEN_ORDER">ORDER</Token>
+      <Token location="((26,6), (26,7))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((26,7), (26,9))" id="211" type="TOKEN_BY">BY</Token>
+      <Token location="((26,9), (26,10))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((26,10), (26,22))" id="171" type="TOKEN_ID">SalesOrderID</Token>
+      <Token location="((26,22), (27,1))" id="544" type="LEX_WHITE">\r\n</Token>
+    </Tokens>
+  </SqlBatch>
+  <SqlBatch Location="((27,3), (28,1))">
+    <!--
+-->
+    <Tokens>
+      <Token location="((27,3), (28,1))" id="544" type="LEX_WHITE">\r\n</Token>
+    </Tokens>
+  </SqlBatch>
+</SqlScript>

@@ -18,7 +18,6 @@
 
 <#
 	var fileManager = EntityFrameworkTemplateFileManager.Create(this);
-
 	/// Instantiates a 
 	TsqlParser.ParseSql sqlParser = new TsqlParser.ParseSql();
 	sqlParser.Main();
@@ -38,12 +37,21 @@
 
 		//Load in EntityFramework Edmx file
 		MetadataLoader loader = new MetadataLoader(this);
-		string inputFile = @"c:\Sp_CodeGenerator\AWorks_Database\Model1.edmx";
+		string inputFile = @"c:\Sp_CodeGenerator\AWorks\Model1.edmx";
 		EdmItemCollection itemCollection = loader.CreateEdmItemCollection(inputFile);
 		var EntityCollection = itemCollection.GetItems<System.Data.Metadata.Edm.EntityType>();
+		EntityContainer container = itemCollection.GetItems<EntityContainer>().FirstOrDefault();
+
+		// Get Parameter Objects
+		ExtensionMethods.SqlParameter parameter = new ExtensionMethods.SqlParameter();
+		List<ExtensionMethods.SqlParameter> parameters = parameter.getSqlParameter(xmlDoc);
+		String arguments = parameter.getArguments(parameters);
+		
+		// Get Variables
+		List<ExtensionMethods.SqlScalarVariableRefExpression> variables = new ExtensionMethods.SqlScalarVariableRefExpression().getVariables(xmlDoc,parameters);
+
 
 		/// From Clause Objects
-
 		List<object> fromclause = new ExtensionMethods.WalkNodes().ReadNodes(xmlDoc, "SqlFromClause");
 		List<ExtensionMethods.SqlComparisonBooleanExpression> sqlCompBoolList = new ExtensionMethods.SqlComparisonBooleanExpression().getSqlCompBool(fromclause);
 		List<ExtensionMethods.SqlConditionClause> sqlCondition = new ExtensionMethods.SqlConditionClause().getSqlCondition(fromclause);
@@ -52,7 +60,8 @@
 		List<ExtensionMethods.SqlScalarRefExpression> sqlScalarRef = new ExtensionMethods.SqlScalarRefExpression().getSqlScalarRef(fromclause);
 		List<ExtensionMethods.SqlTableRefExpression> sqlTableRef = new ExtensionMethods.SqlTableRefExpression().getSqlTableRef(fromclause);		
 		ExtensionMethods.FromClause frClause = new ExtensionMethods.FromClause();
-		String fromstring = frClause.writeFromClause(sqlCompBoolList, sqlCondition, sqlObjectID, sqlQualifiedJoin, sqlScalarRef, sqlTableRef);
+		String fromComment = fromclause.First().ToString();
+		String fromstring = frClause.writeFromClause(sqlCompBoolList, sqlCondition, sqlObjectID, sqlQualifiedJoin, sqlScalarRef, sqlTableRef, fromComment);
 
 		/// Select Clause Object
 		List<object> selectClauseList = new ExtensionMethods.WalkNodes().ReadNodes(xmlDoc, "SqlSelectClause");
@@ -63,13 +72,14 @@
 		List<ExtensionMethods.SqlColumnRefExpression> columnRefList  = new ExtensionMethods.SqlColumnRefExpression().getSqlColumnRefExpression(selectClauseList);
 		List<ExtensionMethods.SqlSelectStarExpression> sqlStar = new ExtensionMethods.SqlSelectStarExpression().getSqlSelectStar(selectClauseList);
 		ExtensionMethods.SqlSelectClause sqlSelect = new ExtensionMethods.SqlSelectClause().gSelectClause(selectClauseList);
-		string selectstring = new ExtensionMethods.SelectClause().writeSelectClause(selectScalarList, scalarRefList, sqlIdentifierList, binaryScalarList, columnRefList, sqlStar, sqlSelect);
+		string selectComment =selectClauseList.First().ToString();
+		string selectstring = new ExtensionMethods.SelectClause().writeSelectClause(selectScalarList, scalarRefList, sqlIdentifierList, binaryScalarList, columnRefList, sqlStar, sqlSelect, selectComment);
 		
 		/// Stored Procedure Definition
 		string procedureDef = new ExtensionMethods.ProcDef().getProcDef(xmlDoc);
 
 		/// Get Return Type from the Edmx File
-		//string returnType = new ExtensionMethods.ProcDef().getReturnType(procedureDef, edmxFile);
+		string returnResult = new ExtensionMethods.ReturnResult().getReturnResult(xmlDoc);
 
 		/// Where Clause Objects
 		List<object> whereNodes = new ExtensionMethods.WalkNodes().ReadNodes(xmlDoc, "SqlWhereClause");
@@ -77,13 +87,22 @@
 		List<ExtensionMethods.SqlComparisonBooleanExpression> comparisonBoolList = new ExtensionMethods.SqlComparisonBooleanExpression().getSqlCompBool(whereNodes);
 		List<ExtensionMethods.SqlLiteralExpression> literalList = new ExtensionMethods.SqlLiteralExpression().getSqlLiteral(whereNodes);
 		List<ExtensionMethods.SqlColumnRefExpression> whereColumnRefList = new ExtensionMethods.SqlColumnRefExpression().getSqlColumnRefExpression(whereNodes);
-		string whereString = new ExtensionMethods.WhereClause().writeWhereClause(binaryBooleanList, comparisonBoolList, literalList, whereColumnRefList);
+		List<ExtensionMethods.SqlScalarRefExpression> whereScalarRef = new ExtensionMethods.SqlScalarRefExpression().getSqlScalarRef(whereNodes);
+		ExtensionMethods.WhereClause whereClause = new ExtensionMethods.WhereClause();
+		List<ExtensionMethods.SqlBetweenBooleanExpression> betweenBool = new ExtensionMethods.SqlBetweenBooleanExpression().getBetweenBoolean(xmlDoc);
+		List<ExtensionMethods.SqlLikeBooleanExpression> likeBool = new ExtensionMethods.SqlLikeBooleanExpression().getSqlLikeBoolean(xmlDoc);
+		string whereComment = whereClause.getWhereComment(whereNodes);
+		string whereString = whereClause.writeWhereClause(binaryBooleanList, comparisonBoolList, literalList, whereColumnRefList, whereScalarRef, variables, whereComment, xmlDoc, betweenBool, likeBool);
+
 
 		///Get OrderByClause Objects
 		List<object> orderbyNodes = new ExtensionMethods.WalkNodes().ReadNodes(xmlDoc, "SqlOrderByClause");
 		List<ExtensionMethods.SqlOrderByItem> orderbyList = new ExtensionMethods.SqlOrderByItem().getSqlOrderBy(orderbyNodes);
 		List<ExtensionMethods.SqlColumnRefExpression> orderyBycolumnRef = new ExtensionMethods.SqlColumnRefExpression().getSqlColumnRefExpression(orderbyNodes);
-		string orderbyString = new ExtensionMethods.OrderByClause().writeOrderByClause(orderbyList, orderyBycolumnRef);
+		List<ExtensionMethods.SqlScalarRefExpression> orderByScalarRef = new ExtensionMethods.SqlScalarRefExpression().getSqlScalarRef(orderbyNodes);
+		ExtensionMethods.OrderByClause orderByClause = new ExtensionMethods.OrderByClause();
+		string orderByComment = orderByClause.getOrderByComment(orderbyNodes);
+		string orderbyString = orderByClause.writeOrderByClause(orderbyList, orderyBycolumnRef, orderByScalarRef, orderByComment);
 #>
 
 // This is the output code from your template
@@ -91,19 +110,18 @@
 namespace Sp_CodeGenerator{
 	using System;
 	using System.Collections.Generic;
-	using AWorks;
 	using System.Linq;
 
 
  public class <#= procedureDef #> {
-	private AWorksLTEntities db = new AWorksLTEntities();
+	private AdventureWorksLT2008R2Entities db = new AdventureWorksLT2008R2Entities();
 
-	public <#= procedureDef #>_Result <#= procedureDef #>_Method(){
+	public List<<#= procedureDef #>_Result> <#= procedureDef #>_Method(<#= arguments #>){
 				<#= fromstring #>
 				<#= whereString #>
 				<#= orderbyString #>
 				<#= selectstring #>
-			return result as <#= procedureDef #>_Result;
+				<#= returnResult #>
 			}
 		}
 	}

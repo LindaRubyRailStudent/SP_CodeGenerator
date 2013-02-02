@@ -4,21 +4,25 @@
 namespace Sp_CodeGenerator{
 	using System;
 	using System.Collections.Generic;
-	using AWorks;
 	using System.Linq;
 
 
  public class SelectAll {
-	private AWorksLTEntities db = new AWorksLTEntities();
+	private AdventureWorksLT2008R2Entities db = new AdventureWorksLT2008R2Entities();
 
-	public SelectAll_Result SelectAll_Method(){
+	public List<SelectAll_Result> SelectAll_Method(){
 				 var result = ( from p in db.Products
 
 				
-				orderby Name
-				 select p;
+				orderby p.Name ascending
+				 select p );
 
-			return result as SelectAll_Result;
+				List<SelectAll_Result> listresult = new List<SelectAll_Result>();
+foreach ( var r in result )
+{
+     SelectAll_Result s = new SelectAll_Result();
+listresult.Add(s);
+}return listresult;
 			}
 		}
 	}

@@ -42,7 +42,33 @@ namespace ExtensionMethods
 
         }
 
-        public string writeOrderByClause(List<SqlOrderByItem> orderbyList, List<SqlColumnRefExpression> columnlist)
+        public string writeOrderByClause(
+            List<SqlOrderByItem> orderbyList, 
+            List<SqlColumnRefExpression> columnlist, 
+            List<SqlScalarRefExpression> orderByScalarRef,
+            String orderByComment)
+        {
+            StringBuilder sb = new StringBuilder();
+            try
+            {
+                if (columnlist.Count != 0)
+                {
+                    sb.Append(orderByColumn(orderbyList, columnlist));
+                }
+                else
+                {
+                    sb.Append(orderByScalar(orderbyList, orderByScalarRef));
+                }
+                return sb.ToString();
+            }
+            catch
+            {
+                sb.Append(orderByComment);
+            }
+            return sb.ToString();
+        }
+
+        public string orderByColumn(List<SqlOrderByItem> orderbyList, List<SqlColumnRefExpression> columnlist)
         {
             StringBuilder sb = new StringBuilder();
             foreach (var o in orderbyList)
@@ -51,11 +77,39 @@ namespace ExtensionMethods
                 {
                     if (o._location == c._parentLocation)
                     {
-                        sb.Append("orderby " + c._columnName);
+                        sb.Append("orderby " + c._columnName + " " + o._sortOrder.ToLower());
                     }
                 }
             }
-            return sb.ToString();       
+            return sb.ToString();
+        }
+
+        public string orderByScalar(List<SqlOrderByItem> orderbyList, List<SqlScalarRefExpression> orderByScalarRef)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (var o in orderbyList)
+            {
+                foreach (var c in orderByScalarRef)
+                {
+                    if (o._location == c._parentLocation)
+                    {
+                        sb.Append("orderby " + c._multipartIdentifier + " " + o._sortOrder.ToLower());
+                    }
+                }
+            }
+            return sb.ToString();
+        }
+
+        public string getOrderByComment(List<object> orderByNodes)
+        {
+            if (orderByNodes.Count != 0)
+            {
+                return orderByNodes.FirstOrDefault().ToString();
+            }
+            else
+            {
+                return "OrderBy comment is not available";
+            }
         }
     }
 }

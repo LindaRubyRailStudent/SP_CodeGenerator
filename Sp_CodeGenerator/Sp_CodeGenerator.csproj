@@ -35,7 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="envdte, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -61,27 +61,120 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Address.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BuildVersion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CInnerJoin_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customer.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerAddress.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorLog.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InnerJoinWhereMethod_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="MultipleTables_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductCategory.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductDescription.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductModel.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductModelProductDescription.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RevenueCalcuation_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalesOrderDetail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalesOrderHeader.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelectAllAlt_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelectAll_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelectDistinct_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelectMultipleDistinct_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelectStar_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelectSubset_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelectWhereNoParams_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Templates\dbo.CInnerJoin.StoredProcedure.sql.xml.cs">
       <DependentUpon>MultipleOutput.tt</DependentUpon>
     </Compile>
     <Compile Include="Templates\dbo.SelectAll.StoredProcedure.sql.xml.cs">
       <DependentUpon>MultipleOutput.tt</DependentUpon>
     </Compile>
-    <Compile Include="Templates\dbo.SelectAllAlt.StoredProcedure.sql.xml.cs">
+    <Compile Include="Templates\dbo.SelectDistinct.StoredProcedure.sql.xml.cs">
       <DependentUpon>MultipleOutput.tt</DependentUpon>
     </Compile>
-    <Compile Include="Templates\dbo.SelectDistinct.StoredProcedure.sql.xml.cs">
+    <Compile Include="Templates\dbo.SelectMultipleDistinct.StoredProcedure.sql.xml.cs">
       <DependentUpon>MultipleOutput.tt</DependentUpon>
     </Compile>
     <Compile Include="Templates\dbo.SelectSubset.StoredProcedure.sql.xml.cs">
       <DependentUpon>MultipleOutput.tt</DependentUpon>
     </Compile>
-    <Compile Include="Templates\dbo.SelectWhereNoParams.StoredProcedure.sql.xml.cs">
+    <Compile Include="Templates\dbo.WhereBetweenValues.StoredProcedure.sql.xml.cs">
+      <DependentUpon>MultipleOutput.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\dbo.WhereClauseOneArgument.StoredProcedure.sql.xml.cs">
       <DependentUpon>MultipleOutput.tt</DependentUpon>
     </Compile>
     <Compile Include="Templates\dbo.WhereComparisonOperator.StoredProcedure.sql.xml.cs">
+      <DependentUpon>MultipleOutput.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\dbo.WhereLikeString.StoredProcedure.sql.xml.cs">
+      <DependentUpon>MultipleOutput.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\dbo.WhereSeveralConditions.StoredProcedure.sql.xml.cs">
       <DependentUpon>MultipleOutput.tt</DependentUpon>
     </Compile>
     <Compile Include="Templates\MultipleOutput.cs">
@@ -89,57 +182,84 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MultipleOutput.tt</DependentUpon>
     </Compile>
-    <Compile Include="Templates\StoredProcedureTemplate.cs">
-      <DependentUpon>StoredProcedureTemplate.tt</DependentUpon>
-      <SubType>Code</SubType>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
+    <Compile Include="Tests\selectDistinctTest.cs" />
+    <Compile Include="Tests\SelectMultipleDistinctTest.cs" />
+    <Compile Include="Tests\SelectSubsetTest.cs" />
+    <Compile Include="Tests\Test.cs" />
+    <Compile Include="Where3Conditions_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WhereBetweenValues_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WhereClauseOneArgument_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WhereComparisonOperator_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WhereLikeString_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WhereListValues_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WhereSeveralConditions_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WhereSimpleEquality_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
     <None Include="Templates\MultipleOutput.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MultipleOutput.cs</LastGenOutput>
     </None>
-    <None Include="Templates\StoredProcedureTemplate.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>StoredProcedureTemplate.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="AndOrOpertor.xml" />
-    <Content Include="Templates\CompletedXmlFiles\dbo.CInnerJoin.StoredProcedure.sql.xml" />
-    <Content Include="Templates\CompletedXmlFiles\dbo.SelectAll.StoredProcedure.sql.xml" />
-    <Content Include="Templates\CompletedXmlFiles\dbo.SelectAllAlt.StoredProcedure.sql.xml" />
-    <Content Include="Templates\CompletedXmlFiles\dbo.SelectDistinct.StoredProcedure.sql.xml" />
-    <Content Include="Templates\CompletedXmlFiles\dbo.SelectSubset.StoredProcedure.sql.xml" />
-    <Content Include="Templates\CompletedXmlFiles\dbo.SelectWhereNoParams.StoredProcedure.sql.xml" />
-    <Content Include="Templates\CompletedXmlFiles\dbo.WhereComparisonOperator.StoredProcedure.sql.xml" />
     <Content Include="Templates\XMLFiles\AndOrOpertor.xml" />
     <Content Include="Templates\XMLFiles\CustOrdHist.xml" />
     <Content Include="Templates\XMLFiles\dbo.CalcInnerJoin.StoredProcedure.txt.xml" />
-    <Content Include="Templates\XMLFiles\dbo.CInnerJoin.StoredProcedure.sql.xml" />
+    <Content Include="Templates\CompletedXmlFiles\dbo.CInnerJoin.StoredProcedure.sql.xml" />
     <Content Include="Templates\XMLFiles\dbo.RevenueCalcuation.StoredProcedure.sql.xml" />
-    <Content Include="Templates\XMLFiles\dbo.SelectAll.StoredProcedure.sql.xml" />
-    <Content Include="Templates\XMLFiles\dbo.SelectAllAlt.StoredProcedure.sql.xml" />
-    <Content Include="Templates\XMLFiles\dbo.SelectDistinct.StoredProcedure.sql.xml" />
-    <Content Include="Templates\XMLFiles\dbo.SelectSubset.StoredProcedure.sql.xml" />
-    <Content Include="Templates\XMLFiles\dbo.SelectWhereNoParams.StoredProcedure.sql.xml" />
+    <Content Include="Templates\CompletedXmlFiles\dbo.SelectAll.StoredProcedure.sql.xml" />
+    <Content Include="Templates\CompletedXmlFiles\dbo.SelectSubset.StoredProcedure.sql.xml" />
+    <Content Include="Templates\CompletedXmlFiles\dbo.SelectDistinct.StoredProcedure.sql.xml" />
+    <Content Include="Templates\CompletedXmlFiles\dbo.SelectMultipleDistinct.StoredProcedure.sql.xml" />
     <Content Include="Templates\XMLFiles\dbo.Where3Conditions.StoredProcedure.sql.xml" />
-    <Content Include="Templates\XMLFiles\dbo.WhereBetweenValues.StoredProcedure.sql.xml" />
-    <Content Include="Templates\XMLFiles\dbo.WhereClauseOneArgument.StoredProcedure.sql.xml" />
-    <Content Include="Templates\XMLFiles\dbo.WhereComparisonOperator.StoredProcedure.sql.xml" />
-    <Content Include="Templates\XMLFiles\dbo.WhereLikeString.StoredProcedure.sql.xml" />
+    <Content Include="Templates\CompletedXmlFiles\dbo.WhereClauseOneArgument.StoredProcedure.sql.xml" />
+    <Content Include="Templates\CompletedXmlFiles\dbo.WhereBetweenValues.StoredProcedure.sql.xml" />
+    <Content Include="Templates\CompletedXmlFiles\dbo.WhereComparisonOperator.StoredProcedure.sql.xml" />
+    <Content Include="Templates\CompletedXmlFiles\dbo.WhereLikeString.StoredProcedure.sql.xml" />
     <Content Include="Templates\XMLFiles\dbo.WhereListValues.StoredProcedure.sql.xml" />
-    <Content Include="Templates\XMLFiles\dbo.WhereSeveralConditions.StoredProcedure.sql.xml" />
+    <Content Include="Templates\CompletedXmlFiles\dbo.WhereSeveralConditions.StoredProcedure.sql.xml" />
     <Content Include="Templates\XMLFiles\Model1xml.xml" />
     <Content Include="Templates\XMLFiles\SELECT ProductID, ProductName FROM Products,Customers.xml" />
     <Content Include="Templates\XMLFiles\SELECT ProductID,ProductName FROM Products.xml" />
     <Content Include="Templates\XMLFiles\SelectDistinct.xml" />
     <Content Include="Templates\XMLFiles\Selectstatement.xml" />
     <Content Include="Templates\XMLFiles\SelectTest.xml" />
+    <Content Include="Templates\XMLFiles\SQLStar.sql.xml" />
+    <Content Include="Templates\XMLFiles\SQLStarAlternative.sql.xml" />
+    <Content Include="Templates\XMLFiles\SQLMultipleTables.sql.xml" />
     <Content Include="Templates\XMLFiles\StoredProcedure1.xml" />
     <Content Include="Templates\XMLFiles\tokens.xml" />
     <Content Include="Templates\XMLFiles\WhereEqualsInteger.xml" />
@@ -162,6 +282,9 @@
       <Project>{BD7AF141-04D8-4C1F-BA2C-441B3A616BA5}</Project>
       <Name>ExtensionMethods</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Database\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

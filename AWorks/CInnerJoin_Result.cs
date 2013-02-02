@@ -16,7 +16,6 @@ namespace AWorks
     {
         public string ProductName { get; set; }
         public Nullable<decimal> NonDiscountSales { get; set; }
-        public Nullable<decimal> Discounts { get; set; }
     }
     
 }
