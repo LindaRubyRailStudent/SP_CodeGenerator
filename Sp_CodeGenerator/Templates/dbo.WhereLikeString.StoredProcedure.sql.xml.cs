@@ -13,7 +13,9 @@ namespace Sp_CodeGenerator{
 	public List<WhereLikeString_Result> WhereLikeString_Method(string @Name ){
 				 var result = ( from p in db.Products
 
-				 where p.Name.Contains( @Name )
+				//Object reference not set to an instance of an object.
+// SQL code to be interpreted
+// WHERE Name LIKE (@Name)
 				
 				select new { p.ProductID, p.Name, p.Color, });
 				List<WhereLikeString_Result> listresult = new List<WhereLikeString_Result>();

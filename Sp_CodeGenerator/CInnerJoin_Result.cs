@@ -12,10 +12,34 @@ using System.Collections.Generic;
 
 namespace Sp_CodeGenerator
 {
-    public partial class CInnerJoin_Result
+    public partial class CInnerJoin_Result : IEquatable<CInnerJoin_Result>
     {
         public string ProductName { get; set; }
         public Nullable<decimal> NonDiscountSales { get; set; }
+
+        public bool Equals(CInnerJoin_Result other)
+        {
+            if (other == null) return false;
+            if (this.NonDiscountSales == other.NonDiscountSales &&
+                this.ProductName == other.ProductName) return true;
+            else return false;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+            CInnerJoin_Result cjResult = (CInnerJoin_Result)obj;
+            if (cjResult == null)
+            {
+                return false;
+            }
+            else return Equals(cjResult);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
     
 }

@@ -62,11 +62,15 @@ namespace Sp_CodeGenerator
 
             var result = distinctList.Zip(sdResultList, (d, s) => new { Key = d, Value = s });
             testResult.WriteLine("Linq operation took " + linqstopwatch.Elapsed.ToString());
-            testResult.WriteLine("EF stored procedure Call took " + linqstopwatch.Elapsed.ToString());
+            testResult.WriteLine("EF stored procedure Call took " + efstopwatch.Elapsed.ToString());
 
             foreach (var r in result)
             {
                 testResult.WriteLine(SelectDistinct_Result.Equals(r.Key, r.Value));
+                var linqLine = string.Format("{0}\t{1}", "Linq Results", r.Key.SalesPerson);
+                var efLine = string.Format("{0}\t{1}", "Ef Results", r.Value.SalesPerson);
+                testResult.WriteLine(linqLine);
+                testResult.WriteLine(efLine);
             }
             testResult.Close();
         }

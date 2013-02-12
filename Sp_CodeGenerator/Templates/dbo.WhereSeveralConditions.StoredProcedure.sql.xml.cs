@@ -15,7 +15,7 @@ namespace Sp_CodeGenerator{
 
 				//Object reference not set to an instance of an object.
 // SQL code to be interpreted
-// WHERE Name LIKE ('%@Name%') AND Name LIKE ('HL%') AND Color = 'Red'
+// WHERE Name LIKE ('%@Name%') AND Color = @Color
 				
 				select new { p.ProductID, p.Name, p.Color, });
 				List<WhereSeveralConditions_Result> listresult = new List<WhereSeveralConditions_Result>();

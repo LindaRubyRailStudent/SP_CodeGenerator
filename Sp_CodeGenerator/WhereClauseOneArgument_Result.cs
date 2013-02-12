@@ -12,10 +12,34 @@ using System.Collections.Generic;
 
 namespace Sp_CodeGenerator
 {
-    public partial class WhereClauseOneArgument_Result
+    public partial class WhereClauseOneArgument_Result : IEquatable<WhereClauseOneArgument_Result>
     {
         public int ProductID { get; set; }
         public string Name { get; set; }
-    }
-    
+
+        public bool Equals(WhereClauseOneArgument_Result other)
+        {
+            if (other == null) return false;
+            if (this.Name == other.Name &&
+                this.ProductID == other.ProductID) return true;
+            else return false;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+                WhereClauseOneArgument_Result wcresult = (WhereClauseOneArgument_Result)obj;
+                if (wcresult == null)
+                {
+                    return false;
+                }
+                else return Equals(wcresult);
+
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+    }    
 }

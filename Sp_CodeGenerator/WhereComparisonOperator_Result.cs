@@ -12,10 +12,34 @@ using System.Collections.Generic;
 
 namespace Sp_CodeGenerator
 {
-    public partial class WhereComparisonOperator_Result
+    public partial class WhereComparisonOperator_Result : IEquatable<WhereComparisonOperator_Result>
     {
         public int ProductID { get; set; }
         public string Name { get; set; }
+
+        public bool Equals(WhereComparisonOperator_Result other)
+        {
+            if (other == null) return false;
+            if (this.Name == other.Name && this.ProductID == other.ProductID) return true;
+            else
+                return false;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+            WhereComparisonOperator_Result wcResult = obj as WhereComparisonOperator_Result;
+            if (wcResult == null)
+            {
+                return false;
+            }
+            else return Equals(wcResult);
+        }
+
+        public override int GetHashCode()
+        {
+            return this.GetHashCode();
+        }
     }
     
 }

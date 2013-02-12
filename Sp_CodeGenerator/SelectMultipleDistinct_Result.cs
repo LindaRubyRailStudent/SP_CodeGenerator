@@ -31,12 +31,20 @@ namespace Sp_CodeGenerator
         public override bool Equals(object obj)
         {
             if (obj == null) return false;
-            SelectMultipleDistinct_Result mdresult = obj as SelectMultipleDistinct_Result;
-            if (mdresult.CompanyName == null)
+            try
             {
+                SelectMultipleDistinct_Result mdresult = (SelectMultipleDistinct_Result)obj;
+                if (mdresult.CompanyName == null)
+                {
+                    return false;
+                }
+                else return Equals(mdresult);
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine(ex.Message);
                 return false;
             }
-            else return Equals(mdresult);
         }
 
         public override int GetHashCode()

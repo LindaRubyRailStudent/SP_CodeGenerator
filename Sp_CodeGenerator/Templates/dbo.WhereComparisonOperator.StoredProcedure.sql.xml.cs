@@ -13,7 +13,7 @@ namespace Sp_CodeGenerator{
 	public List<WhereComparisonOperator_Result> WhereComparisonOperator_Method(string @Name ,int @ProductID ){
 				 var result = ( from p in db.Products
 
-				 where  p.ProductID  <=  12
+				 where  p.ProductID  <=  800
 				
 				select new { p.ProductID, p.Name, });
 				List<WhereComparisonOperator_Result> listresult = new List<WhereComparisonOperator_Result>();

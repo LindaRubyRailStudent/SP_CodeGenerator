@@ -61,11 +61,15 @@ namespace Sp_CodeGenerator
 
             var result = linqresults.OrderBy(l => l.CompanyName).ThenBy(l => l.FirstName).ThenBy(l => l.SalesPerson).Zip(Efresults.OrderBy(l => l.CompanyName).ThenBy(l => l.FirstName).ThenBy(l => l.SalesPerson), (l, e) => new { Linq = l, EF = e });
             testResult.WriteLine("Linq operation took " + linqStopWatch.Elapsed.ToString());
-            testResult.WriteLine("Ef stored procedure took " + linqStopWatch.Elapsed.ToString());
+            testResult.WriteLine("Ef stored procedure took " + efStopWatch.Elapsed.ToString());
 
             foreach (var r in result)
             {
                 testResult.WriteLine(SelectMultipleDistinct_Result.Equals(r.Linq, r.EF));
+                var linqLine = string.Format("{0}\t{1}\t{2}\t{3}", "Linq Results", r.Linq.CompanyName, r.Linq.FirstName, r.Linq.SalesPerson);
+                var efLine = string.Format("{0}\t{1}\t{2}\t{3}", "Ef Results", r.EF.CompanyName, r.EF.FirstName, r.EF.SalesPerson);
+                testResult.WriteLine(linqLine);
+                testResult.WriteLine(efLine);
             }
             testResult.Close();
 

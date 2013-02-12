@@ -60,15 +60,21 @@ namespace Sp_CodeGenerator
             {
                 testResult = File.AppendText("selectSubset_Result.txt");
             }
-
-            var result = linqResults.OrderBy(l => l.Name).ThenBy(l => l.Price).OrderBy(l => l.ProductNumber).Zip(efResults.OrderBy(e => e.Name).ThenBy(e => e.Price).ThenBy(e => e.ProductNumber), (l, e) => new { Linq = l, Ef = e });
+            var orderedLinqResults = linqResults.OrderByDescending(l => l.Name).ThenByDescending(l => l.Price).ThenByDescending(l => l.ProductNumber);
+            var orderedEfResults = efResults.OrderByDescending(e => e.Name).ThenByDescending(e => e.Price).ThenByDescending(e => e.ProductNumber);
+            var result = orderedLinqResults.Zip(orderedEfResults, (l, e) => new { Linq = l, Ef = e });
             testResult.WriteLine("Linq operation took " + linqStopWatch.Elapsed.ToString());
             testResult.WriteLine("EF operation took " + efStopWatch.Elapsed.ToString());
 
             foreach (var r in result)
             {
                 testResult.WriteLine(SelectSubset_Result.Equals(r.Linq, r.Ef));
+                var linqLine = string.Format("{0}\t{1}\t{2}\t{3}", "Linq Results", r.Linq.Name, r.Linq.Price, r.Linq.ProductNumber);
+                var efLine = string.Format("{0}\t{1}\t{2}\t{3}", "Ef Results", r.Ef.Name, r.Ef.Price, r.Ef.ProductNumber);
+                testResult.WriteLine(linqLine);
+                testResult.WriteLine(efLine);
             }
+            testResult.Close();
         }
     }
 }

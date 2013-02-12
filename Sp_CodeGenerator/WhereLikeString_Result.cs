@@ -17,6 +17,31 @@ namespace Sp_CodeGenerator
         public int ProductID { get; set; }
         public string Name { get; set; }
         public string Color { get; set; }
+
+        public bool Equals(WhereLikeString_Result other)
+        {
+            if (other == null) return false;
+            if (this.Color == other.Color &&
+                this.Name == other.Name &&
+                this.ProductID == other.ProductID) return true;
+            else return false;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+            WhereLikeString_Result wlresult = (WhereLikeString_Result)obj;
+            if (wlresult == null)
+            {
+                return false;
+            }
+            else return Equals(wlresult);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
     
 }

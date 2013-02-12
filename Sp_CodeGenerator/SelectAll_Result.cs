@@ -12,7 +12,7 @@ using System.Collections.Generic;
 
 namespace Sp_CodeGenerator
 {
-    public partial class SelectAll_Result
+    public partial class SelectAll_Result : IEquatable<SelectAll_Result>
     {
         public int ProductID { get; set; }
         public string Name { get; set; }
@@ -31,6 +31,43 @@ namespace Sp_CodeGenerator
         public string ThumbnailPhotoFileName { get; set; }
         public System.Guid rowguid { get; set; }
         public System.DateTime ModifiedDate { get; set; }
+
+        public bool Equals(SelectAll_Result other)
+        {
+            if (other == null) return false;
+            if (this.Color == other.Color &&
+                this.DiscontinuedDate == other.DiscontinuedDate &&
+                this.ListPrice == other.ListPrice &&
+                this.ModifiedDate == other.ModifiedDate &&
+                this.Name == other.Name &&
+                this.ProductCategoryID == other.ProductCategoryID &&
+                this.ProductID == other.ProductID &&
+                this.ProductModelID == other.ProductModelID &&
+                this.ProductNumber == other.ProductNumber &&
+                this.SellEndDate == other.SellEndDate &&
+                this.SellStartDate == other.SellStartDate &&
+                this.Size == other.Size &&
+                this.StandardCost == other.StandardCost &&
+                this.Weight == other.Weight) return true;
+            else return false;
+
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+            SelectAll_Result saResult = (SelectAll_Result)obj;
+            if (saResult == null)
+            {
+                return false;
+            }
+            else return Equals(saResult);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
     
 }
