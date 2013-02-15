@@ -36,9 +36,19 @@ namespace ExtensionMethods
             XmlNodeList likeBoolNodes = xmlDoc.GetElementsByTagName("SqlLikeBooleanExpression");
             foreach (XmlNode l in likeBoolNodes)
             {
-                string ScalarRef = l.SelectSingleNode("descendant::SqlScalarRefExpression").Attributes[2].Value;
-                string literal = l.SelectSingleNode("descendant::SqlLiteralExpression").Attributes[1].Value;
-                sb.Append(" where " + ScalarRef + ".Contains( " + literal + " )");
+                if (l.SelectSingleNode("descendant::SqlLiteralExpression") != null)
+                {
+                    string ScalarRef = l.SelectSingleNode("descendant::SqlScalarRefExpression").Attributes[2].Value;
+                    string literal = l.SelectSingleNode("descendant::SqlLiteralExpression").Attributes[1].Value;
+                    sb.Append(" where " + ScalarRef + ".Contains( " + literal + " )");
+                }
+                else
+                {
+                    string ScalarRef = l.SelectSingleNode("descendant::SqlScalarRefExpression").Attributes[2].Value;
+                    string variable = l.SelectSingleNode("descendant::SqlScalarVariableRefExpression").Attributes[1].Value;
+                    sb.Append(" where " + ScalarRef + ".Contains( " + variable + ")");
+                }
+                
             }
             return sb.ToString();
         }

@@ -5,10 +5,11 @@ namespace Sp_CodeGenerator{
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
+	using DataBaseLayer;
 
 
  public class CInnerJoin {
-	private AdventureWorksLT2008R2Entities db = new AdventureWorksLT2008R2Entities();
+	private AWorksLTEntities db = new AWorksLTEntities();
 
 	public List<CInnerJoin_Result> CInnerJoin_Method(){
 				 var result = ( from p in db.Products

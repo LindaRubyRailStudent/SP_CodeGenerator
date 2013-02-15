@@ -54,34 +54,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Alphabetical_list_of_product.cs">
+    <Compile Include="Address.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Category.cs">
+    <Compile Include="AndOrOperator_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Category_Sales_for_1997.cs">
+    <Compile Include="BuildVersion.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Current_Product_List.cs">
+    <Compile Include="CInnerJoin_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Customer.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="CustomerDemographic.cs">
+    <Compile Include="CustomerAddress.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Customer_and_Suppliers_by_City.cs">
+    <Compile Include="ErrorLog.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="CustOrderHist_Result.cs">
+    <Compile Include="GreaterThanOrEqual_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Employee.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Invoice.cs">
+    <Compile Include="InnerJoinWhereMethod_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model1.Context.cs">
@@ -99,67 +96,124 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Order.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Orders_Qry.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Order_Detail.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Order_Details_Extended.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Order_Subtotal.cs">
+    <Compile Include="MultipleTables_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Product.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Products_Above_Average_Price.cs">
+    <Compile Include="ProductCategory.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Products_by_Category.cs">
+    <Compile Include="ProductDescription.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Product_Sales_for_1997.cs">
+    <Compile Include="ProductModel.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductModelProductDescription.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Region.cs">
+    <Compile Include="ReturnTypeOverLoad\AndOrOperator_Result.cs" />
+    <Compile Include="ReturnTypeOverLoad\CInnerJoin_Result.cs" />
+    <Compile Include="ReturnTypeOverLoad\GreaterThanOrEqual_Result.cs" />
+    <Compile Include="ReturnTypeOverLoad\InnerJoinWhereMethod_Result.cs" />
+    <Compile Include="ReturnTypeOverLoad\MultipleTables_Result.cs" />
+    <Compile Include="ReturnTypeOverLoad\RevenueCalculation_Result.cs" />
+    <Compile Include="ReturnTypeOverLoad\SelectAllAlt_Result.cs" />
+    <Compile Include="ReturnTypeOverLoad\SelectAll_Result.cs" />
+    <Compile Include="ReturnTypeOverLoad\SelectDistinct_Result.cs" />
+    <Compile Include="ReturnTypeOverLoad\SelectMultipleDistinct_Result.cs" />
+    <Compile Include="ReturnTypeOverLoad\SelectStar_Result.cs" />
+    <Compile Include="ReturnTypeOverLoad\SelectSubset_Result.cs" />
+    <Compile Include="ReturnTypeOverLoad\SelectWhereNoParams_Result.cs" />
+    <Compile Include="ReturnTypeOverLoad\Sum_Result.cs" />
+    <Compile Include="ReturnTypeOverLoad\Where3Conditions_Result.cs" />
+    <Compile Include="ReturnTypeOverLoad\WhereBetweenValues_Result.cs" />
+    <Compile Include="ReturnTypeOverLoad\WhereClauseOneArgument_Result.cs" />
+    <Compile Include="ReturnTypeOverLoad\WhereComparisonOperator_Result.cs" />
+    <Compile Include="ReturnTypeOverLoad\WhereEqualsInteger_Result.cs" />
+    <Compile Include="ReturnTypeOverLoad\WhereEqualsString_Result.cs" />
+    <Compile Include="ReturnTypeOverLoad\WhereLikeString_Result.cs" />
+    <Compile Include="ReturnTypeOverLoad\WhereListValues_Result.cs" />
+    <Compile Include="ReturnTypeOverLoad\WhereSeveralConditions_Result.cs" />
+    <Compile Include="ReturnTypeOverLoad\WhereSimpleEquality_Result.cs" />
+    <Compile Include="RevenueCalcuation_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Sales_by_Category.cs">
+    <Compile Include="RevenueCalculation_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Sales_Totals_by_Amount.cs">
+    <Compile Include="SalesOrderDetail.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Shipper.cs">
+    <Compile Include="SalesOrderHeader.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Summary_of_Sales_by_Quarter.cs">
+    <Compile Include="SelectAllAlt_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Summary_of_Sales_by_Year.cs">
+    <Compile Include="SelectAll_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Supplier.cs">
+    <Compile Include="SelectDistinct_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Territory.cs">
+    <Compile Include="SelectMultipleDistinct_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelectStar_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelectSubset_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelectWhereNoParams_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sum_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Where3Conditions_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WhereBetweenValues_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WhereClauseOneArgument_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WhereComparisonOperator_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WhereEqualsInteger_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WhereEqualsString_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WhereLikeString_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WhereListValues_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WhereSeveralConditions_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WhereSimpleEquality_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="ClassDiagram1.cd" />
     <None Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
@@ -169,43 +223,15 @@
       <LastGenOutput>Model1.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="ReturnTypeOverLoads.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ReturnTypeOverLoads.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <Content Include="AndOrOpertor.xml" />
-    <Content Include="Model1xml.xml" />
-    <Content Include="Templates\AndOrOpertor.xml" />
-    <Content Include="Templates\Model1xml.xml" />
-    <Content Include="Templates\XMLFiles\AndOrOpertor.xml" />
-    <Content Include="Templates\XMLFiles\CustOrdHist.xml" />
-    <Content Include="Templates\XMLFiles\Model1xml.xml" />
-    <Content Include="Templates\XMLFiles\SELECT ProductID, ProductName FROM Products,Customers.xml" />
-    <Content Include="Templates\XMLFiles\SELECT ProductID,ProductName FROM Products.xml" />
-    <Content Include="Templates\XMLFiles\SelectDistinct.xml" />
-    <Content Include="Templates\XMLFiles\Selectstatement.xml" />
-    <Content Include="Templates\XMLFiles\SelectTest.xml" />
-    <Content Include="Templates\XMLFiles\StoredProcedure1.xml" />
-    <Content Include="Templates\XMLFiles\tokens.xml" />
-    <Content Include="Templates\XMLFiles\WhereEqualsInteger.xml" />
-    <Content Include="Templates\XMLFiles\WhereEqualsString.xml" />
-    <Content Include="Templates\XMLFiles\WhereGreaterThanorEqual.xml" />
-    <Content Include="XMLFiles\AndOrOpertor.xml" />
-    <Content Include="XMLFiles\CustOrdHist.xml" />
-    <Content Include="XMLFiles\Model1xml.xml" />
-    <Content Include="XMLFiles\SELECT ProductID, ProductName FROM Products,Customers.xml" />
-    <Content Include="XMLFiles\SELECT ProductID,ProductName FROM Products.xml" />
-    <Content Include="XMLFiles\SelectDistinct.xml" />
-    <Content Include="XMLFiles\Selectstatement.xml" />
-    <Content Include="XMLFiles\SelectTest.xml" />
-    <Content Include="XMLFiles\StoredProcedure1.xml" />
-    <Content Include="XMLFiles\tokens.xml" />
-    <Content Include="XMLFiles\WhereEqualsInteger.xml" />
-    <Content Include="XMLFiles\WhereEqualsString.xml" />
-    <Content Include="XMLFiles\WhereGreaterThanorEqual.xml" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

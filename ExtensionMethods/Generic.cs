@@ -11,10 +11,10 @@ namespace ExtensionMethods
 {
     public class GenericRepository<TEntity> where TEntity : class
     {
-        internal NorthwindEntities context;
+        internal AWorksLTEntities context;
         internal DbSet<TEntity> dbSet;
 
-        public GenericRepository(NorthwindEntities context)
+        public GenericRepository(AWorksLTEntities context)
         {
             this.context = context;
             this.dbSet = context.Set<TEntity>();

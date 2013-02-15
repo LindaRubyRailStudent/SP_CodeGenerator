@@ -5,10 +5,11 @@ namespace Sp_CodeGenerator{
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
+	using DataBaseLayer;
 
 
  public class SelectMultipleDistinct {
-	private AdventureWorksLT2008R2Entities db = new AdventureWorksLT2008R2Entities();
+	private AWorksLTEntities db = new AWorksLTEntities();
 
 	public List<SelectMultipleDistinct_Result> SelectMultipleDistinct_Method(){
 				 var result = ( from c in db.Customers

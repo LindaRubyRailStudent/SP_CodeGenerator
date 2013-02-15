@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Diagnostics;
+using DataBaseLayer;
 
 namespace Sp_CodeGenerator
 {
@@ -24,7 +25,7 @@ namespace Sp_CodeGenerator
             Stopwatch efStopWatch = new Stopwatch();
             efStopWatch.Start();
 
-            var context = new AdventureWorksLT2008R2Entities();
+            var context = new AWorksLTEntities();
             List<WhereComparisonOperator_Result> efWhereCompArg = new List<WhereComparisonOperator_Result>();
 
             foreach (WhereComparisonOperator_Result w in context.WhereComparisonOperator("LL Road Frame - Red, 52", 2))
@@ -47,27 +48,27 @@ namespace Sp_CodeGenerator
             Stopwatch efStopWatch)
         {
             StreamWriter testResults;
-            if (!File.Exists("WhereComparisonOperator_Result.txt"))
+            if (!File.Exists("WhereComparisonOperator_Result.csv"))
             {
-                testResults = new StreamWriter("WhereComparisonOperator_Result.txt");
+                testResults = new StreamWriter("WhereComparisonOperator_Result.csv");
             }
             else
             {
-                testResults = File.AppendText("WhereComparisonOperator_Result.txt");
+                testResults = File.AppendText("WhereComparisonOperator_Result.csv");
             }
 
             var orderedLinqResults = linqResults.OrderByDescending(l => l.Name).OrderByDescending(l => l.ProductID);
             var orderedEfResults = efResults.OrderByDescending(e => e.Name).OrderByDescending(e => e.ProductID);
 
             var result = orderedLinqResults.Zip(orderedEfResults, (l, e) => new { Linq = l, Ef = e });
-            testResults.WriteLine("Linq operation took " + linqStopWatch.Elapsed.ToString());
-            testResults.WriteLine("Ef operation took " + efStopWatch.Elapsed.ToString());
+            testResults.WriteLine("Linq Time , " + linqStopWatch.ElapsedMilliseconds.ToString());
+            testResults.WriteLine("Ef Time ," + efStopWatch.ElapsedMilliseconds.ToString());
 
             foreach (var r in result)
             {
                 testResults.WriteLine(WhereClauseOneArgument_Result.Equals(r.Linq, r.Ef));
-                var linqLine = string.Format("{0}\t{1}\t{2} ", "Linq Results", r.Linq.Name, r.Linq.ProductID);
-                var efLine = string.Format("{0}\t{1}\t{2}", "Ef Results", r.Ef.Name, r.Ef.ProductID);
+                var linqLine = ("Linq Results,"+ r.Linq.Name+","+ r.Linq.ProductID);
+                var efLine = ("Ef Results,"+ r.Ef.Name+","+ r.Ef.ProductID);
                 testResults.WriteLine(linqLine);
                 testResults.WriteLine(efLine);
             }

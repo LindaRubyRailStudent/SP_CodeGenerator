@@ -1,0 +1,324 @@
+<SqlScript Location="((1,1), (26,1))">
+  <!--USE [AdventureWorksLT2008R2]
+GO
+/****** Object:  StoredProcedure [dbo].[GreaterThanOrEqual]    Script Date: 02/12/2013 23:46:00 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+- - =============================================
+- - Author:		<Author,,Name>
+- - Create date: <Create Date,,>
+- - Description:	<Description,,>
+- - =============================================
+ALTER PROCEDURE [dbo].[GreaterThanOrEqual]
+@date datetime
+AS
+BEGIN
+	- - SET NOCOUNT ON added to prevent extra result sets from
+	- - interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    - - Insert statements for procedure here
+	SELECT p.Status, p.Comment
+	FROM SalesLT.SalesOrderHeader p
+	WHERE p.OrderDate <= @date
+END
+-->
+  <Errors />
+  <SqlBatch Location="((1,1), (2,1))">
+    <!--USE [AdventureWorksLT2008R2]
+-->
+    <SqlUseStatement Location="((1,1),(1,29))" DatabaseName="AdventureWorksLT2008R2">
+      <!--USE [AdventureWorksLT2008R2]-->
+      <SqlIdentifier Location="((1,5),(1,29))" Value="AdventureWorksLT2008R2">
+        <!--[AdventureWorksLT2008R2]-->
+      </SqlIdentifier>
+    </SqlUseStatement>
+    <Tokens>
+      <Token location="((1,1), (1,4))" id="301" type="TOKEN_USEDB">USE</Token>
+      <Token location="((1,4), (1,5))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((1,5), (1,29))" id="171" type="TOKEN_ID">[AdventureWorksLT2008R2]</Token>
+      <Token location="((1,29), (2,1))" id="544" type="LEX_WHITE">\r\n</Token>
+    </Tokens>
+  </SqlBatch>
+  <SqlBatch Location="((2,3), (5,1))">
+    <!--
+/****** Object:  StoredProcedure [dbo].[GreaterThanOrEqual]    Script Date: 02/12/2013 23:46:00 ******/
+SET ANSI_NULLS ON
+-->
+    <SqlNullStatement Location="((4,1),(4,18))">
+      <!--SET ANSI_NULLS ON-->
+    </SqlNullStatement>
+    <Tokens>
+      <Token location="((2,3), (3,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((3,1), (3,104))" id="546" type="LEX_MULTILINE_COMMENT">/****** Object:  StoredProcedure [dbo].[GreaterThanOrEqual]    Script Date: 02/12/2013 23:46:00 ******/</Token>
+      <Token location="((3,104), (4,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((4,1), (4,4))" id="148" type="TOKEN_SET">SET</Token>
+      <Token location="((4,4), (4,5))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((4,5), (4,15))" id="171" type="TOKEN_ID">ANSI_NULLS</Token>
+      <Token location="((4,15), (4,16))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((4,16), (4,18))" id="268" type="TOKEN_ON">ON</Token>
+      <Token location="((4,18), (5,1))" id="544" type="LEX_WHITE">\r\n</Token>
+    </Tokens>
+  </SqlBatch>
+  <SqlBatch Location="((5,3), (7,1))">
+    <!--
+SET QUOTED_IDENTIFIER ON
+-->
+    <SqlNullStatement Location="((6,1),(6,25))">
+      <!--SET QUOTED_IDENTIFIER ON-->
+    </SqlNullStatement>
+    <Tokens>
+      <Token location="((5,3), (6,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((6,1), (6,4))" id="148" type="TOKEN_SET">SET</Token>
+      <Token location="((6,4), (6,5))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((6,5), (6,22))" id="171" type="TOKEN_ID">QUOTED_IDENTIFIER</Token>
+      <Token location="((6,22), (6,23))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((6,23), (6,25))" id="268" type="TOKEN_ON">ON</Token>
+      <Token location="((6,25), (7,1))" id="544" type="LEX_WHITE">\r\n</Token>
+    </Tokens>
+  </SqlBatch>
+  <SqlBatch Location="((7,3), (26,1))">
+    <!--
+- - =============================================
+- - Author:		<Author,,Name>
+- - Create date: <Create Date,,>
+- - Description:	<Description,,>
+- - =============================================
+ALTER PROCEDURE [dbo].[GreaterThanOrEqual]
+@date datetime
+AS
+BEGIN
+	- - SET NOCOUNT ON added to prevent extra result sets from
+	- - interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    - - Insert statements for procedure here
+	SELECT p.Status, p.Comment
+	FROM SalesLT.SalesOrderHeader p
+	WHERE p.OrderDate <= @date
+END
+-->
+    <SqlAlterProcedureStatement Location="((13,1),(25,4))">
+      <!--ALTER PROCEDURE [dbo].[GreaterThanOrEqual]
+@date datetime
+AS
+BEGIN
+	- - SET NOCOUNT ON added to prevent extra result sets from
+	- - interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    - - Insert statements for procedure here
+	SELECT p.Status, p.Comment
+	FROM SalesLT.SalesOrderHeader p
+	WHERE p.OrderDate <= @date
+END-->
+      <SqlProcedureDefinition Location="((13,17),(15,3))" Name="dbo.GreaterThanOrEqual" IsForReplication="False">
+        <!--[dbo].[GreaterThanOrEqual]
+@date datetime
+AS-->
+        <SqlObjectIdentifier Location="((13,17),(13,43))" SchemaName="dbo" ObjectName="GreaterThanOrEqual">
+          <!--[dbo].[GreaterThanOrEqual]-->
+          <SqlIdentifier Location="((13,17),(13,22))" Value="dbo">
+            <!--[dbo]-->
+          </SqlIdentifier>
+          <SqlIdentifier Location="((13,23),(13,43))" Value="GreaterThanOrEqual">
+            <!--[GreaterThanOrEqual]-->
+          </SqlIdentifier>
+        </SqlObjectIdentifier>
+        <SqlParameterDeclaration Location="((14,1),(14,15))" IsOutput="False" Name="@date">
+          <!--@date datetime-->
+          <SqlDataTypeSpecification Location="((14,7),(14,15))" IsMaximum="False" IsCursor="False" XmlDocumentConstraint="None">
+            <!--datetime-->
+            <SqlDataType Location="((14,7),(14,15))" ObjectIdentifier="datetime" National="False" Varying="False">
+              <!--datetime-->
+              <SqlObjectIdentifier Location="((14,7),(14,15))" ObjectName="datetime">
+                <!--datetime-->
+                <SqlIdentifier Location="((14,7),(14,15))" Value="datetime">
+                  <!--datetime-->
+                </SqlIdentifier>
+              </SqlObjectIdentifier>
+            </SqlDataType>
+          </SqlDataTypeSpecification>
+        </SqlParameterDeclaration>
+      </SqlProcedureDefinition>
+      <SqlCompoundStatement Location="((16,1),(25,4))">
+        <!--BEGIN
+	- - SET NOCOUNT ON added to prevent extra result sets from
+	- - interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    - - Insert statements for procedure here
+	SELECT p.Status, p.Comment
+	FROM SalesLT.SalesOrderHeader p
+	WHERE p.OrderDate <= @date
+END-->
+        <SqlNullStatement Location="((19,2),(19,17))">
+          <!--SET NOCOUNT ON;-->
+        </SqlNullStatement>
+        <SqlSelectStatement Location="((22,2),(24,28))">
+          <!--SELECT p.Status, p.Comment
+	FROM SalesLT.SalesOrderHeader p
+	WHERE p.OrderDate <= @date-->
+          <SqlSelectSpecification Location="((22,2),(24,28))">
+            <!--SELECT p.Status, p.Comment
+	FROM SalesLT.SalesOrderHeader p
+	WHERE p.OrderDate <= @date-->
+            <SqlQuerySpecification Location="((22,2),(24,28))">
+              <!--SELECT p.Status, p.Comment
+	FROM SalesLT.SalesOrderHeader p
+	WHERE p.OrderDate <= @date-->
+              <SqlSelectClause Location="((22,2),(22,28))" IsDistinct="False">
+                <!--SELECT p.Status, p.Comment-->
+                <SqlSelectScalarExpression Location="((22,9),(22,17))">
+                  <!--p.Status-->
+                  <SqlScalarRefExpression Location="((22,9),(22,17))" ColumnOrPropertyName="Status" MultipartIdentifier="p.Status">
+                    <!--p.Status-->
+                    <SqlObjectIdentifier Location="((22,9),(22,17))" SchemaName="p" ObjectName="Status">
+                      <!--p.Status-->
+                      <SqlIdentifier Location="((22,9),(22,10))" Value="p">
+                        <!--p-->
+                      </SqlIdentifier>
+                      <SqlIdentifier Location="((22,11),(22,17))" Value="Status">
+                        <!--Status-->
+                      </SqlIdentifier>
+                    </SqlObjectIdentifier>
+                  </SqlScalarRefExpression>
+                </SqlSelectScalarExpression>
+                <SqlSelectScalarExpression Location="((22,19),(22,28))">
+                  <!--p.Comment-->
+                  <SqlScalarRefExpression Location="((22,19),(22,28))" ColumnOrPropertyName="Comment" MultipartIdentifier="p.Comment">
+                    <!--p.Comment-->
+                    <SqlObjectIdentifier Location="((22,19),(22,28))" SchemaName="p" ObjectName="Comment">
+                      <!--p.Comment-->
+                      <SqlIdentifier Location="((22,19),(22,20))" Value="p">
+                        <!--p-->
+                      </SqlIdentifier>
+                      <SqlIdentifier Location="((22,21),(22,28))" Value="Comment">
+                        <!--Comment-->
+                      </SqlIdentifier>
+                    </SqlObjectIdentifier>
+                  </SqlScalarRefExpression>
+                </SqlSelectScalarExpression>
+              </SqlSelectClause>
+              <SqlFromClause Location="((23,2),(23,33))">
+                <!--FROM SalesLT.SalesOrderHeader p-->
+                <SqlTableRefExpression Location="((23,7),(23,33))" ObjectIdentifier="SalesLT.SalesOrderHeader" Alias="p">
+                  <!--SalesLT.SalesOrderHeader p-->
+                  <SqlObjectIdentifier Location="((23,7),(23,31))" SchemaName="SalesLT" ObjectName="SalesOrderHeader">
+                    <!--SalesLT.SalesOrderHeader-->
+                    <SqlIdentifier Location="((23,7),(23,14))" Value="SalesLT">
+                      <!--SalesLT-->
+                    </SqlIdentifier>
+                    <SqlIdentifier Location="((23,15),(23,31))" Value="SalesOrderHeader">
+                      <!--SalesOrderHeader-->
+                    </SqlIdentifier>
+                  </SqlObjectIdentifier>
+                  <SqlIdentifier Location="((23,32),(23,33))" Value="p">
+                    <!--p-->
+                  </SqlIdentifier>
+                </SqlTableRefExpression>
+              </SqlFromClause>
+              <SqlWhereClause Location="((24,2),(24,28))">
+                <!--WHERE p.OrderDate <= @date-->
+                <SqlComparisonBooleanExpression Location="((24,8),(24,28))" ComparisonOperator="LessThanOrEqual">
+                  <!--p.OrderDate <= @date-->
+                  <SqlScalarRefExpression Location="((24,8),(24,19))" ColumnOrPropertyName="OrderDate" MultipartIdentifier="p.OrderDate">
+                    <!--p.OrderDate-->
+                    <SqlObjectIdentifier Location="((24,8),(24,19))" SchemaName="p" ObjectName="OrderDate">
+                      <!--p.OrderDate-->
+                      <SqlIdentifier Location="((24,8),(24,9))" Value="p">
+                        <!--p-->
+                      </SqlIdentifier>
+                      <SqlIdentifier Location="((24,10),(24,19))" Value="OrderDate">
+                        <!--OrderDate-->
+                      </SqlIdentifier>
+                    </SqlObjectIdentifier>
+                  </SqlScalarRefExpression>
+                  <SqlScalarVariableRefExpression Location="((24,23),(24,28))" VariableName="@date">
+                    <!--@date-->
+                  </SqlScalarVariableRefExpression>
+                </SqlComparisonBooleanExpression>
+              </SqlWhereClause>
+            </SqlQuerySpecification>
+          </SqlSelectSpecification>
+        </SqlSelectStatement>
+      </SqlCompoundStatement>
+    </SqlAlterProcedureStatement>
+    <Tokens>
+      <Token location="((7,3), (8,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((8,1), (8,50))" id="545" type="LEX_END_OF_LINE_COMMENT">-- =============================================\r</Token>
+      <Token location="((8,50), (9,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((9,1), (9,28))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Author:\t\t&lt;Author,,Name&gt;\r</Token>
+      <Token location="((9,28), (10,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((10,1), (10,33))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Create date: &lt;Create Date,,&gt;\r</Token>
+      <Token location="((10,33), (11,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((11,1), (11,33))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Description:\t&lt;Description,,&gt;\r</Token>
+      <Token location="((11,33), (12,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((12,1), (12,50))" id="545" type="LEX_END_OF_LINE_COMMENT">-- =============================================\r</Token>
+      <Token location="((12,50), (13,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((13,1), (13,6))" id="199" type="TOKEN_ALTER">ALTER</Token>
+      <Token location="((13,6), (13,7))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((13,7), (13,16))" id="275" type="TOKEN_PROCEDURE">PROCEDURE</Token>
+      <Token location="((13,16), (13,17))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((13,17), (13,22))" id="171" type="TOKEN_ID">[dbo]</Token>
+      <Token location="((13,22), (13,23))" id="46" type=".">.</Token>
+      <Token location="((13,23), (13,43))" id="171" type="TOKEN_ID">[GreaterThanOrEqual]</Token>
+      <Token location="((13,43), (14,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((14,1), (14,6))" id="173" type="TOKEN_VARIABLE">@date</Token>
+      <Token location="((14,6), (14,7))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((14,7), (14,15))" id="171" type="TOKEN_ID">datetime</Token>
+      <Token location="((14,15), (15,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((15,1), (15,3))" id="203" type="TOKEN_AS">AS</Token>
+      <Token location="((15,3), (16,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((16,1), (16,6))" id="536" type="TOKEN_BEGIN_CS">BEGIN</Token>
+      <Token location="((16,6), (17,2))" id="544" type="LEX_WHITE">\r\n\t</Token>
+      <Token location="((17,2), (17,60))" id="545" type="LEX_END_OF_LINE_COMMENT">-- SET NOCOUNT ON added to prevent extra result sets from\r</Token>
+      <Token location="((17,60), (18,2))" id="544" type="LEX_WHITE">\n\t</Token>
+      <Token location="((18,2), (18,41))" id="545" type="LEX_END_OF_LINE_COMMENT">-- interfering with SELECT statements.\r</Token>
+      <Token location="((18,41), (19,2))" id="544" type="LEX_WHITE">\n\t</Token>
+      <Token location="((19,2), (19,5))" id="148" type="TOKEN_SET">SET</Token>
+      <Token location="((19,5), (19,6))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((19,6), (19,13))" id="171" type="TOKEN_ID">NOCOUNT</Token>
+      <Token location="((19,13), (19,14))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((19,14), (19,16))" id="268" type="TOKEN_ON">ON</Token>
+      <Token location="((19,16), (19,17))" id="59" type=";">;</Token>
+      <Token location="((19,17), (21,5))" id="544" type="LEX_WHITE">\r\n\r\n    </Token>
+      <Token location="((21,5), (21,45))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Insert statements for procedure here\r</Token>
+      <Token location="((21,45), (22,2))" id="544" type="LEX_WHITE">\n\t</Token>
+      <Token location="((22,2), (22,8))" id="285" type="TOKEN_SELECT">SELECT</Token>
+      <Token location="((22,8), (22,9))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((22,9), (22,10))" id="171" type="TOKEN_ID">p</Token>
+      <Token location="((22,10), (22,11))" id="46" type=".">.</Token>
+      <Token location="((22,11), (22,17))" id="171" type="TOKEN_ID">Status</Token>
+      <Token location="((22,17), (22,18))" id="44" type=",">,</Token>
+      <Token location="((22,18), (22,19))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((22,19), (22,20))" id="171" type="TOKEN_ID">p</Token>
+      <Token location="((22,20), (22,21))" id="46" type=".">.</Token>
+      <Token location="((22,21), (22,28))" id="171" type="TOKEN_ID">Comment</Token>
+      <Token location="((22,28), (23,2))" id="544" type="LEX_WHITE">\r\n\t</Token>
+      <Token location="((23,2), (23,6))" id="242" type="TOKEN_FROM">FROM</Token>
+      <Token location="((23,6), (23,7))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((23,7), (23,14))" id="171" type="TOKEN_ID">SalesLT</Token>
+      <Token location="((23,14), (23,15))" id="46" type=".">.</Token>
+      <Token location="((23,15), (23,31))" id="171" type="TOKEN_ID">SalesOrderHeader</Token>
+      <Token location="((23,31), (23,32))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((23,32), (23,33))" id="171" type="TOKEN_ID">p</Token>
+      <Token location="((23,33), (24,2))" id="544" type="LEX_WHITE">\r\n\t</Token>
+      <Token location="((24,2), (24,7))" id="305" type="TOKEN_WHERE">WHERE</Token>
+      <Token location="((24,7), (24,8))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((24,8), (24,9))" id="171" type="TOKEN_ID">p</Token>
+      <Token location="((24,9), (24,10))" id="46" type=".">.</Token>
+      <Token location="((24,10), (24,19))" id="171" type="TOKEN_ID">OrderDate</Token>
+      <Token location="((24,19), (24,20))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((24,20), (24,21))" id="60" type="&lt;">&lt;</Token>
+      <Token location="((24,21), (24,22))" id="61" type="=">=</Token>
+      <Token location="((24,22), (24,23))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((24,23), (24,28))" id="173" type="TOKEN_VARIABLE">@date</Token>
+      <Token location="((24,28), (25,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((25,1), (25,4))" id="537" type="TOKEN_END_CS">END</Token>
+      <Token location="((25,4), (26,1))" id="544" type="LEX_WHITE">\r\n</Token>
+    </Tokens>
+  </SqlBatch>
+</SqlScript>

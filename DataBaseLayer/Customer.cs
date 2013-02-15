@@ -16,24 +16,28 @@ namespace DataBaseLayer
     {
         public Customer()
         {
-            this.Orders = new HashSet<Order>();
-            this.CustomerDemographics = new HashSet<CustomerDemographic>();
+            this.CustomerAddresses = new HashSet<CustomerAddress>();
+            this.SalesOrderHeaders = new HashSet<SalesOrderHeader>();
         }
     
-        public string CustomerID { get; set; }
+        public int CustomerID { get; set; }
+        public bool NameStyle { get; set; }
+        public string Title { get; set; }
+        public string FirstName { get; set; }
+        public string MiddleName { get; set; }
+        public string LastName { get; set; }
+        public string Suffix { get; set; }
         public string CompanyName { get; set; }
-        public string ContactName { get; set; }
-        public string ContactTitle { get; set; }
-        public string Address { get; set; }
-        public string City { get; set; }
-        public string Region { get; set; }
-        public string PostalCode { get; set; }
-        public string Country { get; set; }
+        public string SalesPerson { get; set; }
+        public string EmailAddress { get; set; }
         public string Phone { get; set; }
-        public string Fax { get; set; }
+        public string PasswordHash { get; set; }
+        public string PasswordSalt { get; set; }
+        public System.Guid rowguid { get; set; }
+        public System.DateTime ModifiedDate { get; set; }
     
-        public virtual ICollection<Order> Orders { get; set; }
-        public virtual ICollection<CustomerDemographic> CustomerDemographics { get; set; }
+        public virtual ICollection<CustomerAddress> CustomerAddresses { get; set; }
+        public virtual ICollection<SalesOrderHeader> SalesOrderHeaders { get; set; }
     }
     
 }

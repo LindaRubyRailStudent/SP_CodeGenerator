@@ -1,7 +1,7 @@
 <SqlScript Location="((1,1), (28,1))">
   <!--USE [AdventureWorksLT2008R2]
 GO
-/****** Object:  StoredProcedure [dbo].[WhereComparisonOperator]    Script Date: 02/12/2013 00:58:29 ******/
+/****** Object:  StoredProcedure [dbo].[WhereComparisonOperator]    Script Date: 02/12/2013 23:40:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -22,7 +22,7 @@ BEGIN
 	SET NOCOUNT ON;
 
     - - Insert statements for procedure here
-	SELECT ProductID, Name
+	SELECT p.ProductID, p.Name
 FROM SalesLT.Product AS p
 WHERE p.ProductID <= 800 ;
 END
@@ -46,7 +46,7 @@ END
   </SqlBatch>
   <SqlBatch Location="((2,3), (5,1))">
     <!--
-/****** Object:  StoredProcedure [dbo].[WhereComparisonOperator]    Script Date: 02/12/2013 00:58:29 ******/
+/****** Object:  StoredProcedure [dbo].[WhereComparisonOperator]    Script Date: 02/12/2013 23:40:08 ******/
 SET ANSI_NULLS ON
 -->
     <SqlNullStatement Location="((4,1),(4,18))">
@@ -54,7 +54,7 @@ SET ANSI_NULLS ON
     </SqlNullStatement>
     <Tokens>
       <Token location="((2,3), (3,1))" id="544" type="LEX_WHITE">\r\n</Token>
-      <Token location="((3,1), (3,109))" id="546" type="LEX_MULTILINE_COMMENT">/****** Object:  StoredProcedure [dbo].[WhereComparisonOperator]    Script Date: 02/12/2013 00:58:29 ******/</Token>
+      <Token location="((3,1), (3,109))" id="546" type="LEX_MULTILINE_COMMENT">/****** Object:  StoredProcedure [dbo].[WhereComparisonOperator]    Script Date: 02/12/2013 23:40:08 ******/</Token>
       <Token location="((3,109), (4,1))" id="544" type="LEX_WHITE">\r\n</Token>
       <Token location="((4,1), (4,4))" id="148" type="TOKEN_SET">SET</Token>
       <Token location="((4,4), (4,5))" id="544" type="LEX_WHITE"> </Token>
@@ -99,7 +99,7 @@ BEGIN
 	SET NOCOUNT ON;
 
     - - Insert statements for procedure here
-	SELECT ProductID, Name
+	SELECT p.ProductID, p.Name
 FROM SalesLT.Product AS p
 WHERE p.ProductID <= 800 ;
 END
@@ -116,7 +116,7 @@ BEGIN
 	SET NOCOUNT ON;
 
     - - Insert statements for procedure here
-	SELECT ProductID, Name
+	SELECT p.ProductID, p.Name
 FROM SalesLT.Product AS p
 WHERE p.ProductID <= 800 ;
 END-->
@@ -176,7 +176,7 @@ AS-->
 	SET NOCOUNT ON;
 
     - - Insert statements for procedure here
-	SELECT ProductID, Name
+	SELECT p.ProductID, p.Name
 FROM SalesLT.Product AS p
 WHERE p.ProductID <= 800 ;
 END-->
@@ -184,42 +184,48 @@ END-->
           <!--SET NOCOUNT ON;-->
         </SqlNullStatement>
         <SqlSelectStatement Location="((24,2),(26,25))">
-          <!--SELECT ProductID, Name
+          <!--SELECT p.ProductID, p.Name
 FROM SalesLT.Product AS p
 WHERE p.ProductID <= 800-->
           <SqlSelectSpecification Location="((24,2),(26,25))">
-            <!--SELECT ProductID, Name
+            <!--SELECT p.ProductID, p.Name
 FROM SalesLT.Product AS p
 WHERE p.ProductID <= 800-->
             <SqlQuerySpecification Location="((24,2),(26,25))">
-              <!--SELECT ProductID, Name
+              <!--SELECT p.ProductID, p.Name
 FROM SalesLT.Product AS p
 WHERE p.ProductID <= 800-->
-              <SqlSelectClause Location="((24,2),(24,24))" IsDistinct="False">
-                <!--SELECT ProductID, Name-->
-                <SqlSelectScalarExpression Location="((24,9),(24,18))">
-                  <!--ProductID-->
-                  <SqlColumnRefExpression Location="((24,9),(24,18))" ColumnName="ProductID" MultipartIdentifier="ProductID">
-                    <!--ProductID-->
-                    <SqlObjectIdentifier Location="((24,9),(24,18))" ObjectName="ProductID">
-                      <!--ProductID-->
-                      <SqlIdentifier Location="((24,9),(24,18))" Value="ProductID">
+              <SqlSelectClause Location="((24,2),(24,28))" IsDistinct="False">
+                <!--SELECT p.ProductID, p.Name-->
+                <SqlSelectScalarExpression Location="((24,9),(24,20))">
+                  <!--p.ProductID-->
+                  <SqlScalarRefExpression Location="((24,9),(24,20))" ColumnOrPropertyName="ProductID" MultipartIdentifier="p.ProductID">
+                    <!--p.ProductID-->
+                    <SqlObjectIdentifier Location="((24,9),(24,20))" SchemaName="p" ObjectName="ProductID">
+                      <!--p.ProductID-->
+                      <SqlIdentifier Location="((24,9),(24,10))" Value="p">
+                        <!--p-->
+                      </SqlIdentifier>
+                      <SqlIdentifier Location="((24,11),(24,20))" Value="ProductID">
                         <!--ProductID-->
                       </SqlIdentifier>
                     </SqlObjectIdentifier>
-                  </SqlColumnRefExpression>
+                  </SqlScalarRefExpression>
                 </SqlSelectScalarExpression>
-                <SqlSelectScalarExpression Location="((24,20),(24,24))">
-                  <!--Name-->
-                  <SqlColumnRefExpression Location="((24,20),(24,24))" ColumnName="Name" MultipartIdentifier="Name">
-                    <!--Name-->
-                    <SqlObjectIdentifier Location="((24,20),(24,24))" ObjectName="Name">
-                      <!--Name-->
-                      <SqlIdentifier Location="((24,20),(24,24))" Value="Name">
+                <SqlSelectScalarExpression Location="((24,22),(24,28))">
+                  <!--p.Name-->
+                  <SqlScalarRefExpression Location="((24,22),(24,28))" ColumnOrPropertyName="Name" MultipartIdentifier="p.Name">
+                    <!--p.Name-->
+                    <SqlObjectIdentifier Location="((24,22),(24,28))" SchemaName="p" ObjectName="Name">
+                      <!--p.Name-->
+                      <SqlIdentifier Location="((24,22),(24,23))" Value="p">
+                        <!--p-->
+                      </SqlIdentifier>
+                      <SqlIdentifier Location="((24,24),(24,28))" Value="Name">
                         <!--Name-->
                       </SqlIdentifier>
                     </SqlObjectIdentifier>
-                  </SqlColumnRefExpression>
+                  </SqlScalarRefExpression>
                 </SqlSelectScalarExpression>
               </SqlSelectClause>
               <SqlFromClause Location="((25,1),(25,26))">
@@ -323,11 +329,15 @@ WHERE p.ProductID <= 800-->
       <Token location="((23,45), (24,2))" id="544" type="LEX_WHITE">\n\t</Token>
       <Token location="((24,2), (24,8))" id="285" type="TOKEN_SELECT">SELECT</Token>
       <Token location="((24,8), (24,9))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((24,9), (24,18))" id="171" type="TOKEN_ID">ProductID</Token>
-      <Token location="((24,18), (24,19))" id="44" type=",">,</Token>
-      <Token location="((24,19), (24,20))" id="544" type="LEX_WHITE"> </Token>
-      <Token location="((24,20), (24,24))" id="171" type="TOKEN_ID">Name</Token>
-      <Token location="((24,24), (25,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((24,9), (24,10))" id="171" type="TOKEN_ID">p</Token>
+      <Token location="((24,10), (24,11))" id="46" type=".">.</Token>
+      <Token location="((24,11), (24,20))" id="171" type="TOKEN_ID">ProductID</Token>
+      <Token location="((24,20), (24,21))" id="44" type=",">,</Token>
+      <Token location="((24,21), (24,22))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((24,22), (24,23))" id="171" type="TOKEN_ID">p</Token>
+      <Token location="((24,23), (24,24))" id="46" type=".">.</Token>
+      <Token location="((24,24), (24,28))" id="171" type="TOKEN_ID">Name</Token>
+      <Token location="((24,28), (25,1))" id="544" type="LEX_WHITE">\r\n</Token>
       <Token location="((25,1), (25,5))" id="242" type="TOKEN_FROM">FROM</Token>
       <Token location="((25,5), (25,6))" id="544" type="LEX_WHITE"> </Token>
       <Token location="((25,6), (25,13))" id="171" type="TOKEN_ID">SalesLT</Token>

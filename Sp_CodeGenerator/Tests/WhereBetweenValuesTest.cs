@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Diagnostics;
+using DataBaseLayer;
 
 namespace Sp_CodeGenerator
 {
@@ -28,7 +29,7 @@ namespace Sp_CodeGenerator
             Stopwatch efStopWatch = new Stopwatch();
             efStopWatch.Start();
 
-            var context = new AdventureWorksLT2008R2Entities();
+            var context = new AWorksLTEntities();
             List<WhereBetweenValues_Result> efWhereBetween = new List<WhereBetweenValues_Result>();
 
             foreach (WhereBetweenValues_Result w in context.WhereBetweenValues(680, 713))
@@ -50,27 +51,27 @@ namespace Sp_CodeGenerator
             Stopwatch efStopwatch)
         {
             StreamWriter testResults;
-            if(!File.Exists("WhereBetweenValues_Result.txt"))
+            if(!File.Exists("WhereBetweenValues_Result.csv"))
             {
-                testResults = new StreamWriter("WhereBetweenValues_Result.txt");
+                testResults = new StreamWriter("WhereBetweenValues_Result.csv");
             } 
             else
             {
-                testResults = File.AppendText("WhereBetweenValues_Result.txt");
+                testResults = File.AppendText("WhereBetweenValues_Result.csv");
             }
 
             var orderedLinqResults = linqResults.OrderByDescending(l => l.Color).OrderByDescending(l => l.Name).OrderByDescending(l => l.ProductID);
             var orderedEfResults = efResults.OrderByDescending(e => e.Color).OrderByDescending(e => e.Name).OrderByDescending(e => e.ProductID);
 
             var result = orderedLinqResults.Zip(orderedEfResults, (l, e) => new { Linq = l, Ef = e });
-            testResults.WriteLine("Linq operation took " + linqStopwatch.Elapsed.ToString());
-            testResults.WriteLine("Ef operation took " + efStopwatch.Elapsed.ToString());
+            testResults.WriteLine("Linq Time , " + linqStopwatch.ElapsedMilliseconds.ToString());
+            testResults.WriteLine("Ef Time ," + efStopwatch.ElapsedMilliseconds.ToString());
 
             foreach (var r in result)
             {
                 testResults.WriteLine(WhereBetweenValues_Result.Equals(r.Linq, r.Ef));
-                var linqLine = string.Format("{0}\t{1}\t{2}\t{3}", "Linq Results", r.Linq.Color, r.Linq.Name, r.Linq.ProductID);
-                var efLine = string.Format("{0}\t{1}\t{2}\t{3}", "Ef Results", r.Ef.Color, r.Ef.Name, r.Ef.ProductID);
+                var linqLine = ("Linq Results, "+ r.Linq.Color +","+ r.Linq.Name+","+ r.Linq.ProductID);
+                var efLine = ("Ef Results," + r.Ef.Color+","+ r.Ef.Name+","+ r.Ef.ProductID);
                 testResults.WriteLine(linqLine);
                 testResults.WriteLine(efLine);
             }

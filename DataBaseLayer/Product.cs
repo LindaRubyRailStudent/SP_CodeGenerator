@@ -16,23 +16,30 @@ namespace DataBaseLayer
     {
         public Product()
         {
-            this.Order_Details = new HashSet<Order_Detail>();
+            this.SalesOrderDetails = new HashSet<SalesOrderDetail>();
         }
     
         public int ProductID { get; set; }
-        public string ProductName { get; set; }
-        public Nullable<int> SupplierID { get; set; }
-        public Nullable<int> CategoryID { get; set; }
-        public string QuantityPerUnit { get; set; }
-        public Nullable<decimal> UnitPrice { get; set; }
-        public Nullable<short> UnitsInStock { get; set; }
-        public Nullable<short> UnitsOnOrder { get; set; }
-        public Nullable<short> ReorderLevel { get; set; }
-        public bool Discontinued { get; set; }
+        public string Name { get; set; }
+        public string ProductNumber { get; set; }
+        public string Color { get; set; }
+        public decimal StandardCost { get; set; }
+        public decimal ListPrice { get; set; }
+        public string Size { get; set; }
+        public Nullable<decimal> Weight { get; set; }
+        public Nullable<int> ProductCategoryID { get; set; }
+        public Nullable<int> ProductModelID { get; set; }
+        public System.DateTime SellStartDate { get; set; }
+        public Nullable<System.DateTime> SellEndDate { get; set; }
+        public Nullable<System.DateTime> DiscontinuedDate { get; set; }
+        public byte[] ThumbNailPhoto { get; set; }
+        public string ThumbnailPhotoFileName { get; set; }
+        public System.Guid rowguid { get; set; }
+        public System.DateTime ModifiedDate { get; set; }
     
-        public virtual Category Category { get; set; }
-        public virtual ICollection<Order_Detail> Order_Details { get; set; }
-        public virtual Supplier Supplier { get; set; }
+        public virtual ProductCategory ProductCategory { get; set; }
+        public virtual ProductModel ProductModel { get; set; }
+        public virtual ICollection<SalesOrderDetail> SalesOrderDetails { get; set; }
     }
     
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Diagnostics;
+using DataBaseLayer;
 
 namespace Sp_CodeGenerator
 {
@@ -27,7 +28,7 @@ namespace Sp_CodeGenerator
             // Call via the Stored Procedures
             Stopwatch efstopwatch = new Stopwatch();
             efstopwatch.Start();
-            var context = new AdventureWorksLT2008R2Entities();
+            var context = new AWorksLTEntities();
             List<SelectDistinct_Result> sdResultList = new List<SelectDistinct_Result>();
             foreach (SelectDistinct_Result sdRes in context.SelectDistinct())
             {
@@ -51,24 +52,24 @@ namespace Sp_CodeGenerator
         {
             StreamWriter testResult;
 
-            if (!File.Exists("selectDistinctTestResult.txt"))
+            if (!File.Exists("selectDistinctTestResult.csv"))
             {
-                testResult = new StreamWriter("selectDistinctTestResult.txt");
+                testResult = new StreamWriter("selectDistinctTestResult.csv");
             }
             else
             {
-                testResult = File.AppendText("selectDistinctTestResult.txt");
+                testResult = File.AppendText("selectDistinctTestResult.csv");
             }
 
             var result = distinctList.Zip(sdResultList, (d, s) => new { Key = d, Value = s });
-            testResult.WriteLine("Linq operation took " + linqstopwatch.Elapsed.ToString());
-            testResult.WriteLine("EF stored procedure Call took " + efstopwatch.Elapsed.ToString());
+            testResult.WriteLine("Linq Time ," + linqstopwatch.ElapsedMilliseconds.ToString());
+            testResult.WriteLine("EF Time , " + efstopwatch.ElapsedMilliseconds.ToString());
 
             foreach (var r in result)
             {
                 testResult.WriteLine(SelectDistinct_Result.Equals(r.Key, r.Value));
-                var linqLine = string.Format("{0}\t{1}", "Linq Results", r.Key.SalesPerson);
-                var efLine = string.Format("{0}\t{1}", "Ef Results", r.Value.SalesPerson);
+                var linqLine = ("Linq Results, " + r.Key.SalesPerson);
+                var efLine = ("Ef Results ," + r.Value.SalesPerson);
                 testResult.WriteLine(linqLine);
                 testResult.WriteLine(efLine);
             }

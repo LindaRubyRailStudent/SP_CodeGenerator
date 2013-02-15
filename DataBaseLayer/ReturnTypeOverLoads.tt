@@ -1,0 +1,94 @@
+﻿<#@ template debug="true" hostSpecific="true" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="System.Core" #>
+<#@ Assembly Name="System.Windows.Forms" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ include file="EF.Utility.CS.ttinclude" #>
+<#
+  var fileManager = EntityFrameworkTemplateFileManager.Create(this);
+	MetadataLoader loader = new MetadataLoader(this);
+	string inputFile = @"C:\Sp_CodeGenerator\DataBaseLayer\Model1.edmx";
+	EdmItemCollection itemCollection = loader.CreateEdmItemCollection(inputFile);
+	var ComplexTypes = itemCollection.GetItems<System.Data.Metadata.Edm.ComplexType>();
+
+	foreach(var c in ComplexTypes){
+		string fileName = c.Name;
+		fileManager.StartNewFile(fileName + ".cs");
+		string writtenClass = writeClass(c);
+
+#>
+// This is the output code from your template
+// you only get syntax-highlighting here - not intellisense
+using System;
+
+namespace DataBaseLayer {
+<#= writtenClass #>
+  }
+}
+
+<# 
+  }
+	fileManager.Process();
+
+ #>
+ 
+<#+
+
+public string writeClass(ComplexType c){
+		StringBuilder sb = new StringBuilder();
+
+		sb.Append("public partial class " + c.Name + ": IEquatable<" + c.Name + ">" ).AppendLine();
+		sb.Append("{").AppendLine();
+		sb.Append(declareProperties(c));
+		sb.AppendLine();
+		sb.Append("public bool Equals(" + c.Name + "  other)").AppendLine();
+		sb.Append("{").AppendLine();
+		sb.Append("if (other == null) return false;").AppendLine();
+		sb.Append("if (" + getProperties(c) + ") return true;").AppendLine();
+		sb.Append("else return false;").AppendLine();
+		sb.Append("}").AppendLine();
+		sb.AppendLine();
+		sb.Append("public override bool Equals(object obj)").AppendLine();
+		sb.Append("{").AppendLine();
+		sb.Append("if (obj == null) return false;").AppendLine();
+		sb.Append(c.Name + " vResult = ("+ c.Name + ")obj;").AppendLine();
+		sb.Append("if (vResult == null)").AppendLine();
+		sb.Append("{").AppendLine();
+		sb.Append("return false;").AppendLine();
+		sb.Append("}").AppendLine();
+		sb.Append("else return Equals(vResult);").AppendLine();
+		sb.Append("}").AppendLine();
+		sb.AppendLine();
+		sb.Append("public override int GetHashCode()");
+		sb.Append("{").AppendLine();
+		sb.Append("return base.GetHashCode();").AppendLine();
+		sb.Append("}");
+		return sb.ToString();
+
+}
+public string getProperties(ComplexType c){
+	StringBuilder sb = new StringBuilder();
+	var properties = c.Properties;
+	foreach(var p in properties){
+		sb.Append("this."+p.ToString() + " == other." + p.ToString() + " &&").AppendLine();
+    }
+	return sb.ToString().TrimEnd('\\').TrimEnd('r').TrimEnd('&').TrimEnd('&');
+} 
+
+public string declareProperties(ComplexType c){
+	StringBuilder sb = new StringBuilder();
+
+	var properties = c.Properties;
+
+	foreach(EdmProperty p in properties)
+	{
+		sb.Append(Accessibility.ForProperty(p) + " " + p.TypeUsage.EdmType.Name + " " + p.ToString() + " { get; set; }").AppendLine();
+    }
+	return sb.ToString();
+}
+#>

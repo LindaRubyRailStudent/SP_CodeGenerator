@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using AWorks;
+using DataBaseLayer;
 
 namespace Sp_CodeGenerator
 {
     public class CInnerJoinTest
     {
-        private AdWorksLTEntities db = new AdWorksLTEntities();
+        private AWorksLTEntities db = new AWorksLTEntities();
 
         public IQueryable<SelectAll_Result> CInnerJoinTest_Method()
         {

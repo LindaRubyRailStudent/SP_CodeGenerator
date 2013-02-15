@@ -11,7 +11,7 @@ namespace ExtensionMethods{
 
   public class UnitOfWork : IDisposable{
 
-	private NorthwindEntities context = new NorthwindEntities();
+	private AWorksLTEntities context = new AWorksLTEntities();
 	private GenericRepository<Product> productRepository;
 
 

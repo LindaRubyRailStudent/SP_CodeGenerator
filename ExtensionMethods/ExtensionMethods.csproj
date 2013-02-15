@@ -126,10 +126,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AWorks\AWorks.csproj">
-      <Project>{44B1AF3B-1894-435F-8977-A130BB51695C}</Project>
-      <Name>AWorks</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DataBaseLayer\DataBaseLayer.csproj">
       <Project>{0C126BCD-87AE-4798-948D-C0EE84861D4A}</Project>
       <Name>DataBaseLayer</Name>

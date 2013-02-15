@@ -98,7 +98,14 @@ namespace ExtensionMethods
                         {
                             sb.Append(selectScalar._alias + " = ");
                         }
+                        if (c._multipartIdentifier != null)
+                        {
+                            sb.Append(c._multipartIdentifier + ",");
+                        }
+                        else 
+                        { 
                         sb.Append(" p." + c._columnName + ",");
+                        }
                     }
                 }
             }

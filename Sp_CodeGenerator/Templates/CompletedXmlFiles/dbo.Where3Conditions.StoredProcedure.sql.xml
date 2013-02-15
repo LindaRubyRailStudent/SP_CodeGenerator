@@ -1,0 +1,448 @@
+<SqlScript Location="((1,1), (30,1))">
+  <!--USE [AdventureWorksLT2008R2]
+GO
+/****** Object:  StoredProcedure [dbo].[Where3Conditions]    Script Date: 02/12/2013 23:41:30 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+- - =============================================
+- - Author:		<Author,,Name>
+- - Create date: <Create Date,,>
+- - Description:	<Description,,>
+- - =============================================
+ALTER PROCEDURE [dbo].[Where3Conditions]
+	- - Add the parameters for the stored procedure here
+		@Name nvarchar(50) = n,
+	@ProductID int
+AS
+BEGIN
+	- - SET NOCOUNT ON added to prevent extra result sets from
+	- - interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    - - Insert statements for procedure here
+		SELECT p.ProductID, p.Name
+FROM SalesLT.Product AS p
+WHERE p.ProductID = 2
+OR p.ProductID = @ProductID
+OR p.Name = @Name ;
+END
+-->
+  <Errors />
+  <SqlBatch Location="((1,1), (2,1))">
+    <!--USE [AdventureWorksLT2008R2]
+-->
+    <SqlUseStatement Location="((1,1),(1,29))" DatabaseName="AdventureWorksLT2008R2">
+      <!--USE [AdventureWorksLT2008R2]-->
+      <SqlIdentifier Location="((1,5),(1,29))" Value="AdventureWorksLT2008R2">
+        <!--[AdventureWorksLT2008R2]-->
+      </SqlIdentifier>
+    </SqlUseStatement>
+    <Tokens>
+      <Token location="((1,1), (1,4))" id="301" type="TOKEN_USEDB">USE</Token>
+      <Token location="((1,4), (1,5))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((1,5), (1,29))" id="171" type="TOKEN_ID">[AdventureWorksLT2008R2]</Token>
+      <Token location="((1,29), (2,1))" id="544" type="LEX_WHITE">\r\n</Token>
+    </Tokens>
+  </SqlBatch>
+  <SqlBatch Location="((2,3), (5,1))">
+    <!--
+/****** Object:  StoredProcedure [dbo].[Where3Conditions]    Script Date: 02/12/2013 23:41:30 ******/
+SET ANSI_NULLS ON
+-->
+    <SqlNullStatement Location="((4,1),(4,18))">
+      <!--SET ANSI_NULLS ON-->
+    </SqlNullStatement>
+    <Tokens>
+      <Token location="((2,3), (3,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((3,1), (3,102))" id="546" type="LEX_MULTILINE_COMMENT">/****** Object:  StoredProcedure [dbo].[Where3Conditions]    Script Date: 02/12/2013 23:41:30 ******/</Token>
+      <Token location="((3,102), (4,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((4,1), (4,4))" id="148" type="TOKEN_SET">SET</Token>
+      <Token location="((4,4), (4,5))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((4,5), (4,15))" id="171" type="TOKEN_ID">ANSI_NULLS</Token>
+      <Token location="((4,15), (4,16))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((4,16), (4,18))" id="268" type="TOKEN_ON">ON</Token>
+      <Token location="((4,18), (5,1))" id="544" type="LEX_WHITE">\r\n</Token>
+    </Tokens>
+  </SqlBatch>
+  <SqlBatch Location="((5,3), (7,1))">
+    <!--
+SET QUOTED_IDENTIFIER ON
+-->
+    <SqlNullStatement Location="((6,1),(6,25))">
+      <!--SET QUOTED_IDENTIFIER ON-->
+    </SqlNullStatement>
+    <Tokens>
+      <Token location="((5,3), (6,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((6,1), (6,4))" id="148" type="TOKEN_SET">SET</Token>
+      <Token location="((6,4), (6,5))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((6,5), (6,22))" id="171" type="TOKEN_ID">QUOTED_IDENTIFIER</Token>
+      <Token location="((6,22), (6,23))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((6,23), (6,25))" id="268" type="TOKEN_ON">ON</Token>
+      <Token location="((6,25), (7,1))" id="544" type="LEX_WHITE">\r\n</Token>
+    </Tokens>
+  </SqlBatch>
+  <SqlBatch Location="((7,3), (30,1))">
+    <!--
+- - =============================================
+- - Author:		<Author,,Name>
+- - Create date: <Create Date,,>
+- - Description:	<Description,,>
+- - =============================================
+ALTER PROCEDURE [dbo].[Where3Conditions]
+	- - Add the parameters for the stored procedure here
+		@Name nvarchar(50) = n,
+	@ProductID int
+AS
+BEGIN
+	- - SET NOCOUNT ON added to prevent extra result sets from
+	- - interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    - - Insert statements for procedure here
+		SELECT p.ProductID, p.Name
+FROM SalesLT.Product AS p
+WHERE p.ProductID = 2
+OR p.ProductID = @ProductID
+OR p.Name = @Name ;
+END
+-->
+    <SqlAlterProcedureStatement Location="((13,1),(29,4))">
+      <!--ALTER PROCEDURE [dbo].[Where3Conditions]
+	- - Add the parameters for the stored procedure here
+		@Name nvarchar(50) = n,
+	@ProductID int
+AS
+BEGIN
+	- - SET NOCOUNT ON added to prevent extra result sets from
+	- - interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    - - Insert statements for procedure here
+		SELECT p.ProductID, p.Name
+FROM SalesLT.Product AS p
+WHERE p.ProductID = 2
+OR p.ProductID = @ProductID
+OR p.Name = @Name ;
+END-->
+      <SqlProcedureDefinition Location="((13,17),(17,3))" Name="dbo.Where3Conditions" IsForReplication="False">
+        <!--[dbo].[Where3Conditions]
+	- - Add the parameters for the stored procedure here
+		@Name nvarchar(50) = n,
+	@ProductID int
+AS-->
+        <SqlObjectIdentifier Location="((13,17),(13,41))" SchemaName="dbo" ObjectName="Where3Conditions">
+          <!--[dbo].[Where3Conditions]-->
+          <SqlIdentifier Location="((13,17),(13,22))" Value="dbo">
+            <!--[dbo]-->
+          </SqlIdentifier>
+          <SqlIdentifier Location="((13,23),(13,41))" Value="Where3Conditions">
+            <!--[Where3Conditions]-->
+          </SqlIdentifier>
+        </SqlObjectIdentifier>
+        <SqlParameterDeclaration Location="((15,3),(15,25))" IsOutput="False" Name="@Name">
+          <!--@Name nvarchar(50) = n-->
+          <SqlDataTypeSpecification Location="((15,9),(15,21))" Argument1="50" IsMaximum="False" IsCursor="False" XmlDocumentConstraint="None">
+            <!--nvarchar(50)-->
+            <SqlDataType Location="((15,9),(15,17))" ObjectIdentifier="nvarchar" National="False" Varying="False">
+              <!--nvarchar-->
+              <SqlObjectIdentifier Location="((15,9),(15,17))" ObjectName="nvarchar">
+                <!--nvarchar-->
+                <SqlIdentifier Location="((15,9),(15,17))" Value="nvarchar">
+                  <!--nvarchar-->
+                </SqlIdentifier>
+              </SqlObjectIdentifier>
+            </SqlDataType>
+          </SqlDataTypeSpecification>
+          <SqlLiteralExpression Location="((15,24),(15,25))" Value="n" Type="Identifier">
+            <!--n-->
+          </SqlLiteralExpression>
+        </SqlParameterDeclaration>
+        <SqlParameterDeclaration Location="((16,2),(16,16))" IsOutput="False" Name="@ProductID">
+          <!--@ProductID int-->
+          <SqlDataTypeSpecification Location="((16,13),(16,16))" IsMaximum="False" IsCursor="False" XmlDocumentConstraint="None">
+            <!--int-->
+            <SqlDataType Location="((16,13),(16,16))" ObjectIdentifier="int" National="False" Varying="False">
+              <!--int-->
+              <SqlObjectIdentifier Location="((16,13),(16,16))" ObjectName="int">
+                <!--int-->
+                <SqlIdentifier Location="((16,13),(16,16))" Value="int">
+                  <!--int-->
+                </SqlIdentifier>
+              </SqlObjectIdentifier>
+            </SqlDataType>
+          </SqlDataTypeSpecification>
+        </SqlParameterDeclaration>
+      </SqlProcedureDefinition>
+      <SqlCompoundStatement Location="((18,1),(29,4))">
+        <!--BEGIN
+	- - SET NOCOUNT ON added to prevent extra result sets from
+	- - interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    - - Insert statements for procedure here
+		SELECT p.ProductID, p.Name
+FROM SalesLT.Product AS p
+WHERE p.ProductID = 2
+OR p.ProductID = @ProductID
+OR p.Name = @Name ;
+END-->
+        <SqlNullStatement Location="((21,2),(21,17))">
+          <!--SET NOCOUNT ON;-->
+        </SqlNullStatement>
+        <SqlSelectStatement Location="((24,3),(28,18))">
+          <!--SELECT p.ProductID, p.Name
+FROM SalesLT.Product AS p
+WHERE p.ProductID = 2
+OR p.ProductID = @ProductID
+OR p.Name = @Name-->
+          <SqlSelectSpecification Location="((24,3),(28,18))">
+            <!--SELECT p.ProductID, p.Name
+FROM SalesLT.Product AS p
+WHERE p.ProductID = 2
+OR p.ProductID = @ProductID
+OR p.Name = @Name-->
+            <SqlQuerySpecification Location="((24,3),(28,18))">
+              <!--SELECT p.ProductID, p.Name
+FROM SalesLT.Product AS p
+WHERE p.ProductID = 2
+OR p.ProductID = @ProductID
+OR p.Name = @Name-->
+              <SqlSelectClause Location="((24,3),(24,29))" IsDistinct="False">
+                <!--SELECT p.ProductID, p.Name-->
+                <SqlSelectScalarExpression Location="((24,10),(24,21))">
+                  <!--p.ProductID-->
+                  <SqlScalarRefExpression Location="((24,10),(24,21))" ColumnOrPropertyName="ProductID" MultipartIdentifier="p.ProductID">
+                    <!--p.ProductID-->
+                    <SqlObjectIdentifier Location="((24,10),(24,21))" SchemaName="p" ObjectName="ProductID">
+                      <!--p.ProductID-->
+                      <SqlIdentifier Location="((24,10),(24,11))" Value="p">
+                        <!--p-->
+                      </SqlIdentifier>
+                      <SqlIdentifier Location="((24,12),(24,21))" Value="ProductID">
+                        <!--ProductID-->
+                      </SqlIdentifier>
+                    </SqlObjectIdentifier>
+                  </SqlScalarRefExpression>
+                </SqlSelectScalarExpression>
+                <SqlSelectScalarExpression Location="((24,23),(24,29))">
+                  <!--p.Name-->
+                  <SqlScalarRefExpression Location="((24,23),(24,29))" ColumnOrPropertyName="Name" MultipartIdentifier="p.Name">
+                    <!--p.Name-->
+                    <SqlObjectIdentifier Location="((24,23),(24,29))" SchemaName="p" ObjectName="Name">
+                      <!--p.Name-->
+                      <SqlIdentifier Location="((24,23),(24,24))" Value="p">
+                        <!--p-->
+                      </SqlIdentifier>
+                      <SqlIdentifier Location="((24,25),(24,29))" Value="Name">
+                        <!--Name-->
+                      </SqlIdentifier>
+                    </SqlObjectIdentifier>
+                  </SqlScalarRefExpression>
+                </SqlSelectScalarExpression>
+              </SqlSelectClause>
+              <SqlFromClause Location="((25,1),(25,26))">
+                <!--FROM SalesLT.Product AS p-->
+                <SqlTableRefExpression Location="((25,6),(25,26))" ObjectIdentifier="SalesLT.Product" Alias="p">
+                  <!--SalesLT.Product AS p-->
+                  <SqlObjectIdentifier Location="((25,6),(25,21))" SchemaName="SalesLT" ObjectName="Product">
+                    <!--SalesLT.Product-->
+                    <SqlIdentifier Location="((25,6),(25,13))" Value="SalesLT">
+                      <!--SalesLT-->
+                    </SqlIdentifier>
+                    <SqlIdentifier Location="((25,14),(25,21))" Value="Product">
+                      <!--Product-->
+                    </SqlIdentifier>
+                  </SqlObjectIdentifier>
+                  <SqlIdentifier Location="((25,25),(25,26))" Value="p">
+                    <!--p-->
+                  </SqlIdentifier>
+                </SqlTableRefExpression>
+              </SqlFromClause>
+              <SqlWhereClause Location="((26,1),(28,18))">
+                <!--WHERE p.ProductID = 2
+OR p.ProductID = @ProductID
+OR p.Name = @Name-->
+                <SqlBinaryBooleanExpression Location="((26,7),(28,18))" Operator="Or">
+                  <!--p.ProductID = 2
+OR p.ProductID = @ProductID
+OR p.Name = @Name-->
+                  <SqlBinaryBooleanExpression Location="((26,7),(27,28))" Operator="Or">
+                    <!--p.ProductID = 2
+OR p.ProductID = @ProductID-->
+                    <SqlComparisonBooleanExpression Location="((26,7),(26,22))" ComparisonOperator="Equals">
+                      <!--p.ProductID = 2-->
+                      <SqlScalarRefExpression Location="((26,7),(26,18))" ColumnOrPropertyName="ProductID" MultipartIdentifier="p.ProductID">
+                        <!--p.ProductID-->
+                        <SqlObjectIdentifier Location="((26,7),(26,18))" SchemaName="p" ObjectName="ProductID">
+                          <!--p.ProductID-->
+                          <SqlIdentifier Location="((26,7),(26,8))" Value="p">
+                            <!--p-->
+                          </SqlIdentifier>
+                          <SqlIdentifier Location="((26,9),(26,18))" Value="ProductID">
+                            <!--ProductID-->
+                          </SqlIdentifier>
+                        </SqlObjectIdentifier>
+                      </SqlScalarRefExpression>
+                      <SqlLiteralExpression Location="((26,21),(26,22))" Value="2" Type="Integer">
+                        <!--2-->
+                      </SqlLiteralExpression>
+                    </SqlComparisonBooleanExpression>
+                    <SqlComparisonBooleanExpression Location="((27,4),(27,28))" ComparisonOperator="Equals">
+                      <!--p.ProductID = @ProductID-->
+                      <SqlScalarRefExpression Location="((27,4),(27,15))" ColumnOrPropertyName="ProductID" MultipartIdentifier="p.ProductID">
+                        <!--p.ProductID-->
+                        <SqlObjectIdentifier Location="((27,4),(27,15))" SchemaName="p" ObjectName="ProductID">
+                          <!--p.ProductID-->
+                          <SqlIdentifier Location="((27,4),(27,5))" Value="p">
+                            <!--p-->
+                          </SqlIdentifier>
+                          <SqlIdentifier Location="((27,6),(27,15))" Value="ProductID">
+                            <!--ProductID-->
+                          </SqlIdentifier>
+                        </SqlObjectIdentifier>
+                      </SqlScalarRefExpression>
+                      <SqlScalarVariableRefExpression Location="((27,18),(27,28))" VariableName="@ProductID">
+                        <!--@ProductID-->
+                      </SqlScalarVariableRefExpression>
+                    </SqlComparisonBooleanExpression>
+                  </SqlBinaryBooleanExpression>
+                  <SqlComparisonBooleanExpression Location="((28,4),(28,18))" ComparisonOperator="Equals">
+                    <!--p.Name = @Name-->
+                    <SqlScalarRefExpression Location="((28,4),(28,10))" ColumnOrPropertyName="Name" MultipartIdentifier="p.Name">
+                      <!--p.Name-->
+                      <SqlObjectIdentifier Location="((28,4),(28,10))" SchemaName="p" ObjectName="Name">
+                        <!--p.Name-->
+                        <SqlIdentifier Location="((28,4),(28,5))" Value="p">
+                          <!--p-->
+                        </SqlIdentifier>
+                        <SqlIdentifier Location="((28,6),(28,10))" Value="Name">
+                          <!--Name-->
+                        </SqlIdentifier>
+                      </SqlObjectIdentifier>
+                    </SqlScalarRefExpression>
+                    <SqlScalarVariableRefExpression Location="((28,13),(28,18))" VariableName="@Name">
+                      <!--@Name-->
+                    </SqlScalarVariableRefExpression>
+                  </SqlComparisonBooleanExpression>
+                </SqlBinaryBooleanExpression>
+              </SqlWhereClause>
+            </SqlQuerySpecification>
+          </SqlSelectSpecification>
+        </SqlSelectStatement>
+      </SqlCompoundStatement>
+    </SqlAlterProcedureStatement>
+    <Tokens>
+      <Token location="((7,3), (8,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((8,1), (8,50))" id="545" type="LEX_END_OF_LINE_COMMENT">-- =============================================\r</Token>
+      <Token location="((8,50), (9,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((9,1), (9,28))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Author:\t\t&lt;Author,,Name&gt;\r</Token>
+      <Token location="((9,28), (10,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((10,1), (10,33))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Create date: &lt;Create Date,,&gt;\r</Token>
+      <Token location="((10,33), (11,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((11,1), (11,33))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Description:\t&lt;Description,,&gt;\r</Token>
+      <Token location="((11,33), (12,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((12,1), (12,50))" id="545" type="LEX_END_OF_LINE_COMMENT">-- =============================================\r</Token>
+      <Token location="((12,50), (13,1))" id="544" type="LEX_WHITE">\n</Token>
+      <Token location="((13,1), (13,6))" id="199" type="TOKEN_ALTER">ALTER</Token>
+      <Token location="((13,6), (13,7))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((13,7), (13,16))" id="275" type="TOKEN_PROCEDURE">PROCEDURE</Token>
+      <Token location="((13,16), (13,17))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((13,17), (13,22))" id="171" type="TOKEN_ID">[dbo]</Token>
+      <Token location="((13,22), (13,23))" id="46" type=".">.</Token>
+      <Token location="((13,23), (13,41))" id="171" type="TOKEN_ID">[Where3Conditions]</Token>
+      <Token location="((13,41), (14,2))" id="544" type="LEX_WHITE">\r\n\t</Token>
+      <Token location="((14,2), (14,54))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Add the parameters for the stored procedure here\r</Token>
+      <Token location="((14,54), (15,3))" id="544" type="LEX_WHITE">\n\t\t</Token>
+      <Token location="((15,3), (15,8))" id="173" type="TOKEN_VARIABLE">@Name</Token>
+      <Token location="((15,8), (15,9))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((15,9), (15,17))" id="171" type="TOKEN_ID">nvarchar</Token>
+      <Token location="((15,17), (15,18))" id="40" type="(">(</Token>
+      <Token location="((15,18), (15,20))" id="182" type="TOKEN_INTEGER">50</Token>
+      <Token location="((15,20), (15,21))" id="41" type=")">)</Token>
+      <Token location="((15,21), (15,22))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((15,22), (15,23))" id="61" type="=">=</Token>
+      <Token location="((15,23), (15,24))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((15,24), (15,25))" id="171" type="TOKEN_ID">n</Token>
+      <Token location="((15,25), (15,26))" id="44" type=",">,</Token>
+      <Token location="((15,26), (16,2))" id="544" type="LEX_WHITE">\r\n\t</Token>
+      <Token location="((16,2), (16,12))" id="173" type="TOKEN_VARIABLE">@ProductID</Token>
+      <Token location="((16,12), (16,13))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((16,13), (16,16))" id="171" type="TOKEN_ID">int</Token>
+      <Token location="((16,16), (17,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((17,1), (17,3))" id="203" type="TOKEN_AS">AS</Token>
+      <Token location="((17,3), (18,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((18,1), (18,6))" id="536" type="TOKEN_BEGIN_CS">BEGIN</Token>
+      <Token location="((18,6), (19,2))" id="544" type="LEX_WHITE">\r\n\t</Token>
+      <Token location="((19,2), (19,60))" id="545" type="LEX_END_OF_LINE_COMMENT">-- SET NOCOUNT ON added to prevent extra result sets from\r</Token>
+      <Token location="((19,60), (20,2))" id="544" type="LEX_WHITE">\n\t</Token>
+      <Token location="((20,2), (20,41))" id="545" type="LEX_END_OF_LINE_COMMENT">-- interfering with SELECT statements.\r</Token>
+      <Token location="((20,41), (21,2))" id="544" type="LEX_WHITE">\n\t</Token>
+      <Token location="((21,2), (21,5))" id="148" type="TOKEN_SET">SET</Token>
+      <Token location="((21,5), (21,6))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((21,6), (21,13))" id="171" type="TOKEN_ID">NOCOUNT</Token>
+      <Token location="((21,13), (21,14))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((21,14), (21,16))" id="268" type="TOKEN_ON">ON</Token>
+      <Token location="((21,16), (21,17))" id="59" type=";">;</Token>
+      <Token location="((21,17), (23,5))" id="544" type="LEX_WHITE">\r\n\r\n    </Token>
+      <Token location="((23,5), (23,45))" id="545" type="LEX_END_OF_LINE_COMMENT">-- Insert statements for procedure here\r</Token>
+      <Token location="((23,45), (24,3))" id="544" type="LEX_WHITE">\n\t\t</Token>
+      <Token location="((24,3), (24,9))" id="285" type="TOKEN_SELECT">SELECT</Token>
+      <Token location="((24,9), (24,10))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((24,10), (24,11))" id="171" type="TOKEN_ID">p</Token>
+      <Token location="((24,11), (24,12))" id="46" type=".">.</Token>
+      <Token location="((24,12), (24,21))" id="171" type="TOKEN_ID">ProductID</Token>
+      <Token location="((24,21), (24,22))" id="44" type=",">,</Token>
+      <Token location="((24,22), (24,23))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((24,23), (24,24))" id="171" type="TOKEN_ID">p</Token>
+      <Token location="((24,24), (24,25))" id="46" type=".">.</Token>
+      <Token location="((24,25), (24,29))" id="171" type="TOKEN_ID">Name</Token>
+      <Token location="((24,29), (25,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((25,1), (25,5))" id="242" type="TOKEN_FROM">FROM</Token>
+      <Token location="((25,5), (25,6))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((25,6), (25,13))" id="171" type="TOKEN_ID">SalesLT</Token>
+      <Token location="((25,13), (25,14))" id="46" type=".">.</Token>
+      <Token location="((25,14), (25,21))" id="171" type="TOKEN_ID">Product</Token>
+      <Token location="((25,21), (25,22))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((25,22), (25,24))" id="203" type="TOKEN_AS">AS</Token>
+      <Token location="((25,24), (25,25))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((25,25), (25,26))" id="171" type="TOKEN_ID">p</Token>
+      <Token location="((25,26), (26,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((26,1), (26,6))" id="305" type="TOKEN_WHERE">WHERE</Token>
+      <Token location="((26,6), (26,7))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((26,7), (26,8))" id="171" type="TOKEN_ID">p</Token>
+      <Token location="((26,8), (26,9))" id="46" type=".">.</Token>
+      <Token location="((26,9), (26,18))" id="171" type="TOKEN_ID">ProductID</Token>
+      <Token location="((26,18), (26,19))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((26,19), (26,20))" id="61" type="=">=</Token>
+      <Token location="((26,20), (26,21))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((26,21), (26,22))" id="182" type="TOKEN_INTEGER">2</Token>
+      <Token location="((26,22), (27,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((27,1), (27,3))" id="135" type="TOKEN_OR">OR</Token>
+      <Token location="((27,3), (27,4))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((27,4), (27,5))" id="171" type="TOKEN_ID">p</Token>
+      <Token location="((27,5), (27,6))" id="46" type=".">.</Token>
+      <Token location="((27,6), (27,15))" id="171" type="TOKEN_ID">ProductID</Token>
+      <Token location="((27,15), (27,16))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((27,16), (27,17))" id="61" type="=">=</Token>
+      <Token location="((27,17), (27,18))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((27,18), (27,28))" id="173" type="TOKEN_VARIABLE">@ProductID</Token>
+      <Token location="((27,28), (28,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((28,1), (28,3))" id="135" type="TOKEN_OR">OR</Token>
+      <Token location="((28,3), (28,4))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((28,4), (28,5))" id="171" type="TOKEN_ID">p</Token>
+      <Token location="((28,5), (28,6))" id="46" type=".">.</Token>
+      <Token location="((28,6), (28,10))" id="171" type="TOKEN_ID">Name</Token>
+      <Token location="((28,10), (28,11))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((28,11), (28,12))" id="61" type="=">=</Token>
+      <Token location="((28,12), (28,13))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((28,13), (28,18))" id="173" type="TOKEN_VARIABLE">@Name</Token>
+      <Token location="((28,18), (28,19))" id="544" type="LEX_WHITE"> </Token>
+      <Token location="((28,19), (28,20))" id="59" type=";">;</Token>
+      <Token location="((28,20), (29,1))" id="544" type="LEX_WHITE">\r\n</Token>
+      <Token location="((29,1), (29,4))" id="537" type="TOKEN_END_CS">END</Token>
+      <Token location="((29,4), (30,1))" id="544" type="LEX_WHITE">\r\n</Token>
+    </Tokens>
+  </SqlBatch>
+</SqlScript>

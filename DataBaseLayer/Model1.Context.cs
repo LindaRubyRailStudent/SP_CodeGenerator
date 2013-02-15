@@ -14,10 +14,10 @@ using System.Data.Objects;
 
 namespace DataBaseLayer
 {
-    public partial class NorthwindEntities : DbContext
+    public partial class AWorksLTEntities : DbContext
     {
-        public NorthwindEntities()
-            : base("name=NorthwindEntities")
+        public AWorksLTEntities()
+            : base("name=AWorksLTEntities")
         {
         }
     
@@ -26,42 +26,241 @@ namespace DataBaseLayer
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<CustomerDemographic> CustomerDemographics { get; set; }
+        public DbSet<BuildVersion> BuildVersions { get; set; }
+        public DbSet<ErrorLog> ErrorLogs { get; set; }
+        public DbSet<Address> Addresses { get; set; }
         public DbSet<Customer> Customers { get; set; }
-        public DbSet<Employee> Employees { get; set; }
-        public DbSet<Order_Detail> Order_Details { get; set; }
-        public DbSet<Order> Orders { get; set; }
+        public DbSet<CustomerAddress> CustomerAddresses { get; set; }
         public DbSet<Product> Products { get; set; }
-        public DbSet<Region> Regions { get; set; }
-        public DbSet<Shipper> Shippers { get; set; }
-        public DbSet<Supplier> Suppliers { get; set; }
-        public DbSet<Territory> Territories { get; set; }
-        public DbSet<Alphabetical_list_of_product> Alphabetical_list_of_products { get; set; }
-        public DbSet<Category_Sales_for_1997> Category_Sales_for_1997 { get; set; }
-        public DbSet<Current_Product_List> Current_Product_Lists { get; set; }
-        public DbSet<Customer_and_Suppliers_by_City> Customer_and_Suppliers_by_Cities { get; set; }
-        public DbSet<Invoice> Invoices { get; set; }
-        public DbSet<Order_Details_Extended> Order_Details_Extendeds { get; set; }
-        public DbSet<Order_Subtotal> Order_Subtotals { get; set; }
-        public DbSet<Orders_Qry> Orders_Qries { get; set; }
-        public DbSet<Product_Sales_for_1997> Product_Sales_for_1997 { get; set; }
-        public DbSet<Products_Above_Average_Price> Products_Above_Average_Prices { get; set; }
-        public DbSet<Products_by_Category> Products_by_Categories { get; set; }
-        public DbSet<Sales_by_Category> Sales_by_Categories { get; set; }
-        public DbSet<Sales_Totals_by_Amount> Sales_Totals_by_Amounts { get; set; }
-        public DbSet<Summary_of_Sales_by_Quarter> Summary_of_Sales_by_Quarters { get; set; }
-        public DbSet<Summary_of_Sales_by_Year> Summary_of_Sales_by_Years { get; set; }
+        public DbSet<ProductCategory> ProductCategories { get; set; }
+        public DbSet<ProductDescription> ProductDescriptions { get; set; }
+        public DbSet<ProductModel> ProductModels { get; set; }
+        public DbSet<ProductModelProductDescription> ProductModelProductDescriptions { get; set; }
+        public DbSet<SalesOrderDetail> SalesOrderDetails { get; set; }
+        public DbSet<SalesOrderHeader> SalesOrderHeaders { get; set; }
     
-        public virtual ObjectResult<CustOrderHist_Result> CustOrderHist(string customerID)
+        public virtual ObjectResult<AndOrOperator_Result> AndOrOperator()
         {
-            ((IObjectContextAdapter)this).ObjectContext.MetadataWorkspace.LoadFromAssembly(typeof(CustOrderHist_Result).Assembly);
+            ((IObjectContextAdapter)this).ObjectContext.MetadataWorkspace.LoadFromAssembly(typeof(AndOrOperator_Result).Assembly);
     
-            var customerIDParameter = customerID != null ?
-                new ObjectParameter("CustomerID", customerID) :
-                new ObjectParameter("CustomerID", typeof(string));
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<AndOrOperator_Result>("AndOrOperator");
+        }
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CustOrderHist_Result>("CustOrderHist", customerIDParameter);
+        public virtual ObjectResult<CInnerJoin_Result> CInnerJoin()
+        {
+            ((IObjectContextAdapter)this).ObjectContext.MetadataWorkspace.LoadFromAssembly(typeof(CInnerJoin_Result).Assembly);
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CInnerJoin_Result>("CInnerJoin");
+        }
+    
+        public virtual ObjectResult<GreaterThanOrEqual_Result> GreaterThanOrEqual(Nullable<System.DateTime> date)
+        {
+            ((IObjectContextAdapter)this).ObjectContext.MetadataWorkspace.LoadFromAssembly(typeof(GreaterThanOrEqual_Result).Assembly);
+    
+            var dateParameter = date.HasValue ?
+                new ObjectParameter("date", date) :
+                new ObjectParameter("date", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GreaterThanOrEqual_Result>("GreaterThanOrEqual", dateParameter);
+        }
+    
+        public virtual ObjectResult<MultipleTables_Result> MultipleTables()
+        {
+            ((IObjectContextAdapter)this).ObjectContext.MetadataWorkspace.LoadFromAssembly(typeof(MultipleTables_Result).Assembly);
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<MultipleTables_Result>("MultipleTables");
+        }
+    
+        public virtual ObjectResult<SelectAll_Result> SelectAll()
+        {
+            ((IObjectContextAdapter)this).ObjectContext.MetadataWorkspace.LoadFromAssembly(typeof(SelectAll_Result).Assembly);
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SelectAll_Result>("SelectAll");
+        }
+    
+        public virtual ObjectResult<SelectAllAlt_Result> SelectAllAlt()
+        {
+            ((IObjectContextAdapter)this).ObjectContext.MetadataWorkspace.LoadFromAssembly(typeof(SelectAllAlt_Result).Assembly);
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SelectAllAlt_Result>("SelectAllAlt");
+        }
+    
+        public virtual ObjectResult<SelectDistinct_Result> SelectDistinct()
+        {
+            ((IObjectContextAdapter)this).ObjectContext.MetadataWorkspace.LoadFromAssembly(typeof(SelectDistinct_Result).Assembly);
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SelectDistinct_Result>("SelectDistinct");
+        }
+    
+        public virtual ObjectResult<SelectMultipleDistinct_Result> SelectMultipleDistinct()
+        {
+            ((IObjectContextAdapter)this).ObjectContext.MetadataWorkspace.LoadFromAssembly(typeof(SelectMultipleDistinct_Result).Assembly);
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SelectMultipleDistinct_Result>("SelectMultipleDistinct");
+        }
+    
+        public virtual ObjectResult<SelectStar_Result> SelectStar()
+        {
+            ((IObjectContextAdapter)this).ObjectContext.MetadataWorkspace.LoadFromAssembly(typeof(SelectStar_Result).Assembly);
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SelectStar_Result>("SelectStar");
+        }
+    
+        public virtual ObjectResult<Sum_Result> Sum()
+        {
+            ((IObjectContextAdapter)this).ObjectContext.MetadataWorkspace.LoadFromAssembly(typeof(Sum_Result).Assembly);
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Sum_Result>("Sum");
+        }
+    
+        public virtual ObjectResult<Where3Conditions_Result> Where3Conditions(string name, Nullable<int> productID)
+        {
+            ((IObjectContextAdapter)this).ObjectContext.MetadataWorkspace.LoadFromAssembly(typeof(Where3Conditions_Result).Assembly);
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            var productIDParameter = productID.HasValue ?
+                new ObjectParameter("ProductID", productID) :
+                new ObjectParameter("ProductID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Where3Conditions_Result>("Where3Conditions", nameParameter, productIDParameter);
+        }
+    
+        public virtual ObjectResult<WhereBetweenValues_Result> WhereBetweenValues(Nullable<int> idval1, Nullable<int> idval2)
+        {
+            ((IObjectContextAdapter)this).ObjectContext.MetadataWorkspace.LoadFromAssembly(typeof(WhereBetweenValues_Result).Assembly);
+    
+            var idval1Parameter = idval1.HasValue ?
+                new ObjectParameter("Idval1", idval1) :
+                new ObjectParameter("Idval1", typeof(int));
+    
+            var idval2Parameter = idval2.HasValue ?
+                new ObjectParameter("Idval2", idval2) :
+                new ObjectParameter("Idval2", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<WhereBetweenValues_Result>("WhereBetweenValues", idval1Parameter, idval2Parameter);
+        }
+    
+        public virtual ObjectResult<WhereClauseOneArgument_Result> WhereClauseOneArgument(string name, string color)
+        {
+            ((IObjectContextAdapter)this).ObjectContext.MetadataWorkspace.LoadFromAssembly(typeof(WhereClauseOneArgument_Result).Assembly);
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            var colorParameter = color != null ?
+                new ObjectParameter("Color", color) :
+                new ObjectParameter("Color", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<WhereClauseOneArgument_Result>("WhereClauseOneArgument", nameParameter, colorParameter);
+        }
+    
+        public virtual ObjectResult<WhereComparisonOperator_Result> WhereComparisonOperator(string name, Nullable<int> productID)
+        {
+            ((IObjectContextAdapter)this).ObjectContext.MetadataWorkspace.LoadFromAssembly(typeof(WhereComparisonOperator_Result).Assembly);
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            var productIDParameter = productID.HasValue ?
+                new ObjectParameter("ProductID", productID) :
+                new ObjectParameter("ProductID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<WhereComparisonOperator_Result>("WhereComparisonOperator", nameParameter, productIDParameter);
+        }
+    
+        public virtual ObjectResult<WhereEqualsInteger_Result> WhereEqualsInteger(Nullable<int> price)
+        {
+            ((IObjectContextAdapter)this).ObjectContext.MetadataWorkspace.LoadFromAssembly(typeof(WhereEqualsInteger_Result).Assembly);
+    
+            var priceParameter = price.HasValue ?
+                new ObjectParameter("Price", price) :
+                new ObjectParameter("Price", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<WhereEqualsInteger_Result>("WhereEqualsInteger", priceParameter);
+        }
+    
+        public virtual ObjectResult<WhereEqualsString_Result> WhereEqualsString()
+        {
+            ((IObjectContextAdapter)this).ObjectContext.MetadataWorkspace.LoadFromAssembly(typeof(WhereEqualsString_Result).Assembly);
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<WhereEqualsString_Result>("WhereEqualsString");
+        }
+    
+        public virtual ObjectResult<WhereLikeString_Result> WhereLikeString(string name)
+        {
+            ((IObjectContextAdapter)this).ObjectContext.MetadataWorkspace.LoadFromAssembly(typeof(WhereLikeString_Result).Assembly);
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<WhereLikeString_Result>("WhereLikeString", nameParameter);
+        }
+    
+        public virtual ObjectResult<WhereListValues_Result> WhereListValues(string name)
+        {
+            ((IObjectContextAdapter)this).ObjectContext.MetadataWorkspace.LoadFromAssembly(typeof(WhereListValues_Result).Assembly);
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<WhereListValues_Result>("WhereListValues", nameParameter);
+        }
+    
+        public virtual ObjectResult<WhereSeveralConditions_Result> WhereSeveralConditions(string name, string color)
+        {
+            ((IObjectContextAdapter)this).ObjectContext.MetadataWorkspace.LoadFromAssembly(typeof(WhereSeveralConditions_Result).Assembly);
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            var colorParameter = color != null ?
+                new ObjectParameter("Color", color) :
+                new ObjectParameter("Color", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<WhereSeveralConditions_Result>("WhereSeveralConditions", nameParameter, colorParameter);
+        }
+    
+        public virtual ObjectResult<WhereSimpleEquality_Result> WhereSimpleEquality()
+        {
+            ((IObjectContextAdapter)this).ObjectContext.MetadataWorkspace.LoadFromAssembly(typeof(WhereSimpleEquality_Result).Assembly);
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<WhereSimpleEquality_Result>("WhereSimpleEquality");
+        }
+    
+        public virtual ObjectResult<RevenueCalcuation_Result> RevenueCalcuation()
+        {
+            ((IObjectContextAdapter)this).ObjectContext.MetadataWorkspace.LoadFromAssembly(typeof(RevenueCalcuation_Result).Assembly);
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<RevenueCalcuation_Result>("RevenueCalcuation");
+        }
+    
+        public virtual ObjectResult<SelectSubset_Result> SelectSubset()
+        {
+            ((IObjectContextAdapter)this).ObjectContext.MetadataWorkspace.LoadFromAssembly(typeof(SelectSubset_Result).Assembly);
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SelectSubset_Result>("SelectSubset");
+        }
+    
+        public virtual ObjectResult<SelectWhereNoParams_Result> SelectWhereNoParams()
+        {
+            ((IObjectContextAdapter)this).ObjectContext.MetadataWorkspace.LoadFromAssembly(typeof(SelectWhereNoParams_Result).Assembly);
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SelectWhereNoParams_Result>("SelectWhereNoParams");
+        }
+    
+        public virtual ObjectResult<InnerJoinWhereMethod_Result> InnerJoinWhereMethod()
+        {
+            ((IObjectContextAdapter)this).ObjectContext.MetadataWorkspace.LoadFromAssembly(typeof(InnerJoinWhereMethod_Result).Assembly);
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<InnerJoinWhereMethod_Result>("InnerJoinWhereMethod");
         }
     }
 }

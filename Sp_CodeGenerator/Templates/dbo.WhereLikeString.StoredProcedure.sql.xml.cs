@@ -5,19 +5,18 @@ namespace Sp_CodeGenerator{
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
+	using DataBaseLayer;
 
 
  public class WhereLikeString {
-	private AdventureWorksLT2008R2Entities db = new AdventureWorksLT2008R2Entities();
+	private AWorksLTEntities db = new AWorksLTEntities();
 
 	public List<WhereLikeString_Result> WhereLikeString_Method(string @Name ){
 				 var result = ( from p in db.Products
 
-				//Object reference not set to an instance of an object.
-// SQL code to be interpreted
-// WHERE Name LIKE (@Name)
+				 where p.Name.Contains( @Name)
 				
-				select new { p.ProductID, p.Name, p.Color, });
+				select new {p.ProductID,p.Name,p.Color, });
 				List<WhereLikeString_Result> listresult = new List<WhereLikeString_Result>();
 foreach ( var r in result )
 {

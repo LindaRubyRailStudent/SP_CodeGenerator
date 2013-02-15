@@ -17,8 +17,8 @@ namespace Sp_CodeGenerator
             SelectMultipleDistinctTest smdTest = new SelectMultipleDistinctTest();           
             smdTest.runTest();
 
-            SelectSubsetTest subsetTest = new SelectSubsetTest();
-            subsetTest.runTest();
+           SelectSubsetTest subsetTest = new SelectSubsetTest();
+           subsetTest.runTest();
 
             WhereBetweenValuesTest whereBetweenTest = new WhereBetweenValuesTest();
             whereBetweenTest.runTest();
@@ -40,6 +40,24 @@ namespace Sp_CodeGenerator
 
             SelectAll_Test selectAllTest = new SelectAll_Test();
             selectAllTest.runTest();
+
+            WhereEqualsInteger_Test wEqualsInt = new WhereEqualsInteger_Test();
+            wEqualsInt.runTest();
+
+            InnerJoinWhereMethod_Test iJoinMethod = new InnerJoinWhereMethod_Test();
+            iJoinMethod.runTest();
+
+            SelectWhereNoParams_Test sNoParams = new SelectWhereNoParams_Test();
+            sNoParams.runTest();
+
+            WhereEqualsString_Test wEqualsString = new WhereEqualsString_Test();
+            wEqualsString.runTest();
+
+            WhereGreaterOrEqual_Test wGorE = new WhereGreaterOrEqual_Test();
+            wGorE.runTest();
+
+            WhereSimpleEqualityTest wSimplE = new WhereSimpleEqualityTest();
+            wSimplE.runTest();
 
         }
     }

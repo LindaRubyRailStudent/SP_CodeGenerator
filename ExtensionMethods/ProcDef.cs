@@ -7,7 +7,6 @@ using System.Xml.Linq;
 using System.Reflection;
 using DataBaseLayer;
 using System.Data.Metadata.Edm;
-using AWorks;
 
 namespace ExtensionMethods
 {
@@ -29,7 +28,8 @@ namespace ExtensionMethods
 
         }
 
-        public static ProcDef getProcDef(XDocument xmlDoc){
+        public static ProcDef getProcDef(XDocument xmlDoc)
+        {
             string definition = xmlDoc.Descendants("SqlProcedureDefinition").Attributes("Name").FirstOrDefault().Value;
             string schemaName = xmlDoc.Descendants("SqlProcedureDefinition").Descendants("SqlObjectIdentifier").Attributes("SchemaName").FirstOrDefault().Value;
             string objectName = xmlDoc.Descendants("SqlProcedureDefinition").Descendants("SqlObjectIdentifier").Attributes("ObjectName").FirstOrDefault().Value;
@@ -41,12 +41,15 @@ namespace ExtensionMethods
         {
             string procdef = "";
             XmlNodeList definition = xmlDoc.GetElementsByTagName("SqlProcedureDefinition");
-            XmlAttributeCollection attributes = definition.Item(0).FirstChild.NextSibling.Attributes;
-            for (int i = 0; i < attributes.Count; i++)
+            if (definition.Item(0).FirstChild.NextSibling.Attributes != null)
             {
-                if (attributes[i].Name == "ObjectName")
+                XmlAttributeCollection attributes = definition.Item(0).FirstChild.NextSibling.Attributes;
+                for (int i = 0; i < attributes.Count; i++)
                 {
-                    procdef = attributes[i].Value;
+                    if (attributes[i].Name == "ObjectName")
+                    {
+                        procdef = attributes[i].Value;
+                    }
                 }
             }
             return procdef;
@@ -66,7 +69,7 @@ namespace ExtensionMethods
                     }
                 }
             }
-            
+
             return returnType;
         }
     }

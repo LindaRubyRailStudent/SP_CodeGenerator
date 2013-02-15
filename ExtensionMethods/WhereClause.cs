@@ -88,6 +88,7 @@ namespace ExtensionMethods
                 if (binaryBooleanList.Count != 0)
                 {
                     sb.Append(binBoolWhere(binaryBooleanList, comparisonBoolList, columnRefExpression, literalList, whereScalarRef, variables));
+                    return sb.ToString().Trim(new char[] { '&', '|' }).Trim(new char[] { '&', '|' });
                 }
                 if (betweenBool.Count != 0)
                 {
@@ -99,7 +100,7 @@ namespace ExtensionMethods
                 }
                 else
                 {
-                    sb.Append(compBoolWhere(comparisonBoolList, columnRefExpression, literalList, whereScalarRef));
+                    sb.Append(compBoolWhere(comparisonBoolList, columnRefExpression, literalList, whereScalarRef, variables));
                 }
                 return sb.ToString().Trim(new char[] { '&', '|' }).Trim(new char[] { '&', '|' });
             }
@@ -163,7 +164,8 @@ namespace ExtensionMethods
                 List<SqlComparisonBooleanExpression> comparisonBoolList,
                 List<SqlColumnRefExpression> columnRefExpression,
                 List<SqlLiteralExpression> literalList,
-                List<SqlScalarRefExpression> whereScalarRef)
+                List<SqlScalarRefExpression> whereScalarRef,
+            List<SqlScalarVariableRefExpression> variables)
         {
             StringBuilder sb = new StringBuilder();
             foreach (var c in comparisonBoolList)
@@ -175,13 +177,23 @@ namespace ExtensionMethods
                     Condition condition = getComparison(c._location, c._comparisonOpertor, literalList, columnRefExpression);
                     sb.Append(" " + condition._conditionA + " " + condition._operator.convertOperator().GreaterOrEqual() + " " + condition._conditionB);
                 }
+                if (whereScalarRef.Count == 2 && comparisonBoolList.Count == 1)
+                {
+                    sb.Append("where ");
+                    sb.Append(" " + whereScalarRef[0]._multipartIdentifier + " " + c._comparisonOpertor.convertOperator().GreaterOrEqual() + " " + whereScalarRef[1]._multipartIdentifier);
+                }
+                if (variables.Count != 0)
+                {
+                    sb.Append("where ");
+                    sb.Append(" " + whereScalarRef[0]._multipartIdentifier + " " + c._comparisonOpertor.convertOperator().GreaterOrEqual() + " " + variables[0]._VariableName);
+                }
                 else
                 {
-                    if (literalList.Count != 0) 
+                    if (literalList.Count != 0)
                     {
-                    sb.Append(" where ");
-                    Condition condition = getComparison(c._location, c._comparisonOpertor, literalList, whereScalarRef);
-                    sb.Append(" " + condition._conditionA + " " + condition._operator.convertOperator().GreaterOrEqual() + " " + condition._conditionB);
+                        sb.Append(" where ");
+                        Condition condition = getComparison(c._location, c._comparisonOpertor, literalList, whereScalarRef);
+                        sb.Append(" " + condition._conditionA + " " + condition._operator.convertOperator().GreaterOrEqual() + " " + condition._conditionB);
                     }
                 }
             }
